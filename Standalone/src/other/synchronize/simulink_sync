@@ -1,0 +1,20 @@
+# Synchronize the Simulink folders
+# with the ones developed in the Standalone version
+
+
+# Remove controller folders
+
+rm -rf ../../../../symbolicR/
+
+rm -rf ../../../../SfunctionsR/src_user/controller_files/
+rm -rf ../../../../SfunctionsR/src_user/simulation_files/
+rm -rf ../../../../SfunctionsR/src_user/user_files/
+
+
+# Copy the files in the good folders
+
+cp -r ../../../src/project/symbolicR/ ../../../../symbolicR/
+
+cp -r ../../../src/project/controller_files/ ../../../../SfunctionsR/src_user/controller_files/
+cp -r ../../../src/project/simulation_files/ ../../../../SfunctionsR/src_user/simulation_files/
+cp -r ../../../src/project/user_files/ ../../../../SfunctionsR/src_user/user_files/

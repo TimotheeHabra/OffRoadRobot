@@ -1,0 +1,50 @@
+%% Initialization
+clc;
+close all;
+clear all;
+
+%% Generate mbs_data and mbs_info
+
+prjname = 'OffRoadRobot';      % project name
+[mbs_data, mbs_info] = mbs_load(prjname,'default');
+fprintf('\n');
+
+%% S-Sensors
+
+id_S_MidWaist = mbs_get_S_sensor_id(mbs_info,'MidWaist');
+id_S_RFoots = mbs_get_S_sensor_id(mbs_info,'RFoots');
+id_S_LFoots = mbs_get_S_sensor_id(mbs_info,'LFoots');
+
+
+fprintf('// S sensors\n');
+fprintf('#define S_MIDWAIST %d\n', id_S_MidWaist);
+fprintf('#define S_RFOOTS %d\n', id_S_RFoots);
+fprintf('#define S_LFOOTS %d\n', id_S_LFoots);
+
+
+
+if compliant_version
+    fprintf('#define S_RFOOTS_DIST %d\n', id_S_RFoots_dist);
+    fprintf('#define S_LFOOTS_DIST %d\n', id_S_LFoots_dist);
+end
+fprintf('\n');
+
+%% F sensors
+
+id_F_RFoot_force = mbs_get_F_sensor_id(mbs_info,'RFoot_force');
+id_F_LFoot_force = mbs_get_F_sensor_id(mbs_info,'LFoot_force');
+if compliant_version
+    id_F_RFoot_dist_force = mbs_get_F_sensor_id(mbs_info,'RFoot_dist_force');
+    id_F_LFoot_dist_force = mbs_get_F_sensor_id(mbs_info,'LFoot_dist_force');
+end
+id_F_Force_Pert = mbs_get_F_sensor_id(mbs_info,'Force_Pert');
+
+fprintf('// F sensors\n');
+fprintf('#define RFOOT_FSENS_ID %d\n', id_F_RFoot_force);
+fprintf('#define LFOOT_FSENS_ID %d\n', id_F_LFoot_force);
+if compliant_version
+    fprintf('#define RFOOT_DIST_FSENS_ID %d\n', id_F_RFoot_dist_force);
+    fprintf('#define LFOOT_DIST_FSENS_ID %d\n', id_F_LFoot_dist_force);
+end
+fprintf('#define TORSO_PERT_FSENS_ID %d\n', id_F_Force_Pert);
+fprintf('\n');

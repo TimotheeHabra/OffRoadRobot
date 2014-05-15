@@ -1,0 +1,5 @@
+# Synchronize the Simulink state variables lists
+# with the ones developed in the Standalone version
+
+../varState/Gen_state_var simu_sync
+../varState/Gen_state_var ctrl_sync

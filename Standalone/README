@@ -1,0 +1,267 @@
+
+## -------------- LINUX INSTALLATION -------------- ##
+
+
+## CMake: create the project
+
+Install CMake
+
+>> sudo apt-get install cmake
+>> sudo apt-get install cmake-curses-gui (if you prefer the gui interface)
+
+
+## Compiler
+
+If you want to install another compiler (e.g. gcc-4.4)
+
+>> sudo apt-get install gcc-4.4
+
+
+## Libxml: read the xml files
+
+Install Libxml2 (to read the wml files)
+
+>> sudo apt-get install libxml2-dev
+
+
+## SDL 2.0: Graphs and interactions with the simulator (in real-time)
+
+Download SDL 2.0 (e.g.: http://www.libsdl.org/download-2.0.php -> SDL2-2.0.2.tar.gz)
+
+Install it with CMake
+
+>> cd SDL2-2.0.2
+>> mkdir build
+>> cd build
+>> cmake ..
+>> make
+>> sudo make install
+
+Alternative: install it with the following lines
+
+>> cd SDL2-2.0.2
+>> ./configure
+>> make
+>> sudo make install
+
+Install freetype
+
+>> sudo apt-get install freetype*
+
+Download SDL2_ttf (e.g.: https://www.libsdl.org/projects/SDL_ttf/ -> SDL2_ttf-2.0.12.tar.gz)
+
+Install SDL2_ttf
+
+>> cd SDL2_ttf-2.0.12
+>> ./configure
+>> make
+>> sudo make install
+
+
+## Java Native Interface (JNI): Java interface for the real-time visualization
+
+Download Java SE Development Kit 7 (e.g.: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html -> jdk-7u51-linux-x64.tar.gz)
+
+Copy the include folder containing 'jni.h' into /usr/lib/jvm/java-7-openjdk-amd64/ (or equivalent) -> download Open JDK if not installed yet
+
+>> sudo cp -r jdk1.7.0_45/include/ /usr/lib/jvm/java-7-openjdk-amd64/
+
+Copy the lib folder into /usr/lib/jvm/java-7-openjdk-amd64/jre/ (or equivalent)
+
+>> sudo cp -r jdk1.7.0_45/jre/lib/ /usr/lib/jvm/java-7-openjdk-amd64/jre/
+
+Download Java 3D (e.g.: https://java3d.java.net/binary-builds.html -> j3d-1_5_2-linux-amd64.zip)
+
+Unzip j3d-jre.zip to get the lib folder
+
+Copy libj3dcore-ogl.so into /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/ (or equivalent)
+
+>> sudo cp j3d-1_5_2-linux-amd64/lib/amd64/libj3dcore-ogl.so /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/
+
+
+
+## -------------- WINDOWS INSTALLATION -------------- ##
+
+This Standalone version is currently only configured for 64 bits machines.
+
+It is still possible to use it with 32 bits machines if you replace the files 
+located in src/other/win64_include_lib/ (which are 64-bits machine files) by the corresponding 32-bits one.
+
+Some useful links for the 32 bits version (skip this if you have a 64-bits version of Windows):
+* libxml: http://www.xmlsoft.org/downloads.html -> libxml2.dll, libxml include folder, libxml2 object file library
+          http://gnuwin32.sourceforge.net/packages/libiconv.htm -> iconv.h, iconv object file library
+* SDL 2.0: http://www.libsdl.org/download-2.0.php -> SDL2.dll, SDL include folder, SDL2 object file library, SDL2test object file library, SDL2main object file library
+* SDL2_ttf: http://www.libsdl.org/projects/SDL_ttf/ -> libfreetype-6.dll, SDL2_ttf.dll, zlib1.dll, SDL_ttf.h, SDL2ttf object file library
+
+
+## CMake: create the project
+
+Download CMake at http://www.cmake.org/cmake/resources/software.htm
+
+Run the cmake-2.8.12.2-win32-x86.exe executable (it also works for 64-bits machines)
+
+
+## Libxml and SDL 2.0
+
+All the needed files are located in src/other/win64_include_lib/ for the 64-bits machines.
+For the 32-bits ones, replace with the corresponding 32-bits files (see above)
+
+
+## Java Native Interface (JNI): Java interface for the real-time visualization
+
+Download Java SE Development Kit 7 and install it (e.g.: http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html -> jdk-7u51-windows-x64.exe)
+
+Download Java Virtual Machine (e.g.: http://java.com/fr/download/index.jsp)
+
+Download and install Java 3D (e.g.: https://java3d.java.net/binary-builds.html -> j3d-1_5_2-windows-amd64.exe)
+
+'j3dcore-ogl.dll' should be installed (usually located in C:/Program\ Files/Java/jdk1.7.0_51/jre/bin). 
+If it is not the case, you can find it in https://java3d.java.net/binary-builds.html -> j3d-1_5_2-windows-amd64.zip.
+Copy the 'j3dcore-ogl.dll' in C:/Program\ Files/Java/jdk1.7.0_51/jre/bin (or similar)
+
+You must modify the environment variable called 'Path' to add the location of the 'jvm.dll' file (usually in C:\Program Files\Java\jdk1.7.0_51\jre\bin\server)
+Locate this file and copy its location
+
+This is the path to access the Path environment variable on Windows (sorry for the inconvenience, but I only have the French Windows version):
+
+Go to 'Panneau de configuration/Tous les Panneaux de configuration/Systemes' and click on 'Modifier les Parametres'. 
+In 'Parametres systemes avances', click on 'Variables d'environnement...'
+In 'Variables systeme', click on the 'Path' variable, then 'Modifier...'
+At the end of the second field, put a ';' and paste the location of your jvm.dll file
+
+
+
+
+## -------------- APPLE INSTALLATION -------------- ##
+
+Installation on an Apple machine is very similar to the Linux installation as both are Unix systems.
+Nevertheless, there are some problems with the JNI visualization. So, it might be better to avoid
+using the real-time features on a Mac.
+
+
+
+
+## -------------- CREATING THE PROJECT WITH CMAKE -------------- ##
+
+If you use the CMake version without gui interface (Terminal for Unix systems), here are the Terminal lines to use:
+
+>> cd Standalone/
+>> mkdir build
+>> cd build
+>> ccmake ../ (>> cmake ../ if you want to keep the default flags configuration) -> see below if some dependencies are not found
+>> c
+>> e
+>> modify the flags according to your needs (only with >> ccmake ../) -> see below
+>> c
+>> e
+>> g
+
+
+Otherwise, create a folder for your project (your binaries). This folder might be located anywhere on your computer, but avoid using directories 
+whose paths contain spaces (especially for Windows)
+
+Launch CMake
+
+Indicate where the source code is located (the location of the first CMakeLists.txt, i.e. the 'Standalone' folder)
+Indicate the path where your project will be created (where to build de binaries), i.e. the folder you just created.
+Click on the 'Configure' button
+Choose your generator (an IDE or a Makefile project)
+
+If a dependency is not found, modify the corresponding file Find<dependency name>.cmake located in src/other/conf/
+Locate the missing files on your computer and add a new line in the .cmake file.
+
+
+Change the flags according to your needs:
+
+FLAG_3D            ->    ON: CoMan totally free - OFF: the waist is constrained in the world sagittal plane (cannot fall laterally) 
+                                                    -> joints T2, R1 and R3 of the floating base are constrained to 0  
+
+FLAG_COMPILER      ->    ON: special configuration for the compiler (see the first CMakeLists.txt) - OFF: default compiler    
+
+FLAG_COMPLIANT     ->    ON: CoMan with compliant feet - OFF: CoMan with normal (rigid) feet                                                                             
+
+FLAG_CXX           ->    ON: cpp files and cc files (among which the main file) are compiled with a C++ compiler - 
+                                             OFF: no C++ used         
+
+FLAG_DIRDYNARED    ->    ON: use dirdynared - OFF: use accelred (work in progress -> keep ON)                                                                              
+
+FLAG_GCM           ->    ON: Ground Contact Model (GCM) used - OFF: no GCM                                                                              
+
+FLAG_GENERATE      ->    ON: 'user_sf_IO.c/.h' and 'ControllersStruct.c/.h' are automatically generated according to the .txt files 
+                                            in src/project/varState/                                                                              
+
+FLAG_JNI           ->    ON: 3D visualization in Real-time - OFF: no 3D visualization in real-time                                                                              
+
+FLAG_OPTI          ->    ON: project configured to be used in an optimization process 
+                                 (see src/other/opti/functions/opti_test.c) - OFF: normal project                                                                           
+
+FLAG_PRINT_REPORT  ->    ON: print informations in the Terminal (Console in Windows) - OFF: informations not printed                                                                               
+
+FLAG_REAL_TIME     ->    ON: real-time features - OFF: no real-time features (SDL and JNI are automatically desactivated)                                                                              
+
+FLAG_RELEASE       ->    ON: Realease version - OFF: Debug version                                                                              
+
+FLAG_SDL           ->    ON: SDL framework used to plot the graphs and to interact with the simulation in real-time - 
+                                          OFF: no SDL feature                                                                             
+
+FLAG_SIMBODY       ->    ON: Simbody used to handle the contacts (work in progress -> keep OFF) - OFF: no Simbody feature                                                                             
+
+FLAG_STOP          ->    ON: Stop the simulation when 'MBSdata->user_IO->stop_out' is set to 1 - OFF: not activated                                                                              
+
+FLAG_WRITE_FILES   ->    ON: write the .anim file in ../animationR/ and the output verctors in src/other/outVectors/ - 
+                                OFF: no .anim file and output vectors generated (faster at the end of the simulation)
+
+Re-click on the 'Configure' button and click on the 'Generate' button
+
+
+
+
+## -------------- USING THE SIMULATOR -------------- ##
+
+Use the IDE you chose or the Terminal command >> make ('>> make clean' to clean the project) to compile your project
+
+This will create an executable called 'Exec' in your build folder (note: the executable is located in the 'Debug' folder when using Visual C++ on Windows)
+
+Launch this executable
+
+You can visualize the model evolving in the 3D visualization screen
+
+A SDL window can plot graphs in Real-time.
+
+To modify the curves plotted, open the file src/project/project_files/configure_sdl.c
+
+nb_curves: number of curves plotted (max. 12)
+nb_legend_curves: number of legends (max. 5)
+y_min_init and y_max_init: initial range for the y range
+label_curves[0 -> nb_legend_curves-1]: legends of the curves ("" is not allowed !)
+y_vec[0 -> nb_curves-1]: values to plot (MBSdata is available, so nearly all simulation variables are available)
+
+You can interact with the simulation when the focus is on the SDL screen
+
+o: speed up the simulation
+l: slow down the simulation
+p: pause during the simulation
+m (or X button): quit the simulation
+k: activate or not the signal auto-scaling (signals whose values highly differ from the first one are modified according to a mathematical rule described under the corresponding legend)
+i: activate or not the plot auto-scaling (y ranges adapt to see all the curves)
+u, y, j, h: zoom/zoom out on the curves and navigate
+n: change the u, y, j, h configurations from vertical to horizontal (and opposite) 
+
+On top of that, you can define your own key actions in src/project/project_files/events_sdl.c, after '// ----- MODIFICATIONS HERE ----- //'
+
+Modify src/project/project_files/update_write_files.c with 'out_vec' to define the .txt vectors to get back at the end of the simulation
+
+Modify src/project/project_files/project_info.h to modify the simulation time or other properties
+
+src/generic files are files independent from the project
+src/project files are files dependent of the project
+
+src/project/controller_files: files for a robot controller
+src/project/simulation_files: files designed by the user but not for the controller
+src/project/user_files: classical user files of Robotran
+src/project/symbolicR: symbolic files automatically generated by the Robotran simulator
+src/project/varStare: 'ControllersStruct.c/.h' automatically generated according to 'control_variables.txt'
+                      'user_sf_IO.c/.h' automatically generated according to 'simu_variables.txt'
+src/project/Model_standalone.mbsdata: file generated by Matlab to descibe the model
+
+When you add or suppress a source file or a header file (or if you modify a header dependency), just relaunch cmake

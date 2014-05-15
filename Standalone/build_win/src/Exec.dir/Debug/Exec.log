@@ -1,0 +1,299 @@
+﻿Build started 14/05/2014 19:13:20.
+     1>Project "C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\Exec.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/src/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL /I"C:\Program Files\Java\jdk1.7.0_51\include" /I"C:\Program Files\Java\jdk1.7.0_51\include\win32" /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR /IC:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D CMEX /D LOAD_XML /D GCM_MT /D DIRDYNARED /D WRITE_FILES /D PRINT_REPORT /D REAL_TIME /D SDL /D JNI /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Exec.dir\Debug\\" /Fd"Exec.dir\Debug\vc110.pdb" /Gd /TC /errorReport:prompt ..\..\src\generic\integrator\derivs.c ..\..\src\generic\integrator\rk4.c ..\..\src\generic\jni\jni_functions.c ..\..\src\generic\main_files\finish_simulation.c ..\..\src\generic\main_files\init_simulation.c ..\..\src\generic\main_files\loop_simulation.c ..\..\src\generic\main_files\model_main.c ..\..\src\generic\mbs_load_xml\freeMBSdata_xml.c ..\..\src\generic\mbs_load_xml\freeUserModel_xml.c ..\..\src\generic\mbs_load_xml\loadMBSdata_xml.c ..\..\src\generic\mbs_load_xml\loadMBSelements_xml.c ..\..\src\generic\mbs_load_xml\loadMBSsizes_xml.c ..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c ..\..\src\generic\mbs_load_xml\loadUserModel_xml.c ..\..\src\generic\other\useful_functions.c ..\..\src\generic\other\write_files.c ..\..\src\generic\real_time\real_time.c ..\..\src\generic\real_time\time_functions.c ..\..\src\generic\robotran\choldc.c ..\..\src\generic\robotran\cholsl.c ..\..\src\generic\robotran\LocalDataStruct.c ..\..\src\generic\robotran\lubksb.c ..\..\src\generic\robotran\ludcmp.c ..\..\src\generic\robotran\lut.c ..\..\src\generic\robotran\MBSsensorStruct.c ..\..\src\generic\robotran\mbs_close_loops.c ..\..\src\generic\robotran\mbs_dirdynared.c ..\..\src\generic\robotran\mbs_matrix.c ..\..\src\generic\robotran\mbs_tool.c ..\..\src\generic\robotran\norm.c ..\..\src\generic\robotran\nrutil.c ..\..\src\generic\robotran\svbksb.c ..\..\src\generic\robotran\svdcmp.c ..\..\src\generic\sdl\plot_sdl.c ..\..\src\generic\simbody\SimbodyBodiesStruct.c ..\..\src\generic\simbody\simbody_functions.c ..\..\src\project\controller_files\control.c ..\..\src\project\controller_files\ControllersStruct.c ..\..\src\project\controller_files\controller_functions.c ..\..\src\project\controller_files\controller_init.c ..\..\src\project\controller_files\controller_loop.c ..\..\src\project\project_files\configure_sdl.c ..\..\src\project\project_files\events_sdl.c ..\..\src\project\project_files\update_write_files.c ..\..\src\project\simulation_files\controller_inputs.c ..\..\src\project\simulation_files\controller_outputs.c ..\..\src\project\simulation_files\simu_controller_loop.c ..\..\src\project\simulation_files\simu_outputs.c ..\..\src\project\symbolicR\mbs_cons_hJ_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_cons_jdqd_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_dirdyna_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_extforces_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_gensensor_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_invdyna_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_link3D_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_link_OffRoadRobot.c ..\..\src\project\symbolicR\mbs_sensor_OffRoadRobot.c ..\..\src\project\user_files\UserModelStruct.c ..\..\src\project\user_files\user_compute_output.c ..\..\src\project\user_files\user_cons_hJ.c ..\..\src\project\user_files\user_cons_jdqd.c ..\..\src\project\user_files\user_Derivative.c ..\..\src\project\user_files\user_DrivenJoints.c ..\..\src\project\user_files\user_ExtForces.c ..\..\src\project\user_files\user_initialization.c ..\..\src\project\user_files\user_JointForces.c ..\..\src\project\user_files\user_Link3Dforces.c ..\..\src\project\user_files\user_Linkforces.c ..\..\src\project\user_files\user_sf_IO.c
+         derivs.c
+         rk4.c
+         jni_functions.c
+         finish_simulation.c
+         init_simulation.c
+         loop_simulation.c
+         model_main.c
+         freeMBSdata_xml.c
+         freeUserModel_xml.c
+         loadMBSdata_xml.c
+         loadMBSelements_xml.c
+         loadMBSsizes_xml.c
+         loadMBSutilities_xml.c
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(84): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(90): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(104): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(110): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(135): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(139): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(360): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+     1>..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c(361): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(200) : see declaration of 'strtok'
+         loadUserModel_xml.c
+         useful_functions.c
+         write_files.c
+     1>..\..\src\generic\other\write_files.c(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
+     1>..\..\src\generic\other\write_files.c(108): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\other\write_files.c(109): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
+         real_time.c
+     1>..\..\src\generic\real_time\real_time.c(113): warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+         time_functions.c
+     1>..\..\src\generic\real_time\time_functions.c(34): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\generic\real_time\time_functions.c(41): warning C4996: '_ftime64': This function or variable may be unsafe. Consider using _ftime64_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\sys/timeb.h(124) : see declaration of '_ftime64'
+     1>..\..\src\generic\real_time\time_functions.c(42): warning C4244: '=' : conversion from '__time64_t' to 'long', possible loss of data
+         choldc.c
+         cholsl.c
+         Generating Code...
+         Compiling...
+         LocalDataStruct.c
+         lubksb.c
+         ludcmp.c
+         lut.c
+         MBSsensorStruct.c
+         mbs_close_loops.c
+         mbs_dirdynared.c
+         mbs_matrix.c
+         mbs_tool.c
+         norm.c
+         nrutil.c
+         svbksb.c
+         svdcmp.c
+         plot_sdl.c
+     1>..\..\src\generic\sdl\plot_sdl.c(1171): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1177): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1181): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1193): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1197): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1202): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1213): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1217): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1222): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1247): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1251): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1268): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1272): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1410): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\src\generic\sdl\plot_sdl.c(1662): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1665): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1669): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1672): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1675): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1678): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1682): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1685): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1689): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1692): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1696): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1699): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1702): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1705): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1708): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1711): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1714): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1720): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1722): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1725): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1727): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1730): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1733): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1739): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1741): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1744): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1746): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1749): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1752): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1759): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1762): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1765): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1771): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1782): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1792): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1802): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1812): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1913): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1917): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(1937): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(2018): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>..\..\src\generic\sdl\plot_sdl.c(2116): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+         SimbodyBodiesStruct.c
+         simbody_functions.c
+         control.c
+         ControllersStruct.c
+         controller_functions.c
+         controller_init.c
+         Generating Code...
+         Compiling...
+         controller_loop.c
+         configure_sdl.c
+         events_sdl.c
+         update_write_files.c
+         controller_inputs.c
+         controller_outputs.c
+         simu_controller_loop.c
+         simu_outputs.c
+         mbs_cons_hJ_OffRoadRobot.c
+         mbs_cons_jdqd_OffRoadRobot.c
+         mbs_dirdyna_OffRoadRobot.c
+         mbs_extforces_OffRoadRobot.c
+         mbs_gensensor_OffRoadRobot.c
+         mbs_invdyna_OffRoadRobot.c
+         mbs_link3D_OffRoadRobot.c
+         mbs_link_OffRoadRobot.c
+         mbs_sensor_OffRoadRobot.c
+         UserModelStruct.c
+         user_compute_output.c
+         user_cons_hJ.c
+         Generating Code...
+         Compiling...
+         user_cons_jdqd.c
+         user_Derivative.c
+         user_DrivenJoints.c
+         user_ExtForces.c
+     1>..\..\src\project\user_files\user_ExtForces.c(26): warning C4101: 'i' : unreferenced local variable
+     1>..\..\src\project\user_files\user_ExtForces.c(93): warning C4101: 'i' : unreferenced local variable
+         user_initialization.c
+         user_JointForces.c
+         user_Link3Dforces.c
+         user_Linkforces.c
+         user_sf_IO.c
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\Debug\Exec.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\..\src\other\win64_include_lib\lib\iconv.lib ..\..\src\other\win64_include_lib\lib\libxml2.lib ..\..\src\other\win64_include_lib\lib\SDL2.lib ..\..\src\other\win64_include_lib\lib\SDL2main.lib ..\..\src\other\win64_include_lib\lib\SDL2test.lib ..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib "C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/Debug/Exec.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/src/Debug/Exec.lib" /MACHINE:X64  /machine:x64 /debug Exec.dir\Debug\derivs.obj
+         Exec.dir\Debug\rk4.obj
+         Exec.dir\Debug\jni_functions.obj
+         Exec.dir\Debug\finish_simulation.obj
+         Exec.dir\Debug\init_simulation.obj
+         Exec.dir\Debug\loop_simulation.obj
+         Exec.dir\Debug\model_main.obj
+         Exec.dir\Debug\freeMBSdata_xml.obj
+         Exec.dir\Debug\freeUserModel_xml.obj
+         Exec.dir\Debug\loadMBSdata_xml.obj
+         Exec.dir\Debug\loadMBSelements_xml.obj
+         Exec.dir\Debug\loadMBSsizes_xml.obj
+         Exec.dir\Debug\loadMBSutilities_xml.obj
+         Exec.dir\Debug\loadUserModel_xml.obj
+         Exec.dir\Debug\useful_functions.obj
+         Exec.dir\Debug\write_files.obj
+         Exec.dir\Debug\real_time.obj
+         Exec.dir\Debug\time_functions.obj
+         Exec.dir\Debug\choldc.obj
+         Exec.dir\Debug\cholsl.obj
+         Exec.dir\Debug\LocalDataStruct.obj
+         Exec.dir\Debug\lubksb.obj
+         Exec.dir\Debug\ludcmp.obj
+         Exec.dir\Debug\lut.obj
+         Exec.dir\Debug\MBSsensorStruct.obj
+         Exec.dir\Debug\mbs_close_loops.obj
+         Exec.dir\Debug\mbs_dirdynared.obj
+         Exec.dir\Debug\mbs_matrix.obj
+         Exec.dir\Debug\mbs_tool.obj
+         Exec.dir\Debug\norm.obj
+         Exec.dir\Debug\nrutil.obj
+         Exec.dir\Debug\svbksb.obj
+         Exec.dir\Debug\svdcmp.obj
+         Exec.dir\Debug\plot_sdl.obj
+         Exec.dir\Debug\SimbodyBodiesStruct.obj
+         Exec.dir\Debug\simbody_functions.obj
+         Exec.dir\Debug\control.obj
+         Exec.dir\Debug\ControllersStruct.obj
+         Exec.dir\Debug\controller_functions.obj
+         Exec.dir\Debug\controller_init.obj
+         Exec.dir\Debug\controller_loop.obj
+         Exec.dir\Debug\configure_sdl.obj
+         Exec.dir\Debug\events_sdl.obj
+         Exec.dir\Debug\update_write_files.obj
+         Exec.dir\Debug\controller_inputs.obj
+         Exec.dir\Debug\controller_outputs.obj
+         Exec.dir\Debug\simu_controller_loop.obj
+         Exec.dir\Debug\simu_outputs.obj
+         Exec.dir\Debug\mbs_cons_hJ_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_cons_jdqd_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_dirdyna_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_extforces_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_gensensor_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_invdyna_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_link3D_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_link_OffRoadRobot.obj
+         Exec.dir\Debug\mbs_sensor_OffRoadRobot.obj
+         Exec.dir\Debug\UserModelStruct.obj
+         Exec.dir\Debug\user_compute_output.obj
+         Exec.dir\Debug\user_cons_hJ.obj
+         Exec.dir\Debug\user_cons_jdqd.obj
+         Exec.dir\Debug\user_Derivative.obj
+         Exec.dir\Debug\user_DrivenJoints.obj
+         Exec.dir\Debug\user_ExtForces.obj
+         Exec.dir\Debug\user_initialization.obj
+         Exec.dir\Debug\user_JointForces.obj
+         Exec.dir\Debug\user_Link3Dforces.obj
+         Exec.dir\Debug\user_Linkforces.obj
+         Exec.dir\Debug\user_sf_IO.obj
+         Exec.vcxproj -> C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\Debug\Exec.exe
+     1>Done Building Project "C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\Exec.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.59

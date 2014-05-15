@@ -1,0 +1,25 @@
+# Synchronize the controller folders (for the real robot)
+# with the controller files developed in the Standalone version
+
+
+# Remove controller folders
+
+rm -rf ../../../../Real_robot_controller/
+rm -rf ../../../../Real_robot_controller_2/
+
+
+# Create empty folders
+
+mkdir ../../../../Real_robot_controller/
+
+mkdir ../../../../Real_robot_controller_2/
+mkdir ../../../../Real_robot_controller_2/headers/
+mkdir ../../../../Real_robot_controller_2/sourceFiles/
+
+
+# Copy the files in the good folders
+
+cp ../../../src/project/controller_files/* ../../../../Real_robot_controller/
+
+cp ../../../src/project/controller_files/*.h ../../../../Real_robot_controller_2/headers/
+cp ../../../src/project/controller_files/*.c ../../../../Real_robot_controller_2/sourceFiles/

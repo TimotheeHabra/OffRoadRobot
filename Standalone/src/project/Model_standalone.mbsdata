@@ -1,0 +1,68 @@
+<mbsdata xml_tb_version="3.1" idx="1" type="struct" size="1 1">
+  <mbsname idx="1" type="char" size="1 12">OffRoadRobot</mbsname>
+  <dpt idx="1" type="double" size="3 8">0.225 -0.205 -0.05 0.225 0.205 -0.05 -0.225 -0.205 -0.05 -0.225 0.205 -0.05 0 0 0 0 0 0 0 0 0 0 0 0</dpt>
+  <npt idx="1" type="double" size="1 1">8</npt>
+  <l idx="1" type="double" size="3 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032</l>
+  <m idx="1" type="double" size="1 14">0 0 0 0 0 8.68 0 0.38 0 0.38 0 0.38 0 0.38</m>
+  <In idx="1" type="double" size="9 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13 0 0 0 0.27 0 0 0 0.38 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0</In>
+  <g idx="1" type="double" size="3 1">0 0 -9.8</g>
+  <nbody idx="1" type="double" size="1 1">14</nbody>
+  <Njoint idx="1" type="double" size="1 1">14</Njoint>
+  <qu idx="1" type="double" size="1 10">1 2 3 4 5 6 8 10 12 14</qu>
+  <nqu idx="1" type="double" size="1 1">10</nqu>
+  <qc idx="1" type="double" size="1 4">7 9 11 13</qc>
+  <nqc idx="1" type="double" size="1 1">4</nqc>
+  <qlocked idx="1" type="double" size="0 0"/> 
+  <nqlocked idx="1" type="double" size="1 1">0</nqlocked>
+  <qdriven idx="1" type="double" size="1 4">7 9 11 13</qdriven>
+  <nqdriven idx="1" type="double" size="1 1">4</nqdriven>
+  <qa idx="1" type="double" size="0 0"/> 
+  <nqa idx="1" type="double" size="1 1">0</nqa>
+  <qv idx="1" type="double" size="0 0"/> 
+  <nqv idx="1" type="double" size="1 1">0</nqv>
+  <hu idx="1" type="double" size="0 0"/> 
+  <nhu idx="1" type="double" size="1 1">0</nhu>
+  <hv idx="1" type="double" size="0 0"/> 
+  <q idx="1" type="double" size="14 1">0 0 0.19 0 0 0 0 0 0 0 0 0 0 0</q>
+  <qd idx="1" type="double" size="14 1">0 0 0 0 0 0 0 0 0 0 0 0 0 0</qd>
+  <qdd idx="1" type="double" size="14 1">0 0 0 0 0 0 0 0 0 0 0 0 0 0</qdd>
+  <qmin idx="1" type="double" size="14 1">-1 -1 -0.81 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1</qmin>
+  <qmax idx="1" type="double" size="14 1">1 1 1.19 1 1 1 1 1 1 1 1 1 1 1</qmax>
+  <frc idx="1" type="double" size="3 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</frc>
+  <trq idx="1" type="double" size="3 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</trq>
+  <Qq idx="1" type="double" size="14 1">0 0 0 0 0 0 0 0 0 0 0 0 0 0</Qq>
+  <tsim idx="1" type="double" size="1 1">0</tsim>
+  <lrod idx="1" type="double" size="0 0"/> 
+  <Nloopc idx="1" type="double" size="1 1">0</Nloopc>
+  <Ncons idx="1" type="double" size="1 1">0</Ncons>
+  <lambda idx="1" type="double" size="0 0"/> 
+  <Nuserc idx="1" type="double" size="1 1">0</Nuserc>
+  <user_constraints idx="1" type="cell" size="0 0"/> 
+  <Nlink idx="1" type="double" size="1 1">0</Nlink>
+  <Z idx="1" type="double" size="0 0"/> 
+  <Zd idx="1" type="double" size="0 0"/> 
+  <Fl idx="1" type="double" size="0 0"/> 
+  <Nlink3D idx="1" type="double" size="1 1">0</Nlink3D>
+  <link3D idx="1" type="double" size="0 0"/> 
+  <Nsensor idx="1" type="double" size="1 1">4</Nsensor>
+  <Nxfrc idx="1" type="double" size="1 1">4</Nxfrc>
+  <xfidpt idx="1" type="double" size="1 4">5 6 7 8</xfidpt>
+  <SWr idx="1" type="double" size="0 0"/> 
+  <xfscale idx="1" type="double" size="3 4">0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001</xfscale>
+  <rnom idx="1" type="double" size="0 0"/> 
+  <Nwheel idx="1" type="double" size="1 1">0</Nwheel>
+  <Nuser_model idx="1" type="double" size="1 1">0</Nuser_model>
+  <user_model idx="1" type="cell" size="0 0"/> 
+  <ux idx="1" type="double" size="0 0"/> 
+  <uxd idx="1" type="double" size="0 0"/> 
+  <ux0 idx="1" type="double" size="0 0"/> 
+  <Nux idx="1" type="double" size="1 1">0</Nux>
+  <user_var idx="1" type="struct" size="0 0"/> 
+  <DonePart idx="1" type="double" size="1 1">1</DonePart>
+  <DoneDirdyn idx="1" type="double" size="1 1">0</DoneDirdyn>
+  <DoneInvdyn idx="1" type="double" size="1 1">0</DoneInvdyn>
+  <DoneEquil idx="1" type="double" size="1 1">0</DoneEquil>
+  <inbody idx="1" type="double" size="1 14">0 1 2 3 4 5 6 7 6 9 6 11 6 13</inbody>
+  <prjpath idx="1" type="char" size="1 26">D:\Users\zobova\MBProjects</prjpath>
+  <mbspath idx="1" type="char" size="1 25">C:\Users\zobova\.robotran</mbspath>
+</mbsdata>
