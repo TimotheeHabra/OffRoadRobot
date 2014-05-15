@@ -12,7 +12,11 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.12.1/CMakeSystem.cmake"
   "../src/CMakeLists.txt"
+  "../src/other/conf/FindJ3D.cmake"
+  "../src/other/conf/FindJNI.cmake"
   "../src/other/conf/FindLibxml2.cmake"
+  "../src/other/conf/FindSDL2.cmake"
+  "../src/other/conf/FindSDL2_ttf.cmake"
   "../src/other/conf/cmake_config.h.in"
   "../src/other/varState/CMakeLists.txt"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
@@ -46,7 +50,6 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/CheckGeneration.dir/DependInfo.cmake"
   "src/CMakeFiles/Exec.dir/DependInfo.cmake"
   "src/other/varState/CMakeFiles/Gen_state_var.dir/DependInfo.cmake"
   )

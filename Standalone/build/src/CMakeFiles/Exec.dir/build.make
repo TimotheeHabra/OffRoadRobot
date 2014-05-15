@@ -1785,6 +1785,9 @@ Exec: src/CMakeFiles/Exec.dir/project/user_files/user_sf_IO.c.o
 Exec: src/CMakeFiles/Exec.dir/project/user_files/user_cons_hJ.c.o
 Exec: src/CMakeFiles/Exec.dir/build.make
 Exec: /usr/lib/x86_64-linux-gnu/libxml2.so
+Exec: /usr/local/lib/libSDL2.so
+Exec: /usr/local/lib/libSDL2_ttf.so
+Exec: /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so
 Exec: src/CMakeFiles/Exec.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../Exec"
 	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Exec.dir/link.txt --verbose=$(VERBOSE)

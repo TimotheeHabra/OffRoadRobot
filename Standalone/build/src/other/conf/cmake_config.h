@@ -9,4 +9,4 @@
  */
 #define PROJECT_ABS_PATH "/home/habra/Projects/MBProjects/OffRoadRobot/Standalone"
 #define BINARY_ABS_PATH "/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build"
-#define J3D_ABS_PATH ""
+#define J3D_ABS_PATH "/usr/lib/jvm/java-7-openjdk-amd64/jre/bin"

@@ -102,19 +102,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CheckGeneration
-
-# Build rule for target.
-CheckGeneration: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CheckGeneration
-.PHONY : CheckGeneration
-
-# fast build rule for target.
-CheckGeneration/fast:
-	$(MAKE) -f CMakeFiles/CheckGeneration.dir/build.make CMakeFiles/CheckGeneration.dir/build
-.PHONY : CheckGeneration/fast
-
-#=============================================================================
 # Target rules for targets named Exec
 
 # Build rule for target.
@@ -146,7 +133,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... CheckGeneration"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Exec"

@@ -8,9 +8,11 @@ SET(CMAKE_TARGET_DEFINITIONS
   "CMEX"
   "DIRDYNARED"
   "GCM_MT"
+  "JNI"
   "LOAD_XML"
   "PRINT_REPORT"
   "REAL_TIME"
+  "SDL"
   "UNIX"
   "WRITE_FILES"
   )
@@ -30,6 +32,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/include/libxml2/libxml"
   "/usr/include/libxml2"
+  "/usr/local/include/SDL2"
+  "/usr/lib/jvm/java-7-openjdk-amd64/include"
+  "/usr/lib/jvm/java-7-openjdk-amd64/include/linux"
   "src/other/conf"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

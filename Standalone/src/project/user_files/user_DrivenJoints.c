@@ -15,10 +15,10 @@
 // Sets the pos, vel, acc of driven joints (if different from 0)
 void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim) 
 {
-     UserIOStruct *uvs;
-     double T = 1.0; //[s]
-	double M_PI = 3.1415926;
-	double omega = 2*M_PI/(2*T); //[rad/s]
+    UserIOStruct *uvs;
+    double T = 1.0; //[s]
+	double My_PI = 3.1415926;
+	double omega = 2*My_PI/(2*T); //[rad/s]
 	int id = 0;
 	
 	uvs = MBSdata->user_IO;
@@ -29,13 +29,13 @@ void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
     id = R2_FR;
 	if(fmod(tsim,2*T) < T)
 	{
-        MBSdata->q[id]    	= M_PI*(-cos(omega*tsim)+1+floor(tsim));
-        MBSdata->qd[id]      = M_PI*omega*sin(omega*tsim);
-        MBSdata->qdd[id]     = M_PI*omega*omega*cos(omega*tsim);
+        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
+        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
+        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
     }
     else
     {
-        MBSdata->q[id]   = M_PI*(1+floor(tsim));
+        MBSdata->q[id]   = My_PI*(1+floor(tsim));
         MBSdata->qd[id]  = 0;
         MBSdata->qdd[id] = 0;
     }
@@ -44,13 +44,13 @@ void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
     id = R2_FL;
     if(fmod(tsim,2*T) >= T)
 	{
-        MBSdata->q[id]    	= M_PI*(-cos(omega*tsim + M_PI)+floor(tsim));
-        MBSdata->qd[id]      = M_PI*omega*sin(omega*tsim + M_PI);
-        MBSdata->qdd[id]     = M_PI*omega*omega*cos(omega*tsim + M_PI);
+        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
+        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
+        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
     }
     else
     {
-        MBSdata->q[id]   = M_PI*(floor(tsim));
+        MBSdata->q[id]   = My_PI*(floor(tsim));
         MBSdata->qd[id]  = 0;
         MBSdata->qdd[id] = 0;
     }
@@ -59,13 +59,13 @@ void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
     id = R2_RR;
     if(fmod(tsim,2*T) >= T)
 	{
-        MBSdata->q[id]    	 = M_PI*(-cos(omega*tsim + M_PI)+floor(tsim));
-        MBSdata->qd[id]      = M_PI*omega*sin(omega*tsim + M_PI);
-        MBSdata->qdd[id]     = M_PI*omega*omega*cos(omega*tsim + M_PI);
+        MBSdata->q[id]    	 = My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
+        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
+        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
     }
     else
     {
-        MBSdata->q[id]   = M_PI*(floor(tsim));
+        MBSdata->q[id]   = My_PI*(floor(tsim));
         MBSdata->qd[id]  = 0;
         MBSdata->qdd[id] = 0;
     }
@@ -74,13 +74,13 @@ void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
     id = R2_RL;
 	if(fmod(tsim,2*T) < T)
 	{
-        MBSdata->q[id]    	= M_PI*(-cos(omega*tsim)+1+floor(tsim));
-        MBSdata->qd[id]      = M_PI*omega*sin(omega*tsim);
-        MBSdata->qdd[id]     = M_PI*omega*omega*cos(omega*tsim);
+        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
+        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
+        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
     }
     else
     {
-        MBSdata->q[id]   = M_PI*(1+floor(tsim));
+        MBSdata->q[id]   = My_PI*(1+floor(tsim));
         MBSdata->qd[id]  = 0;
         MBSdata->qdd[id] = 0;
     }
