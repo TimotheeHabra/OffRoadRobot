@@ -1003,30 +1003,6 @@ project/controller_files/ControllersStruct.c.s:
 	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.s
 .PHONY : project/controller_files/ControllersStruct.c.s
 
-project/controller_files/control.o: project/controller_files/control.c.o
-.PHONY : project/controller_files/control.o
-
-# target to build an object file
-project/controller_files/control.c.o:
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/control.c.o
-.PHONY : project/controller_files/control.c.o
-
-project/controller_files/control.i: project/controller_files/control.c.i
-.PHONY : project/controller_files/control.i
-
-# target to preprocess a source file
-project/controller_files/control.c.i:
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/control.c.i
-.PHONY : project/controller_files/control.c.i
-
-project/controller_files/control.s: project/controller_files/control.c.s
-.PHONY : project/controller_files/control.s
-
-# target to generate assembly for a file
-project/controller_files/control.c.s:
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/control.c.s
-.PHONY : project/controller_files/control.c.s
-
 project/controller_files/controller_functions.o: project/controller_files/controller_functions.c.o
 .PHONY : project/controller_files/controller_functions.o
 
@@ -1098,6 +1074,30 @@ project/controller_files/controller_loop.s: project/controller_files/controller_
 project/controller_files/controller_loop.c.s:
 	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.s
 .PHONY : project/controller_files/controller_loop.c.s
+
+project/controller_files/simple_control.o: project/controller_files/simple_control.c.o
+.PHONY : project/controller_files/simple_control.o
+
+# target to build an object file
+project/controller_files/simple_control.c.o:
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o
+.PHONY : project/controller_files/simple_control.c.o
+
+project/controller_files/simple_control.i: project/controller_files/simple_control.c.i
+.PHONY : project/controller_files/simple_control.i
+
+# target to preprocess a source file
+project/controller_files/simple_control.c.i:
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.i
+.PHONY : project/controller_files/simple_control.c.i
+
+project/controller_files/simple_control.s: project/controller_files/simple_control.c.s
+.PHONY : project/controller_files/simple_control.s
+
+# target to generate assembly for a file
+project/controller_files/simple_control.c.s:
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build && $(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.s
+.PHONY : project/controller_files/simple_control.c.s
 
 project/project_files/configure_sdl.o: project/project_files/configure_sdl.c.o
 .PHONY : project/project_files/configure_sdl.o
@@ -1891,9 +1891,6 @@ help:
 	@echo "... project/controller_files/ControllersStruct.o"
 	@echo "... project/controller_files/ControllersStruct.i"
 	@echo "... project/controller_files/ControllersStruct.s"
-	@echo "... project/controller_files/control.o"
-	@echo "... project/controller_files/control.i"
-	@echo "... project/controller_files/control.s"
 	@echo "... project/controller_files/controller_functions.o"
 	@echo "... project/controller_files/controller_functions.i"
 	@echo "... project/controller_files/controller_functions.s"
@@ -1903,6 +1900,9 @@ help:
 	@echo "... project/controller_files/controller_loop.o"
 	@echo "... project/controller_files/controller_loop.i"
 	@echo "... project/controller_files/controller_loop.s"
+	@echo "... project/controller_files/simple_control.o"
+	@echo "... project/controller_files/simple_control.i"
+	@echo "... project/controller_files/simple_control.s"
 	@echo "... project/project_files/configure_sdl.o"
 	@echo "... project/project_files/configure_sdl.i"
 	@echo "... project/project_files/configure_sdl.s"

@@ -1,0 +1,42 @@
+% Definition of the control variables
+% For each line: varname , type , size/str_type
+%  - varname: name of the variable (without '' or "")
+%  - type: int / double / structure
+%      if type == int / double
+%          - size/str_type: number of elements in the vector
+%               1    :  simple variable
+%               n    :  vector of n (n>1) elements
+%               [m n]:  tabular of 2 entries with a size m*n 
+%      if type == structure 
+%          - size/str_type: the type of the structure (its name without '' or "")
+% indexes start at 0 -> different from 'simu_variables'
+%
+% Lines starting with % or // are not taken into account (comments)
+% Write the name of each controller as '# ControllerName' (without the '')
+% Write the corresponding variables under the '# ControllerName'
+% Do not add another line starting with #
+% Keep at least one space between different variables, do not use other signs (, . :)
+%
+
+// ---- CONTROLLER INPUTS ---- //
+
+# ControllerInputs
+
+// time [s]
+tsim   double   1
+
+// ---- CONTROLLER OUTPUTS ---- //
+
+# ControllerOutputs
+
+// references (position - velocity - acceleration) [rad], [rad/s], [rad/s^2]
+q_ref    double   4 // position references
+qd_ref   double   4 // velocities references
+Qdd_ref   double   4 // torques references
+
+// ---- MAIN CONTROLLER ---- //
+
+# Controller
+
+Inputs   structure   ControllerInputs
+Outputs   structure   ControllerOutputs

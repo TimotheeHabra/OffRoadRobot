@@ -10,18 +10,6 @@
     <ClCompile Include="..\..\src\generic\jni\jni_functions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\generic\main_files\finish_simulation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\generic\main_files\init_simulation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\generic\main_files\loop_simulation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\generic\main_files\model_main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\generic\mbs_load_xml\freeMBSdata_xml.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -109,9 +97,6 @@
     <ClCompile Include="..\..\src\generic\simbody\simbody_functions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\project\controller_files\control.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\project\controller_files\ControllersStruct.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -122,6 +107,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\project\controller_files\controller_loop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\simple_control.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\project\project_files\configure_sdl.c">
@@ -206,6 +194,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\project\user_files\user_sf_IO.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\main_files\finish_simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\main_files\init_simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\main_files\loop_simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\main_files\model_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran_yarp_plugin\src\ForceTorqueDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\simbody\simbody_cpp_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

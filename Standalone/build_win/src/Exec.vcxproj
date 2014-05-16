@@ -84,27 +84,27 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -113,7 +113,7 @@
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib;C:\Program Files\Simbody\lib\SimTKcommon.lib;C:\Program Files\Simbody\lib\SimTKmath.lib;C:\Program Files\Simbody\lib\SimTKsimbody.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImportLibrary>C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/src/Debug/Exec.lib</ImportLibrary>
@@ -127,26 +127,26 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
-      <CompileAs>CompileAsC</CompileAs>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat></DebugInformationFormat>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -155,7 +155,7 @@
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib;C:\Program Files\Simbody\lib\SimTKcommon.lib;C:\Program Files\Simbody\lib\SimTKmath.lib;C:\Program Files\Simbody\lib\SimTKsimbody.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ImportLibrary>C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/src/Release/Exec.lib</ImportLibrary>
@@ -169,26 +169,26 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
-      <CompileAs>CompileAsC</CompileAs>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat></DebugInformationFormat>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -197,7 +197,7 @@
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib;C:\Program Files\Simbody\lib\SimTKcommon.lib;C:\Program Files\Simbody\lib\SimTKmath.lib;C:\Program Files\Simbody\lib\SimTKsimbody.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ImportLibrary>C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/src/MinSizeRel/Exec.lib</ImportLibrary>
@@ -211,26 +211,26 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\integrator;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\jni;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\main_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\mbs_load_xml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\other;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\real_time;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\robotran_yarp_plugin\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\sdl;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\generic\simbody;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\controller_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\project_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\simulation_files;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\symbolicR;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\project\user_files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -239,7 +239,7 @@
     </Midl>
     <Link>
       <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\..\src\other\win64_include_lib\lib\iconv.lib;..\..\src\other\win64_include_lib\lib\libxml2.lib;..\..\src\other\win64_include_lib\lib\SDL2.lib;..\..\src\other\win64_include_lib\lib\SDL2main.lib;..\..\src\other\win64_include_lib\lib\SDL2test.lib;..\..\src\other\win64_include_lib\lib\SDL2_ttf.lib;C:\Program Files\Java\jdk1.7.0_51\lib\jvm.lib;C:\Program Files\Simbody\lib\SimTKcommon.lib;C:\Program Files\Simbody\lib\SimTKmath.lib;C:\Program Files\Simbody\lib\SimTKsimbody.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImportLibrary>C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/src/RelWithDebInfo/Exec.lib</ImportLibrary>
@@ -308,75 +308,402 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\generic\integrator\derivs.c"  />
-    <ClCompile Include="..\..\src\generic\integrator\rk4.c"  />
-    <ClCompile Include="..\..\src\generic\jni\jni_functions.c"  />
-    <ClCompile Include="..\..\src\generic\main_files\finish_simulation.c"  />
-    <ClCompile Include="..\..\src\generic\main_files\init_simulation.c"  />
-    <ClCompile Include="..\..\src\generic\main_files\loop_simulation.c"  />
-    <ClCompile Include="..\..\src\generic\main_files\model_main.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\freeMBSdata_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\freeUserModel_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSdata_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSelements_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSsizes_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c"  />
-    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadUserModel_xml.c"  />
-    <ClCompile Include="..\..\src\generic\other\useful_functions.c"  />
-    <ClCompile Include="..\..\src\generic\other\write_files.c"  />
-    <ClCompile Include="..\..\src\generic\real_time\real_time.c"  />
-    <ClCompile Include="..\..\src\generic\real_time\time_functions.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\choldc.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\cholsl.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\LocalDataStruct.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\lubksb.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\ludcmp.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\lut.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\MBSsensorStruct.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\mbs_close_loops.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\mbs_dirdynared.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\mbs_matrix.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\mbs_tool.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\norm.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\nrutil.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\svbksb.c"  />
-    <ClCompile Include="..\..\src\generic\robotran\svdcmp.c"  />
-    <ClCompile Include="..\..\src\generic\sdl\plot_sdl.c"  />
-    <ClCompile Include="..\..\src\generic\simbody\SimbodyBodiesStruct.c"  />
-    <ClCompile Include="..\..\src\generic\simbody\simbody_functions.c"  />
-    <ClCompile Include="..\..\src\project\controller_files\control.c"  />
-    <ClCompile Include="..\..\src\project\controller_files\ControllersStruct.c"  />
-    <ClCompile Include="..\..\src\project\controller_files\controller_functions.c"  />
-    <ClCompile Include="..\..\src\project\controller_files\controller_init.c"  />
-    <ClCompile Include="..\..\src\project\controller_files\controller_loop.c"  />
-    <ClCompile Include="..\..\src\project\project_files\configure_sdl.c"  />
-    <ClCompile Include="..\..\src\project\project_files\events_sdl.c"  />
-    <ClCompile Include="..\..\src\project\project_files\update_write_files.c"  />
-    <ClCompile Include="..\..\src\project\simulation_files\controller_inputs.c"  />
-    <ClCompile Include="..\..\src\project\simulation_files\controller_outputs.c"  />
-    <ClCompile Include="..\..\src\project\simulation_files\simu_controller_loop.c"  />
-    <ClCompile Include="..\..\src\project\simulation_files\simu_outputs.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_cons_hJ_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_cons_jdqd_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_dirdyna_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_extforces_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_gensensor_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_invdyna_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_link3D_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_link_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\symbolicR\mbs_sensor_OffRoadRobot.c"  />
-    <ClCompile Include="..\..\src\project\user_files\UserModelStruct.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_compute_output.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_cons_hJ.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_cons_jdqd.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_Derivative.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_DrivenJoints.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_ExtForces.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_initialization.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_JointForces.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_Link3Dforces.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_Linkforces.c"  />
-    <ClCompile Include="..\..\src\project\user_files\user_sf_IO.c"  />
+    <ClCompile Include="..\..\src\generic\integrator\derivs.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\integrator\rk4.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\jni\jni_functions.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\freeMBSdata_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\freeUserModel_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSdata_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSelements_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSsizes_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadMBSutilities_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\mbs_load_xml\loadUserModel_xml.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\other\useful_functions.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\other\write_files.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\real_time\real_time.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\real_time\time_functions.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\choldc.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\cholsl.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\LocalDataStruct.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\lubksb.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\ludcmp.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\lut.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\MBSsensorStruct.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\mbs_close_loops.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\mbs_dirdynared.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\mbs_matrix.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\mbs_tool.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\norm.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\nrutil.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\svbksb.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\robotran\svdcmp.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\sdl\plot_sdl.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\simbody\SimbodyBodiesStruct.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\simbody\simbody_functions.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\ControllersStruct.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\controller_functions.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\controller_init.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\controller_loop.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\controller_files\simple_control.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\project_files\configure_sdl.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\project_files\events_sdl.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\project_files\update_write_files.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\simulation_files\controller_inputs.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\simulation_files\controller_outputs.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\simulation_files\simu_controller_loop.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\simulation_files\simu_outputs.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_cons_hJ_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_cons_jdqd_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_dirdyna_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_extforces_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_gensensor_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_invdyna_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_link3D_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_link_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\symbolicR\mbs_sensor_OffRoadRobot.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\UserModelStruct.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_compute_output.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_cons_hJ.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_cons_jdqd.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_Derivative.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_DrivenJoints.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_ExtForces.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_initialization.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_JointForces.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_Link3Dforces.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_Linkforces.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\project\user_files\user_sf_IO.c" >
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\src\generic\main_files\finish_simulation.cpp"  />
+    <ClCompile Include="..\..\src\generic\main_files\init_simulation.cpp"  />
+    <ClCompile Include="..\..\src\generic\main_files\loop_simulation.cpp"  />
+    <ClCompile Include="..\..\src\generic\main_files\model_main.cpp"  />
+    <ClCompile Include="..\..\src\generic\robotran_yarp_plugin\src\ForceTorqueDriver.cpp"  />
+    <ClCompile Include="..\..\src\generic\simbody\simbody_cpp_functions.cpp"  />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/habra/Documents/MBProjects/OffRoadRobot/Standalone/build_win/ZERO_CHECK.vcxproj">

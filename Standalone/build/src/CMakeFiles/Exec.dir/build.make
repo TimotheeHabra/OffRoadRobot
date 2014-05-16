@@ -1018,28 +1018,28 @@ src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o.provides: s
 
 src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o.provides.build: src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o: src/CMakeFiles/Exec.dir/flags.make
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o: ../src/project/controller_files/control.c
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o: src/CMakeFiles/Exec.dir/flags.make
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o: ../src/project/controller_files/simple_control.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/CMakeFiles $(CMAKE_PROGRESS_43)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object src/CMakeFiles/Exec.dir/project/controller_files/control.c.o"
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Exec.dir/project/controller_files/control.c.o   -c /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/control.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o"
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o   -c /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/simple_control.c
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exec.dir/project/controller_files/control.c.i"
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/control.c > CMakeFiles/Exec.dir/project/controller_files/control.c.i
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exec.dir/project/controller_files/simple_control.c.i"
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/simple_control.c > CMakeFiles/Exec.dir/project/controller_files/simple_control.c.i
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exec.dir/project/controller_files/control.c.s"
-	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/control.c -o CMakeFiles/Exec.dir/project/controller_files/control.c.s
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exec.dir/project/controller_files/simple_control.c.s"
+	cd /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/build/src && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/simple_control.c -o CMakeFiles/Exec.dir/project/controller_files/simple_control.c.s
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.requires:
-.PHONY : src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.requires
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.requires:
+.PHONY : src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.requires
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.provides: src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.requires
-	$(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.provides.build
-.PHONY : src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.provides
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.provides: src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.requires
+	$(MAKE) -f src/CMakeFiles/Exec.dir/build.make src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.provides.build
+.PHONY : src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.provides
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.provides.build: src/CMakeFiles/Exec.dir/project/controller_files/control.c.o
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.provides.build: src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o
 
 src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o: src/CMakeFiles/Exec.dir/flags.make
 src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o: ../src/project/controller_files/ControllersStruct.c
@@ -1683,7 +1683,7 @@ Exec_OBJECTS = \
 "CMakeFiles/Exec.dir/project/simulation_files/simu_outputs.c.o" \
 "CMakeFiles/Exec.dir/project/controller_files/controller_init.c.o" \
 "CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o" \
-"CMakeFiles/Exec.dir/project/controller_files/control.c.o" \
+"CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o" \
 "CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o" \
 "CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o" \
 "CMakeFiles/Exec.dir/project/project_files/update_write_files.c.o" \
@@ -1756,7 +1756,7 @@ Exec: src/CMakeFiles/Exec.dir/project/simulation_files/controller_inputs.c.o
 Exec: src/CMakeFiles/Exec.dir/project/simulation_files/simu_outputs.c.o
 Exec: src/CMakeFiles/Exec.dir/project/controller_files/controller_init.c.o
 Exec: src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o
-Exec: src/CMakeFiles/Exec.dir/project/controller_files/control.c.o
+Exec: src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o
 Exec: src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o
 Exec: src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o
 Exec: src/CMakeFiles/Exec.dir/project/project_files/update_write_files.c.o
@@ -1838,7 +1838,7 @@ src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/simulation_fil
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/simulation_files/simu_outputs.c.o.requires
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/controller_init.c.o.requires
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o.requires
-src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/control.c.o.requires
+src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o.requires
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o.requires
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o.requires
 src/CMakeFiles/Exec.dir/requires: src/CMakeFiles/Exec.dir/project/project_files/update_write_files.c.o.requires

@@ -84,7 +84,7 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -96,15 +96,15 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -127,7 +127,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -138,15 +138,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat></DebugInformationFormat>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -169,7 +169,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -180,15 +180,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat></DebugInformationFormat>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,7 +211,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -222,15 +222,15 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMEX;LOAD_XML;GCM_MT;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CXX;CMEX;LOAD_XML;DIRDYNARED;WRITE_FILES;PRINT_REPORT;REAL_TIME;SDL;JNI;SIMBODY;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\libxml;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\win64_include_lib\include\SDL;C:\Program Files\Java\jdk1.7.0_51\include;C:\Program Files\Java\jdk1.7.0_51\include\win32;C:\Program Files\Simbody\include;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\build_win\src\other\conf;C:\Users\habra\Documents\MBProjects\OffRoadRobot\Standalone\src\other\varState\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

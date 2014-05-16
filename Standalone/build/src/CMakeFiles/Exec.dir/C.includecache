@@ -6,3 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
+
+/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
+math.h
+-
+stdlib.h
+-
+stdio.h
+-
+ControllersStruct.h
+/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
+
+/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/simple_control.c
+controller_def.h
+/home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
+

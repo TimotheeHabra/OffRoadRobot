@@ -26,64 +26,64 @@ void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
 	
 #ifdef GO
 	//Front Right Leg
-    id = R2_FR;
-	if(fmod(tsim,2*T) < T)
-	{
-        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
-        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
-        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
-    }
-    else
-    {
-        MBSdata->q[id]   = My_PI*(1+floor(tsim));
-        MBSdata->qd[id]  = 0;
-        MBSdata->qdd[id] = 0;
-    }
+//     id = R2_FR;
+// 	if(fmod(tsim,2*T) < T)
+// 	{
+//         MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
+//         MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
+//         MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
+//     }
+//     else
+//     {
+//         MBSdata->q[id]   = My_PI*(1+floor(tsim));
+//         MBSdata->qd[id]  = 0;
+//         MBSdata->qdd[id] = 0;
+//     }
 
     //Front Left Leg
-    id = R2_FL;
-    if(fmod(tsim,2*T) >= T)
-	{
-        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
-        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
-        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
-    }
-    else
-    {
-        MBSdata->q[id]   = My_PI*(floor(tsim));
-        MBSdata->qd[id]  = 0;
-        MBSdata->qdd[id] = 0;
-    }
+ //    id = R2_FL;
+ //    if(fmod(tsim,2*T) >= T)
+	// {
+ //        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
+ //        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
+ //        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
+ //    }
+ //    else
+ //    {
+ //        MBSdata->q[id]   = My_PI*(floor(tsim));
+ //        MBSdata->qd[id]  = 0;
+ //        MBSdata->qdd[id] = 0;
+ //    }
 
     //Rear Right Leg
-    id = R2_RR;
-    if(fmod(tsim,2*T) >= T)
-	{
-        MBSdata->q[id]    	 = My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
-        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
-        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
-    }
-    else
-    {
-        MBSdata->q[id]   = My_PI*(floor(tsim));
-        MBSdata->qd[id]  = 0;
-        MBSdata->qdd[id] = 0;
-    }
+ //    id = R2_RR;
+ //    if(fmod(tsim,2*T) >= T)
+	// {
+ //        MBSdata->q[id]    	 = My_PI*(-cos(omega*tsim + My_PI)+floor(tsim));
+ //        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim + My_PI);
+ //        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim + My_PI);
+ //    }
+ //    else
+ //    {
+ //        MBSdata->q[id]   = My_PI*(floor(tsim));
+ //        MBSdata->qd[id]  = 0;
+ //        MBSdata->qdd[id] = 0;
+ //    }
 
     //Rear Left Leg
-    id = R2_RL;
-	if(fmod(tsim,2*T) < T)
-	{
-        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
-        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
-        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
-    }
-    else
-    {
-        MBSdata->q[id]   = My_PI*(1+floor(tsim));
-        MBSdata->qd[id]  = 0;
-        MBSdata->qdd[id] = 0;
-    }
+ //    id = R2_RL;
+	// if(fmod(tsim,2*T) < T)
+	// {
+ //        MBSdata->q[id]    	= My_PI*(-cos(omega*tsim)+1+floor(tsim));
+ //        MBSdata->qd[id]      = My_PI*omega*sin(omega*tsim);
+ //        MBSdata->qdd[id]     = My_PI*omega*omega*cos(omega*tsim);
+ //    }
+ //    else
+ //    {
+ //        MBSdata->q[id]   = My_PI*(1+floor(tsim));
+ //        MBSdata->qd[id]  = 0;
+ //        MBSdata->qdd[id] = 0;
+ //   }
 #else
 		//Front Right Leg
     id = R2_FR;

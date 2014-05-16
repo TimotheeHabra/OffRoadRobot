@@ -10,8 +10,7 @@
 #include "simu_def.h"
 
 // Equivalent to user_DirDyn_io from Matlab
-// Computes the voltage to apply on the motors
-// uvs->Control[i] is the equivalent of MBS_user.u(i) in Matlab
+// Computes the position to give to the driven joints
 #ifndef CMEX
 void user_compute_output(SimStruct *S, MBSdataStruct *MBSdata, LocalDataStruct *lds)
 #else

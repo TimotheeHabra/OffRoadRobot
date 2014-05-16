@@ -18,6 +18,25 @@
 % Keep at least one space between different variables, do not use other signs (, . :)
 %
 
+// ---- CONTROLLER INPUTS ---- //
+
+# ControllerInputs
+
+// time [s]
+tsim   double   1
+
+// ---- CONTROLLER OUTPUTS ---- //
+
+# ControllerOutputs
+
+// references (position - velocity - acceleration) [rad], [rad/s], [rad/s^2]
+q_ref    double   4 // position references
+qd_ref   double   4 // velocities references
+qdd_ref   double   4 // torques references
+
+// ---- MAIN CONTROLLER ---- //
+
 # Controller
-t   double   1
-Control   double   4
+
+Inputs   structure   ControllerInputs
+Outputs   structure   ControllerOutputs

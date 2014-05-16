@@ -1251,10 +1251,6 @@ src/CMakeFiles/Exec.dir/generic/simbody/simbody_functions.c.o: /usr/include/libx
 src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o: ../src/project/controller_files/ControllersStruct.c
 src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o: ../src/project/controller_files/ControllersStruct.h
 
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o: ../src/project/controller_files/ControllersStruct.h
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o: ../src/project/controller_files/control.c
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o: ../src/project/controller_files/controller_def.h
-
 src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o: ../src/project/controller_files/ControllersStruct.h
 src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o: ../src/project/controller_files/controller_def.h
 src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o: ../src/project/controller_files/controller_functions.c
@@ -1266,6 +1262,10 @@ src/CMakeFiles/Exec.dir/project/controller_files/controller_init.c.o: ../src/pro
 src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o: ../src/project/controller_files/ControllersStruct.h
 src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o: ../src/project/controller_files/controller_def.h
 src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o: ../src/project/controller_files/controller_loop.c
+
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o: ../src/project/controller_files/ControllersStruct.h
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o: ../src/project/controller_files/controller_def.h
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o: ../src/project/controller_files/simple_control.c
 
 src/CMakeFiles/Exec.dir/project/project_files/configure_sdl.c.o: ../src/generic/jni/jni_functions.h
 src/CMakeFiles/Exec.dir/project/project_files/configure_sdl.c.o: ../src/generic/main_files/main_simulation.h

@@ -1251,10 +1251,6 @@ src/CMakeFiles/Exec.dir/generic/simbody/simbody_functions.c.o
 src/CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.c
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
-src/CMakeFiles/Exec.dir/project/controller_files/control.c.o
- /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
- /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/control.c
- /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
 src/CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
@@ -1267,6 +1263,10 @@ src/CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
  /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_loop.c
+src/CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o
+ /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/ControllersStruct.h
+ /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/controller_def.h
+ /home/habra/Projects/MBProjects/OffRoadRobot/Standalone/src/project/controller_files/simple_control.c
 src/CMakeFiles/Exec.dir/project/project_files/configure_sdl.c.o
  ../src/generic/jni/jni_functions.h
  ../src/generic/main_files/main_simulation.h

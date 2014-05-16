@@ -41,7 +41,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Exec.dir/project/simulation_files/simu_outputs.c.o"
   "CMakeFiles/Exec.dir/project/controller_files/controller_init.c.o"
   "CMakeFiles/Exec.dir/project/controller_files/controller_loop.c.o"
-  "CMakeFiles/Exec.dir/project/controller_files/control.c.o"
+  "CMakeFiles/Exec.dir/project/controller_files/simple_control.c.o"
   "CMakeFiles/Exec.dir/project/controller_files/ControllersStruct.c.o"
   "CMakeFiles/Exec.dir/project/controller_files/controller_functions.c.o"
   "CMakeFiles/Exec.dir/project/project_files/update_write_files.c.o"
