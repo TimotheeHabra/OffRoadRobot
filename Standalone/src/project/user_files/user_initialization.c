@@ -16,7 +16,12 @@ void user_initialization(SimStruct *S, MBSdataStruct *MBSdata, LocalDataStruct *
 // Returns 0 if no problem
 int user_initialization(MBSdataStruct *MBSdata, LocalDataStruct *lds)
 #endif
-{    
+{
+
+	// inputs of the controller
+	controller_inputs(MBSdata);
+
+	//  controller initialization   
     controller_init(MBSdata->user_IO->cvs);
     
     #ifdef CMEX

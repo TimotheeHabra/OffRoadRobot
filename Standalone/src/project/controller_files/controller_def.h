@@ -29,9 +29,7 @@
 void controller_init(ControllerStruct *cvs);
 void controller_loop(ControllerStruct *cvs);
 
-void control(ControllerStruct *cvs);
-
-double limit_angle(double angle);
+void simple_control(ControllerStruct *cvs);
 
 /*--------------------*/
 #endif

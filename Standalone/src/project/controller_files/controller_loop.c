@@ -7,6 +7,6 @@
 
 void controller_loop(ControllerStruct *cvs)
 {
-    control(cvs);
+    simple_control(cvs);
 }
 

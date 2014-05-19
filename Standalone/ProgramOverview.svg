@@ -939,8 +939,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.9899495"
+<<<<<<< HEAD
      inkscape:cx="395.23987"
      inkscape:cy="797.96141"
+=======
+     inkscape:cx="326.33101"
+     inkscape:cy="838.36751"
+>>>>>>> 23b1ffe0c1947fa3a322cca82e6d612f46915695
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -3721,7 +3726,11 @@
            id="tspan2991-4-54-45-6-5-7-4-7-09-3-9"
            sodipodi:role="line"><tspan
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+<<<<<<< HEAD
              id="tspan3113-4-1-8-2-3-3-5-5-6">controller_outputs</tspan></tspan></text>
+=======
+             id="tspan3113-4-1-8-2-3-3-5-5-6">controller_inputs</tspan></tspan></text>
+>>>>>>> 23b1ffe0c1947fa3a322cca82e6d612f46915695
       <text
          sodipodi:linespacing="125%"
          id="text2989-7-8-18-9-9-1-2-1-58-5-3"
@@ -3839,7 +3848,11 @@
          y="493.06616"
          x="378.5741"
          sodipodi:role="line"
+<<<<<<< HEAD
          id="tspan11046-5-9-6-6-7">Runge-Kutta integrator : integrate accelerations</tspan></text>
+=======
+         id="tspan11046-5-9-6-6-7">Runge-Kutta integrator : integrate acceleration</tspan></text>
+>>>>>>> 23b1ffe0c1947fa3a322cca82e6d612f46915695
     <g
        id="g3017-9-2-6-2-2-3-3-6-2"
        transform="translate(-63.472018,400.36534)">
