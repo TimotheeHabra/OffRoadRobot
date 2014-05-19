@@ -1,0 +1,12 @@
+
+# Desktop Services Store
+
+.DS_Store
+._.DS_Store
+._*
+*~
+
+# build folder
+
+Standalone/build/
+Standalone/build_win/
