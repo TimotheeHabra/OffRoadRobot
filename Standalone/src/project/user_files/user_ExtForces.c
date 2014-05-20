@@ -8,6 +8,7 @@
 //--------------------------- 
 
 #include "simu_def.h"
+#include "test_hybrid_code.h"
 
 void point_contact_model(double PxF[4], double RxF[4][4], 
 					   double VxF[4], double OMxF[4],
@@ -45,6 +46,8 @@ double* user_ExtForces(double PxF[4], double RxF[4][4],
 
 	#ifdef SIMBODY
 	simbodyBodies = uvs->simbodyBodies;
+
+	get_force();
 
 	
 	for(i=0; i<simbodyBodies->nb_contact_bodies; i++)
