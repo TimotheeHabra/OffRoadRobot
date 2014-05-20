@@ -34,8 +34,8 @@ extern "C" {
 }
 #endif
 
-#if defined(SIMBODY) & defined(__cplusplus)
-#include "simbody_cpp_functions.hpp"
+#if defined(SIMBODY)
+#include "simbody_cpp_functions.h"
 #endif
 
 // -- Macros -- //
@@ -76,8 +76,8 @@ typedef struct Loop_inputs
     Screen_sdl *screen_sdl;
     #endif
 
-	#if defined(SIMBODY) & defined(__cplusplus)
-	SimbodyVariables *p_simbodyVariables;
+	#if defined(SIMBODY)
+	void* p_simbodyVariables;  //type is void* to remain compatible with C code
 	#endif
     
 } Loop_inputs;

@@ -8,9 +8,32 @@
  * author: Nicolas Van der Noot
  */
 
+#include "main_simulation.h"
+
 /*
  * Main function
  */
-#include "model_main.cpp"
+int main(int argc, char const *argv[])
+{
+    main_simulation();
+    
+    return 0;
+}
 
+/*
+ * Main loop
+ */
 
+void main_simulation()
+{
+    Loop_inputs *loop_inputs;
+
+    // initialization
+	loop_inputs = init_simulation();
+	
+	// simulation
+	loop_simulation(loop_inputs);
+
+    // end of the simulation
+    finish_simulation(loop_inputs);
+}

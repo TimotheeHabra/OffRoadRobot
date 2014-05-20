@@ -170,32 +170,11 @@ if (FLAG_GENERATE)
 	
 endif (FLAG_GENERATE)
 
- 
-
 ## ---- CUSTOM FUNCTIONS ---- ##
 
 
 # These files will not be compiled or included in the project
-set(CUR_ITEM "")
-
-if (FLAG_CXX)
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "model_main.c")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "init_simulation.c")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "loop_simulation.c")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "finish_simulation.c")
-else (FLAG_CXX)
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "model_main.cpp")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "init_simulation.cpp")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "loop_simulation.cpp")
-	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "finish_simulation.cpp")
-endif (FLAG_CXX)
-
-#if (FLAG_SIMBODY)
-#	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "loop_simulation.c")
-#else (FLAG_SIMBODY)
-#	set(SRC_FILES_NOT_COMPILED ${SRC_FILES_NOT_COMPILED} "loop_simulation.cpp")
-#endif (FLAG_SIMBODY)
-	
+set(CUR_ITEM "")	
 
 # function to return 1 if the element 'CUR_ITEM' is present in list 'HEADERS_NOT_INCLUDED'
 function(header_present_in_list FOUND_IN_LIST)
