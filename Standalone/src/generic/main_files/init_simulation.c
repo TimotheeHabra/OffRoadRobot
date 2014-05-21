@@ -51,10 +51,6 @@ Loop_inputs* init_simulation(void)
 	Write_files *write_files;
 	#endif
 
-	#if defined(SIMBODY)
-	void* p_simbodyVariables = NULL;
-	#endif
-
 	const char *filein;
 
 	struct timeval seed_time;
@@ -176,11 +172,6 @@ Loop_inputs* init_simulation(void)
     loop_inputs->jni_struct = jni_struct;
     update_jni(loop_inputs->jni_struct, MBSdata, loop_inputs->real_time);
     #endif
-
-	#if defined(SIMBODY)
-	p_simbodyVariables = prepare_simbody(loop_inputs->MBSdata->user_IO->simbodyStruct->simbodyBodies);
-	loop_inputs->p_simbodyVariables = p_simbodyVariables;
-	#endif
 
     // Running model integration
     #ifdef PRINT_REPORT

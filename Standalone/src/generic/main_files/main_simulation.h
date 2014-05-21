@@ -7,10 +7,6 @@
 #ifndef __MAIN_SIMULATION_H_INCLUDED__  // guard against multiple/recursive includes
 #define __MAIN_SIMULATION_H_INCLUDED__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "MBSdataStruct.h"
 #include "project_info.h"
 
@@ -28,14 +24,6 @@ extern "C" {
 
 #ifdef REAL_TIME
 #include "real_time.h"
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#if defined(SIMBODY)
-#include "simbody_cpp_functions.h"
 #endif
 
 // -- Macros -- //
@@ -75,10 +63,6 @@ typedef struct Loop_inputs
     #if defined(SDL) & defined (REAL_TIME)
     Screen_sdl *screen_sdl;
     #endif
-
-	#if defined(SIMBODY)
-	void* p_simbodyVariables;  //type is void* to remain compatible with C code
-	#endif
     
 } Loop_inputs;
 

@@ -9,6 +9,8 @@ typedef struct SimbodyStruct
 {
 	SimbodyBodiesStruct* simbodyBodies;
 
+	void* p_simbodyVariables;  //type is void* to remain compatible with C code
+
 } SimbodyStruct;
 
 

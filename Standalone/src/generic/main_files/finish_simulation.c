@@ -114,11 +114,6 @@ void finish_simulation(Loop_inputs *loop_inputs)
 
     // MBSdata_xml
     freeMBSdata_xml(MBSdata);
-
-	// Simbody data structure
-	#if defined(SIMBODY)
-	free_Simbody(loop_inputs->p_simbodyVariables);
-	#endif
     
     // simulation loop inputs
 	free(loop_inputs);
