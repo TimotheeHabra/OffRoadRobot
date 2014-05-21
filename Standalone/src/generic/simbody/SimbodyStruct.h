@@ -3,9 +3,11 @@
 
 #ifdef SIMBODY
 
+#include "SimbodyBodiesStruct.h"
+
 typedef struct SimbodyStruct
 {
-	int nothing;
+	SimbodyBodiesStruct* simbodyBodies;
 
 } SimbodyStruct;
 

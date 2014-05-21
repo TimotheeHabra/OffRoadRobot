@@ -44,7 +44,7 @@ double* user_ExtForces(double PxF[4], double RxF[4][4],
 	dxF[3] = MBSdata->dpt[3][idpt];
 
 	#ifdef SIMBODY
-	simbodyBodies = uvs->simbodyBodies;
+	simbodyBodies = uvs->simbodyStruct->simbodyBodies;
 	
 	for(i=0; i<simbodyBodies->nb_contact_bodies; i++)
 	{

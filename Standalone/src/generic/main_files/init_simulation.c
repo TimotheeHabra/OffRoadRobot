@@ -178,7 +178,7 @@ Loop_inputs* init_simulation(void)
     #endif
 
 	#if defined(SIMBODY)
-	p_simbodyVariables = prepare_simbody(loop_inputs->MBSdata->user_IO->simbodyBodies);
+	p_simbodyVariables = prepare_simbody(loop_inputs->MBSdata->user_IO->simbodyStruct->simbodyBodies);
 	loop_inputs->p_simbodyVariables = p_simbodyVariables;
 	#endif
 

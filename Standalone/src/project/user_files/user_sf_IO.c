@@ -2,7 +2,7 @@
  *
  *  user_sf_IO.c
  * 
- *  Generation date: Wed May 21 14:06:53 2014
+ *  Generation date: Wed May 21 14:35:46 2014
 
  * 
  *  (c) Universite catholique de Louvain
@@ -47,9 +47,6 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     // cvs //
     uvs->cvs = init_ControllerStruct();
 
-    // simbodyBodies //
-    uvs->simbodyBodies = init_SimbodyBodiesStruct();
-
     // simbodyStruct //
     uvs->simbodyStruct = init_SimbodyStruct();
 
@@ -62,9 +59,6 @@ void freeUserIO(UserIOStruct *uvs, MBSdataStruct *s)
 
     // ControllerStruct: cvs //
     free_ControllerStruct(uvs->cvs);
-
-    // SimbodyBodiesStruct: simbodyBodies //
-    free_SimbodyBodiesStruct(uvs->simbodyBodies);
 
     // SimbodyStruct: simbodyStruct //
     free_SimbodyStruct(uvs->simbodyStruct);

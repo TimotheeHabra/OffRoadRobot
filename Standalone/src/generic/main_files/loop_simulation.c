@@ -241,10 +241,10 @@ void loop_simulation(Loop_inputs *loop_inputs)
          */
         #ifdef SIMBODY
         // kinematics from Robotran
-        update_simbody_kinematics(MBSdata->user_IO->simbodyBodies, MBSdata);
+        update_simbody_kinematics(MBSdata->user_IO->simbodyStruct->simbodyBodies, MBSdata);
         
         // Simbody functions
-        loop_Simbody(loop_inputs->p_simbodyVariables, MBSdata->user_IO->simbodyBodies);
+        loop_Simbody(loop_inputs->p_simbodyVariables, MBSdata->user_IO->simbodyStruct->simbodyBodies);
         #endif
 
         /*

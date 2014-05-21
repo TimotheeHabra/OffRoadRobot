@@ -27,6 +27,5 @@ output2   double   10
 
 # STRUCT
 cvs   ControllerStruct   1 
-simbodyBodies SimbodyBodiesStruct   1
 simbodyStruct SimbodyStruct 1
 
