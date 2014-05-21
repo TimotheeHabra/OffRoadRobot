@@ -68,7 +68,7 @@ int* read_nb_var_ctrl(char *fileName, int nb_ctrl)
 
 	char line[FGETS_MAX_SIZE];
 	char varName[STRING_MAX_SIZE], type[STRING_MAX_SIZE], ctrlName[STRING_MAX_SIZE];
-    char strType[STRING_MAX_SIZE], other[STRING_MAX_SIZE];
+    char other[STRING_MAX_SIZE];
 
 
     // -- Initialization -- //
@@ -122,15 +122,6 @@ int* read_nb_var_ctrl(char *fileName, int nb_ctrl)
             	{
             		i_ctrl_nb_var++;
             	}
-            	// structure
-            	else if ( (nb_sscanf == 2) && (!strcmp(type, "structure")) )
-            	{
-	            	nb_sscanf = sscanf(line, "%s %s %s", varName, type, strType);
-	            	if (nb_sscanf == 3)
-	            	{
-	            		i_ctrl_nb_var++;
-	            	}
-            	}
             	// tabular of 2 entries
             	else if ( nb_sscanf == 2 )
             	{
@@ -162,10 +153,10 @@ int* read_nb_var_ctrl(char *fileName, int nb_ctrl)
 }
 
 /*
- * Fill 'varNameTab', 'typeTab' 'strTypeTab', 'varSizeTab', 'twoVarSizeTab' and 'namesCtrl'
+ * Fill 'varNameTab', 'typeTab', 'varSizeTab', 'twoVarSizeTab' and 'namesCtrl'
  * containing the variables names, types, String type, size, size (in case of two-entries tabular) and the nemes of the controllers
  */
-void read_ctrl_variables(char *fileName, int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, char ***strTypeTab, int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl)
+void read_ctrl_variables(char *fileName, int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl)
 {
 	// -- Variables declaration -- //
 
@@ -176,7 +167,7 @@ void read_ctrl_variables(char *fileName, int nb_ctrl, int *nb_var_ctrl, char ***
 
 	char line[FGETS_MAX_SIZE];
 	char varName[STRING_MAX_SIZE], type[STRING_MAX_SIZE], ctrlName[STRING_MAX_SIZE];
-    char strType[STRING_MAX_SIZE], other[STRING_MAX_SIZE];
+    char other[STRING_MAX_SIZE];
 
 
     // -- Initiaization -- //
@@ -236,28 +227,6 @@ void read_ctrl_variables(char *fileName, int nb_ctrl, int *nb_var_ctrl, char ***
             		
             		i_ctrl_var++;
             	}
-            	// structure
-            	else if ( (nb_sscanf == 2) && (!strcmp(type, "structure")) )
-            	{
-	            	nb_sscanf = sscanf(line, "%s %s %s", varName, type, strType);
-
-	            	if (nb_sscanf == 3)
-	            	{
-	            		if (i_ctrl >= 0)
-	            		{
-	            			strcpy(varNameTab[i_ctrl][i_ctrl_var], varName);
-	            			strcpy(typeTab[i_ctrl][i_ctrl_var]   , type);
-	            			strcpy(strTypeTab[i_ctrl][i_ctrl_var], strType);
-	            			varSizeTab[i_ctrl][i_ctrl_var] = -1;
-	            		}
-	            		else
-	            		{
-	            			printf("Not inside a controller: %d: %s\n", i_line, line);
-	            		}
-	            		
-	            		i_ctrl_var++;
-	            	}
-            	} 
             	// 2-entries tabular
             	else if ( nb_sscanf == 2 )
             	{
@@ -272,7 +241,7 @@ void read_ctrl_variables(char *fileName, int nb_ctrl, int *nb_var_ctrl, char ***
 
 	            			twoVarSizeTab[i_ctrl][i_ctrl_var][0] = varSize1;
 	            			twoVarSizeTab[i_ctrl][i_ctrl_var][1] = varSize2;
-	            			varSizeTab[i_ctrl][i_ctrl_var] = -2;
+	            			varSizeTab[i_ctrl][i_ctrl_var] = 0;
 	            		}
 	            		else
 	            		{

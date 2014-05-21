@@ -45,9 +45,9 @@ char* get_time_machine()
  * Generates 'ControllersStruct.c' and 'ControllersStruct.h'
  */
 void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, 
-	char ***strTypeTab, int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileoutC, char *fileoutH)
+	int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileoutC, char *fileoutH)
 {
-	int i, k;
+	int i, j, k;
 
 	int found_single_tab, found_multi_tab;
 
@@ -91,22 +91,22 @@ void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, c
 	fprintf(fidC, "#include \"ControllersStruct.h\"\n");
 	fprintf(fidC, "\n\n");
 
-	fprintf(fidC,"// ---- Controlleres initialization ---- //\n \n");
+	fprintf(fidC,"// ---- Controllers initialization ---- //\n \n");
 
 	// init
 	for(k=0; k<nb_ctrl; k++) // loop on all the controllers
 	{	    
-	    fprintf(fidC,"// %sStruc\n", namesCtrl[k]);
-	    fprintf(fidC,"%sStruct * init_%sStruct(void)\n", namesCtrl[k], namesCtrl[k]);
+	    fprintf(fidC,"// %s\n", namesCtrl[k]);
+	    fprintf(fidC,"%s * init_%s(void)\n", namesCtrl[k], namesCtrl[k]);
 	    fprintf(fidC,"{\n");
-	    fprintf(fidC,"    %sStruct *cvs;\n\n", namesCtrl[k]);
+	    fprintf(fidC,"    %s *cvs;\n\n", namesCtrl[k]);
 	    
 	    found_single_tab = 0;
 	    found_multi_tab = 0;
 
 	    for(i=0; i<nb_var_ctrl[k]; i++) // loop on this controller variables
 	    {
-	    	if (varSizeTab[k][i] ==-2)
+	    	if (!varSizeTab[k][i])
 	    	{
 	    		found_multi_tab = 1;
 	    		break;
@@ -126,36 +126,32 @@ void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, c
 	        fprintf(fidC,"    int i;\n\n");
 	    }
 	    
-	    fprintf(fidC,"    cvs = (%sStruct*) malloc(sizeof(%sStruct));\n\n", namesCtrl[k], namesCtrl[k]); 
+	    fprintf(fidC,"    cvs = (%s*) malloc(sizeof(%s));\n\n", namesCtrl[k], namesCtrl[k]); 
 
 	    for(i=0; i<nb_var_ctrl[k]; i++) // loop on this controller variables
 	    {
-	    	if (varSizeTab[k][i] == -1) // structure
+	    	if (!varSizeTab[k][i]) // 2-entries tabular
 	    	{
-	    		fprintf(fidC,"    cvs->%s = init_%sStruct();\n\n", varNameTab[k][i], strTypeTab[k][i]);
-	    	}
-	    	else if (varSizeTab[k][i] == -2) // 2-entries tabular
-	    	{
-	    		if ( !strcmp(typeTab[k][i], "int") )
+	    		fprintf(fidC,"    for (i=0;i<%d;i++)\n", twoVarSizeTab[k][i][0]);
+				fprintf(fidC,"    {\n");
+				fprintf(fidC,"        for (j=0;j<%d;j++)\n", twoVarSizeTab[k][i][1]);
+				fprintf(fidC,"        {\n");
+
+				if ( !strcmp(typeTab[k][i], "int") )
 	    		{
-					fprintf(fidC,"    for (i=0;i<%d;i++)\n", twoVarSizeTab[k][i][0]);
-					fprintf(fidC,"    {\n");
-					fprintf(fidC,"      for (j=0;j<%d;j++)\n", twoVarSizeTab[k][i][1]);
-					fprintf(fidC,"      {\n");
-					fprintf(fidC,"		  cvs->%s[i][j] = 0;\n", varNameTab[k][i]);
-					fprintf(fidC,"      }\n");
-					fprintf(fidC,"    }\n\n");
+	    			fprintf(fidC,"            cvs->%s[i][j] = 0;\n", varNameTab[k][i]);
+	    		}
+	    		else if ( !strcmp(typeTab[k][i], "double") )
+	    		{
+	    			fprintf(fidC,"            cvs->%s[i][j] = 0.0;\n", varNameTab[k][i]);
 	    		}
 	    		else
 	    		{
-	    			fprintf(fidC,"    for (i=0;i<%d;i++)\n", twoVarSizeTab[k][i][0]);
-					fprintf(fidC,"    {\n");
-					fprintf(fidC,"      for (j=0;j<%d;j++)\n", twoVarSizeTab[k][i][1]);
-					fprintf(fidC,"      {\n");
-					fprintf(fidC,"		  cvs->%s[i][j] = 0.0;\n", varNameTab[k][i]);
-					fprintf(fidC,"      }\n");
-					fprintf(fidC,"    }\n\n");
+	    			fprintf(fidC,"            cvs->%s[i][j] = init_%s();\n", varNameTab[k][i], typeTab[k][i]);
 	    		}
+
+				fprintf(fidC,"        }\n");
+				fprintf(fidC,"    }\n\n");
 	    	}
 	    	else if (varSizeTab[k][i] == 1) // single variables
 	    	{
@@ -163,28 +159,35 @@ void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, c
 	    		{
 	    			fprintf(fidC,"    cvs->%s = 0;\n\n", varNameTab[k][i]); 
 	    		}
-	    		else
+	    		else if ( !strcmp(typeTab[k][i], "double") )
 	    		{
 	    			fprintf(fidC,"    cvs->%s = 0.0;\n\n", varNameTab[k][i]); 
+	    		}
+	    		else
+	    		{
+	    			fprintf(fidC,"    cvs->%s = init_%s();\n\n", varNameTab[k][i], typeTab[k][i]);
 	    		}
 	    	}
 	    	else if (varSizeTab[k][i] > 1) // single-entry tabular
 	    	{
-	    		if ( !strcmp(typeTab[k][i], "int") )
+	    		fprintf(fidC,"    for (i=0;i<%d;i++)\n", varSizeTab[k][i]);
+				fprintf(fidC,"    {\n");
+
+				if ( !strcmp(typeTab[k][i], "int") )
 	    		{
-					fprintf(fidC,"    for (i=0;i<%d;i++)\n", varSizeTab[k][i]);
-					fprintf(fidC,"    {\n");
-					fprintf(fidC,"		cvs->%s[i] = 0;\n", varNameTab[k][i]);
-					fprintf(fidC,"    }\n\n");
+	    			fprintf(fidC,"        cvs->%s[i] = 0;\n", varNameTab[k][i]);
+				}
+	    		else if ( !strcmp(typeTab[k][i], "double") )
+	    		{
+	    			fprintf(fidC,"        cvs->%s[i] = 0.0;\n", varNameTab[k][i]);
 	    		}
 	    		else
 	    		{
-	    			fprintf(fidC,"    for (i=0;i<%d;i++)\n", varSizeTab[k][i]);
-					fprintf(fidC,"    {\n");
-					fprintf(fidC,"		cvs->%s[i] = 0.0;\n", varNameTab[k][i]);
-					fprintf(fidC,"    }\n\n");
+	    			fprintf(fidC,"        cvs->%s[i] = init_%s();\n", varNameTab[k][i], typeTab[k][i]);
 	    		}
-	    	}
+
+				fprintf(fidC,"    }\n\n");
+	    	}	    	
 	    }
 
 	    fprintf(fidC,"    return cvs;\n");
@@ -195,15 +198,63 @@ void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, c
 	fprintf(fidC,"// ---- Controllers: free ---- //\n\n");
 	for(k=0; k<nb_ctrl; k++) // loop on all the controllers
 	{	
-	    fprintf(fidC,"// %sStruc\n", namesCtrl[k]);
-	    fprintf(fidC,"void free_%sStruct(%sStruct *cvs)\n", namesCtrl[k], namesCtrl[k]);
+	    fprintf(fidC,"// %s\n", namesCtrl[k]);
+	    fprintf(fidC,"void free_%s(%s *cvs)\n", namesCtrl[k], namesCtrl[k]);
 	    fprintf(fidC,"{\n");
+
+	    found_single_tab = 0;
+	    found_multi_tab = 0;
 
 	    for(i=0; i<nb_var_ctrl[k]; i++) // loop on this controller variables
 	    {
-	    	if (varSizeTab[k][i] == -1) // structure
+	    	if ( ( strcmp(typeTab[k][i], "int") ) && ( strcmp(typeTab[k][i], "double") ) ) // structure
 	    	{
-	    		fprintf(fidC,"    free_%sStruct(cvs->%s);\n\n", strTypeTab[k][i], varNameTab[k][i]);  
+		    	if (!varSizeTab[k][i])
+		    	{
+		    		found_multi_tab = 1;
+		    		break;
+		    	}
+		    	else if (varSizeTab[k][i] > 1)
+		    	{
+		    		found_single_tab = 1;
+		    	}
+		    }
+	    }
+
+	    if (found_multi_tab)
+	    {	    	
+	        fprintf(fidC,"    int i, j;\n\n");
+	    }
+	    else if (found_single_tab)
+	    {
+	        fprintf(fidC,"    int i;\n\n");
+	    }
+
+		for(i=0; i<nb_var_ctrl[k]; i++) // loop on this controller variables
+	    {
+	    	if ( ( strcmp(typeTab[k][i], "int") ) && ( strcmp(typeTab[k][i], "double") ) ) // structure
+	    	{
+	    		if (!varSizeTab[k][i]) // 2-entries tabular
+		    	{
+		    		fprintf(fidC,"    for (i=0;i<%d;i++)\n", twoVarSizeTab[k][i][0]);
+					fprintf(fidC,"    {\n");
+					fprintf(fidC,"        for (j=0;j<%d;j++)\n", twoVarSizeTab[k][i][1]);
+					fprintf(fidC,"        {\n");
+		    		fprintf(fidC,"            free_%s(cvs->%s[i][j]);\n", typeTab[k][i], varNameTab[k][i]);
+					fprintf(fidC,"        }\n");
+					fprintf(fidC,"    }\n\n");
+		    	}
+		    	else if (varSizeTab[k][i] == 1) // single variables
+		    	{
+		    		fprintf(fidC,"    free_%s(cvs->%s);\n\n", typeTab[k][i], varNameTab[k][i]);
+		    	}
+		    	else if (varSizeTab[k][i] > 1) // single-entry tabular
+		    	{
+		    		fprintf(fidC,"    for (i=0;i<%d;i++)\n", varSizeTab[k][i]);
+					fprintf(fidC,"    {\n");
+		    		fprintf(fidC,"        free_%s(cvs->%s[i]);\n", typeTab[k][i], varNameTab[k][i]);
+					fprintf(fidC,"    }\n\n");
+		    	}
 	    	}
 	    }
 
@@ -232,38 +283,61 @@ void print_c_ctrl_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, c
 	for(k=0; k<nb_ctrl; k++) // loop on all the controllers
 	{	  
 	    fprintf(fidH,"// %sStruc\n", namesCtrl[k]);
-	    fprintf(fidH,"typedef struct %sStruct\n", namesCtrl[k]);
+	    fprintf(fidH,"typedef struct %s\n", namesCtrl[k]);
 	    fprintf(fidH,"{\n");
 
 	    for(i=0; i<nb_var_ctrl[k]; i++) // loop on this controller variables
 	    {
-	    	if (varSizeTab[k][i] == -1) // structure
+	    	if ( ( !strcmp(typeTab[k][i], "int") ) || ( !strcmp(typeTab[k][i], "double") ) )
 	    	{
-	    		fprintf(fidH,"    %sStruct *%s;\n", strTypeTab[k][i], varNameTab[k][i]);
+	    		if (!varSizeTab[k][i]) // 2-entries tabular
+		    	{
+		    		fprintf(fidH,"    %s %s[%d][%d];\n", typeTab[k][i], varNameTab[k][i], twoVarSizeTab[k][i][0], twoVarSizeTab[k][i][1]);
+		    	}
+		    	else if (varSizeTab[k][i] == 1) // single variables
+		    	{
+		    		fprintf(fidH,"    %s %s;\n", typeTab[k][i], varNameTab[k][i]);
+		    	}
+		    	else if (varSizeTab[k][i] > 1) // single-entry tabular (vector)
+		    	{
+		    		fprintf(fidH,"    %s %s[%d];\n", typeTab[k][i], varNameTab[k][i], varSizeTab[k][i]);
+		    	}
+	    	}
+	    	else
+	    	{
+	    		if (!varSizeTab[k][i]) // 2-entries tabular
+		    	{
+		    		fprintf(fidH,"    struct %s *%s[%d][%d];\n", typeTab[k][i], varNameTab[k][i], twoVarSizeTab[k][i][0], twoVarSizeTab[k][i][1]);
+		    	}
+		    	else if (varSizeTab[k][i] == 1) // single variables
+		    	{
+		    		fprintf(fidH,"    struct %s *%s;\n", typeTab[k][i], varNameTab[k][i]);
+		    	}
+		    	else if (varSizeTab[k][i] > 1) // single-entry tabular (vector)
+		    	{
+		    		fprintf(fidH,"    struct %s *%s[%d];\n", typeTab[k][i], varNameTab[k][i], varSizeTab[k][i]);
+		    	}
+	    	}
 
-	    	}
-	    	else if (varSizeTab[k][i] == -2) // 2-entries tabular
+	    	if (varSizeTab[k][i] <= -1) // pointers
 	    	{
-	    		fprintf(fidH,"    %s %s[%d][%d];\n", typeTab[k][i], varNameTab[k][i], twoVarSizeTab[k][i][0], twoVarSizeTab[k][i][1]);
-	    	}
-	    	else if (varSizeTab[k][i] == 1) // single variables
-	    	{
-	    		fprintf(fidH,"    %s %s;\n", typeTab[k][i], varNameTab[k][i]);
-	    	}
-	    	else if (varSizeTab[k][i] > 1) // single-entry tabular (vector)
-	    	{
-	    		fprintf(fidH,"    %s %s[%d];\n", typeTab[k][i], varNameTab[k][i], varSizeTab[k][i]);
-	    	}
+	    		fprintf(fidH,"    %s ", typeTab[k][i]);
+	    		for(j=varSizeTab[k][i]; j<0; j++)
+	    		{
+	    			fprintf(fidH,"*");
+	    		}
+	    		fprintf(fidH,"%s;\n", varNameTab[k][i]);
+	    	}		    	
 	    }
-	    fprintf(fidH,"\n} %sStruct;\n\n\n", namesCtrl[k]);
+	    fprintf(fidH,"\n} %s;\n\n\n", namesCtrl[k]);
 	}
 
 	fprintf(fidH,"// ---- Init and free functions: declarations ---- //\n\n");
 
 	for(k=0; k<nb_ctrl; k++) // loop on all the controllers
 	{	
-		fprintf(fidH,"%sStruct * init_%sStruct(void);\n", namesCtrl[k], namesCtrl[k]);
-    	fprintf(fidH,"void free_%sStruct(%sStruct *cvs);\n\n", namesCtrl[k], namesCtrl[k]);
+		fprintf(fidH,"%s * init_%s(void);\n", namesCtrl[k], namesCtrl[k]);
+    	fprintf(fidH,"void free_%s(%s *cvs);\n\n", namesCtrl[k], namesCtrl[k]);
 	}
 
 	fprintf(fidH,"/*--------------------*/\n");
@@ -280,6 +354,7 @@ void print_c_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTa
 	int **varSizeTab, char *fileoutC, char *fileoutH)
 {
 	int i, j;
+	int found_single_tab;
 
 	FILE *fidC, *fidH; 
 
@@ -337,45 +412,59 @@ void print_c_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTa
 	fprintf(fidC, "\n");
 	fprintf(fidC, "UserIOStruct * initUserIO(MBSdataStruct *s)\n");
 	fprintf(fidC, "{\n");
-	fprintf(fidC, "	UserIOStruct *uvs;\n");
-	fprintf(fidC, "	int i=0;\n");
-	fprintf(fidC, "	//\n");
-	fprintf(fidC, "	uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));\n");
-	fprintf(fidC, "	\n");
+	fprintf(fidC, "    UserIOStruct *uvs;\n");
+
+	found_single_tab = 0;
+
+    for(i=0; i<3; i++) // lopp on all the simulation variables (except the structures)
+	{
+		for(j=0; j<nb_var_simu[i]; j++) // loop on all these variables
+		{
+			if (varSizeTab[i][j] > 1) 
+			{
+				found_single_tab = 1;
+			}
+		}
+	}
+
+	if (found_single_tab)
+	{
+		fprintf(fidC, "    int i;\n");
+	}
+
+	fprintf(fidC, "    //\n");
+	fprintf(fidC, "    uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));\n");
+	fprintf(fidC, "\n");
 
 	for(i=0; i<3; i++) // lopp on all the simulation variables (except the structures)
 	{
 		for(j=0; j<nb_var_simu[i]; j++) // loop on all these variables
 		{
-			if ( !strcmp(typeTab[i][j], "int") )
+			fprintf(fidC, "\n    // %s //\n", varNameTab[i][j]);
+			if (varSizeTab[i][j] == 1) // single variables
 			{
-				fprintf(fidC, "\n    // %s //\n", varNameTab[i][j]);
-				if (varSizeTab[i][j] == 1) // single variables
+				if ( !strcmp(typeTab[i][j], "int") )
 				{
-					fprintf(fidC, "	uvs->%s = 0;\n", varNameTab[i][j]);
+					fprintf(fidC, "    uvs->%s = 0;\n", varNameTab[i][j]);
 				}
-				else // vector (single-entry tabular)
+				else
 				{
-					fprintf(fidC,"	for (i=1;i<=%d;i++)\n", varSizeTab[i][j]);
-                    fprintf(fidC,"	{\n");
-                    fprintf(fidC,"		uvs->%s[i] = 0;\n", varNameTab[i][j]);
-                    fprintf(fidC,"	}\n");
+					fprintf(fidC, "    uvs->%s = 0.0;\n", varNameTab[i][j]);
 				}
 			}
-			else
+			else // vector (single-entry tabular)
 			{
-				fprintf(fidC, "\n    // %s //\n", varNameTab[i][j]);
-				if (varSizeTab[i][j] == 1) // single variable
+				fprintf(fidC,"    for (i=1;i<=%d;i++)\n", varSizeTab[i][j]);
+                fprintf(fidC,"    {\n");
+                if ( !strcmp(typeTab[i][j], "int") )
 				{
-					fprintf(fidC, "	uvs->%s = 0.0;\n", varNameTab[i][j]);
-				}
-				else // vector (single-entry tabular)
-				{
-					fprintf(fidC,"	for (i=1;i<=%d;i++)\n", varSizeTab[i][j]);
-                    fprintf(fidC,"	{\n");
-                    fprintf(fidC,"		uvs->%s[i] = 0.0;\n", varNameTab[i][j]);
-                    fprintf(fidC,"	}\n");
-				}
+                	fprintf(fidC,"        uvs->%s[i] = 0;\n", varNameTab[i][j]);
+                }
+                else
+                {
+                	fprintf(fidC,"        uvs->%s[i] = 0.0;\n", varNameTab[i][j]);
+                }
+                fprintf(fidC,"    }\n");
 			}
 		}
 	}
@@ -383,26 +472,61 @@ void print_c_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTa
 	for(j=0; j<nb_var_simu[3]; j++) // loop on all the variables of the strucures part
 	{
 		fprintf(fidC,"\n");
-	    fprintf(fidC,"	// %s //\n", varNameTab[3][j]);
-	    fprintf(fidC,"	uvs->%s = init_%sStruct();\n", varNameTab[3][j], typeTab[3][j]);
+	    fprintf(fidC,"    // %s //\n", varNameTab[3][j]);
+	    if (varSizeTab[3][j] == 1) // single variables
+		{
+			fprintf(fidC,"    uvs->%s = init_%s();\n", varNameTab[3][j], typeTab[3][j]);
+		}
+		else
+		{
+			fprintf(fidC,"    for (i=1;i<=%d;i++)\n", varSizeTab[3][j]);
+			fprintf(fidC,"    {\n");
+			fprintf(fidC,"        uvs->%s[i] = init_%s();\n", varNameTab[3][j], typeTab[3][j]);
+			fprintf(fidC,"    }\n");
+		}
 	}
 
 	fprintf(fidC,"\n");
-	fprintf(fidC,"	return uvs;\n");
+	fprintf(fidC,"    return uvs;\n");
 	fprintf(fidC,"}\n");
 	fprintf(fidC,"\n\n");
 	fprintf(fidC,"void freeUserIO(UserIOStruct *uvs, MBSdataStruct *s)\n");
 	fprintf(fidC,"{\n");
 
+	found_single_tab = 0;
+
+    for(j=0; j<nb_var_simu[3]; j++) // loop on all the structure instances
+	{
+		if (varSizeTab[3][j] > 1) 
+		{
+			found_single_tab = 1;
+		}
+	}
+
+	if (found_single_tab)
+	{
+		fprintf(fidC,"    int i;\n");
+	}
+
 	for(j=0; j<nb_var_simu[3]; j++) // loop on all the variables of the strucures part
 	{
 		fprintf(fidC,"\n");
-        fprintf(fidC,"	// %s: %s //\n", typeTab[3][j], varNameTab[3][j]);
-        fprintf(fidC,"	free_%sStruct(uvs->%s);\n", typeTab[3][j], varNameTab[3][j]);
+        fprintf(fidC,"    // %s: %s //\n", typeTab[3][j], varNameTab[3][j]);
+        if (varSizeTab[3][j] == 1) // single variables
+		{
+			fprintf(fidC,"    free_%s(uvs->%s);\n", typeTab[3][j], varNameTab[3][j]);
+		}
+		else
+		{
+			fprintf(fidC,"    for (i=1;i<=%d;i++)\n", varSizeTab[3][j]);
+			fprintf(fidC,"    {\n");
+			fprintf(fidC,"        free_%s(uvs->%s[i]);\n", typeTab[3][j], varNameTab[3][j]);
+			fprintf(fidC,"    }\n");
+		}        
 	}
 
 	fprintf(fidC,"\n");
-	fprintf(fidC,"	free(uvs);\n");
+	fprintf(fidC,"    free(uvs);\n");
 	fprintf(fidC,"}\n\n");
 
     fclose(fidC);
@@ -457,7 +581,14 @@ void print_c_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTa
 
 	for (j=0; j<nb_var_simu[3]; j++) // loop on all the variables of the strucures part
 	{
-		fprintf(fidH, "    %sStruct *%s;\n", typeTab[3][j], varNameTab[3][j]);
+		if (varSizeTab[3][j] == 1) // single variable
+		{
+			fprintf(fidH, "    %s *%s;\n", typeTab[3][j], varNameTab[3][j]);
+		}
+		else
+		{
+			fprintf(fidH, "    %s *%s[%d+1];\n", typeTab[3][j], varNameTab[3][j], varSizeTab[3][j]);
+		}
 	}
 
 	fprintf(fidH, "\n");
@@ -469,5 +600,4 @@ void print_c_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTa
 
 	fclose(fidH);
 	printf(">> 'user_sf_IO.h' created\n");
-	getchar();
 }

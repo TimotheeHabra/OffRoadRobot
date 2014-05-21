@@ -2,7 +2,7 @@
  *
  *  user_sf_IO.c
  * 
- *  Generation date: Thu May 08 15:44:53 2014
+ *  Generation date: Wed May 21 13:25:33 2014
 
  * 
  *  (c) Universite catholique de Louvain
@@ -23,46 +23,46 @@
 
 UserIOStruct * initUserIO(MBSdataStruct *s)
 {
-	UserIOStruct *uvs;
-	int i=0;
-	//
-	uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));
-	
+    UserIOStruct *uvs;
+    int i;
+    //
+    uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));
+
 
     // tsim_out1 //
-	uvs->tsim_out1 = 0.0;
+    uvs->tsim_out1 = 0.0;
 
     // output1 //
-	for (i=1;i<=10;i++)
-	{
-		uvs->output1[i] = 0.0;
-	}
+    for (i=1;i<=10;i++)
+    {
+        uvs->output1[i] = 0.0;
+    }
 
     // output2 //
-	for (i=1;i<=10;i++)
-	{
-		uvs->output2[i] = 0.0;
-	}
+    for (i=1;i<=10;i++)
+    {
+        uvs->output2[i] = 0.0;
+    }
 
-	// cvs //
-	uvs->cvs = init_ControllerStruct();
+    // cvs //
+    uvs->cvs = init_ControllerStruct();
 
-	// simbodyBodies //
-	uvs->simbodyBodies = init_SimbodyBodiesStruct();
+    // simbodyBodies //
+    uvs->simbodyBodies = init_SimbodyBodiesStruct();
 
-	return uvs;
+    return uvs;
 }
 
 
 void freeUserIO(UserIOStruct *uvs, MBSdataStruct *s)
 {
 
-	// Controller: cvs //
-	free_ControllerStruct(uvs->cvs);
+    // ControllerStruct: cvs //
+    free_ControllerStruct(uvs->cvs);
 
-	// SimbodyBodies: simbodyBodies //
-	free_SimbodyBodiesStruct(uvs->simbodyBodies);
+    // SimbodyBodiesStruct: simbodyBodies //
+    free_SimbodyBodiesStruct(uvs->simbodyBodies);
 
-	free(uvs);
+    free(uvs);
 }
 

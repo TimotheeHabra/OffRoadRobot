@@ -2,7 +2,7 @@
 // Nicolas Van der Noot
 //
 // Creation : 24-Jan-2014
-// Last update : Fri May 16 15:18:54 2014
+// Last update : Wed May 21 13:25:33 2014
 //---------------------------
 
 #include <stdlib.h>
@@ -10,9 +10,9 @@
 #include "ControllersStruct.h"
 
 
-// ---- Controlleres initialization ---- //
+// ---- Controllers initialization ---- //
  
-// ControllerInputsStruc
+// ControllerInputsStruct
 ControllerInputsStruct * init_ControllerInputsStruct(void)
 {
     ControllerInputsStruct *cvs;
@@ -24,7 +24,7 @@ ControllerInputsStruct * init_ControllerInputsStruct(void)
     return cvs;
 }
 
-// ControllerOutputsStruc
+// ControllerOutputsStruct
 ControllerOutputsStruct * init_ControllerOutputsStruct(void)
 {
     ControllerOutputsStruct *cvs;
@@ -35,23 +35,23 @@ ControllerOutputsStruct * init_ControllerOutputsStruct(void)
 
     for (i=0;i<4;i++)
     {
-		cvs->q_ref[i] = 0.0;
+        cvs->q_ref[i] = 0.0;
     }
 
     for (i=0;i<4;i++)
     {
-		cvs->qd_ref[i] = 0.0;
+        cvs->qd_ref[i] = 0.0;
     }
 
     for (i=0;i<4;i++)
     {
-		cvs->qdd_ref[i] = 0.0;
+        cvs->qdd_ref[i] = 0.0;
     }
 
     return cvs;
 }
 
-// ControllerStruc
+// ControllerStruct
 ControllerStruct * init_ControllerStruct(void)
 {
     ControllerStruct *cvs;
@@ -67,19 +67,19 @@ ControllerStruct * init_ControllerStruct(void)
 
 // ---- Controllers: free ---- //
 
-// ControllerInputsStruc
+// ControllerInputsStruct
 void free_ControllerInputsStruct(ControllerInputsStruct *cvs)
 {
     free(cvs);
 }
 
-// ControllerOutputsStruc
+// ControllerOutputsStruct
 void free_ControllerOutputsStruct(ControllerOutputsStruct *cvs)
 {
     free(cvs);
 }
 
-// ControllerStruc
+// ControllerStruct
 void free_ControllerStruct(ControllerStruct *cvs)
 {
     free_ControllerInputsStruct(cvs->Inputs);

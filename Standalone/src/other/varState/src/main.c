@@ -68,13 +68,13 @@ void generate_control_variables_m()
 	namesCtrl  = create_double_char(nb_ctrl, STRING_MAX_SIZE);
 	twoVarSizeTab = create_triple_int(nb_ctrl, nb_var_ctrl, 2);
 
-	read_ctrl_variables(fileName, nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, varSizeTab, twoVarSizeTab, namesCtrl);
+	read_ctrl_variables(fileName, nb_ctrl, nb_var_ctrl, varNameTab, typeTab, varSizeTab, twoVarSizeTab, namesCtrl);
 
 	// generation
-    print_matlab_control_variables(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, varSizeTab, twoVarSizeTab, namesCtrl, fileout_ctrl);
+    print_matlab_control_variables(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, varSizeTab, twoVarSizeTab, namesCtrl, fileout_ctrl);
 
     // free memory
-   	free_ctrl_var(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, namesCtrl, varSizeTab, twoVarSizeTab);
+   	free_ctrl_var(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, namesCtrl, varSizeTab, twoVarSizeTab);
 }
 
 /*
@@ -141,13 +141,13 @@ void generate_ControllersStruct()
 	namesCtrl  = create_double_char(nb_ctrl, STRING_MAX_SIZE);
 	twoVarSizeTab = create_triple_int(nb_ctrl, nb_var_ctrl, 2);
 
-	read_ctrl_variables(fileName, nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, varSizeTab, twoVarSizeTab, namesCtrl);
+	read_ctrl_variables(fileName, nb_ctrl, nb_var_ctrl, varNameTab, typeTab, varSizeTab, twoVarSizeTab, namesCtrl);
 
 	// generation
-    print_c_ctrl_variables(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, varSizeTab, twoVarSizeTab, namesCtrl, fileoutC, fileoutH);
+    print_c_ctrl_variables(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, varSizeTab, twoVarSizeTab, namesCtrl, fileoutC, fileoutH);
 
     // free memory
-   	free_ctrl_var(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, strTypeTab, namesCtrl, varSizeTab, twoVarSizeTab);
+   	free_ctrl_var(nb_ctrl, nb_var_ctrl, varNameTab, typeTab, namesCtrl, varSizeTab, twoVarSizeTab);
 }
 
 /*
@@ -165,12 +165,11 @@ void free_simu_var(int *nb_var_simu, int **varSizeTab, char ***varNameTab, char 
 /*
  * Free memory associated to the controllers structures generation
  */
-void free_ctrl_var(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, char ***strTypeTab,
+void free_ctrl_var(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab,
 	char **namesCtrl, int **varSizeTab, int ***twoVarSizeTab)
 {
 	free_triple_char(varNameTab, nb_ctrl, nb_var_ctrl);
 	free_triple_char(typeTab   , nb_ctrl, nb_var_ctrl);
-	free_triple_char(strTypeTab, nb_ctrl, nb_var_ctrl);
 	free_double_int(varSizeTab , nb_ctrl);
 	free_double_char(namesCtrl, nb_ctrl);
 	free_triple_int(twoVarSizeTab, nb_ctrl, nb_var_ctrl);

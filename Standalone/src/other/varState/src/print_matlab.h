@@ -5,6 +5,6 @@
  * author: Nicolas Van der Noot
  */
 void print_matlab_control_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, 
-	char ***strTypeTab, int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileout);
+	int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileout);
 void print_matlab_simu_variables(int *nb_var_simu, char ***varNameTab, char ***typeTab, 
 	int **varSizeTab, char *fileout);

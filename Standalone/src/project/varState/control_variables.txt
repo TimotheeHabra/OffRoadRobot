@@ -20,14 +20,14 @@
 
 // ---- CONTROLLER INPUTS ---- //
 
-# ControllerInputs
+# ControllerInputsStruct
 
 // time [s]
 tsim   double   1
 
 // ---- CONTROLLER OUTPUTS ---- //
 
-# ControllerOutputs
+# ControllerOutputsStruct
 
 // references (position - velocity - acceleration) [rad], [rad/s], [rad/s^2]
 q_ref    double   4 // position references
@@ -36,7 +36,7 @@ qdd_ref   double   4 // torques references
 
 // ---- MAIN CONTROLLER ---- //
 
-# Controller
+# ControllerStruct
 
-Inputs   structure   ControllerInputs
-Outputs   structure   ControllerOutputs
+Inputs   ControllerInputsStruct 1
+Outputs   ControllerOutputsStruct 1

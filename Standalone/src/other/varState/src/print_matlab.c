@@ -12,7 +12,7 @@
  * of 'control_variables.txt' 
  */
 void print_matlab_control_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, 
-	char ***strTypeTab, int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileout)
+	int **varSizeTab, int ***twoVarSizeTab, char **namesCtrl, char *fileout)
 {
 	int i, j;
 
@@ -52,19 +52,15 @@ void print_matlab_control_variables(int nb_ctrl, int *nb_var_ctrl, char ***varNa
 		{
 			fprintf(fid, "    '%s',", varNameTab[i][j]);
     		fprintf(fid, "'%s',", typeTab[i][j]);
-
-    		if (varSizeTab[i][j] >= 0) // vector
-    		{
-    			fprintf(fid, "%d\n", varSizeTab[i][j]);
-    		}
-    		else if (varSizeTab[i][j] == -1) // structure
-    		{
-    			fprintf(fid, "'%s'\n", strTypeTab[i][j]);
-    		}	
-    		else if (varSizeTab[i][j] == -2) // 2-entries tabular
+		
+    		if (varSizeTab[i][j] == 0) // 2-entries tabular
     		{
     			fprintf(fid, "[%d %d]\n", twoVarSizeTab[i][j][0], twoVarSizeTab[i][j][1]);
     		} 
+    		else // vector
+    		{
+    			fprintf(fid, "%d\n", varSizeTab[i][j]);
+    		}
 		}
 
 		fprintf(fid, "};\n\n\n");

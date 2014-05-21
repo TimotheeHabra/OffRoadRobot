@@ -13,13 +13,17 @@
 #include "print_matlab.h"
 #include "print_c_files.h"
 
+#include <sys/stat.h>
 
 void generate_simu_variables_m();
 void generate_control_variables_m();
 
+char* get_time_machine();
+void print_empty_file(char *fileout);
+
 void generate_user_sf_IO();
 void generate_ControllersStruct();
 
-void free_ctrl_var(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab, char ***strTypeTab,
+void free_ctrl_var(int nb_ctrl, int *nb_var_ctrl, char ***varNameTab, char ***typeTab,
 	char **namesCtrl, int **varSizeTab, int ***twoVarSizeTab);
 void free_simu_var(int *nb_var_simu, int **varSizeTab, char ***varNameTab, char ***typeTab);

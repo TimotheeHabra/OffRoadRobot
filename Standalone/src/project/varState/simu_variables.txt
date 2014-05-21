@@ -26,6 +26,6 @@ output1   double   10
 output2   double   10
 
 # STRUCT
-cvs   Controller   1 
-simbodyBodies SimbodyBodies   1
+cvs   ControllerStruct   1 
+simbodyBodies SimbodyBodiesStruct   1
 

@@ -2,7 +2,7 @@
 // Nicolas Van der Noot
 //
 // Creation : 19-Sep-2013
-// Last update : Fri May 16 15:18:54 2014
+// Last update : Wed May 21 13:25:33 2014
 //---------------------------
 
 #ifndef ControllerStruct_h
@@ -11,7 +11,7 @@
 
 // ---- Structures definitions (typedef) ---- //
 
-// ControllerInputsStruc
+// ControllerInputsStructStruc
 typedef struct ControllerInputsStruct
 {
     double tsim;
@@ -19,7 +19,7 @@ typedef struct ControllerInputsStruct
 } ControllerInputsStruct;
 
 
-// ControllerOutputsStruc
+// ControllerOutputsStructStruc
 typedef struct ControllerOutputsStruct
 {
     double q_ref[4];
@@ -29,11 +29,11 @@ typedef struct ControllerOutputsStruct
 } ControllerOutputsStruct;
 
 
-// ControllerStruc
+// ControllerStructStruc
 typedef struct ControllerStruct
 {
-    ControllerInputsStruct *Inputs;
-    ControllerOutputsStruct *Outputs;
+    struct ControllerInputsStruct *Inputs;
+    struct ControllerOutputsStruct *Outputs;
 
 } ControllerStruct;
 
