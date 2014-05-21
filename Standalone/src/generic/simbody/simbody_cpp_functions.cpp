@@ -2,6 +2,7 @@
 
 #include "cmake_config.h"
 #include "simbody_cpp_functions.h"
+#include "SimbodyStruct.h"
 
 /////////////////////////////////////
 //function used by C and C++ code (must only use C compatible input/output types)
@@ -41,15 +42,15 @@ void* prepare_simbody(SimbodyBodiesStruct *simbodyBodies){
 	return (void*) p_simbodyVariables;
 }
 
-int loop_Simbody (void* p_simbodyVariables_void, SimbodyBodiesStruct* simbodyBodiesStruct) 
-{	
-	
-    ContactForce CF;
+int loop_Simbody (SimbodyStruct *simbodyStruct)
+{	   
+	ContactForce CF;
 	int index;
 	int i;    
 	int ContCount;
 
-	SimbodyVariables* p_simbodyVariables = (SimbodyVariables*)p_simbodyVariables_void;
+	SimbodyVariables* p_simbodyVariables = (SimbodyVariables*)simbodyStruct->p_simbodyVariables;
+	SimbodyBodiesStruct* simbodyBodiesStruct = simbodyStruct->simbodyBodies;
 
 	// I'm getting all the system variables 
 	MultibodySystem *p_system = p_simbodyVariables->p_system;

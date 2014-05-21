@@ -240,11 +240,11 @@ void loop_simulation(Loop_inputs *loop_inputs)
          * Simbody external forces
          */
         #ifdef SIMBODY
-        // kinematics from Robotran
+        // kinematics from Robotran shared to simbody
         update_simbody_kinematics(MBSdata->user_IO->simbodyStruct->simbodyBodies, MBSdata);
         
         // Simbody functions
-        loop_Simbody(MBSdata->user_IO->simbodyStruct->p_simbodyVariables, MBSdata->user_IO->simbodyStruct->simbodyBodies);
+        loop_Simbody(MBSdata->user_IO->simbodyStruct);
         #endif
 
         /*

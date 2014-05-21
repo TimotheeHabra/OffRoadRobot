@@ -12,10 +12,11 @@ extern "C" {
 #endif
 
 	#include "SimbodyBodiesStruct.h"
+	#include "SimbodyStruct.h"
 
 	//note : SimbodyVariables* casted in void* for C compatibility
 	void* prepare_simbody(SimbodyBodiesStruct* p_simbodyBodiesStruct);  
-	int loop_Simbody (void* p_simbodyVariables, SimbodyBodiesStruct* simbodyBodiesStruct);
+	int loop_Simbody (SimbodyStruct *simbodyStruct); 
 	void free_Simbody(void* p_simbodyVariables);
 
 #ifdef __cplusplus
