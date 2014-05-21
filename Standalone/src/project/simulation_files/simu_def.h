@@ -17,6 +17,11 @@
 #include "ControllersStruct.h"
 #include "nrutil.h"
 
+#ifdef SIMBODY
+#include "simbody_cpp_functions.h"
+#include "simbody_functions.h"
+#endif
+
 
 // ---- Constants & Macros ---- //
 

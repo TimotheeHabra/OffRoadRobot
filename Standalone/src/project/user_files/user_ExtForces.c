@@ -44,8 +44,18 @@ double* user_ExtForces(double PxF[4], double RxF[4][4],
 	dxF[3] = MBSdata->dpt[3][idpt];
 
 	#ifdef SIMBODY
-	simbodyBodies = uvs->simbodyStruct->simbodyBodies;
-	
+
+	if(ixF == 1)  //compute all the forces at once (arbitrary for 1st external force) (else compute same thing for each force sensors) 
+	{
+	// 1) Simbody receives kinematics from Robotran
+    update_simbody_kinematics(MBSdata->user_IO->simbodyStruct->simbodyBodies, MBSdata);
+        
+    // 2) Simbody computes contact force
+    loop_Simbody(MBSdata->user_IO->simbodyStruct);
+	}
+
+	// 3) Simbody sends contact force to robotran dynamics
+	simbodyBodies = uvs->simbodyStruct->simbodyBodies;	
 	for(i=0; i<simbodyBodies->nb_contact_bodies; i++)
 	{
 	 	if (ixF == simbodyBodies->F_sensor_Robotran_index[i])
