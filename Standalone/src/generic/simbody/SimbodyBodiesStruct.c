@@ -1,8 +1,7 @@
+#ifdef SIMBODY
 
 #include "SimbodyBodiesStruct.h"
 #include "useful_functions.h"
-
-#ifdef SIMBODY
 
 SimbodyBodiesStruct *init_SimbodyBodiesStruct()
 {
@@ -61,17 +60,6 @@ SimbodyBodiesStruct *init_SimbodyBodiesStruct()
 void free_SimbodyBodiesStruct(SimbodyBodiesStruct *simbodyBodiesStruct)
 {
 	free(simbodyBodiesStruct);
-}
-
-#else
-
-SimbodyBodiesStruct *init_SimbodyBodiesStruct()
-{
-	return NULL;
-}
-
-void free_SimbodyBodiesStruct(SimbodyBodiesStruct *simbodyBodiesStruct)
-{
 }
 
 #endif

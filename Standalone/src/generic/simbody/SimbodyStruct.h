@@ -16,10 +16,7 @@ typedef struct SimbodyStruct
 
 #else
 
-typedef struct SimbodyStruct
-{
-	int nothing;
-} SimbodyStruct;
+typedef void* SimbodyStruct;
 
 #endif
 

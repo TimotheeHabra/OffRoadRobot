@@ -24,6 +24,7 @@ void free_SimbodyStruct(SimbodyStruct* simbodyStruct)
 {
 	free_SimbodyBodiesStruct(simbodyStruct->simbodyBodies);
 	free_Simbody(simbodyStruct->p_simbodyVariables);
+
 	free(simbodyStruct);
 }
 

@@ -3,7 +3,6 @@
 
 #ifdef SIMBODY
 
-
 // S sensors
 #define S_FR_Sensor 1
 #define S_FL_Sensor 2
@@ -36,18 +35,9 @@ typedef struct SimbodyBodiesStruct
 
 } SimbodyBodiesStruct;
 
-
-
-#else
-
-typedef struct SimbodyBodiesStruct
-{
-	int nothing;
-} SimbodyBodiesStruct;
-
-#endif
-
 SimbodyBodiesStruct *init_SimbodyBodiesStruct();
 void free_SimbodyBodiesStruct(SimbodyBodiesStruct *simbodyBodiesStruct);
+
+#endif
 
 #endif
