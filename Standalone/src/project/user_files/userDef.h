@@ -12,5 +12,6 @@
 /*--------------------*/
 
 #include "SimbodyBodiesStruct.h"
+#include "SimbodyStruct.h"
 /*--------------------*/
 #endif

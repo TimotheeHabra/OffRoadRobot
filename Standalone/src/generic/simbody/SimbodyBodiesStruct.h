@@ -1,5 +1,5 @@
-#ifndef __SIMBODYSTRUCT_H__
-#define __SIMBODYSTRUCT_H__
+#ifndef __SIMBODY_BODIES_STRUCT_H__
+#define __SIMBODY_BODIES_STRUCT_H__
 
 #ifdef SIMBODY
 

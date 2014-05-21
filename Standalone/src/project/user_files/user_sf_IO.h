@@ -2,7 +2,7 @@
  *
  *  user_sf_IO.h
  * 
- *  Generation date: Wed May 21 13:25:33 2014
+ *  Generation date: Wed May 21 14:06:53 2014
 
  * 
  *  (c) Universite catholique de Louvain
@@ -28,6 +28,7 @@ typedef struct UserIOStruct
     double output2[10+1];
     ControllerStruct *cvs;
     SimbodyBodiesStruct *simbodyBodies;
+    SimbodyStruct *simbodyStruct;
 
 } UserIOStruct;
 
