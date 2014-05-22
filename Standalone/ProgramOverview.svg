@@ -938,22 +938,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.67428571"
+     inkscape:zoom="0.953584"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      objecttolerance="10000"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
-     inkscape:window-x="1745"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      inkscape:snap-to-guides="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:cx="704.87288"
-     inkscape:cy="681.87237">
+     inkscape:cx="429.88801"
+     inkscape:cy="1062.5431">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -3097,7 +3097,7 @@
     </g>
     <g
        id="g3017-9-2-3-4-5-1-6"
-       transform="translate(-84.611319,-190.40099)">
+       transform="translate(-104.61132,-192.40099)">
       <rect
          ry="5.8333335"
          y="127.36218"
@@ -3167,37 +3167,37 @@
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4"
-       y="-44.865437"
-       x="382.80338"
+       y="-46.838699"
+       x="362.80069"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="-44.865437"
-         x="382.80338"
+         y="-46.838699"
+         x="362.80069"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8"
          sodipodi:role="line">initialize user_IO structure</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2"
-       y="26.966167"
-       x="449.43353"
+       y="24.99291"
+       x="429.43085"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="26.966167"
-         x="449.43353"
+         y="24.99291"
+         x="429.43085"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8"
          sodipodi:role="line">initialize controller inputs based on simulation initial state</tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="43.216167"
-         x="449.43353"
+         y="41.242912"
+         x="429.43085"
          sodipodi:role="line"
          id="tspan11046" /></text>
     <g
        id="g3017-9-2-3-4-5-1-8-5-1-2-3-8"
-       transform="translate(-11.122186,-67.675368)">
+       transform="translate(-31.122186,-69.675368)">
       <rect
          ry="5.8333335"
          y="127.36218"
@@ -3254,24 +3254,24 @@
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8"
-       y="84.645294"
-       x="450.34293"
+       y="82.672073"
+       x="430.34024"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="84.645294"
-         x="450.34293"
+         y="82.672073"
+         x="430.34024"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3"
          sodipodi:role="line">initialize parameters of the controller</tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="100.89529"
-         x="450.34293"
+         y="98.922073"
+         x="430.34024"
          sodipodi:role="line"
          id="tspan11046-5" /></text>
     <g
        id="g3017-9-2-3-4-5-1-1-7"
-       transform="translate(-14.070969,-124.04596)">
+       transform="translate(-34.070969,-126.04596)">
       <rect
          ry="5.8333335"
          y="127.36218"
@@ -3327,7 +3327,7 @@
     </g>
     <g
        id="g3017-9-2-6-2-2-3-3"
-       transform="translate(-84.563391,-247.05111)">
+       transform="translate(-104.56339,-249.05111)">
       <rect
          ry="5.8333335"
          y="127.36218"
@@ -3915,5 +3915,24 @@
          x="403.57669"
          sodipodi:role="line"
          id="tspan11046-5-9-6-6-7-6">Compute direct dynamics</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
+       d="m 25,145 0,40 15,0"
+       id="path3634"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-347.63782)"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow1Mend-521)"
+       d="m 60,205 0,40 15,0"
+       id="path6036"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-347.63782)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
+       d="m 60,245 0,55 15,0"
+       id="path6658"
+       inkscape:connector-curvature="0"
+       transform="translate(0,-347.63782)" />
   </g>
 </svg>
