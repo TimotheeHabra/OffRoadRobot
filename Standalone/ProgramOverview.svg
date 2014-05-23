@@ -1078,22 +1078,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
+     inkscape:zoom="1.4142136"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      objecttolerance="10000"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
-     inkscape:window-x="1745"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      inkscape:snap-to-guides="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:cx="140.06023"
-     inkscape:cy="787.08177">
+     inkscape:cx="676.97369"
+     inkscape:cy="677.6628">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -2114,7 +2114,7 @@
            y="142.36218"
            x="190"
            id="tspan2991-4-54-45-9-7-3-0-3-3-8"
-           sodipodi:role="line">dirdynared</tspan></text>
+           sodipodi:role="line">deriv</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text2989-7-8-18-5-2-5-9-2-8-6"
@@ -2126,7 +2126,7 @@
            y="162.36218"
            x="185"
            id="tspan2991-4-7-2-6-2-8-1-3-1-0"
-           sodipodi:role="line">generic/robotran/</tspan></text>
+           sodipodi:role="line">generic/integrator/</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text2989-7-8-1-5-1-3-6-5-7-8-6"
@@ -2158,7 +2158,7 @@
          y="544.3418"
          x="521.95032"
          sodipodi:role="line"
-         id="tspan11046-5-9-6-6-7-6">Compute direct dynamics </tspan><tspan
+         id="tspan11046-5-9-6-6-7-6">Compute direct dynamics and user derivatives </tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
          y="560.5918"
          x="521.95032"
