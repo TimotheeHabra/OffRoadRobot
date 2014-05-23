@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="ProgramOverview.png"
+   sodipodi:docname="ProgramOverview.svg"
    inkscape:export-filename="./DirectDynamicsDiagram3.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
@@ -1078,22 +1078,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
+     inkscape:zoom="0.70710678"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      objecttolerance="10000"
      inkscape:window-width="1615"
      inkscape:window-height="1026"
-     inkscape:window-x="65"
+     inkscape:window-x="1745"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:snap-grids="false"
      inkscape:snap-to-guides="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:cx="435.25122"
-     inkscape:cy="441.70855">
+     inkscape:cx="140.06023"
+     inkscape:cy="787.08177">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -1116,7 +1116,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1187,30 +1187,26 @@
     <g
        id="g3017-9-2-3-4-6-6"
        transform="translate(195,350)" />
-    <g
-       id="g7231"
-       transform="translate(-76.978974,140.45615)">
-      <rect
-         style="fill:#8080ff;fill-opacity:1;stroke:#000000;stroke-width:0.60672885;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         id="rect2987-1-27-3-6-3"
-         width="105.39122"
-         height="20.193272"
-         x="101.87291"
-         y="872.47369"
-         ry="3.3655453" />
-      <text
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         x="108.04099"
-         y="886.14172"
-         id="text2989-7-9-4-1-2"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan2991-4-54-4-8-6"
-           x="108.04099"
-           y="886.14172"
-           style="font-size:12px;font-style:italic;text-align:start;text-anchor:start">Middleware???</tspan></text>
-    </g>
+    <rect
+       ry="3.3655453"
+       y="1012.9299"
+       x="24.893936"
+       height="20.193272"
+       width="105.39122"
+       id="rect2987-1-27-3-6-3"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.60672884999999999;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text2989-7-9-4-1-2"
+       y="1026.5979"
+       x="31.062019"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:12px;font-style:italic;text-align:start;text-anchor:start"
+         y="1026.5979"
+         x="31.062019"
+         id="tspan2991-4-54-4-8-6"
+         sodipodi:role="line">Middleware???</tspan></text>
     <g
        id="g6408-4"
        transform="translate(-28.580857,237.59896)">
