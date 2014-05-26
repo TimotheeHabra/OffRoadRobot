@@ -35,7 +35,7 @@ try
 	std::ifstream meshFileGr;
 	PolygonalMesh GroundMesh;
 		printf("1. Open mesh-file %s ...","ground_mine.obj");
-		meshFileGr.open(PROJECT_ABS_PATH"/src/generic/simbody/ground_mine.obj"); 
+		meshFileGr.open(PROJECT_ABS_PATH"/src/project/simbody/ground_mine.obj"); 
 		printf(" succeed! \n");
 		printf("2. Load a mesh from Obj-file ... ");
 		GroundMesh.loadObjFile(meshFileGr); 
@@ -76,7 +76,7 @@ try
 	std::ifstream meshFile1;
 	PolygonalMesh WheelMesh;
 		printf("1. Open mesh-file %s ...","Leg_AllTerrainRobot.obj");
-		meshFile1.open(PROJECT_ABS_PATH"/src/generic/simbody/Leg_AllTerrainRobot.obj"); 
+		meshFile1.open(PROJECT_ABS_PATH"/src/project/simbody/Leg_AllTerrainRobot.obj"); 
 		printf(" succeed! \n");
 		printf("2. Load a mesh from Obj-file ... ");
 		WheelMesh.loadObjFile(meshFile1); 

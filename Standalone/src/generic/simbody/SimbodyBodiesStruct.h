@@ -3,7 +3,7 @@
 
 #ifdef SIMBODY
 
-#include "SimbodyBodiesStruct_proj.h"
+#include "SimbodyBodiesDefinitions.h"
 
 typedef struct SimbodyBodiesStruct
 {
