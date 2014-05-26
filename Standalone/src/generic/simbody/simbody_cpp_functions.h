@@ -35,13 +35,7 @@ extern "C" {
 	#include <iostream>
 	#include <fstream>
 	#include <string>
-	#include "SimTKcommon/internal/Mat.h"
-	#include "SimTKcommon/internal/Rotation.h"
-	#include "SimTKcommon/internal/Quaternion.h"
-	#include "simbody/internal/ElasticFoundationForce.h"
-	#include "simbody/internal/CompliantContactSubsystem.h"
-	#include "simmath/internal/Contact.h"
-	
+		
 	using namespace SimTK;
 	
 	typedef struct SimbodyVariables SimbodyVariables;

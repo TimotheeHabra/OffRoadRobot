@@ -1,12 +1,13 @@
 #ifdef SIMBODY
 
 #include "SimbodyBodiesStruct.h"
-#include "useful_functions.h"
+//#include "useful_functions.h"
 
 SimbodyBodiesStruct *init_SimbodyBodiesStruct()
 {
 	int i, j;
-
+	int S_Sensors_array[NB_CONTACT_BODIES] = S_SENSORS_ARRAY;
+	int F_Sensors_array[NB_CONTACT_BODIES] = F_SENSORS_ARRAY;
 
 	SimbodyBodiesStruct *simbodyBodiesStruct;
 
@@ -14,26 +15,12 @@ SimbodyBodiesStruct *init_SimbodyBodiesStruct()
 
 	simbodyBodiesStruct->nb_contact_bodies = NB_CONTACT_BODIES;
 
-	
-	simbodyBodiesStruct->S_sensor_Robotran_index[0] = S_FR_Sensor;
-	simbodyBodiesStruct->F_sensor_Robotran_index[0] = F_FR_Sensor;
-	simbodyBodiesStruct->Simbody_index[0]           = 1;
-
-	simbodyBodiesStruct->S_sensor_Robotran_index[1] = S_FL_Sensor;
-	simbodyBodiesStruct->F_sensor_Robotran_index[1] = F_FL_Sensor;
-	simbodyBodiesStruct->Simbody_index[1]           = 2;
-
-	simbodyBodiesStruct->S_sensor_Robotran_index[2] = S_RL_Sensor;
-	simbodyBodiesStruct->F_sensor_Robotran_index[2] = F_RL_Sensor;
-	simbodyBodiesStruct->Simbody_index[2]           = 3;
-
-	simbodyBodiesStruct->S_sensor_Robotran_index[3] = S_RR_Sensor;
-	simbodyBodiesStruct->F_sensor_Robotran_index[3] = F_RR_Sensor;
-	simbodyBodiesStruct->Simbody_index[3]           = 4;
-
-
 	for(i=0; i<NB_CONTACT_BODIES; i++)
 	{
+		simbodyBodiesStruct->S_sensor_Robotran_index[i] = S_Sensors_array[i];
+		simbodyBodiesStruct->F_sensor_Robotran_index[i] = F_Sensors_array[i];
+		simbodyBodiesStruct->Simbody_index[i]           = 1;
+		
 		for(j=0; j<3; j++)
 		{
 			simbodyBodiesStruct->abs_pos[i][j]   = 0.0;

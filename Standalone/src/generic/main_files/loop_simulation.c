@@ -12,11 +12,6 @@
 #include "write_files.h"
 #endif
 
-#ifdef SIMBODY
-#include "simbody_cpp_functions.h"
-#include "simbody_functions.h"
-#endif
-
 void loop_simulation(Loop_inputs *loop_inputs)
 {
     // -- Variables decalration -- //

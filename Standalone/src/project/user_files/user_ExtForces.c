@@ -99,7 +99,7 @@ void point_contact_model(double PxF[4], double RxF[4][4],
 					   MBSdataStruct *MBSdata, double tsim,
 					   int ixF, double *dxF, double *SWr)
 {
-	int i;
+
 	double Fx=0.0, Fy=0.0, Fz=0.0;
 	double Mx=0.0, My=0.0, Mz=0.0;
 

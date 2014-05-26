@@ -3,19 +3,7 @@
 
 #ifdef SIMBODY
 
-// S sensors
-#define S_FR_Sensor 1
-#define S_FL_Sensor 2
-#define S_RL_Sensor 4
-#define S_RR_Sensor 3
-
-// F sensors
-#define F_FR_Sensor 1
-#define F_FL_Sensor 2
-#define F_RL_Sensor 4
-#define F_RR_Sensor 3
-
-#define NB_CONTACT_BODIES 4
+#include "SimbodyBodiesStruct_proj.h"
 
 typedef struct SimbodyBodiesStruct
 {
