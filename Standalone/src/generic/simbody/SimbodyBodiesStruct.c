@@ -39,6 +39,9 @@ SimbodyBodiesStruct *init_SimbodyBodiesStruct()
 
 	}
 
+	fill_bodies_contact_properties(simbodyBodiesStruct->BodyContProp, NB_CONTACT_BODIES);
+    fill_ground_contact_properties(&simbodyBodiesStruct->GroundContProp);
+
 	return simbodyBodiesStruct;
 
 }

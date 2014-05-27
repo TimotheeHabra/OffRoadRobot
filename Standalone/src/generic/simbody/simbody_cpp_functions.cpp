@@ -177,5 +177,153 @@ void free_Simbody(void* p_simbodyVariables_void)
 	delete(p_simbodyVariables);
 }
 
+////////////////////////////////////
+//function used by C++ code only
+/////////////////////////////////////
+
+int init_Simbody(SimbodyVariables *p_simbodyVariables, SimbodyBodiesStruct *p_simbodyBodiesStruct)
+{
+try
+  { 
+	
+	MultibodySystem *p_system = p_simbodyVariables->p_system;
+	SimbodyMatterSubsystem *p_matter = p_simbodyVariables->p_matter;
+	State *p_state = p_simbodyVariables->p_state;
+
+// this part of the code means that there is a ground z = 0;	
+//const Rotation R_zdown(Pi/2.,YAxis);
+//p_matter->Ground().updBody().addContactSurface(
+//       Transform(R_zdown, Vec3(0,0,0)),
+//       ContactSurface(ContactGeometry::HalfSpace(),
+//                      ContactMaterial(k,c,us,ud,uv))); // here we add ground "z+" - is available halfspace.
+
+	// creates a mesh for a ground:
+	
+	ContactPropertiesStruct* GrContProp;
+	ContactPropertiesStruct* CurBodyContProp;
+
+	GrContProp = &(p_simbodyBodiesStruct->GroundContProp);
+	
+
+	std::ifstream meshFileGr;
+	PolygonalMesh GroundMesh;
+	char FileName[FILENAME_MAX];
+	printf("1. Open mesh-file %s ...",GrContProp->FileName);
+	sprintf(FileName,"%s%s%s",PROJECT_ABS_PATH,"/src/project/simbody/",GrContProp->FileName);	
+	meshFileGr.open(FileName); 
+	//	meshFileGr.open(PROJECT_ABS_PATH"/src/project/simbody/ground_mine.obj"); 
+
+		printf(" succeed! \n");
+		printf("2. Load a mesh from Obj-file ... ");
+		GroundMesh.loadObjFile(meshFileGr); 
+		printf(" succeed! \n");
+	    meshFileGr.close();
+				
+		printf("3. Transform a mesh ... ");
+		GroundMesh.scaleMesh(GrContProp->ScaleFactor);
+		const Rotation R_x(GrContProp->Rotation[0]*Pi/180.,XAxis);
+		const Rotation R_y(GrContProp->Rotation[1]*Pi/180.,YAxis);
+		const Rotation R_z(GrContProp->Rotation[2]*Pi/180.,ZAxis);
+
+		GroundMesh.transformMesh(Transform(R_x*R_y*R_z,Vec3(GrContProp->Transform))); //TODO check the order of rotations!
+		printf(" succeed! \n");
+
+// apply a contactGeometry for Ground
+	printf("4. Convert a polygonal mesh to triangle mesh ... ");
+
+	ContactGeometry::TriangleMesh GroundTrM(GroundMesh); 
+
+	printf(" succeed! \n");
+	printf("Number of faces = %i\n",GroundTrM.getNumFaces());
+	printf("5. Add contact surface ... ");
+	p_matter->Ground().updBody().addContactSurface(Transform(Vec3(0,0,0)),
+							   ContactSurface(GroundTrM,
+											   ContactMaterial(GrContProp->k,GrContProp->c,GrContProp->us,GrContProp->ud,GrContProp->uv),
+											   GrContProp->thickness) 
+											   );
+	printf(" succeed! \n\n");//*/
+#ifdef VIZ
+	DecorativeMesh showGround = DecorativeMesh(GroundMesh);
+	p_matter->updGround().addBodyDecoration(Transform(Vec3(0,0,0)),showGround);
+#endif
+   
+	const Vec3 comLoc(0, 0, 0);  // Location of the center of mass
+// set the mass-inertial properties of the body. These parameters might be arbitrary
+	const Inertia centralInertia(Vec3(17,2,16), Vec3(0,0,.2)); // 
+	const Real BoxMass = 1.0;// kg -> not used
+
+	int i;
+	for (i=0;i<p_simbodyBodiesStruct->nb_contact_bodies;i++)
+	{
+	// creates a mesh for a wheel:
+		
+		Body::Rigid Body(MassProperties(BoxMass, comLoc, centralInertia));
+		CurBodyContProp = &(p_simbodyBodiesStruct->BodyContProp[i]);
+		char BodyFileName[FILENAME_MAX];
+		std::ifstream meshFile1;
+	    PolygonalMesh BodyMesh;
+		
+		printf("1. Open mesh-file %s ...",CurBodyContProp->FileName);
+	    sprintf(BodyFileName,"%s%s%s",PROJECT_ABS_PATH,"/src/project/simbody/",CurBodyContProp->FileName);	
+	    meshFile1.open(BodyFileName); 
+		
+		printf(" succeed! \n");
+		printf("2. Load a mesh from Obj-file ... ");
+		BodyMesh.loadObjFile(meshFile1); 
+		printf(" succeed! \n");
+	    meshFile1.close();
+				
+		printf("3. Transform a mesh ... ");
+
+		BodyMesh.scaleMesh(CurBodyContProp->ScaleFactor);
+		const Rotation R_1(CurBodyContProp->Rotation[0]*Pi/180.,XAxis);
+		const Rotation R_2(CurBodyContProp->Rotation[1]*Pi/180.,YAxis);
+		const Rotation R_3(CurBodyContProp->Rotation[2]*Pi/180.,ZAxis);
+
+		BodyMesh.transformMesh(Transform(R_1*R_2*R_3,Vec3(CurBodyContProp->Transform))); //TODO check the order of rotations!
+		printf(" succeed! \n");
+				
+
+    // apply a contactGeometry for WheelBody
+	printf("4. Convert a polygonal mesh to triangle mesh ... ");
+
+	ContactGeometry::TriangleMesh BodyTrM(BodyMesh); 
+
+	printf(" succeed! \n");
+	printf("Number of faces = %i\n",BodyTrM.getNumFaces());
+	printf("5. Add contact surface ... ");
+	Body.addContactSurface(Transform(Vec3(0,0,0)),
+							   ContactSurface(BodyTrM,
+											   ContactMaterial(CurBodyContProp->k,CurBodyContProp->c,CurBodyContProp->us,CurBodyContProp->ud,CurBodyContProp->uv),
+											   CurBodyContProp->thickness) 
+											   );
+	printf(" succeed! \n\n");
+
+// it is only for visualization. Doesn't work under Linux
+ 	#ifdef VIZ
+    //DecorativeMesh showGround = DecorativeMesh(GroundMesh);
+	//Ground.addBodyDecoration(showGround);
+    DecorativeMesh showBox = DecorativeMesh(WheelMesh);
+	WheelBody.addDecoration(Transform(), showBox.setColor(Red).setOpacity(1).setRepresentation(SimTK::DecorativeGeometry::Representation(0)));
+    #endif // VIZ
+
+	MobilizedBody::Free MobBody(p_matter->Ground(), Transform(Vec3(0)),
+        Body, Transform(Vec3(0)));
+    	p_simbodyBodiesStruct->Simbody_index[i] = MobBody.getMobilizedBodyIndex(); 
+	}
+	
+	}
+ catch(const std::exception& e)
+	{
+		std::cout << e.what();
+		std::cout << "Press any key to exit..." << std::endl;
+		char extra;
+
+		std::cin >> extra;
+		
+		exit(0x30B08A); // code of error resembles my surname Zobova :)
+	}
+ return 0;
+}
 
 #endif
