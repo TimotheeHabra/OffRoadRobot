@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="ProgramOverview.svg"
+   sodipodi:docname="ProgramOverview.png"
    inkscape:export-filename="./DirectDynamicsDiagram3.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
@@ -1092,8 +1092,8 @@
      inkscape:snap-to-guides="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:cx="676.97369"
-     inkscape:cy="677.6628">
+     inkscape:cx="177.1958"
+     inkscape:cy="1215.0639">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -1116,7 +1116,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2114,7 +2114,7 @@
            y="142.36218"
            x="190"
            id="tspan2991-4-54-45-9-7-3-0-3-3-8"
-           sodipodi:role="line">deriv</tspan></text>
+           sodipodi:role="line">derivs</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text2989-7-8-18-5-2-5-9-2-8-6"
