@@ -107,9 +107,12 @@ void finish_simulation(Loop_inputs *loop_inputs)
     #endif
 
     // LocalDataStruct
-
     #if !defined ACCELRED
     freeLocalDataStruct(loop_inputs->lds,MBSdata);
+    #endif
+
+    #ifdef YARP
+    yarp_finish();
     #endif
 
     // MBSdata_xml
