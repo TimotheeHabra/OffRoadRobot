@@ -26,6 +26,10 @@
 #include "real_time.h"
 #endif
 
+#ifdef YARP
+#include "yarp_files.h"
+#endif
+
 // -- Macros -- //
 
 #define NB_SIMU_STEPS ( (int) ((TSIM_END - TSIM_INIT) / DELTA_TSIM) )

@@ -178,5 +178,9 @@ Loop_inputs* init_simulation(void)
     printf("Running integration of the model...\n");
     #endif
 
+    #ifdef YARP
+    yarp_init();
+    #endif
+
     return loop_inputs;
 } 
