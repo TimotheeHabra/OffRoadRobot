@@ -260,6 +260,11 @@ void loop_simulation(Loop_inputs *loop_inputs)
             nrerror("Step size too small in routine odeint");
         } 
 
+
+        #ifdef YARP
+            yarp_update();
+        #endif
+
         x += h;
 
         for (i=1;i<=nvar;i++)

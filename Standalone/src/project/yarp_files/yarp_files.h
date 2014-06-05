@@ -11,6 +11,7 @@ extern "C" {
 #endif
 
 void yarp_init(void);
+void yarp_update(void);
 void yarp_finish(void);
 
 #ifdef __cplusplus
