@@ -73,4 +73,19 @@ Loop_inputs* init_simulation(void);					// initialization
 void loop_simulation(Loop_inputs *loop_inputs);		// loop
 void finish_simulation(Loop_inputs *loop_inputs);	// end of the simulation
 
+
+// temporary YARP stuff
+#include <yarp/os/Network.h>
+#include <yarp/dev/Wrapper.h>
+#include <yarp/dev/PolyDriverList.h>
+
+
+
 #endif
+
+
+
+
+
+
+

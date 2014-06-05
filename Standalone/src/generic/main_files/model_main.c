@@ -32,8 +32,10 @@ void main_simulation()
 	loop_inputs = init_simulation();
 	
 	// simulation
+    // updateDataFromYarp(yarpDevice, controlDataStructure);
 	loop_simulation(loop_inputs);
 
+    // updateDataToYarp(controlDataStructure, yarpDevice);
     // end of the simulation
     finish_simulation(loop_inputs);
 }

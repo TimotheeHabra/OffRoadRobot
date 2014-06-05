@@ -5,6 +5,18 @@
 # CMakeLists used to compile the main sources files of the project
 #
 
+
+option(CREATE_SHARED_LIBRARY "Compile shared libraries rather than linking statically" TRUE)
+if (WIN32)
+  set(YARP_FILTER_API TRUE)
+endif (WIN32)
+
+if (CREATE_SHARED_LIBRARY)
+  set(BUILD_SHARED_LIBS ON)
+  set(YARP_DLL ON)
+endif()
+
+
 # list all source files to compile
 list_source_files_c(SOURCE_FILES_C)
 
@@ -71,12 +83,12 @@ endif(FLAG_SIMBODY)
 
 # YARP
 if (FLAG_YARP)
-    #TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} curl) 
-    TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES}) 
+    add_subdirectory(generic/robotran_yarp_plugin)
+    TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} robotranMotionControlPlugin robotranForceTorquePlugin)
 endif (FLAG_YARP)
 
 # files compiled as C++ files
 if (FLAG_CXX)
-	set_source_files_properties(${SOURCE_FILES_CPP} PROPERTIES LANGUAGE CXX )
+    set_source_files_properties(${SOURCE_FILES} PROPERTIES LANGUAGE CXX )
 endif (FLAG_CXX)
 
