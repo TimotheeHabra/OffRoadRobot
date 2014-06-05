@@ -88,7 +88,7 @@ if (FLAG_YARP)
 #### Find YARP, require that YARP version is at least ICUB_REQYARP_VERSION
 	find_package(YARP REQUIRED)
 	message(STATUS " YARP is version: ${YARP_VERSION} tweak number ${YARP_VERSION_TWEAK}")    
-	add_definitions(${YARP_DEFINES})
+	add_definitions(${YARP_DEFINES} -DYARP)
 	
     # pick up yarp's cmake scripts
     list(APPEND CMAKE_MODULE_PATH ${YARP_MODULE_PATH})
