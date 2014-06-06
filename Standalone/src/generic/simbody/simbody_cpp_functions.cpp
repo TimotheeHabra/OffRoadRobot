@@ -23,9 +23,10 @@ void* prepare_simbody(SimbodyBodiesStruct *simbodyBodies){
 
     init_Simbody(p_simbodyVariables, simbodyBodies);
     
-	#ifdef VIZ	
-	p_simbodyVariables->p_system->setUpDirection(+ZAxis); // that is for visualization only. The default direction is +X
-	Visualizer viz(system);
+	#ifdef SIMBODYVIZ	
+		printf ("\n !!! Visualization i Simbody is ON !!!\n");
+		p_simbodyVariables->p_system->setUpDirection(+ZAxis); // that is for visualization only. The default direction is +X
+		p_simbodyVariables->p_viz = new Visualizer(*(p_simbodyVariables->p_system));
 	#endif
 
     //it is "system" commands. We cannot avoid them.    
@@ -37,15 +38,13 @@ void* prepare_simbody(SimbodyBodiesStruct *simbodyBodies){
     //it is "system" command. We cannot avoid them. 
     p_simbodyVariables->p_system->realizeModel(*p_simbodyVariables->p_state);
 
-	#ifdef VIZ
-		p_simbodyVariables->p_viz = &viz;
-	#endif
-
 	return (void*) p_simbodyVariables;
 }
 
 int loop_Simbody (SimbodyStruct *simbodyStruct)
 {	   
+	try
+  { 
 	ContactForce CF;
 	int index;
 	int i;    
@@ -60,7 +59,7 @@ int loop_Simbody (SimbodyStruct *simbodyStruct)
 	ContactTrackerSubsystem  *p_tracker = p_simbodyVariables->p_tracker; 
     CompliantContactSubsystem *p_contactForces = p_simbodyVariables->p_contactForces;
     State* p_state = p_simbodyVariables->p_state;
-	#ifdef VIZ		
+	#ifdef SIMBODYVIZ		
 	   Visualizer *p_viz = p_simbodyVariables->p_viz;
 	#endif
 	
@@ -96,9 +95,7 @@ int loop_Simbody (SimbodyStruct *simbodyStruct)
 //"system" operations - on this stage it computes all the active contacts 	
 	p_system->realize(*p_state,Stage::Dynamics);
 	p_state->autoUpdateDiscreteVariables();	
-	#ifdef VIZ
-		p_viz->report(*p_state);
-    #endif
+
 	//I'm getting the information about Active Contacts
 	int NumofCont = p_contactForces->getNumContactForces(*p_state);
 	
@@ -160,6 +157,17 @@ int loop_Simbody (SimbodyStruct *simbodyStruct)
 	          simbodyBodiesStruct->torque_bodies[i][2] += -mom[2] - CP1[0]*frc[1] + CP1[1]*frc[0];//*/
 	  	  }
 	  }
+	}
+	}
+ catch(const std::exception& e)
+	{
+		std::cout << e.what();
+		std::cout << "Press any key to exit..." << std::endl;
+		char extra;
+
+		std::cin >> extra;
+		
+		exit(0x30B08A); // code of error resembles my surname Zobova :)
 	}
    return 0;
 }
@@ -242,7 +250,7 @@ try
 											   GrContProp->thickness) 
 											   );
 	printf(" succeed! \n\n");//*/
-#ifdef VIZ
+#ifdef SIMBODYVIZ
 	DecorativeMesh showGround = DecorativeMesh(GroundMesh);
 	p_matter->updGround().addBodyDecoration(Transform(Vec3(0,0,0)),showGround);
 #endif
@@ -299,12 +307,10 @@ try
 											   );
 	printf(" succeed! \n\n");
 
-// it is only for visualization. Doesn't work under Linux
- 	#ifdef VIZ
-    //DecorativeMesh showGround = DecorativeMesh(GroundMesh);
-	//Ground.addBodyDecoration(showGround);
-    DecorativeMesh showBox = DecorativeMesh(WheelMesh);
-	WheelBody.addDecoration(Transform(), showBox.setColor(Red).setOpacity(1).setRepresentation(SimTK::DecorativeGeometry::Representation(0)));
+// it is only for visualization. Doesn't work with Linux
+ 	#ifdef SIMBODYVIZ
+		DecorativeMesh showBox = DecorativeMesh(BodyMesh);
+		Body.addDecoration(Transform(), showBox.setColor(Red).setOpacity(1).setRepresentation(SimTK::DecorativeGeometry::Representation(0)));
     #endif // VIZ
 
 	MobilizedBody::Free MobBody(p_matter->Ground(), Transform(Vec3(0)),

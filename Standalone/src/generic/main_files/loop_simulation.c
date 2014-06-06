@@ -12,6 +12,10 @@
 #include "write_files.h"
 #endif
 
+#ifdef SIMBODYVIZ
+#include "simbody_viz.h"
+#endif
+
 void loop_simulation(Loop_inputs *loop_inputs)
 {
     // -- Variables decalration -- //
@@ -168,6 +172,10 @@ void loop_simulation(Loop_inputs *loop_inputs)
                 if (i == 1)
                 {
                     update_jni(jni_struct, MBSdata, real_time);
+					#ifdef SIMBODYVIZ
+					reportSimbody((void *)MBSdata->user_IO->simbodyStruct->p_simbodyVariables);
+					#endif
+
                 }                
                 #endif
                 
@@ -231,17 +239,7 @@ void loop_simulation(Loop_inputs *loop_inputs)
         }
         #endif
 
-        /*
-         * Simbody external forces
-         */
-        #ifdef SIMBODY
-        //// kinematics from Robotran shared to simbody
-        //update_simbody_kinematics(MBSdata->user_IO->simbodyStruct->simbodyBodies, MBSdata);
-        //
-        //// Simbody functions
-        //loop_Simbody(MBSdata->user_IO->simbodyStruct);
-        #endif
-
+       
         /*
          * Main routine of the integrator.
          *

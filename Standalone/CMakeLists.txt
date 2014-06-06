@@ -79,7 +79,6 @@ endif (NOT FLAG_CXX)
 
 if (FLAG_SIMBODY)
 	set(FLAG_GCM OFF)
-	message("Do not use custom-made GCM together with Simbody!")
 endif (FLAG_SIMBODY)
 
 if (NOT FLAG_SIMBODY)
@@ -416,7 +415,7 @@ endif (FLAG_SIMBODY)
 
 # Simbody Vizualization
 if (FLAG_SIMBODYVIZ)
-	add_definitions ( -DSIMBODYVIZ)
+	add_definitions ( -DSIMBODYVIZ )
 endif (FLAG_SIMBODYVIZ)
 	
 

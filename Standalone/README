@@ -206,6 +206,8 @@ FLAG_SDL           ->    ON: SDL framework used to plot the graphs and to intera
 
 FLAG_SIMBODY       ->    ON: Simbody used to handle the contacts (work in progress -> keep OFF) - OFF: no Simbody feature                                                                             
 
+FLAG_SIMBODYVIZ	   ->    (only for Windows) ON: Simbody shows bodies with contact in Simbody World (OpenGL)
+
 FLAG_STOP          ->    ON: Stop the simulation when 'MBSdata->user_IO->stop_out' is set to 1 - OFF: not activated                                                                              
 
 FLAG_WRITE_FILES   ->    ON: write the .anim file in ../animationR/ and the output verctors in src/other/outVectors/ - 

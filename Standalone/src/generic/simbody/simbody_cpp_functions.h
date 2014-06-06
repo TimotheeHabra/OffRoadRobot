@@ -1,5 +1,4 @@
 #ifdef SIMBODY
-//#define VIZ
 #ifndef _SIMBODY_CPP_FUNCTIONS_H_
 #define _SIMBODY_CPP_FUNCTIONS_H_
 
@@ -46,7 +45,7 @@ extern "C" {
 		ContactTrackerSubsystem  *p_tracker; 
 	    CompliantContactSubsystem *p_contactForces;
 		State *p_state;
-	#ifdef VIZ
+	#ifdef SIMBODYVIZ
 			Visualizer *p_viz;
 	#endif
 	};
