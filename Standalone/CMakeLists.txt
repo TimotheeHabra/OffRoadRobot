@@ -10,7 +10,7 @@
 
 # Yarp
 option(FLAG_YARP
-	"Robotran YARP Interface", OFF)
+	"Robotran YARP Interface" OFF)
 
 # compile with C++
 option (FLAG_CXX  
@@ -60,6 +60,10 @@ option (FLAG_SIMBODY
 option (FLAG_COMPLIANT 
         "Compliant feet" OFF) 
 
+# Simbody Vizualization
+option (FLAG_SIMBODYVIZ
+		"Simbody Vizualization" OFF)
+		
 # 3D model
 option (FLAG_3D 
         "3D model" ON) 
@@ -72,6 +76,20 @@ option (FLAG_RELEASE
 if (NOT FLAG_CXX)
 	set(FLAG_SIMBODY OFF)
 endif (NOT FLAG_CXX)
+
+if (FLAG_SIMBODY)
+	set(FLAG_GCM OFF)
+	message("Do not use custom-made GCM together with Simbody!")
+endif (FLAG_SIMBODY)
+
+if (NOT FLAG_SIMBODY)
+	set(FLAG_SIMBODYVIZ OFF)
+endif (NOT FLAG_SIMBODY)
+
+if (UNIX)
+	set(FLAG_SIMBODYVIZ OFF)
+endif (UNIX)
+
 
 if (NOT FLAG_REAL_TIME)
 	set(FLAG_SDL OFF)
@@ -396,6 +414,11 @@ if (FLAG_SIMBODY)
 		message("      -> LIB : ${SIMBODY_LIBRARIES}\n")
 endif (FLAG_SIMBODY)
 
+# Simbody Vizualization
+if (FLAG_SIMBODYVIZ)
+	add_definitions ( -DSIMBODYVIZ)
+endif (FLAG_SIMBODYVIZ)
+	
 
 # configure a header file to pass some of the CMake settings
 # to the source code
