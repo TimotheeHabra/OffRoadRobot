@@ -56,10 +56,6 @@ option (FLAG_GCM
 option (FLAG_SIMBODY 
         "Simbody" OFF) 
 
-# Compliant feet
-option (FLAG_COMPLIANT 
-        "Compliant feet" OFF) 
-
 # Simbody Vizualization
 option (FLAG_SIMBODYVIZ
 		"Simbody Vizualization" OFF)
@@ -322,10 +318,6 @@ endif (FLAG_WRITE_FILES)
 if (FLAG_PRINT_REPORT)
 	add_definitions( -DPRINT_REPORT )
 endif (FLAG_PRINT_REPORT)
-
-if (FLAG_COMPLIANT)
-	add_definitions( -DCOMP_COMAN )
-endif (FLAG_COMPLIANT)
 
 # real-time features
 if (FLAG_REAL_TIME)
