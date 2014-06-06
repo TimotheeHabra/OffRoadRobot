@@ -250,7 +250,9 @@ try
 	}
 	else
 	{
+		#ifdef SIMBODYVIZ
 		p_simbodyVariables->p_viz =&(p_simbodyVariables->p_viz->setBackgroundType(Visualizer::BackgroundType(1)));
+		#endif
 		const Rotation R_zdown(Pi/2.,YAxis);
 		p_matter->Ground().updBody().addContactSurface(Transform(R_zdown, Vec3(0,0,0)),
         ContactSurface(ContactGeometry::HalfSpace(),
