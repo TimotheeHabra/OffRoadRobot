@@ -19,6 +19,7 @@ typedef struct ContactPropertiesStruct
 	double Rotation[3]; //how to rotate a mesh
 	double Transform[3]; //how to shift a mesh
 	char FileName[LENGTHOFFILENAME];
+	int Geometry; // 0 means OneHalfSpace; 1 means mesh
 } ContactPropertiesStruct;
 
 typedef struct SimbodyBodiesStruct

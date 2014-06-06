@@ -19,15 +19,14 @@ void* prepare_simbody(SimbodyBodiesStruct *simbodyBodies){
     p_simbodyVariables->p_tracker       = new ContactTrackerSubsystem(*(p_simbodyVariables->p_system));
     p_simbodyVariables->p_contactForces = new CompliantContactSubsystem(*(p_simbodyVariables->p_system),*(p_simbodyVariables->p_tracker));
 
-	
-
-    init_Simbody(p_simbodyVariables, simbodyBodies);
-    
 	#ifdef SIMBODYVIZ	
-		printf ("\n !!! Visualization i Simbody is ON !!!\n");
 		p_simbodyVariables->p_system->setUpDirection(+ZAxis); // that is for visualization only. The default direction is +X
 		p_simbodyVariables->p_viz = new Visualizer(*(p_simbodyVariables->p_system));
 	#endif
+
+    init_Simbody(p_simbodyVariables, simbodyBodies);
+    
+
 
     //it is "system" commands. We cannot avoid them.    
     
@@ -198,28 +197,20 @@ try
 	SimbodyMatterSubsystem *p_matter = p_simbodyVariables->p_matter;
 	State *p_state = p_simbodyVariables->p_state;
 
-// this part of the code means that there is a ground z = 0;	
-//const Rotation R_zdown(Pi/2.,YAxis);
-//p_matter->Ground().updBody().addContactSurface(
-//       Transform(R_zdown, Vec3(0,0,0)),
-//       ContactSurface(ContactGeometry::HalfSpace(),
-//                      ContactMaterial(k,c,us,ud,uv))); // here we add ground "z+" - is available halfspace.
-
-	// creates a mesh for a ground:
-	
 	ContactPropertiesStruct* GrContProp;
 	ContactPropertiesStruct* CurBodyContProp;
 
 	GrContProp = &(p_simbodyBodiesStruct->GroundContProp);
 	
-
-	std::ifstream meshFileGr;
-	PolygonalMesh GroundMesh;
-	char FileName[FILENAME_MAX];
-	printf("1. Open mesh-file %s ...",GrContProp->FileName);
-	sprintf(FileName,"%s%s%s",PROJECT_ABS_PATH,"/src/project/simbody/",GrContProp->FileName);	
-	meshFileGr.open(FileName); 
-	//	meshFileGr.open(PROJECT_ABS_PATH"/src/project/simbody/ground_mine.obj"); 
+	if (GrContProp->Geometry == 1)
+	{
+	// creates a mesh for a ground:
+		std::ifstream meshFileGr;
+		PolygonalMesh GroundMesh;
+		char FileName[FILENAME_MAX];
+		printf("1. Open mesh-file %s ...",GrContProp->FileName);
+		sprintf(FileName,"%s%s%s",PROJECT_ABS_PATH,"/src/project/simbody/",GrContProp->FileName);	
+		meshFileGr.open(FileName); 
 
 		printf(" succeed! \n");
 		printf("2. Load a mesh from Obj-file ... ");
@@ -251,9 +242,22 @@ try
 											   );
 	printf(" succeed! \n\n");//*/
 #ifdef SIMBODYVIZ
+	p_simbodyVariables->p_viz =&( p_simbodyVariables->p_viz->setBackgroundType(Visualizer::BackgroundType(0)));
 	DecorativeMesh showGround = DecorativeMesh(GroundMesh);
-	p_matter->updGround().addBodyDecoration(Transform(Vec3(0,0,0)),showGround);
+	p_matter->updGround().addBodyDecoration(Transform(), showGround.setColor(Blue).setOpacity(1).setRepresentation(SimTK::DecorativeGeometry::Representation(2)));
+	p_matter->updGround().addBodyDecoration(Transform(), showGround.setColor(Gray).setOpacity(1).setRepresentation(SimTK::DecorativeGeometry::Representation(0)));
 #endif
+	}
+	else
+	{
+		p_simbodyVariables->p_viz =&(p_simbodyVariables->p_viz->setBackgroundType(Visualizer::BackgroundType(1)));
+		const Rotation R_zdown(Pi/2.,YAxis);
+		p_matter->Ground().updBody().addContactSurface(Transform(R_zdown, Vec3(0,0,0)),
+        ContactSurface(ContactGeometry::HalfSpace(),
+                       ContactMaterial(GrContProp->k,GrContProp->c,GrContProp->us,GrContProp->ud,GrContProp->uv)));
+	}
+	
+
    
 	const Vec3 comLoc(0, 0, 0);  // Location of the center of mass
 // set the mass-inertial properties of the body. These parameters might be arbitrary
@@ -288,7 +292,7 @@ try
 		const Rotation R_2(CurBodyContProp->Rotation[1]*Pi/180.,YAxis);
 		const Rotation R_3(CurBodyContProp->Rotation[2]*Pi/180.,ZAxis);
 
-		BodyMesh.transformMesh(Transform(R_1*R_2*R_3,Vec3(CurBodyContProp->Transform))); //TODO check the order of rotations!
+		BodyMesh.transformMesh(Transform(R_1*R_2*R_3,Vec3(CurBodyContProp->Transform))); 
 		printf(" succeed! \n");
 				
 

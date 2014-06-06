@@ -62,13 +62,13 @@
             <name>New_Shape</name>
             <position>
               <x>-2.5</x>
-              <y>-8.0</y>
-              <z>-0.1</z>
+              <y>-2.0</y>
+              <z>-0.05</z>
             </position>
             <scale>
-              <x>1.0</x>
-              <y>1.0</y>
-              <z>1.0</z>
+              <x>0.5</x>
+              <y>0.5</y>
+              <z>0.5</z>
             </scale>
             <rotation>
               <x>1.5707963267948966</x>
