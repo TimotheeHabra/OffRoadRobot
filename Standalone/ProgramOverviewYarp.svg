@@ -1106,7 +1106,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
+     inkscape:zoom="1"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1120,8 +1120,8 @@
      inkscape:snap-to-guides="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:cx="431.92197"
-     inkscape:cy="1010.2451">
+     inkscape:cx="718.55674"
+     inkscape:cy="1107.2246">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -1818,62 +1818,8 @@
          sodipodi:nodetypes="cc" />
     </g>
     <g
-       id="g3017-9-2-3-4-5-1-1-7-9"
-       transform="translate(-4.84256,120.62411)">
-      <rect
-         ry="5.8333335"
-         y="127.36218"
-         x="180"
-         height="39.999989"
-         width="270"
-         id="rect2987-1-27-1-2-9-0-0-0-3-2"
-         style="fill:#d4ff2a;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-9-7-4-2-2-9-7-5-0"
-         y="142.36218"
-         x="190"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
-           y="142.36218"
-           x="190"
-           id="tspan2991-4-54-45-6-5-7-4-7-09-3"
-           sodipodi:role="line">controller_inputs</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-18-9-9-1-2-1-58-5"
-         y="162.36218"
-         x="185"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:start;text-anchor:start"
-           y="162.36218"
-           x="185"
-           id="tspan2991-4-7-2-8-7-8-7-2-0-7"
-           sodipodi:role="line">project/simulation_files/</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-1-5-8-4-5-3-1-8-7"
-         y="162.36218"
-         x="445"
-         style="font-size:40px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:end;text-anchor:end"
-           y="162.36218"
-           x="445"
-           id="tspan2991-4-7-9-3-3-4-8-2-8-9-0"
-           sodipodi:role="line">.h</tspan></text>
-      <path
-         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         d="m 185,147.36218 260,0"
-         id="path4232-9-1-0-2-7-3-73-8"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cc" />
-    </g>
-    <g
        id="g3017-9-2-3-4-5-1-8-5-1-2-3-8-3"
-       transform="translate(-4.75624,215.49723)">
+       transform="translate(-4.75624,175.49723)">
       <rect
          ry="5.8333335"
          y="127.36218"
@@ -1928,109 +1874,55 @@
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-3"
-       y="370.52518"
-       x="465.42151"
+       y="324.87399"
+       x="461.11758"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="370.52518"
-         x="465.42151"
+         y="324.87399"
+         x="461.11758"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3-3"
          sodipodi:role="line">compute controller outputs</tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="386.77518"
-         x="465.42151"
+         y="341.12399"
+         x="461.11758"
          sodipodi:role="line"
          id="tspan11046-5-9" /></text>
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-3-4"
-       y="242.66748"
-       x="468.03827"
+       y="273.08438"
+       x="459.59366"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="242.66748"
-         x="468.03827"
+         y="273.08438"
+         x="459.59366"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3-3-6"
-         sodipodi:role="line">retrieve controller inputs from simulator</tspan><tspan
+         sodipodi:role="line">retrieve controller inputs from yarp</tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="258.91748"
-         x="468.03827"
+         y="289.33438"
+         x="459.59366"
          sodipodi:role="line"
          id="tspan11046-5-9-6" /></text>
-    <g
-       id="g3017-9-2-3-4-5-1-1-7-9-2"
-       transform="translate(-5.601425,260.3777)">
-      <rect
-         ry="5.8333335"
-         y="127.36218"
-         x="180"
-         height="39.999989"
-         width="270"
-         id="rect2987-1-27-1-2-9-0-0-0-3-2-2"
-         style="fill:#d4ff2a;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-9-7-4-2-2-9-7-5-0-2"
-         y="142.36218"
-         x="190"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
-           y="142.36218"
-           x="190"
-           id="tspan2991-4-54-45-6-5-7-4-7-09-3-9"
-           sodipodi:role="line">controller_outputs</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-18-9-9-1-2-1-58-5-3"
-         y="162.36218"
-         x="185"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:start;text-anchor:start"
-           y="162.36218"
-           x="185"
-           id="tspan2991-4-7-2-8-7-8-7-2-0-7-1"
-           sodipodi:role="line">project/simulation_files/</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-1-5-8-4-5-3-1-8-7-6"
-         y="162.36218"
-         x="445"
-         style="font-size:40px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:end;text-anchor:end"
-           y="162.36218"
-           x="445"
-           id="tspan2991-4-7-9-3-3-4-8-2-8-9-0-8"
-           sodipodi:role="line">.h</tspan></text>
-      <path
-         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         d="m 185,147.36218 260,0"
-         id="path4232-9-1-0-2-7-3-73-8-7"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cc" />
-    </g>
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-3-4-4"
-       y="414.78134"
-       x="468.70551"
+       y="371.496"
+       x="462.99051"
        style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
        transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="414.78134"
-         x="468.70551"
+         y="371.496"
+         x="462.99051"
          id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3-3-6-5"
-         sodipodi:role="line">send controller outputs to simulator</tspan><tspan
+         sodipodi:role="line">send controller outputs to yarp</tspan><tspan
          style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="431.03134"
-         x="468.70551"
+         y="387.746"
+         x="462.99051"
          sodipodi:role="line"
          id="tspan11046-5-9-6-6" /></text>
     <g
@@ -2254,13 +2146,13 @@
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
-       d="m 155,272.36218 0,90 20,0"
+       d="m 155,272.55635 0,45.80583 20,0"
        id="path6658-0-9-4-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
-       d="m 155,362.36218 0,50 20,0"
+       d="m 155,318.36218 0,50 20,0"
        id="path6658-0-9-4-5-8"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
@@ -2589,102 +2481,6 @@
        id="path4755"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
-    <g
-       id="g4617-84-5"
-       transform="translate(184.94793,337.05726)">
-      <rect
-         ry="5.8333335"
-         y="96.961182"
-         x="430.38867"
-         height="39.999989"
-         width="270"
-         id="rect2987-1-27-1-2-9-0-0-63-9-6-9"
-         style="fill:#ec1c0e;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-9-7-4-2-2-9-71-4-9-9"
-         y="111.96118"
-         x="440.38867"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#faf7f7;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#faf7f7;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
-           y="111.96118"
-           x="440.38867"
-           id="tspan2991-4-54-45-6-5-7-4-9-0-6-3"
-           sodipodi:role="line">yarp_Interface</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-18-9-9-1-2-7-4-8-1"
-         y="131.96118"
-         x="435.38867"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:start;text-anchor:start;fill:#faf1f1;fill-opacity:1"
-           y="131.96118"
-           x="435.38867"
-           id="tspan2991-4-7-2-8-7-8-7-8-2-20-5"
-           sodipodi:role="line">write yarp driver robotran</tspan></text>
-      <path
-         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         d="m 435.38868,116.96118 260,0"
-         id="path4232-9-1-0-2-7-7-6-3-5"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cc" />
-    </g>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
-       d="m 200,427.36218 0,35 35,0"
-       id="path6658-0-9-4-5-8-6"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc" />
-    <g
-       id="g4617-84-5-9"
-       transform="translate(185.49334,203.32241)">
-      <rect
-         ry="5.8333335"
-         y="96.961182"
-         x="430.38867"
-         height="39.999989"
-         width="270"
-         id="rect2987-1-27-1-2-9-0-0-63-9-6-9-4"
-         style="fill:#ec1c0e;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-9-7-4-2-2-9-71-4-9-9-5"
-         y="111.96118"
-         x="440.38867"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#faf7f7;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#faf7f7;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
-           y="111.96118"
-           x="440.38867"
-           id="tspan2991-4-54-45-6-5-7-4-9-0-6-3-6"
-           sodipodi:role="line">yarp_Interface</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-8-18-9-9-1-2-7-4-8-1-6"
-         y="131.96118"
-         x="435.38867"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:10px;text-align:start;text-anchor:start;fill:#faf1f1;fill-opacity:1"
-           y="131.96118"
-           x="435.38867"
-           id="tspan2991-4-7-2-8-7-8-7-8-2-20-5-4"
-           sodipodi:role="line">read yarp driver data</tspan></text>
-      <path
-         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         d="m 435.38868,116.96118 260,0"
-         id="path4232-9-1-0-2-7-7-6-3-5-4"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cc" />
-    </g>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-521)"
-       d="m 195,287.36218 0,30 40,0"
-       id="path6658-0-9-4-5-8-6-3"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc" />
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-2"
@@ -2708,52 +2504,6 @@
          x="378.12238"
          sodipodi:role="line"
          id="tspan11046-5-1" /></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-2-2"
-       y="311.88849"
-       x="895.20258"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       xml:space="preserve"
-       transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-         y="311.88849"
-         x="895.20258"
-         id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3-4-8"
-         sodipodi:role="line">For force sensor desired :</tspan><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-         y="328.13849"
-         x="895.20258"
-         sodipodi:role="line"
-         id="tspan4886-1">     RobotranYarpForceTorque.read()</tspan><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="344.38849"
-         x="895.20258"
-         sodipodi:role="line"
-         id="tspan11046-5-1-6" /></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-2-2-3"
-       y="447.85773"
-       x="889.8194"
-       style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       xml:space="preserve"
-       transform="matrix(0.99999911,0.00133725,-0.00133725,0.99999911,0,0)"><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-         y="447.85773"
-         x="889.8194"
-         id="tspan2991-4-7-2-8-7-8-7-0-84-8-2-8-8-3-4-8-2"
-         sodipodi:role="line">For controlled variable :</tspan><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-         y="464.10773"
-         x="889.8194"
-         sodipodi:role="line"
-         id="tspan4886-1-7">      RobotranYarpcontrolBoard.sendPosition()</tspan><tspan
-         style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
-         y="480.35773"
-         x="889.8194"
-         sodipodi:role="line"
-         id="tspan11046-5-1-6-8" /></text>
     <text
        sodipodi:linespacing="125%"
        id="text2989-7-8-18-9-9-1-2-2-9-0-0-4-2-8-2-3"
@@ -2914,30 +2664,6 @@
          x="382.79434"
          sodipodi:role="line"
          id="tspan11046-5-1-5-6" /></text>
-    <g
-       id="g4725">
-      <rect
-         ry="5.8525958"
-         y="891.80945"
-         x="6.7817788"
-         height="23.105469"
-         width="168.43645"
-         id="rect2987-1-27-1-2-9-0-0-63-9-58-3"
-         style="fill:#430eec;fill-opacity:1;stroke:#000000;stroke-width:0.72395355;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text2989-7-9-7-4-2-2-9-71-4-4-6"
-         y="900.11646"
-         x="19.798531"
-         style="font-size:39.70310211px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#faf7f7;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"
-         transform="scale(0.99257759,1.0074779)"><tspan
-           style="font-size:15.88124084px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#faf7f7;fill-opacity:1;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
-           y="900.11646"
-           x="19.798531"
-           id="tspan2991-4-54-45-6-5-7-4-9-0-3-8"
-           sodipodi:role="line">LocalYarpModules</tspan></text>
-    </g>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -2950,13 +2676,113 @@
          x="11.819802"
          y="926.84747"
          style="font-size:10px;text-align:start;text-anchor:start;fill:#faf1f1;fill-opacity:1" /></text>
-    <rect
-       style="fill:#430eec;fill-opacity:1;stroke:#000000;stroke-width:0.72395355;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect2987-1-27-1-2-9-0-0-63-9-58-3-8"
-       width="168.43645"
-       height="23.105469"
-       x="204.28177"
-       y="891.30945"
-       ry="5.8525958" />
+    <g
+       id="g3017-9-2-3-4-5-1-8-5-1-2-3-8-3-9"
+       transform="translate(-2.840021,125.24502)">
+      <rect
+         ry="5.8333335"
+         y="127.36218"
+         x="180"
+         height="39.999989"
+         width="270"
+         id="rect2987-1-27-1-2-9-0-0-6-0-8-4-7-7-7-6"
+         style="fill:#ffb380;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text2989-7-9-7-4-2-2-9-4-6-1-6-3-7-9-2"
+         y="142.36218"
+         x="190"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;font-family:Courier New;-inkscape-font-specification:Courier New Bold"
+           y="142.36218"
+           x="190"
+           id="tspan2991-4-54-45-6-5-7-4-3-4-4-4-3-9-5-7"
+           sodipodi:role="line">getControllerInput_Yarp</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text2989-7-8-18-9-9-1-2-2-8-0-0-5-4-0-3"
+         y="162.36218"
+         x="185"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:10px;text-align:start;text-anchor:start"
+           y="162.36218"
+           x="185"
+           id="tspan2991-4-7-2-8-7-8-7-0-8-1-5-4-8-2-7"
+           sodipodi:role="line">project/controller_files/yarp_interface</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text2989-7-8-1-5-8-4-5-3-9-5-3-6-2-6-9-8"
+         y="162.36218"
+         x="445"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:10px;text-align:end;text-anchor:end"
+           y="162.36218"
+           x="445"
+           id="tspan2991-4-7-9-3-3-4-8-2-2-6-4-7-2-6-9-4"
+           sodipodi:role="line">.h</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 185,147.36218 260,0"
+         id="path4232-9-1-0-2-7-35-5-7-4-0-6-4-9"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       transform="translate(-2.840021,223.24502)"
+       id="g4791">
+      <rect
+         style="fill:#ffb380;fill-opacity:1;stroke:#000000;stroke-width:0.79999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4793"
+         width="270"
+         height="39.999989"
+         x="180"
+         y="127.36218"
+         ry="5.8333335" />
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="190"
+         y="142.36218"
+         id="text4795"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4797"
+           x="190"
+           y="142.36218"
+           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;font-family:Courier New;-inkscape-font-specification:Courier New Bold">writeControllerOutput_Yarp</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="185"
+         y="162.36218"
+         id="text4799"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4801"
+           x="185"
+           y="162.36218"
+           style="font-size:10px;text-align:start;text-anchor:start">project/controller_files/yarp_interface</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="445"
+         y="162.36218"
+         id="text4803"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4805"
+           x="445"
+           y="162.36218"
+           style="font-size:10px;text-align:end;text-anchor:end">.h</tspan></text>
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4807"
+         d="m 185,147.36218 260,0"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
   </g>
 </svg>
