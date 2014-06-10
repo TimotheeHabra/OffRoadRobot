@@ -1,7 +1,7 @@
 #ifdef YARP
 
-#ifndef _YARP_FILES_H_
-#define _YARP_FILES_H_
+#ifndef _YARP_INTERFACE_H_
+#define _YARP_INTERFACE_H_
 
 /////////////////////////////////////
 //function called by C and implemented in C++ (must only use C compatible input/output types)
@@ -10,10 +10,8 @@
 extern "C" {
 #endif
 
-	void yarp_init(void);
-	void updateDataFromYarp(void);
-	void updateDataToYarp(void);
-	void yarp_finish(void);
+	void getControllerInput_Yarp(void);
+	void writeControllerOutput_Yarp(void);
 
 #ifdef __cplusplus
 }
@@ -30,4 +28,3 @@ extern "C" {
 
 #endif
 #endif
-
