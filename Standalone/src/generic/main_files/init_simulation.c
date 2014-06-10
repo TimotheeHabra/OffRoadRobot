@@ -98,6 +98,11 @@ Loop_inputs* init_simulation(void)
 	}
 	#endif
 
+	// Yarp Initialization
+	#ifdef YARP
+    	yarp_init();
+    #endif
+
 	// Model initialization
 	if(user_initialization(MBSdata, lds))
 	{
@@ -176,10 +181,6 @@ Loop_inputs* init_simulation(void)
     // Running model integration
     #ifdef PRINT_REPORT
     printf("Running integration of the model...\n");
-    #endif
-
-    #ifdef YARP
-    yarp_init();
     #endif
 
     return loop_inputs;
