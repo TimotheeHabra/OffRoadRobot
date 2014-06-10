@@ -239,6 +239,10 @@ void loop_simulation(Loop_inputs *loop_inputs)
         }
         #endif
 
+
+        #ifdef YARP
+            updateDataFromYarp();
+        #endif
        
         /*
          * Main routine of the integrator.
@@ -260,7 +264,7 @@ void loop_simulation(Loop_inputs *loop_inputs)
 
 
         #ifdef YARP
-            yarp_update();
+            updateDataToYarp();
         #endif
 
         x += h;
