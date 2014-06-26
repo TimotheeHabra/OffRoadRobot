@@ -25,6 +25,10 @@ extern "C" {
 #ifdef __cplusplus
 
 	// add necessary yarp libraries here
+	#include <yarp/dev/Wrapper.h>
+	#include <yarp/dev/PolyDriverList.h>
+
+	#include <RobotranMotionControlBoard.h>
 
 #endif
 

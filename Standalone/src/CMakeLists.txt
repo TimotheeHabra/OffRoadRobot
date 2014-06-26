@@ -71,8 +71,25 @@ endif(FLAG_SIMBODY)
 
 # YARP
 if (FLAG_YARP)
-    #TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} curl) 
-    TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES}) 
+
+	SET_PROPERTY(GLOBAL PROPERTY TARGET_SUPPORTS_SHARED_LIBS TRUE)
+
+    option(CREATE_SHARED_LIBRARY "Compile shared libraries rather than linking statically" TRUE)
+	if (WIN32)
+		set(YARP_FILTER_API TRUE)
+	endif (WIN32)
+
+	if (CREATE_SHARED_LIBRARY)
+		set(BUILD_SHARED_LIBS ON)
+		set(YARP_DLL ON)
+	endif(CREATE_SHARED_LIBRARY)
+
+	#TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} curl) 
+    #TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES})
+
+    add_subdirectory(generic/robotran_yarp_plugin)
+    TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} robotranMotionControlPlugin robotranForceTorquePlugin)
+
 endif (FLAG_YARP)
 
 # files compiled as C++ files
