@@ -21,6 +21,7 @@ bool RobotranYarpMotionControl::robotran_init()
 
 void RobotranYarpMotionControl::onUpdate(const MBSdataStruct * MBSdata)
 {
+    //should update the vector pos
 
 }
 
@@ -40,14 +41,18 @@ RobotranYarpMotionControl::~RobotranYarpMotionControl()
 
 bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 {
+    //example from Alberto about how to use config files
     std::cout << "robotran motionControl parameters are " << config.toString() << std::endl;
-    config.check("joint");
+    config.check("joints");
 
-    config.find("joint").isInt();
+    config.find("joints").isInt();
 
-    int joint = config.find("joint").asInt();
+    int joints = config.find("joints").asInt();
 
-    std::cout << "joint is " << joint << std::endl;
+    std::cout << "joints is " << joints << std::endl;
+
+    pluginParameters.fromString(config.toString().c_str());
+
     return true;
 }
 

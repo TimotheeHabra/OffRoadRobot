@@ -33,7 +33,7 @@ void* yarp_init()
 
     yarp::os::Property parameters;
     parameters.put("device", "robotranMotionControl");
-    parameters.put("joints", 23);
+    parameters.put("joints", 8);
 //    yarp::os::Bottle pidGroup;
     yarp::os::Property &pid_GROUP = parameters.addGroup("PID");
 
