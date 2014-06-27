@@ -19,7 +19,7 @@ bool RobotranYarpMotionControl::robotran_init()
     return true;
 }
 
-void RobotranYarpMotionControl::onUpdate(/* whatever*/)
+void RobotranYarpMotionControl::onUpdate(const MBSdataStruct * MBSdata)
 {
 
 }

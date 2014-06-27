@@ -18,6 +18,8 @@
 #include <yarp/sig/Vector.h>
 #include <yarp/os/Time.h>
 
+#include "MBSdataStruct.h"
+
 
 const double ROBOT_POSITION_TOLERANCE = 0.9;
 
@@ -47,7 +49,7 @@ public:
      * robotran stuff
      */
     bool robotran_init();
-    void onUpdate(/* whatever*/);
+    void onUpdate(const MBSdataStruct * MBSdata);
 
     /**
      * Yarp interfaces start here
@@ -178,6 +180,11 @@ private:
     
     unsigned int numberOfJoints;
 
+    /**
+     * The ROBOTRAN position of each joints, readonly from MBSdataStruct
+     */
+    yarp::sig::Vector pos;
+
     //Contains the parameters of the device contained in the yarpConfigurationFile .ini file
     yarp::os::Property pluginParameters;
     
@@ -196,11 +203,6 @@ private:
     yarp::os::Semaphore pos_lock;
     yarp::sig::Vector referenceSpeed, referencePosition, referenceAcceleraton, referenceTorque;
     yarp::sig::Vector max_pos, min_pos;
-
-
-
-
-
 
 };
 
