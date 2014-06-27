@@ -47,7 +47,7 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 
     int joint = config.find("joint").asInt();
 
-    std::cout << "joint is " << joint;
+    std::cout << "joint is " << joint << std::endl;
     return true;
 }
 
