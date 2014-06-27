@@ -10,7 +10,7 @@ using namespace std;
 	// - creating desired Robotran-Yarp drivers
 	// - opening ports
 
-void yarp_init()
+void* yarp_init()
 {
 
 	cout << "initialization of yarp interface" << endl;
@@ -18,8 +18,7 @@ void yarp_init()
 	yarp::os::Network               _yarp;
     yarp::dev::PolyDriver           _wrapper;
     yarp::dev::IMultipleWrapper     *_iWrap;
-    yarp::dev::PolyDriver           _controlBoard;
-
+    yarp::dev::PolyDriver           *p_controlBoard;
 
 //    // init YARP and instantiate yarp device driver
 //    if( !_yarp.checkNetwork() ) {
@@ -57,12 +56,15 @@ void yarp_init()
     pid_GROUP.fromString(kd.toString(), false);
 
 //    parameters.addGroup();
-    _controlBoard.open(parameters);
+    p_controlBoard = new yarp::dev::PolyDriver;
+    p_controlBoard->open(parameters);
 
-    if (!_controlBoard.isValid())
+    if (!p_controlBoard->isValid())
         fprintf(stderr, "controlBoard did not open\n");
     else
         printf("controlBoard opened correctly\n");
+
+    return (void*) p_controlBoard;
 
 }
 

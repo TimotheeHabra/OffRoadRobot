@@ -39,6 +39,9 @@ Loop_inputs* init_simulation(void)
 
     double *ystart;
 
+    //temporary (should be moved somwhere else like in loop_input)
+    void* RobotranYarp_interface = NULL;
+
 	MBSdataStruct *MBSdata   = NULL;
 	LocalDataStruct *lds     = NULL;
 	Loop_inputs *loop_inputs = NULL;
@@ -100,7 +103,7 @@ Loop_inputs* init_simulation(void)
 
 	// Yarp Initialization
 	#ifdef YARP
-    	yarp_init();
+    	RobotranYarp_interface = yarp_init();
     #endif
 
 	// Model initialization

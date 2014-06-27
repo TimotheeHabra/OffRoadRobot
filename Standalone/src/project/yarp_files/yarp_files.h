@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-	void yarp_init(void);
+	void* yarp_init(void);  //void* to be compatible with C type. It is actually an pointer to an object
 	void updateDataFromYarp(void);
 	void updateDataToYarp(void);
 	void yarp_finish(void);
