@@ -67,6 +67,10 @@ typedef struct Loop_inputs
     #if defined(SDL) & defined (REAL_TIME)
     Screen_sdl *screen_sdl;
     #endif
+
+    #ifdef YARP
+    void* RobotranYarp_interface;
+    #endif
     
 } Loop_inputs;
 

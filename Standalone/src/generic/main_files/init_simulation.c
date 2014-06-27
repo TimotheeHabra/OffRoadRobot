@@ -39,9 +39,6 @@ Loop_inputs* init_simulation(void)
 
     double *ystart;
 
-    //temporary (should be moved somwhere else like in loop_input)
-    void* RobotranYarp_interface = NULL;
-
 	MBSdataStruct *MBSdata   = NULL;
 	LocalDataStruct *lds     = NULL;
 	Loop_inputs *loop_inputs = NULL;
@@ -53,6 +50,10 @@ Loop_inputs* init_simulation(void)
 	#ifdef WRITE_FILES
 	Write_files *write_files;
 	#endif
+
+	#ifdef YARP
+    void* RobotranYarp_interface = NULL;
+    #endif
 
 	const char *filein;
 
@@ -103,7 +104,7 @@ Loop_inputs* init_simulation(void)
 
 	// Yarp Initialization
 	#ifdef YARP
-    	RobotranYarp_interface = yarp_init();
+    RobotranYarp_interface = yarp_init();
     #endif
 
 	// Model initialization
@@ -179,6 +180,10 @@ Loop_inputs* init_simulation(void)
 	#if defined(JNI) & defined (REAL_TIME)
     loop_inputs->jni_struct = jni_struct;
     update_jni(loop_inputs->jni_struct, MBSdata, loop_inputs->real_time);
+    #endif
+
+    #ifdef YARP
+    loop_inputs->RobotranYarp_interface = RobotranYarp_interface;
     #endif
 
     // Running model integration

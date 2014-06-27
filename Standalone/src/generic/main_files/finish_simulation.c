@@ -112,7 +112,7 @@ void finish_simulation(Loop_inputs *loop_inputs)
     #endif
 
     #ifdef YARP
-    yarp_finish();
+    yarp_finish(loop_inputs->RobotranYarp_interface);
     #endif
 
     // MBSdata_xml
