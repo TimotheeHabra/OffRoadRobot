@@ -4,6 +4,8 @@
  * CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
  */
 
+#ifdef YARP
+
 #include <RobotranMotionControlBoard.h>
 
 
@@ -353,3 +355,5 @@ bool RobotranYarpMotionControl::getEncoderAccelerations(double *accs) //NOT IMPL
     std::cout << "robotran motionControl: getEncoderAccelerations " << std::endl;
     return false;
 }
+
+#endif
