@@ -10,4 +10,4 @@
 
 Standalone/build/
 Standalone/build_win/
-Standalone/src/other/outVectors/*
+#Standalone/src/other/outVectors/*
