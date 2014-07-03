@@ -51,16 +51,25 @@ ELSE (APPLE)
 # possible paths for: 'jni.h'
 SET(TRIAL_PATHS_INC_JNI
   /usr/lib/jvm/java-7-openjdk-amd64/include
+  /usr/lib/jvm/java-6-sun/include
+
+  /usr/lib/jvm/java-7-openjdk-i386/include
 ) 
 
 # possible paths for: 'jni_md.h'
 SET(TRIAL_PATHS_INC_JNI_MD
   /usr/lib/jvm/java-7-openjdk-amd64/include/linux
+  /usr/lib/jvm/java-6-sun/include/linux
+
+  /usr/lib/jvm/java-7-openjdk-i386/include/linux
 ) 
 
 # possible paths for: 'libjvm.so'
 SET(TRIAL_PATHS_LIB
   /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
+  /usr/lib/jvm/java-6-sun/jre/lib/amd64/server
+
+  /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/server
 ) 
 
 FIND_PATH(JNI_INCLUDE_JNI jni.h ${TRIAL_PATHS_INC_JNI})

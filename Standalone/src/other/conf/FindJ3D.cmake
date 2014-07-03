@@ -35,7 +35,10 @@ ELSE (APPLE)
 # possible paths for: 'libj3dcore-ogl.so'
 SET(TRIAL_PATHS_DLL
   /usr/lib/jvm/java-7-openjdk-amd64/jre/bin
-) 
+  /usr/lib/jvm/java-6-sun/jre/bin
+
+  /usr/lib/jvm/java-7-openjdk-i386/jre/bin
+)  
 
 FIND_PATH(J3D_PATH libj3dcore-ogl.so ${TRIAL_PATHS_DLL})
 
