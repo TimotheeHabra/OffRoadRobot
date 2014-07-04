@@ -21,7 +21,7 @@ void finish_simulation(Loop_inputs *loop_inputs)
 	double total_t_sec;
     #endif
 
-    MBSdataStruct *MBSdata;
+    MBSdataStruct *MBSdata = NULL;
 
     // -- Simulation end -- //
 
@@ -59,6 +59,8 @@ void finish_simulation(Loop_inputs *loop_inputs)
 
     // writing the .anim file
     #ifdef WRITE_FILES
+
+    loop_inputs->write_files->kount = loop_inputs->write_files->kount - 1; //last increment doesn't correspond to a writting
 
     if(write_anim_file(loop_inputs->write_files, MBSdata->njoint, fileout_anim))
     {

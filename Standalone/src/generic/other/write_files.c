@@ -60,7 +60,7 @@ int write_anim_file(Write_files* write_files, int njoint, const char *fileout)
 
     t     = write_files->t;
     qq    = write_files->qq;
-    kount = write_files->kount - 1; //last increment doesn't correspond to a data written
+    kount = write_files->kount; // - 1; 
 
     // Opening file
     fid = fopen(fileout, "w"); // external filename
