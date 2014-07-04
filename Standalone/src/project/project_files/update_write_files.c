@@ -33,8 +33,6 @@ void update_write_files(Write_files *write_files, MBSdataStruct *MBSdata)
     //uvs = MBSdata->user_IO;
     //cvs = uvs->cvs;
 
-    kount++;
-
     t[kount] = MBSdata->tsim;
 
     for(i=0; i<MBSdata->njoint; i++)
@@ -61,6 +59,7 @@ void update_write_files(Write_files *write_files, MBSdataStruct *MBSdata)
 
     // --------------- //
 
+    kount++;
     write_files->kount = kount;
 }
 
