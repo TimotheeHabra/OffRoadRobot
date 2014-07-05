@@ -10,4 +10,10 @@
 
 Standalone/build/
 Standalone/build_win/
-#Standalone/src/other/outVectors/*
+
+# movie recorded
+animationR/*
+
+#eclipse stuff (to be move somewhere else)
+Standalone/src/.cproject
+Standalone/src/.project
