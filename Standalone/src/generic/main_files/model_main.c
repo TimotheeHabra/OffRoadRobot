@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
 
 void main_simulation()
 {
-    Loop_inputs *loop_inputs;
+    Loop_inputs *loop_inputs = NULL;
 
     // initialization
 	loop_inputs = init_simulation();
