@@ -44,7 +44,7 @@ Loop_inputs* init_simulation(void)
 	Loop_inputs *loop_inputs = NULL;
 
 	#if defined(JNI) & defined (REAL_TIME)
-	JNI_struct* jni_struct;
+	JNI_struct* jni_struct = NULL;
 	#endif
 
 	#ifdef WRITE_FILES
