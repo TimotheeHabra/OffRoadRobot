@@ -1,21 +1,21 @@
 <mbsdata xml_tb_version="3.1" idx="1" type="struct" size="1 1">
   <mbsname idx="1" type="char" size="1 12">OffRoadRobot</mbsname>
-  <dpt idx="1" type="double" size="3 8">0.225 -0.205 -0.05 0.225 0.205 -0.05 -0.225 -0.205 -0.05 -0.225 0.205 -0.05 0 0 0 0 0 0 0 0 0 0 0 0</dpt>
-  <npt idx="1" type="double" size="1 1">8</npt>
+  <dpt idx="1" type="double" size="3 12">0.225 -0.205 -0.05 0.225 0.205 -0.05 -0.225 -0.205 -0.05 -0.225 0.205 -0.05 0.01 0 0 0 0 0 0.01 0 0 0 0 0 0.01 0 0 0 0 0 0.01 0 0 0 0 0</dpt>
+  <npt idx="1" type="double" size="1 1">12</npt>
   <l idx="1" type="double" size="3 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032 0 0 0 0 0 -0.032</l>
-  <m idx="1" type="double" size="1 14">0 0 0 0 0 8.68 0 0.38 0 0.38 0 0.38 0 0.38</m>
+  <m idx="1" type="double" size="1 14">0 0 0 0 0 8.68 0.1 0.38 0.1 0.38 0.1 0.38 0.1 0.38</m>
   <In idx="1" type="double" size="9 14">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13 0 0 0 0.27 0 0 0 0.38 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0 0 0 0</In>
   <g idx="1" type="double" size="3 1">0 0 -9.8</g>
   <nbody idx="1" type="double" size="1 1">14</nbody>
   <Njoint idx="1" type="double" size="1 1">14</Njoint>
-  <qu idx="1" type="double" size="1 10">1 2 3 4 5 6 8 10 12 14</qu>
-  <nqu idx="1" type="double" size="1 1">10</nqu>
-  <qc idx="1" type="double" size="1 4">7 9 11 13</qc>
-  <nqc idx="1" type="double" size="1 1">4</nqc>
+  <qu idx="1" type="double" size="1 14">1 2 3 4 5 6 7 8 9 10 11 12 13 14</qu>
+  <nqu idx="1" type="double" size="1 1">14</nqu>
+  <qc idx="1" type="double" size="0 0"/> 
+  <nqc idx="1" type="double" size="1 1">0</nqc>
   <qlocked idx="1" type="double" size="0 0"/> 
   <nqlocked idx="1" type="double" size="1 1">0</nqlocked>
-  <qdriven idx="1" type="double" size="1 4">7 9 11 13</qdriven>
-  <nqdriven idx="1" type="double" size="1 1">4</nqdriven>
+  <qdriven idx="1" type="double" size="0 0"/> 
+  <nqdriven idx="1" type="double" size="1 1">0</nqdriven>
   <qa idx="1" type="double" size="0 0"/> 
   <nqa idx="1" type="double" size="1 1">0</nqa>
   <qv idx="1" type="double" size="0 0"/> 
@@ -46,23 +46,23 @@
   <link3D idx="1" type="double" size="0 0"/> 
   <Nsensor idx="1" type="double" size="1 1">4</Nsensor>
   <Nxfrc idx="1" type="double" size="1 1">4</Nxfrc>
-  <xfidpt idx="1" type="double" size="1 4">5 6 7 8</xfidpt>
+  <xfidpt idx="1" type="double" size="1 4">6 8 10 12</xfidpt>
   <SWr idx="1" type="double" size="0 0"/> 
   <xfscale idx="1" type="double" size="3 4">0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001</xfscale>
   <rnom idx="1" type="double" size="0 0"/> 
   <Nwheel idx="1" type="double" size="1 1">0</Nwheel>
-  <Nuser_model idx="1" type="double" size="1 1">0</Nuser_model>
+  <Nuser_model idx="1" type="double" size="1 1">1</Nuser_model>
   <user_model idx="1" type="cell" size="0 0"/> 
-  <ux idx="1" type="double" size="0 0"/> 
-  <uxd idx="1" type="double" size="0 0"/> 
-  <ux0 idx="1" type="double" size="0 0"/> 
-  <Nux idx="1" type="double" size="1 1">0</Nux>
+  <ux idx="1" type="double" size="4 1">0 0 0 0</ux>
+  <uxd idx="1" type="double" size="4 1">0 0 0 0</uxd>
+  <ux0 idx="1" type="double" size="4 1">0 0 0 0</ux0>
+  <Nux idx="1" type="double" size="1 1">4</Nux>
   <user_var idx="1" type="struct" size="0 0"/> 
   <DonePart idx="1" type="double" size="1 1">1</DonePart>
   <DoneDirdyn idx="1" type="double" size="1 1">0</DoneDirdyn>
   <DoneInvdyn idx="1" type="double" size="1 1">0</DoneInvdyn>
   <DoneEquil idx="1" type="double" size="1 1">0</DoneEquil>
   <inbody idx="1" type="double" size="1 14">0 1 2 3 4 5 6 7 6 9 6 11 6 13</inbody>
-  <prjpath idx="1" type="char" size="1 26">D:\Users\zobova\MBProjects</prjpath>
-  <mbspath idx="1" type="char" size="1 25">C:\Users\zobova\.robotran</mbspath>
+  <prjpath idx="1" type="char" size="1 35">/home/hdallali/Documents/MBProjects</prjpath>
+  <mbspath idx="1" type="char" size="1 24">/home/hdallali/.robotran</mbspath>
 </mbsdata>
