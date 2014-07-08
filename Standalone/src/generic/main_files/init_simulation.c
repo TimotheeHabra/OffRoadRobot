@@ -30,7 +30,7 @@
 /*
  * Simulation initialization
  */
-Loop_inputs* init_simulation(void)
+Loop_inputs* init_simulation()
 {
 	// -- Variables declaration -- //
 	
@@ -105,6 +105,10 @@ Loop_inputs* init_simulation(void)
 	// Yarp Initialization
 	#ifdef YARP
     RobotranYarp_interface = yarp_init();
+    if(RobotranYarp_interface == NULL)
+    {
+        printf("******************\nSomething went wrong during YARP initialization... what to do here?\n******************\n");
+    }
     #endif
 
 	// Model initialization
@@ -193,3 +197,4 @@ Loop_inputs* init_simulation(void)
 
     return loop_inputs;
 } 
+

@@ -49,18 +49,15 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 
     config.find("joints").isInt();
 
-    int joints = config.find("joints").asInt();
+    numberOfJoints = config.find("joints").asInt();
 
-    std::cout << "joints is " << joints << std::endl;
-
-    pluginParameters.fromString(config.toString().c_str());
-
+    std::cout << "joints is " << numberOfJoints << std::endl;
     return true;
 }
 
 bool RobotranYarpMotionControl::close()
 {
-    std::cout << "closing robotran motionControl " << std::endl;
+    std::cout << "RobotranYarpMotionControl::close" << std::endl;
     return true;
 }
 
@@ -96,7 +93,8 @@ bool RobotranYarpMotionControl::positionMove(const double *refs) //WORKS
 bool RobotranYarpMotionControl::getAxes(int *ax) // WORKS
 {
     std::cout << "robotran motionControl: getAxes " << std::endl;
-    return false;
+    *ax = numberOfJoints;
+    return true;
 }
 
 bool RobotranYarpMotionControl::setRefSpeed(int j, double sp) //WORKS
@@ -300,9 +298,11 @@ bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time)
 }
 
 
-bool RobotranYarpMotionControl::getEncoderTimed(int j, double *encs, double *time)
+bool RobotranYarpMotionControl::getEncoderTimed(int j, double *enc, double *time)
 {
-    std::cout << "robotran motionControl: getEncoderTimed " << std::endl;
+//    std::cout << "robotran motionControl: getEncoderTimed " << std::endl;
+    static int encIndex = 0;
+    *enc = encIndex++;
     return false;
 }
 

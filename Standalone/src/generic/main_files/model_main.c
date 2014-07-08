@@ -15,7 +15,7 @@
  */
 int main(int argc, char const *argv[])
 {
-    main_simulation();
+    main_simulation(argc, argv);
     
     return 0;
 }
@@ -29,7 +29,7 @@ void main_simulation()
     Loop_inputs *loop_inputs = NULL;
 
     // initialization
-	loop_inputs = init_simulation();
+    loop_inputs = init_simulation();
 	
 	// simulation
 	loop_simulation(loop_inputs);

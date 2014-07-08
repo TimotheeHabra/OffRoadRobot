@@ -1,71 +1,171 @@
 #if defined(YARP) & defined(__cplusplus)
 
 #include "yarp_files.h"
+#include <yarp/os/ResourceFinder.h>
+#include <yarp/dev/PolyDriverList.h>
+
 #include <iostream>
 
 using namespace std;
 
-	// here should come initialization of yarp
-	// - getting configuration files
-	// - creating desired Robotran-Yarp drivers
-	// - opening ports
-
-void* yarp_init()
+yarp::os::Property lookForSubFile(yarp::os::Searchable *params)
 {
+    if (params->check("file"))
+    {
+//        std::string filename=PATH+partOptions.find("file").asString().c_str();
 
+//        Property deviceParams;
+//        deviceParams.fromConfigFile(filename.c_str());
+
+    }
+}
+
+// here should come initialization of yarp
+// - getting configuration files
+// - creating desired Robotran-Yarp drivers
+// - opening ports
+
+void* yarp_init(void)
+{
 	cout << "initialization of yarp interface" << endl;
 
-	yarp::os::Network               _yarp;
+    yarp::dev::PolyDriverList       *p_controlBoardList = NULL;
+    bool verbose = false;
+
+/**
+    yarp::os::Network               _yarp;
     yarp::dev::PolyDriver           _wrapper;
-    yarp::dev::IMultipleWrapper     *_iWrap;
-    yarp::dev::PolyDriver           *p_controlBoard;
+    yarp::dev::IMultipleWrapper     *_iWrap = NULL;
 
-//    // init YARP and instantiate yarp device driver
-//    if( !_yarp.checkNetwork() ) {
-//        std::cerr << "GazeboYarpControlBoard::Load error: yarp network does not seem to be available, is the yarpserver running?"<<std::endl;
-//        // either return something invalid (NULL) and check the value in the main_simulation or directly throw an exit here.
-//        exit(0);
-//    }
-
+    // init YARP and instantiate yarp device driver
+    if( !_yarp.checkNetwork() ) {
+        std::cerr << "GazeboYarpControlBoard::Load error: yarp network does not seem to be available, is the yarpserver running?"<<std::endl;
+        // either return something invalid (NULL) and check the value in the main_simulation or directly throw an exit here.
+        exit(0);
+    }
+*/
     // Add the robotranControlboard device driver to the factory.
     yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<yarp::dev::RobotranYarpMotionControl>
                                       ("robotranMotionControl", "controlboardwrapper2", "RobotranYarpMotionControl"));
 
-    yarp::os::Property parameters;
-    parameters.put("device", "robotranMotionControl");
-    parameters.put("joints", 8);
-//    yarp::os::Bottle pidGroup;
-    yarp::os::Property &pid_GROUP = parameters.addGroup("PID");
+    yarp::os::ResourceFinder rf;
+    rf.setVerbose(true);
 
-    yarp::os::Bottle kp;
-    yarp::os::Bottle &kplist = kp.addList();
-    kplist.addString("kp");
-    kplist.addDouble(10);
-    kplist.addDouble(20);
+    yarp::os::ConstString fileNameWithPath = rf.findFileByName("RoboTran.ini");
+    if(fileNameWithPath == "")
+    {
+        std::cout << "Default config file ´RoboTran.ini´  was not found" << std::endl;
+        return NULL;
+    }
 
-    yarp::os::Bottle kd;
-    yarp::os::Bottle &kdlist = kd.addList();
-    kdlist.addString("kd");
-    kdlist.addDouble(100);
-    kdlist.addDouble(200);
+    p_controlBoardList = new yarp::dev::PolyDriverList;
 
-    std::cout << "kp " << kp.toString() << std::endl;
-    std::cout << "kd " << kd.toString() << std::endl;
+    yarp::os::Property p;
+    p.fromConfigFile(fileNameWithPath);
 
-    pid_GROUP.fromString(kp.toString(), false);
-    pid_GROUP.fromString(kd.toString(), false);
+    if(verbose)
+        std::cout << "\n\n config param are\n " << p.toString() << std::endl;
 
-//    parameters.addGroup();
-    p_controlBoard = new yarp::dev::PolyDriver;
-    p_controlBoard->open(parameters);
+    bool found = p.check("GENERAL");
+    if(!found)
+    {
+        std::cout << "GENERAL section not found" << std::endl;
+        return NULL;
+    }
 
-    if (!p_controlBoard->isValid())
-        fprintf(stderr, "controlBoard did not open\n");
-    else
-        printf("controlBoard opened correctly\n");
+    yarp::os::Bottle &general = p.findGroup("GENERAL");
 
-    return (void*) p_controlBoard;
+    if(general.check("verbose"))
+        verbose = true;
 
+    if(!general.check("types"))
+    {
+        std::cout << "ERROR: ´types´ list was not found in the GENERAL group" << std::endl;
+        return NULL;
+    }
+
+    yarp::os::Bottle * types = general.find("types").asList();
+    if(verbose)
+        std::cout << "\nFound following types (" << types->toString() << ")" << std::endl;
+
+    for(int typeIndex=0; typeIndex < types->size(); typeIndex++)
+    {
+        yarp::os::ConstString typeName = types->get(typeIndex).asString();
+        if(!general.check(typeName))
+        {
+            std::cout << "ERROR: I was expecting the keyword " << typeName << " followed by a list of entries like" << std::endl;
+            std::cout << typeName << " (foo1 foo2 foo3)" << std::endl;
+            return NULL;
+        }
+
+        if(!general.find(typeName).isList() )
+        {
+            std::cout << "ERROR: the keyword " << typeName << " is not a list. Correct syntax is like" << std::endl;
+            std::cout << typeName << " (foo1 foo2 foo3)  maybe the ´()´ brackets are missing" << std::endl;
+            return NULL;
+        }
+
+        yarp::os::Bottle * entryList = general.find(typeName).asList();
+
+
+        if(verbose)
+            std::cout << "type ´" << typeName << "´ has the following entries (" << entryList->toString() << ")" << std::endl;
+
+        for(int entryIndex=0; entryIndex < entryList->size(); entryIndex++)
+        {
+            yarp::os::ConstString entryName = entryList->get(entryIndex).asString();
+            if(!p.check(entryName))
+            {
+                std::cout << "cannot find device ´" << entryName << "´ referenced in the type list ´" << typeName << "´" << std::endl;
+                return NULL;
+            }
+
+            yarp::os::Bottle &entryParams = p.findGroup(entryName);
+            if(verbose)
+                std::cout << "Entry ´" << entryName << "´ has the following parameters \n\t" << entryParams.toString() << "\n" << std::endl;
+
+            // Looking for other files referenced by the main one
+
+            yarp::os::Property tmpProp(entryParams.toString().c_str());
+
+            while(tmpProp.check("file"))
+            {
+                yarp::os::ResourceFinder subRF;
+                subRF.setVerbose(false);
+                yarp::os::ConstString  subfileName = tmpProp.find("file").asString();
+                if(verbose)
+                    std::cout << "found subfile " << subfileName << std::endl;
+
+                yarp::os::ConstString fileNameWithPath = subRF.findFileByName(subfileName);
+                if(fileNameWithPath == "")
+                {
+                    std::cout << "sub config file ´" << subfileName << "´  was not found" << std::endl;
+                    return NULL;
+                }
+                yarp::os::Property p2;
+                p2.fromConfigFile(fileNameWithPath);
+
+                tmpProp.unput("file");
+                tmpProp.fromString(p2.toString(), false);
+            }
+            yarp::dev::PolyDriver *tmp = new yarp::dev::PolyDriver;
+            tmp->open(tmpProp);
+
+
+            if (!tmp->isValid())
+            {
+                fprintf(stderr, "driver %s did not open\n", entryName.c_str());
+            }
+            else
+            {
+                printf("controlBoard opened correctly\n");
+
+                yarp::dev::PolyDriverDescriptor newDev( tmp, entryName.c_str());
+                p_controlBoardList->push(newDev);
+            }
+        }
+    }
+    return (void*) p_controlBoardList;
 }
 
 #endif

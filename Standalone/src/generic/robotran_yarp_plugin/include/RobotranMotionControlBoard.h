@@ -178,7 +178,7 @@ private:
         double maxOut;
     };
     
-    unsigned int numberOfJoints;
+    int numberOfJoints;
 
     /**
      * The ROBOTRAN position of each joints, readonly from MBSdataStruct
@@ -186,7 +186,6 @@ private:
     yarp::sig::Vector pos;
 
     //Contains the parameters of the device contained in the yarpConfigurationFile .ini file
-    yarp::os::Property pluginParameters;
     
      /**
      * The GAZEBO desired position of each joints, (output of trajectory interp)

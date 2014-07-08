@@ -77,7 +77,7 @@ typedef struct Loop_inputs
 // -- Prototypes -- //
 
 void main_simulation();								// main
-Loop_inputs* init_simulation(void);					// initialization
+Loop_inputs* init_simulation();					// initialization
 void loop_simulation(Loop_inputs *loop_inputs);		// loop
 void finish_simulation(Loop_inputs *loop_inputs);	// end of the simulation
 
