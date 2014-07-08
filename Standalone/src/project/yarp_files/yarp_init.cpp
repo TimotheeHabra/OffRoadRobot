@@ -48,6 +48,11 @@ void* yarp_init(void)
     yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<yarp::dev::RobotranYarpMotionControl>
                                       ("robotranMotionControl", "controlboardwrapper2", "RobotranYarpMotionControl"));
 
+    // Add the robotranControlboard device driver to the factory.
+    yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<yarp::dev::RobotranYarpForceTorqueDriver>
+                                      ("robotranForceTorqueSensor", "analogServer", "RobotranYarpForceTorqueDriver"));
+
+
     yarp::os::ResourceFinder rf;
     rf.setVerbose(true);
 

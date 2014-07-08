@@ -28,6 +28,7 @@ extern "C" {
 	#include <yarp/dev/Wrapper.h>
 	#include <yarp/dev/PolyDriverList.h>
 
+    #include <ForceTorqueDriver.h>
 	#include <RobotranMotionControlBoard.h>
 
 #endif
