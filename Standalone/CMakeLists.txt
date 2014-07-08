@@ -111,6 +111,7 @@ if (FLAG_YARP)
 
     # add yarp include directories
     include_directories( ${YARP_INCLUDE_DIRS}) 
+    add_subdirectory(src/project/yarp_files)
   
 endif (FLAG_YARP)
 
@@ -229,6 +230,7 @@ function(list_source_files_c SOURCE_FILES_C)
     endforeach(SRC_FILE)
     set(SOURCE_FILES_C ${SOURCES} PARENT_SCOPE)
 endfunction()
+
 
 # function to list all source files (.cpp) in the src/project/ and src/generic/ directories, 
 # recursing into sub-directories
