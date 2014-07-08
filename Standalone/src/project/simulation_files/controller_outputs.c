@@ -11,14 +11,14 @@ void controller_outputs(MBSdataStruct *MBSdata)
 	UserIOStruct *uvs;
     uvs = MBSdata->user_IO;
 
-	// Front right leg 
+	// Front right leg
 	id = R2_FR;
 
 	MBSdata->q[id]    	= uvs->cvs->Outputs->q_ref[0];
 	MBSdata->qd[id]     = uvs->cvs->Outputs->qd_ref[0];
 	MBSdata->qdd[id]    = uvs->cvs->Outputs->qdd_ref[0];
 
-	// Front left leg 
+	// Front left leg
 	id = R2_FL;
 
 	MBSdata->q[id]    	= uvs->cvs->Outputs->q_ref[1];
@@ -38,7 +38,12 @@ void controller_outputs(MBSdataStruct *MBSdata)
 	MBSdata->q[id]    	= uvs->cvs->Outputs->q_ref[3];
 	MBSdata->qd[id]     = uvs->cvs->Outputs->qd_ref[3];
 	MBSdata->qdd[id]    = uvs->cvs->Outputs->qdd_ref[3];
-	
-    
+
+    // Sending voltage to the motors:
+    uvs->Voltage[M_FR]=10.0;
+    uvs->Voltage[M_FL]=10.0;
+    uvs->Voltage[M_RR]=10.0;
+    uvs->Voltage[M_RL]=10.0;
+
 }
 

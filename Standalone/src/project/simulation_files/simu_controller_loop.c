@@ -16,7 +16,7 @@ void simu_controller_loop(MBSdataStruct *MBSdata)
 
     #ifndef YARP
    		cvs = MBSdata->user_IO->cvs;
-   		
+
    		// controller
    		controller_inputs(MBSdata);
    		controller_loop(cvs);
@@ -32,6 +32,5 @@ void simu_controller_loop(MBSdataStruct *MBSdata)
    		getControllerInput_Yarp();
    		//controller_loop(cvs);  // uncomment when getControllerInput_Yarp will be working
    		writeControllerOutput_Yarp();
-
    	#endif
 }

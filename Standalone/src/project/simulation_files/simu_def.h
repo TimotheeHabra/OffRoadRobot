@@ -25,6 +25,19 @@
 
 // ---- Constants & Macros ---- //
 
+// motor parameters
+#define  K_W 0.00261
+#define  L_M 0.000265
+#define  R_M 0.7
+#define  K_T 0.00261
+#define rho 50
+
+// motor indices
+#define  M_FR 0
+#define  M_FL 1
+#define  M_RR 2
+#define  M_RL 3
+
 // driven joints (4 legs)
 #define R2_FR 7
 #define R2_FL 9
