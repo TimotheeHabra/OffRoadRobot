@@ -1,17 +1,17 @@
-//--------------------------- 
-// UCL-CEREM-MBS 
-// 
-// @version MBsysLab_s 1.7.a 
-// 
-// Creation : 2006 
-// Last update : 01/10/2008 
-//--------------------------- 
- 
+//---------------------------
+// UCL-CEREM-MBS
+//
+// @version MBsysLab_s 1.7.a
+//
+// Creation : 2006
+// Last update : 01/10/2008
+//---------------------------
+
 #include "simu_def.h"
- 
+
 double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
-{ 
-   
+{
+
 	double K = 10.0;
 
 	MBSdata->Qq[Spring_FR] = -K * MBSdata->q[Spring_FR];
@@ -19,6 +19,15 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 	MBSdata->Qq[Spring_RR] = -K * MBSdata->q[Spring_RR];
 	MBSdata->Qq[Spring_RL] = -K * MBSdata->q[Spring_RL];
 
+    // Actuated Joints:
+
+    MBSdata->Qq[R2_FR] = rho* K_T * MBSdata->ux[M_FR];
+    MBSdata->Qq[R2_FL] = rho* K_T * MBSdata->ux[M_FL];
+    MBSdata->Qq[R2_RR] = rho* K_T * MBSdata->ux[M_RR];
+    MBSdata->Qq[R2_RL] = rho* K_T * MBSdata->ux[M_RL];
+
    	return MBSdata->Qq;
-} 
+
+
+}
 
