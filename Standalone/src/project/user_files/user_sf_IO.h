@@ -20,6 +20,7 @@
 
 #include "userDef.h"
 #include "ControllersStruct.h"
+#include "ActuatorStruct.h"
 
 typedef struct UserIOStruct
 {
@@ -28,6 +29,7 @@ typedef struct UserIOStruct
     double output2[10+1];
     double Voltage[4]; //motor input voltage (controller)
     ControllerStruct *cvs;
+    SEActuatorStruct *acs;
     SimbodyStruct *simbodyStruct;
 
 } UserIOStruct;

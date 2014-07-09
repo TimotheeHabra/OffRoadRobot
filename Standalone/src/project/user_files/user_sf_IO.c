@@ -50,6 +50,10 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
        uvs->Voltage[i]= 0.0;
     }
 
+    // acs //
+    i=1;
+    uvs->acs = init_SEAStruct(i);
+
     // cvs //
     uvs->cvs = init_ControllerStruct();
 

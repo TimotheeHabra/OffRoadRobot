@@ -14,6 +14,9 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 
 	double K = 10.0;
 
+    double rho = MBSdata->user_IO->acs->GearRatio;
+    double K_T = MBSdata->user_IO->acs->TrqConst;
+
 	MBSdata->Qq[Spring_FR] = -K * MBSdata->q[Spring_FR];
 	MBSdata->Qq[Spring_FL] = -K * MBSdata->q[Spring_FL];
 	MBSdata->Qq[Spring_RR] = -K * MBSdata->q[Spring_RR];

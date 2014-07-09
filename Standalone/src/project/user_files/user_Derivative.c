@@ -17,6 +17,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
 
     double  voltage, omega;
 
+    double rho = MBSdata->user_IO->acs->GearRatio;
+    double K_W = MBSdata->user_IO->acs->Kbemf;
+    double L_M = MBSdata->user_IO->acs->Inductance;
+    double R_M = MBSdata->user_IO->acs->Resistance;
 
     // need a map from index i=0:4 to real joint indices
     // ux:current, uxd: current derivatives:

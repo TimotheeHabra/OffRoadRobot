@@ -40,3 +40,12 @@ typedef struct PActuatorStruct
     double saturation;
 
 } PActuatorStruct;
+
+// ---- Init and free functions: declarations ---- //
+
+SEActuatorStruct * init_SEAStruct(int type);
+void free_SEActuatorStruct(SEActuatorStruct *acs);
+
+PActuatorStruct * init_PStruct(void);
+void free_PActuatorStruct(PActuatorStruct *pacs);
+// ---- ------------------------------------- ---- //
