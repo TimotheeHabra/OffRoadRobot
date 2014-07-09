@@ -49,7 +49,7 @@ public:
      * robotran stuff
      */
     bool robotran_init();
-    void onUpdate(const MBSdataStruct * MBSdata);
+    void updateToYarp(const MBSdataStruct * MBSdata);
 
     /**
      * Yarp interfaces start here
@@ -184,6 +184,7 @@ private:
      * The ROBOTRAN position of each joints, readonly from MBSdataStruct
      */
     yarp::sig::Vector pos;
+    yarp::sig::VectorOf<int> jointID_map;
 
     //Contains the parameters of the device contained in the yarpConfigurationFile .ini file
     

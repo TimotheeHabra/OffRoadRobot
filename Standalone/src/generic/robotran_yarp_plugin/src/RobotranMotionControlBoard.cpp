@@ -17,13 +17,17 @@ using namespace yarp::dev;
  */
 bool RobotranYarpMotionControl::robotran_init()
 {
-    std::cout << "robotran_init " << std::endl;
+    std::cout << "robotran_init : is this function really necessary?" << std::endl;
     return true;
 }
 
-void RobotranYarpMotionControl::onUpdate(const MBSdataStruct * MBSdata)
+void RobotranYarpMotionControl::updateToYarp(const MBSdataStruct * MBSdata)
 {
-    //should update the vector pos
+    //update the vector pos
+    for(int i=0; i<pos.size();i++)
+    {
+        pos[i] = MBSdata->q[jointID_map[i]];
+    }
 
 }
 
@@ -43,15 +47,39 @@ RobotranYarpMotionControl::~RobotranYarpMotionControl()
 
 bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 {
-    //example from Alberto about how to use config files
+
     std::cout << "robotran motionControl parameters are " << config.toString() << std::endl;
-    config.check("joints");
+    
+    // Get joints names
+    if(!config.check("jointNames")) 
+    {
+        std::cout << "joints names not specified in config file " << std::endl;
+        return false;
+    }
+   
+    yarp::os::Bottle & jointNames = config.findGroup("jointNames");
+    numberOfJoints = jointNames.size()-1;
 
-    config.find("joints").isInt();
+    std::cout << "nbr joints = " << numberOfJoints << std::endl;
 
-    numberOfJoints = config.find("joints").asInt();
+    pos.resize(numberOfJoints);
+    pos.zero();
 
-    std::cout << "joints is " << numberOfJoints << std::endl;
+    // Get joints id
+    if(!config.check("robotran_joint_id")) 
+    {
+        std::cout << "robotran joints id not specified in config file " << std::endl;
+        return false;
+    }
+    yarp::os::Bottle & jointID = config.findGroup("robotran_joint_id");
+
+    jointID_map.resize(numberOfJoints);
+    for(int i=0; i< jointID.size()-1; i++)
+    {
+        jointID_map[i] = jointID.get(i+1).asInt();
+        printf("jointID_map[%d] = %d \n", i, jointID_map[i]);
+    }
+
     return true;
 }
 
@@ -282,7 +310,8 @@ bool RobotranYarpMotionControl::velocityMove(const double *sp) //NOT TESTED
 bool RobotranYarpMotionControl::getEncoder(int j, double *v) //WORKS
 {
     std::cout << "robotran motionControl: getEncoder " << std::endl;
-    return false;
+    *v = pos[j];
+    return true;
 }
 
 bool RobotranYarpMotionControl::getEncoders(double *encs) //WORKS
