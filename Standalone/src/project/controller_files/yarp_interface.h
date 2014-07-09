@@ -1,5 +1,6 @@
 #ifdef YARP
 
+
 #ifndef _YARP_INTERFACE_H_
 #define _YARP_INTERFACE_H_
 

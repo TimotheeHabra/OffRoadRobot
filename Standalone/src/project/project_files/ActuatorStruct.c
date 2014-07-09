@@ -23,7 +23,7 @@ SEActuatorStruct * init_SEAStruct(int type)
     switch (type) {
       case 1:
         acs->Resistance=0.7;
-        acs->GearRatio=50;
+        acs->GearRatio=10;
         acs->Damping=1;
         acs->Inductance=0.000265;
         acs->Inertia= 0.01;
@@ -38,7 +38,7 @@ SEActuatorStruct * init_SEAStruct(int type)
         break;
       case 2:
         acs->Resistance=1;
-        acs->GearRatio=100;
+        acs->GearRatio=1;
         acs->Damping=1;
         acs->Inductance=0.002;
         acs->Inertia= 0.01;

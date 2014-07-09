@@ -28,7 +28,6 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     //
     uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));
 
-
     // tsim_out1 //
     uvs->tsim_out1 = 0.0;
 
@@ -48,6 +47,12 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     for (i=0;i<=3;i++)
     {
        uvs->Voltage[i]= 0.0;
+    }
+
+    // Refs //
+    for (i=0;i<=3;i++)
+    {
+        uvs->refs[i]=0.0;
     }
 
     // acs //
