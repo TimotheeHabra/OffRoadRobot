@@ -186,6 +186,8 @@ private:
     yarp::sig::Vector pos;
     yarp::sig::VectorOf<int> jointID_map;
 
+    double simu_time;
+
     //Contains the parameters of the device contained in the yarpConfigurationFile .ini file
     
      /**

@@ -36,7 +36,7 @@
 #define  M_RR 2
 #define  M_RL 3
 
-// driven joints (4 legs)
+// actuated joints (4 legs)
 #define R2_FR 7
 #define R2_FL 9
 #define R2_RR 11

@@ -264,7 +264,7 @@ void loop_simulation(Loop_inputs *loop_inputs)
 
 
         #ifdef YARP
-            updateDataToYarp();
+            updateDataToYarp(loop_inputs->RobotranYarp_interface, MBSdata);
         #endif
 
         x += h;

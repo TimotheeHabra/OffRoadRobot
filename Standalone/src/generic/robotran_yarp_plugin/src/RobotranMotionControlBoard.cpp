@@ -29,6 +29,9 @@ void RobotranYarpMotionControl::updateToYarp(const MBSdataStruct * MBSdata)
         pos[i] = MBSdata->q[jointID_map[i]];
     }
 
+    //update time
+    simu_time = MBSdata->tsim;
+
 }
 
 /////////////////////////////////////
@@ -307,31 +310,46 @@ bool RobotranYarpMotionControl::velocityMove(const double *sp) //NOT TESTED
 // ENCODER
 /////////////////////////////////////
 
-bool RobotranYarpMotionControl::getEncoder(int j, double *v) //WORKS
+bool RobotranYarpMotionControl::getEncoder(int j, double *v) //TO BE TESTED
 {
     std::cout << "robotran motionControl: getEncoder " << std::endl;
-    *v = pos[j];
+    if (v && j >= 0 && j < (int)numberOfJoints) {
+        *v = pos[j];
+        return true;
+    }
+    return false;
+}
+
+bool RobotranYarpMotionControl::getEncoders(double *encs) //TO BE TESTED
+{
+    std::cout << "robotran motionControl: getEncoders " << std::endl;
+    if (!encs) return false;
+    for (unsigned int i = 0; i < numberOfJoints; ++i) {
+        encs[i] = pos[i];  //should we just use memcopy here?
+    }
     return true;
 }
 
-bool RobotranYarpMotionControl::getEncoders(double *encs) //WORKS
-{
-    std::cout << "robotran motionControl: getEncoders " << std::endl;
-    return false;
-}
-
-bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time)
+bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time) //TO BE TESTED
 {
     std::cout << "robotran motionControl: getEncodersTimed " << std::endl;
-    return false;
+    if (!encs) return false;
+    for (unsigned int i = 0; i <numberOfJoints; ++i) {
+        encs[i] = pos[i];  //should we just use memcopy here?
+        time[i] = simu_time;
+    }    
+    return true;
 }
 
 
-bool RobotranYarpMotionControl::getEncoderTimed(int j, double *enc, double *time)
+bool RobotranYarpMotionControl::getEncoderTimed(int j, double *enc, double *time) //TO BE TESTED
 {
-//    std::cout << "robotran motionControl: getEncoderTimed " << std::endl;
-    static int encIndex = 0;
-    *enc = encIndex++;
+    std::cout << "robotran motionControl: getEncoderTimed " << std::endl;
+    if (time && enc && j >= 0 && j < (int)numberOfJoints) {
+        *enc = pos[j];
+        *time = simu_time;
+        return true;
+    }
     return false;
 }
 
