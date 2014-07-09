@@ -51,7 +51,7 @@ RobotranYarpMotionControl::~RobotranYarpMotionControl()
 bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 {
 
-    std::cout << "robotran motionControl parameters are " << config.toString() << std::endl;
+    std::cout << "\n*********\nrobotran motionControl parameters are " << config.toString() << "\n***********\n" << std::endl;
 
     // Get joints names
     if(!config.check("jointNames"))
@@ -83,6 +83,78 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
         printf("jointID_map[%d] = %d \n", i, jointID_map[i]);
     }
 
+
+//    yarp::os::Property wrapProp;
+////    yarp::os::Property &mmm =wrapProp.addGroup();
+
+//    wrapProp.put("device","controlboardwrapper2");
+//    yarp::os::Property  &net = wrapProp.addGroup(networks);
+//    net.
+//    wrapProp.put("networks","myself");
+//    wrapProp.put("joints", numberOfJoints);
+//    char str[100];
+//    sprintf(str, "0 %d 0 %d", numberOfJoints, numberOfJoints);
+//    wrapProp.put("myself", str);
+
+//    std::cout << "$$$$$$$$$$$$$$$$$ " << wrapProp.toString() << std::endl;
+
+    if(!config.check("useWrapper"))
+    {
+        std::cout << "\nNOT USING WRAPPERS!\n" << std::endl;
+        return true;
+    }
+
+    std::cout << "\nUSING WRAPPERS!\n" << std::endl;
+
+    yarp::dev::IMultipleWrapper* iWrap;
+    yarp::dev::PolyDriver* wrap = new yarp::dev::PolyDriver();
+    yarp::os::Property wrapProp;
+    wrapProp.fromString(config.toString());
+    yarp::os::ConstString partName, robotName, wholeName;
+    partName = config.find("name").asString();
+    robotName = config.find("robot").asString();
+    wrapProp.unput("device");
+    wrapProp.put("device", "controlboardwrapper2");
+    wrapProp.unput("name");
+
+    wholeName = robotName + "/" + partName;
+    wrapProp.put("name", wholeName);
+
+
+    std::cout << "robotName is " << robotName << "; partName is " << partName << "; wholeName is " << wholeName << std::endl;
+
+    std::cout << "\n*********\n before wrapper " << wrapProp.toString() << "\n***********\n" << std::endl;
+
+    wrap->open(wrapProp);
+    if (!wrap->isValid())
+        fprintf(stderr, "RobotranYarpMotionControl: wrapper did not open\n");
+    else
+        fprintf(stderr, "RobotranYarpMotionControl: wrapper opened correctly\n");
+
+    if (!wrap->view(iWrap)) {
+        printf("RobotranYarpMotionControl Wrapper interface not found\n");
+    }
+
+   yarp::dev::PolyDriverList polyList;
+   yarp::os::Bottle *netList = config.find("networks").asList();
+   if (netList->isNull()) {
+       printf("RobotranYarpMotionControl ERROR, net list to attach to was not found, exiting\n");
+       wrap->close();
+       // m_controlBoard.close();
+       return false;
+   }
+   std::cout << "NNNNNNNNNNNNNNNNNNNNetwork list found !!" << netList->toString() << std::endl;
+
+   polyList.push((yarp::dev::PolyDriver*) this, netList->get(0).asString().c_str() );
+   if(!iWrap->attachAll(polyList) )
+   {
+       std::cout << "\n\n\nERROR while attching\n\n\n" << std::endl;
+       return false;
+    }
+   else
+   {
+       std::cout << "\n ATTACH WAS OK\n" << std::endl;
+   }
     return true;
 }
 
@@ -337,7 +409,13 @@ bool RobotranYarpMotionControl::getEncoders(double *encs) //TO BE TESTED
 
 bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time) //TO BE TESTED
 {
-    std::cout << "robotran motionControl: getEncodersTimed " << std::endl;
+    static int getEncodersTimedCounter = 0;
+    if((getEncodersTimedCounter % 100) == 0)
+    {
+        std::cout << "robotran motionControl: getEncodersTimed " << std::endl;
+    }
+    getEncodersTimedCounter++;
+
     if (!encs) return false;
     for (unsigned int i = 0; i <numberOfJoints; ++i) {
         encs[i] = pos[i];  //should we just use memcopy here?
@@ -349,8 +427,12 @@ bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time) //T
 
 bool RobotranYarpMotionControl::getEncoderTimed(int j, double *enc, double *time) //TO BE TESTED
 {
-    std::cout << "robotran motionControl: getEncoderTimed " << std::endl;
-    if (time && enc && j >= 0 && j < (int)numberOfJoints) {
+    static int getEncodersTimedCounter2 = 0;
+    if((getEncodersTimedCounter2 % 100) == 0)
+    {
+        std::cout << "robotran motionControl: getEncodersTimed " << std::endl;
+    }
+    getEncodersTimedCounter2++;    if (time && enc && j >= 0 && j < (int)numberOfJoints) {
         *enc = pos[j];
         *time = simu_time;
         return true;

@@ -20,7 +20,8 @@ void* yarp_init(void)
     yarp::dev::PolyDriverList       *p_controlBoardList = NULL;
     bool verbose = false;
 
-    /*yarp::os::Network               _yarp;
+
+    yarp::os::Network               _yarp;
     yarp::dev::PolyDriver           _wrapper;
     yarp::dev::IMultipleWrapper     *_iWrap = NULL;
 
@@ -29,7 +30,7 @@ void* yarp_init(void)
         std::cerr << "GazeboYarpControlBoard::Load error: yarp network does not seem to be available, is the yarpserver running?"<<std::endl;
         // either return something invalid (NULL) and check the value in the main_simulation or directly throw an exit here.
         exit(0);
-    }*/
+    }
 
     // Add the robotranControlboard device driver to the factory.
     yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<yarp::dev::RobotranYarpMotionControl>
@@ -70,6 +71,7 @@ void* yarp_init(void)
     if(general.check("verbose"))
         verbose = true;
 
+    yarp::os::ConstString robotName = general.find("robot").asString();
     if(!general.check("types"))
     {
         std::cout << "ERROR: ´types´ list was not found in the GENERAL group" << std::endl;
@@ -141,6 +143,7 @@ void* yarp_init(void)
                 tmpProp.fromString(p2.toString(), false);
             }
             yarp::dev::PolyDriver *tmp = new yarp::dev::PolyDriver;
+            tmpProp.put("robot", robotName);
             tmp->open(tmpProp);
 
 

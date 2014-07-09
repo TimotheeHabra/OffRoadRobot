@@ -18,6 +18,7 @@
 #include <yarp/sig/Vector.h>
 #include <yarp/os/Time.h>
 #include <yarp/dev/IControlLimits2.h>
+#include <yarp/dev/Wrapper.h>
 
 #include "MBSdataStruct.h"
 
