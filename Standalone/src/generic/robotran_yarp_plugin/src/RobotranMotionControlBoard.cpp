@@ -24,7 +24,7 @@ bool RobotranYarpMotionControl::robotran_init()
 void RobotranYarpMotionControl::updateToYarp(const MBSdataStruct * MBSdata)
 {
     //update the vector pos
-    for(int i=0; i<pos.size();i++)
+    for(unsigned int i=0; i<pos.size();i++)
     {
         pos[i] = MBSdata->q[jointID_map[i]];
     }

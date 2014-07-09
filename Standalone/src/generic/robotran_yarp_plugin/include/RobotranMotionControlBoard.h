@@ -186,7 +186,7 @@ private:
         double maxOut;
     };
     
-    int numberOfJoints;
+    unsigned int numberOfJoints;
 
     /**
      * The ROBOTRAN position of each joints, readonly from MBSdataStruct

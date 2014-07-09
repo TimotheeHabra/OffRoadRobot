@@ -8,18 +8,6 @@
 
 using namespace std;
 
-yarp::os::Property lookForSubFile(yarp::os::Searchable *params)
-{
-    if (params->check("file"))
-    {
-//        std::string filename=PATH+partOptions.find("file").asString().c_str();
-
-//        Property deviceParams;
-//        deviceParams.fromConfigFile(filename.c_str());
-
-    }
-}
-
 // here should come initialization of yarp
 // - getting configuration files
 // - creating desired Robotran-Yarp drivers
