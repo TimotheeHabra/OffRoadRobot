@@ -97,25 +97,25 @@ bool RobotranYarpMotionControl::close()
 // POSITION CONTROL
 /////////////////////////////////////
 
-bool RobotranYarpMotionControl::positionMove(int j, double ref) //WORKS
+bool RobotranYarpMotionControl::positionMove(int j, double ref) //TO BE DONE
 {
     std::cout << "robotran motionControl: positionMove " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::stop(int j) //WORKS
+bool RobotranYarpMotionControl::stop(int j) //TO BE DONE
 {
     std::cout << "robotran motionControl: stop " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::stop() //WORKS
+bool RobotranYarpMotionControl::stop() //TO BE DONE
 {
     std::cout << "robotran motionControl: stop " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::positionMove(const double *refs) //WORKS
+bool RobotranYarpMotionControl::positionMove(const double *refs) //TO BE DONE
 {
     std::cout << "robotran motionControl: positionMove " << std::endl;
     return false;
@@ -128,19 +128,19 @@ bool RobotranYarpMotionControl::getAxes(int *ax) // WORKS
     return true;
 }
 
-bool RobotranYarpMotionControl::setRefSpeed(int j, double sp) //WORKS
+bool RobotranYarpMotionControl::setRefSpeed(int j, double sp) //TO BE DONE
 {
     std::cout << "robotran motionControl: setRefSpeed " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::getRefSpeed(int j, double *ref) //WORKS
+bool RobotranYarpMotionControl::getRefSpeed(int j, double *ref) //TO BE DONE
 {
     std::cout << "robotran motionControl: getRefSpeed " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::getRefSpeeds(double *spds) //WORKS
+bool RobotranYarpMotionControl::getRefSpeeds(double *spds) //TO BE DONE
 {
     std::cout << "robotran motionControl: getRefSpeeds " << std::endl;
     return false;
@@ -354,25 +354,25 @@ bool RobotranYarpMotionControl::getEncoderTimed(int j, double *enc, double *time
 }
 
 
-bool RobotranYarpMotionControl::resetEncoder(int j) //WORKS
+bool RobotranYarpMotionControl::resetEncoder(int j) //TO BE DONE
 {
     std::cout << "robotran motionControl: resetEncoder " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::resetEncoders() //WORKS
+bool RobotranYarpMotionControl::resetEncoders() //TO BE DONE
 {
     std::cout << "robotran motionControl: resetEncoders " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::setEncoder(int j, double val) //WORKS
+bool RobotranYarpMotionControl::setEncoder(int j, double val) //TO BE DONE
 {
     std::cout << "robotran motionControl: setEncoder " << std::endl;
     return false;
 }
 
-bool RobotranYarpMotionControl::setEncoders(const double *vals) //WORKS
+bool RobotranYarpMotionControl::setEncoders(const double *vals) //TO BE DONE
 {
     std::cout << "robotran motionControl: setEncoders " << std::endl;
     return false;
