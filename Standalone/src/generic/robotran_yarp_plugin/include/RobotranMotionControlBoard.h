@@ -17,6 +17,7 @@
 #include <yarp/dev/IControlMode.h>
 #include <yarp/sig/Vector.h>
 #include <yarp/os/Time.h>
+#include <yarp/dev/IControlLimits2.h>
 
 #include "MBSdataStruct.h"
 
@@ -37,7 +38,8 @@ class yarp::dev::RobotranYarpMotionControl:
     public IVelocityControl,
     public IEncodersTimed,
 //    public IControlMode,
-    public IPositionDirect
+    public IPositionDirect,
+    public IControlLimits2
 {
 public:
     
@@ -166,6 +168,12 @@ public:
     bool setPosition(int j, double ref);
     bool setPositions(const int n_joint, const int *joints, double *refs);
     bool setPositions(const double *refs);
+
+    // ICONTROLLIMITS2
+    bool  setVelLimits (int axis, double min, double max) {return false;};
+    bool  getVelLimits (int axis, double *min, double *max) {return false;};
+    bool    setLimits (int axis, double min, double max) {return false;};
+    bool    getLimits (int axis, double *min, double *max) {return false;};
     
 private:
 	
