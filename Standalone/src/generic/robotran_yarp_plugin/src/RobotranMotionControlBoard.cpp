@@ -126,7 +126,7 @@ bool RobotranYarpMotionControl::positionMove(const double *refs) //TO BE DONE
     return false;
 }
 
-bool RobotranYarpMotionControl::getAxes(int *ax) // WORKS
+bool RobotranYarpMotionControl::getAxes(int *ax) //WORKS
 {
     std::cout << "robotran motionControl: getAxes " << std::endl;
     *ax = numberOfJoints;
