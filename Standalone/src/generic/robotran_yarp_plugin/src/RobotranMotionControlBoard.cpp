@@ -34,6 +34,16 @@ void RobotranYarpMotionControl::updateToYarp(const MBSdataStruct * MBSdata)
 
 }
 
+void RobotranYarpMotionControl::updateFromYarp(MBSdataStruct *MBSdata)
+{
+    for(unsigned int i=0; i<numberOfJoints; i++)
+    {
+//        std::cout << "index " << i << " ref " << desiredPosition[i] << std::endl;
+        MBSdata->user_IO->refs[motorID_map[i]]  = desiredPosition[i];
+    }
+
+}
+
 /////////////////////////////////////
 // DEVICE DRIVER
 /////////////////////////////////////
@@ -68,6 +78,9 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     pos.resize(numberOfJoints);
     pos.zero();
 
+    desiredPosition.resize(numberOfJoints);
+    desiredPosition.zero();
+
     // Get joints id
     if(!config.check("robotran_joint_id"))
     {
@@ -81,6 +94,15 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     {
         jointID_map[i] = jointID.get(i+1).asInt();
         printf("jointID_map[%d] = %d \n", i, jointID_map[i]);
+    }
+
+    yarp::os::Bottle & motorID = config.findGroup("robotran_motor_id");
+    motorID_map.resize(numberOfJoints);
+
+    for(int i=0; i< motorID.size()-1; i++)
+    {
+        motorID_map[i] = motorID.get(i+1).asInt();
+        printf("motorID_map[%d] = %d \n", i, motorID_map[i]);
     }
 
 

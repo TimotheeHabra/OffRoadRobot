@@ -25,10 +25,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
     // PD control
     double Kp=200;
     double Kd=0.1;
-    double ref = 4* MBSdata->tsim;
+//    double ref = 4* MBSdata->tsim;
 
 
-    //double ref = MBSdata->user_IO->refs[1];
+    double *ref = MBSdata->user_IO->refs;
 
 
     // need a map from index i=0:4 to real joint indices
@@ -39,7 +39,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
         //voltage = uvs->Voltage[M_FR];
         //voltage = 5; // overwrite the control signal
         // PD control law
-        voltage = Kp*(ref-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
+        voltage = Kp*(ref[M_FR]-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
 
     // Motor (electrical) ODE
         MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_FR]-K_W*omega);
@@ -49,7 +49,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
         //voltage = uvs->Voltage[M_FL];
         //voltage = 5; // overwrite the control signal
         // PD control law
-        voltage = Kp*(ref-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
+        voltage = Kp*(ref[M_FL]-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
 
         // Motor (electrical) ODE
         MBSdata->uxd[M_FL]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_FL]-K_W*omega);
@@ -59,7 +59,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
         //voltage = uvs->Voltage[M_RR];
         //voltage = 5; // overwrite the control signal
         // PD control law
-        voltage = Kp*(ref-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
+        voltage = Kp*(ref[M_RR]-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
         // Motor (electrical) ODE
         MBSdata->uxd[M_RR]= (1.0/L_M)*(voltage - R_M*MBSdata->ux[M_RR]-K_W*omega);
 
@@ -68,7 +68,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
         //voltage = uvs->Voltage[M_RL];
         //voltage =5;  // overwrite the control signal
         // PD control law
-        voltage = Kp*(ref-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
+        voltage = Kp*(ref[M_RL]-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
         // Motor (electrical) ODE
         MBSdata->uxd[M_RL]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_RL]-K_W*omega);
 

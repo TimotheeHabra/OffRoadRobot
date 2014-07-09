@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void updateDataFromYarp()
+void updateDataFromYarp(void* RobotranYarp_interface, MBSdataStruct * MBSdata)
 {
 	// here should come the update from yarp to the simulator
 	// write the new references (torque, position, speed ...) desired by the ControlInterface
@@ -13,6 +13,24 @@ void updateDataFromYarp()
 	// - feed low leved PID controllers with the ref
 
 	//cout << "update data from yarp " << endl;
+    yarp::dev::PolyDriverList *controlBoardList = (yarp::dev::PolyDriverList*)RobotranYarp_interface;  // convert back into object
+
+    yarp::dev::RobotranYarpMotionControl* 		RobotranControlBoardType 	= NULL;
+    yarp::dev::RobotranYarpForceTorqueDriver* 	RobotranForceTorqueType 	= NULL;
+
+    for(int i=0; i < controlBoardList->size(); i++)
+    {
+        (*controlBoardList)[i]->poly->view(RobotranControlBoardType);
+        if(RobotranControlBoardType)
+        {
+            //printf("I found a control Board driver at %d \n\n", i);
+            RobotranControlBoardType->updateFromYarp(MBSdata);
+        }
+
+
+
+    }
+
 }
 
 // here should come the update from simulator to yarp

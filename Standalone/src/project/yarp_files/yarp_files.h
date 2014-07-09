@@ -13,7 +13,7 @@ extern "C" {
 	#include <MBSdataStruct.h>
 
 	void* yarp_init(void);  //void* to be compatible with C type. It is actually an pointer to an object
-	void updateDataFromYarp(void);
+    void updateDataFromYarp(void* RobotranYarp_interface, MBSdataStruct * MBSdata);
 	void updateDataToYarp(void* RobotranYarp_interface, const MBSdataStruct * MBSdata);
 	void yarp_finish(void* RobotranYarp_interface);
 

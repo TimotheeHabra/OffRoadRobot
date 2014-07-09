@@ -53,6 +53,7 @@ public:
      */
     bool robotran_init();
     void updateToYarp(const MBSdataStruct * MBSdata);
+    void updateFromYarp(MBSdataStruct *MBSdata);
 
     /**
      * Yarp interfaces start here
@@ -194,6 +195,8 @@ private:
      */
     yarp::sig::Vector pos;
     yarp::sig::VectorOf<int> jointID_map;
+    yarp::sig::VectorOf<int> motorID_map;
+
 
     double simu_time;
 
