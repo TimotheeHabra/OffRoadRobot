@@ -22,15 +22,15 @@ SEActuatorStruct * init_SEAStruct(int type)
 
     switch (type) {
       case 1:
-        acs->Resistance=1;
-        acs->GearRatio=80;
+        acs->Resistance=0.7;
+        acs->GearRatio=50;
         acs->Damping=1;
-        acs->Inductance=0.002;
+        acs->Inductance=0.000265;
         acs->Inertia= 0.01;
-        acs->Kbemf= 0.04;
+        acs->Kbemf= 0.00261;
         acs->SeriesDamping=0.1;
         acs->SeriesSpring=1000.0;
-        acs->TrqConst=0.04;
+        acs->TrqConst=0.00261;
         acs->Isaturation=50;
         acs->Vsaturation=40;
         sprintf(acs->type,"Medium");
