@@ -52,14 +52,14 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 {
 
     std::cout << "robotran motionControl parameters are " << config.toString() << std::endl;
-    
+
     // Get joints names
-    if(!config.check("jointNames")) 
+    if(!config.check("jointNames"))
     {
         std::cout << "joints names not specified in config file " << std::endl;
         return false;
     }
-   
+
     yarp::os::Bottle & jointNames = config.findGroup("jointNames");
     numberOfJoints = jointNames.size()-1;
 
@@ -69,7 +69,7 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     pos.zero();
 
     // Get joints id
-    if(!config.check("robotran_joint_id")) 
+    if(!config.check("robotran_joint_id"))
     {
         std::cout << "robotran joints id not specified in config file " << std::endl;
         return false;
@@ -97,9 +97,14 @@ bool RobotranYarpMotionControl::close()
 // POSITION CONTROL
 /////////////////////////////////////
 
-bool RobotranYarpMotionControl::positionMove(int j, double ref) //TO BE DONE
+bool RobotranYarpMotionControl::positionMove(int j, double ref) //TESTING
 {
-    std::cout << "robotran motionControl: positionMove " << std::endl;
+
+   // std::cout << "robotran motionControl: positionMove " << std::endl;
+    if (j >= 0 && j < (int) numberOfJoints) {
+        desiredPosition[j] = ref; //we will use this ref_pos in the next simulation onUpdate call to ask Robotran to set PIDs ref_pos to this value
+        return true;
+    }
     return false;
 }
 
