@@ -172,8 +172,8 @@ public:
     // ICONTROLLIMITS2
     bool  setVelLimits (int axis, double min, double max) {return false;};
     bool  getVelLimits (int axis, double *min, double *max) {return false;};
-    bool    setLimits (int axis, double min, double max) {return false;};
-    bool    getLimits (int axis, double *min, double *max) {return false;};
+    bool  setLimits (int axis, double min, double max) {return false;};
+    bool  getLimits (int axis, double *min, double *max); 
     
 private:
 	

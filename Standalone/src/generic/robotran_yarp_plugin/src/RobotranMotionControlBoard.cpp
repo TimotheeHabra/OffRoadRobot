@@ -390,7 +390,7 @@ bool RobotranYarpMotionControl::getEncoderSpeed(int j, double *sp) //NOT TESTED
     return false;
 }
 
-bool RobotranYarpMotionControl::getEncoderSpeeds(double *spds) //NOT TESTED
+bool RobotranYarpMotionControl::getEncoderSpeeds(double *spds) //NOT IMPLEMENTED
 {
     std::cout << "robotran motionControl: getEncoderSpeeds " << std::endl;
     return false;
@@ -406,6 +406,16 @@ bool RobotranYarpMotionControl::getEncoderAccelerations(double *accs) //NOT IMPL
 {
     std::cout << "robotran motionControl: getEncoderAccelerations " << std::endl;
     return false;
+}
+
+// ICONTROLLIMITS2
+
+bool  RobotranYarpMotionControl::getLimits (int axis, double *min, double *max)  // TO BE DONE
+{
+    if (!min || !max) return false;
+    *min = 0;
+    *max = 100;
+    return true;
 }
 
 #endif
