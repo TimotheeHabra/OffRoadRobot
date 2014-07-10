@@ -11,6 +11,8 @@
 Standalone/build/
 Standalone/build_win/
 
+workR/standalone/test.mbsdata
+
 # movie recorded
 animationR/*
 

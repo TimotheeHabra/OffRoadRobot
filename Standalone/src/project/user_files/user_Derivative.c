@@ -15,62 +15,101 @@ void user_Derivative(MBSdataStruct *MBSdata)
 
     uvs = MBSdata->user_IO;
 
-    double  voltage, omega;
-
     double rho = MBSdata->user_IO->acs->GearRatio;
     double K_W = MBSdata->user_IO->acs->Kbemf;
     double L_M = MBSdata->user_IO->acs->Inductance;
     double R_M = MBSdata->user_IO->acs->Resistance;
+    double KT = MBSdata->user_IO->acs->TrqConst;
 
-    // PD control
-    double Kp=200;
+    double Ks = MBSdata->user_IO->acs->SeriesSpring;
+    double Ds = MBSdata->user_IO->acs->SeriesDamping;
+    double J_M = MBSdata->user_IO->acs->Inertia;
+    // voltage to torque gain (used in 2nd order dynamics)
+    double VT = rho*(KT)/R_M;
+    double D_M = MBSdata->user_IO->acs->Damping;
+    const int n = NB_ACTUATED_JOINTS;
+
+    // PD control !!! the gains should change depending on the actuator order and servo_type
+    double Kp=100;
     double Kd=0.1;
-//    double ref = 4* MBSdata->tsim;
 
+    double voltage[NB_ACTUATED_JOINTS]={0.0};
+    double Cpl[NB_ACTUATED_JOINTS]={0.0};
 
     double *ref = MBSdata->user_IO->refs;
+    int i;
 
 
-    // need a map from index i=0:4 to real joint indices
-    // ux:current, uxd: current derivatives:
-
-    // Front Right Motor ***********
-        omega = rho* MBSdata->qd[R2_FR];
-        //voltage = uvs->Voltage[M_FR];
-        //voltage = 5; // overwrite the control signal
+    if (Act_type==1) //SEA
+    {
         // PD control law
-        voltage = Kp*(ref[M_FR]-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
+        voltage[R2_FR] = Kp*(ref[M_FR]-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
+        voltage[R2_FL] = Kp*(ref[M_FL]-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
+        voltage[R2_RR] = Kp*(ref[M_RR]-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
+        voltage[R2_RL] = Kp*(ref[M_RL]-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
 
-    // Motor (electrical) ODE
-        MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_FR]-K_W*omega);
+        switch (Act_order) {
+          case 1:
+            justElectrical:
+            // Motor (electrical) ODE
+            // need a map from index i=0:4 to real joint indices
+            // ux:current, uxd: current derivatives:
 
-    // Front Left Motor ***********
-        omega = rho* MBSdata->qd[R2_FL];
-        //voltage = uvs->Voltage[M_FL];
-        //voltage = 5; // overwrite the control signal
-        // PD control law
-        voltage = Kp*(ref[M_FL]-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
+            // Front Right Motor ***********
+            MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage[R2_FR] -R_M*MBSdata->ux[M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
+            // Front Left Motor ***********
+            MBSdata->uxd[M_FL]= (1.0/L_M)*(voltage[R2_FL] -R_M*MBSdata->ux[M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
+            // Rear Right Motor ***********
+            MBSdata->uxd[M_RR]= (1.0/L_M)*(voltage[R2_RR] - R_M*MBSdata->ux[M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
+            // Rear Left Motor ***********
+            MBSdata->uxd[M_RL]= (1.0/L_M)*(voltage[R2_RL] -R_M*MBSdata->ux[M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
+           break;
+            case 2:
+            // Motor (Mechanical) ODE
+            // ux:motor position, velocity, uxd: motor velocity, acceleration
+            //update motor velocities:
+            for (i=0; i<n; i++)
+            {
+                MBSdata->uxd[i]=MBSdata->ux[i+n];
+            }
+            //update motor accelerations:
+            MBSdata->uxd[M_FR]= (1.0/J_M)*(VT*voltage[R2_FR] -D_M*MBSdata->ux[n+M_FR]-Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR]));
+            MBSdata->uxd[M_FL]= (1.0/J_M)*(VT*voltage[R2_FL] -D_M*MBSdata->ux[n+M_FL]-Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL]));
+            MBSdata->uxd[M_RR]= (1.0/J_M)*(VT*voltage[R2_RR] -D_M*MBSdata->ux[n+M_RR]-Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR]));
+            MBSdata->uxd[M_RL]= (1.0/J_M)*(VT*voltage[R2_RL] -D_M*MBSdata->ux[n+M_RL]-Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL]));
+           break;
+            case 3:
+            // Motor (Electrical+Mechanical) ODE
+            // ux:motor position, velocity, current uxd: motor velocity, acceleration, current derivative
+            //update motor velocities:
+            for (i=0; i<n; i++)
+            {
+                MBSdata->uxd[i]=MBSdata->ux[i+n];
+            }
+            // computing the transmission torque (coupling between motor and load)
+            Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
+            Cpl[M_FL]=Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL])+Ds*(MBSdata->uxd[M_FL]-MBSdata->qd[R2_FL]);
+            Cpl[M_RR]=Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR])+Ds*(MBSdata->uxd[M_RR]-MBSdata->qd[R2_RR]);
+            Cpl[M_RL]=Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL])+Ds*(MBSdata->uxd[M_RL]-MBSdata->qd[R2_RL]);
+            // update motor acceleration:
+            MBSdata->uxd[M_FR+n]= (1.0/J_M)*(KT*MBSdata->ux[2*n+R2_FR] -D_M*MBSdata->ux[n+M_FR]-Cpl[M_FR]);
+            MBSdata->uxd[M_FL+n]= (1.0/J_M)*(KT*MBSdata->ux[2*n+R2_FL] -D_M*MBSdata->ux[n+M_FL]-Cpl[M_FL]);
+            MBSdata->uxd[M_RR+n]= (1.0/J_M)*(KT*MBSdata->ux[2*n+R2_RR] -D_M*MBSdata->ux[n+M_RR]-Cpl[M_RR]);
+            MBSdata->uxd[M_RL+n]= (1.0/J_M)*(KT*MBSdata->ux[2*n+R2_RL] -D_M*MBSdata->ux[n+M_RL]-Cpl[M_RL]);
 
-        // Motor (electrical) ODE
-        MBSdata->uxd[M_FL]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_FL]-K_W*omega);
+            // update current derivative:
+            MBSdata->uxd[M_FR+2*n]=(1.0/L_M)*(voltage[R2_FR] -R_M*MBSdata->ux[2*n+M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
+            MBSdata->uxd[M_FL+2*n]=(1.0/L_M)*(voltage[R2_FL] -R_M*MBSdata->ux[2*n+M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
+            MBSdata->uxd[M_RR+2*n]=(1.0/L_M)*(voltage[R2_RR] -R_M*MBSdata->ux[2*n+M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
+            MBSdata->uxd[M_RL+2*n]=(1.0/L_M)*(voltage[R2_RL] -R_M*MBSdata->ux[2*n+M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
+           break;
+            default:
+            printf("detault actuator order (1) selected \n");
+            goto justElectrical;
+           break;
+            }
+    }
 
-    // Rear Right Motor ***********
-        omega = rho* MBSdata->qd[R2_RR];
-        //voltage = uvs->Voltage[M_RR];
-        //voltage = 5; // overwrite the control signal
-        // PD control law
-        voltage = Kp*(ref[M_RR]-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
-        // Motor (electrical) ODE
-        MBSdata->uxd[M_RR]= (1.0/L_M)*(voltage - R_M*MBSdata->ux[M_RR]-K_W*omega);
-
-    // Rear Left Motor ***********
-        omega = rho* MBSdata->qd[R2_RL];
-        //voltage = uvs->Voltage[M_RL];
-        //voltage =5;  // overwrite the control signal
-        // PD control law
-        voltage = Kp*(ref[M_RL]-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
-        // Motor (electrical) ODE
-        MBSdata->uxd[M_RL]= (1.0/L_M)*(voltage -R_M*MBSdata->ux[M_RL]-K_W*omega);
 
 }
 

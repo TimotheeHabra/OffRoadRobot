@@ -18,7 +18,7 @@ void* yarp_init(void)
 	cout << "initialization of yarp interface" << endl;
 
     yarp::dev::PolyDriverList       *p_controlBoardList = NULL;
-    bool verbose = false;
+    bool verbose = true;
 
 
     yarp::os::Network               _yarp;

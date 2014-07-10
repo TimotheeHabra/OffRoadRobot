@@ -29,14 +29,6 @@
 #define Act_order 1 // 1st (electric), 2nd (mechanical) or 3rd (electrical, mechanical)
 #define Act_type 1  // 0-> SEA-Small, 1 ->SEA-Med, 2->SEA-Big, 3-> PEA-default
 
-// Control Type
-#define IDLE_CTRL 0   //maybe using an enum would be cleaner
-#define TORQUE_CTRL 1
-#define POSITION_DIRECT_CTRL 2
-#define POSITION_CTRL 3
-#define VELOCITY_CTRL 4
-#define IMPEDANCE_POS_CTRL 5
-#define IMPEDANCE_VEL_CTRL 6
 
 // motor indices
 #define  M_FR 0
@@ -71,4 +63,4 @@ void simu_outputs(MBSdataStruct *MBSdata);
 void simu_controller_loop(MBSdataStruct *MBSdata);
 
 /*--------------------*/
-#endif
+#endif 
