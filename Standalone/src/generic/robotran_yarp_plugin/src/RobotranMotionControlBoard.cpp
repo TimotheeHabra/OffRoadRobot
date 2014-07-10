@@ -40,6 +40,7 @@ void RobotranYarpMotionControl::updateFromYarp(MBSdataStruct *MBSdata)
     {
 //        std::cout << "index " << i << " ref " << desiredPosition[i] << std::endl;
         MBSdata->user_IO->refs[motorID_map[i]]  = desiredPosition[i];
+        MBSdata->user_IO->servo_type[jointID_map[i]] = controlMode[i];
     }
 
 }
@@ -123,6 +124,13 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
         min_pos[i] = min.get(i+1).asDouble();
         printf("min pos[%d] = %f \n", i, min_pos[i]);
     }
+
+    controlMode.resize(numberOfJoints);
+    for(int i=0; i< numberOfJoints; i++)
+    {
+        controlMode[i] = POSITION_CTRL;  //by default init to pos control
+    }
+
 
 
 //    yarp::os::Property wrapProp;
@@ -423,6 +431,14 @@ bool RobotranYarpMotionControl::velocityMove(const double *sp) //NOT TESTED
     return false;
 }
 
+/////////////////////////////////////
+// CONTROL MODE
+/////////////////////////////////////
+
+bool RobotranYarpMotionControl::setPositionMode(int j)  //TO BE TESTED
+{
+    controlMode[j] = POSITION_CTRL;
+}
 
 /////////////////////////////////////
 // ENCODER

@@ -13,5 +13,8 @@
 
 #include "SimbodyBodiesStruct.h"
 #include "SimbodyStruct.h"
+
+#define NB_ACTUATED_JOINTS 4
+
 /*--------------------*/
 #endif
