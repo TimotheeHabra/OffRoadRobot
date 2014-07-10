@@ -1,22 +1,22 @@
 /*===========================================================================*
  *
  *  user_sf_IO.c
- *
- *  Generation date: Wed May 21 16:40:42 2014
+ * 
+ *  Generation date: Thu Jul 10 15:03:26 2014
 
- *
+ * 
  *  (c) Universite catholique de Louvain
- *      Departement de Mecanique
- *      Unite de Production Mecanique et Machines
- *      2, Place du Levant
- *      1348 Louvain-la-Neuve
- *  http://www.robotran.be//
- *
+ *      Departement de Mecanique 
+ *      Unite de Production Mecanique et Machines 
+ *      2, Place du Levant 
+ *      1348 Louvain-la-Neuve 
+ *  http://www.robotran.be// 
+ *  
 /*===========================================================================*/
 
-#include "MBSfun.h"
-#include "user_sf_IO.h"
-#include "sfdef.h"
+#include "MBSfun.h" 
+#include "user_sf_IO.h" 
+#include "sfdef.h" 
 #include "userDef.h"
 #include "ControllersStruct.h"
 
@@ -27,6 +27,7 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     int i;
     //
     uvs = (UserIOStruct*) malloc(sizeof(UserIOStruct));
+
 
     // tsim_out1 //
     uvs->tsim_out1 = 0.0;
@@ -44,32 +45,31 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     }
 
     // Voltage //
-    for (i=0;i<=3;i++)
+    for (i=1;i<=3;i++)
     {
-       uvs->Voltage[i]= 0.0;
+        uvs->Voltage[i] = 0.0;
     }
 
-    // Refs //
-    for (i=0;i<=3;i++)
+    // refs //
+    for (i=1;i<=3;i++)
     {
-        uvs->refs[i]=0.0;
+        uvs->refs[i] = 0.0;
     }
 
-    // servo type //
-    for (i=0;i<=3;i++)
+    // servo_type //
+    for (i=1;i<=3;i++)
     {
-        uvs->servo_type[i] = 3; //init in pos control (should be change to use a MACRO instead)
+        uvs->servo_type[i] = 0;
     }
-
-    // acs //
-    i=1;
-    uvs->acs = init_SEAStruct(i);
 
     // cvs //
     uvs->cvs = init_ControllerStruct();
 
     // simbodyStruct //
     uvs->simbodyStruct = init_SimbodyStruct();
+
+    // acs //
+    uvs->acs = init_SEActuatorStruct();
 
     return uvs;
 }
@@ -83,6 +83,9 @@ void freeUserIO(UserIOStruct *uvs, MBSdataStruct *s)
 
     // SimbodyStruct: simbodyStruct //
     free_SimbodyStruct(uvs->simbodyStruct);
+
+    // SEActuatorStruct: acs //
+    free_SEActuatorStruct(uvs->acs);
 
     free(uvs);
 }

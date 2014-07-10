@@ -5,6 +5,8 @@
 // Last update : 9-7-2014
 //---------------------------
 
+#include "ActuatorsDefinitions.h"
+
 
 // Series Elastic Actuator Structure
 typedef struct SEActuatorStruct
@@ -43,7 +45,7 @@ typedef struct PActuatorStruct
 
 // ---- Init and free functions: declarations ---- //
 
-SEActuatorStruct * init_SEAStruct(int type);
+SEActuatorStruct * init_SEActuatorStruct();
 void free_SEActuatorStruct(SEActuatorStruct *acs);
 
 PActuatorStruct * init_PStruct(void);

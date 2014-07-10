@@ -14,58 +14,65 @@
 // ---- Actuator initialization ---- //
 
 // SEActuatorStruct
-SEActuatorStruct * init_SEAStruct(int type)
+SEActuatorStruct* init_SEActuatorStruct()
 {
-    SEActuatorStruct *acs;
+    int i;
+    int type;
+    SEActuatorStruct* acs[NB_ACTUATED_JOINTS_TMP];
+    int actuator_type_array[NB_ACTUATED_JOINTS_TMP] = ACTUATOR_TYPE_ARRAY;
 
-    acs = (SEActuatorStruct*) malloc(sizeof(SEActuatorStruct));
-
-    switch (type) {
-      case 1:
-        acs->Resistance=0.7;
-        acs->GearRatio=10;
-        acs->Damping=1;
-        acs->Inductance=0.000265;
-        acs->Inertia= 0.01;
-        acs->Kbemf= 0.00261;
-        acs->SeriesDamping=0.1;
-        acs->SeriesSpring=1000.0;
-        acs->TrqConst=0.00261;
-        acs->Isaturation=50;
-        acs->Vsaturation=40;
-        sprintf(acs->type,"Medium");
-        printf("actuator type is 1 \n");
-        break;
-      case 2:
-        acs->Resistance=1;
-        acs->GearRatio=1;
-        acs->Damping=1;
-        acs->Inductance=0.002;
-        acs->Inertia= 0.01;
-        acs->Kbemf= 0.08;
-        acs->SeriesDamping=0.2;
-        acs->SeriesSpring=2000.0;
-        acs->TrqConst=0.08;
-        acs->Isaturation=50;
-        acs->Vsaturation=80;
-        sprintf(acs->type,"Big");
-        printf("actuator type is 2 \n");
-        break;
-      default:
-        acs->Resistance=1;
-        acs->GearRatio=100;
-        acs->Damping=1;
-        acs->Inductance=0.002;
-        acs->Inertia= 0.01;
-        acs->Kbemf= 0.08;
-        acs->SeriesDamping=0.2;
-        acs->SeriesSpring=2000.0;
-        acs->TrqConst=0.08;
-        acs->Isaturation=50;
-        acs->Vsaturation=80;
-        sprintf(acs->type,"Big");
-        printf("detault actuator selected \n");
-      }
+    for (i=0; i < NB_ACTUATED_JOINTS_TMP; i++)
+    {
+        type = actuator_type_array[i];
+        acs[i] = (SEActuatorStruct*) malloc(sizeof(SEActuatorStruct));
+    
+        switch (type) {
+          case 1:
+            acs[i]->Resistance=0.7;
+            acs[i]->GearRatio=10;
+            acs[i]->Damping=1;
+            acs[i]->Inductance=0.000265;
+            acs[i]->Inertia= 0.01;
+            acs[i]->Kbemf= 0.00261;
+            acs[i]->SeriesDamping=0.1;
+            acs[i]->SeriesSpring=1000.0;
+            acs[i]->TrqConst=0.00261;
+            acs[i]->Isaturation=50;
+            acs[i]->Vsaturation=40;
+            sprintf(acs[i]->type,"Medium");
+            printf("actuator type is 1 \n");
+            break;
+          case 2:
+            acs[i]->Resistance=1;
+            acs[i]->GearRatio=1;
+            acs[i]->Damping=1;
+            acs[i]->Inductance=0.002;
+            acs[i]->Inertia= 0.01;
+            acs[i]->Kbemf= 0.08;
+            acs[i]->SeriesDamping=0.2;
+            acs[i]->SeriesSpring=2000.0;
+            acs[i]->TrqConst=0.08;
+            acs[i]->Isaturation=50;
+            acs[i]->Vsaturation=80;
+            sprintf(acs[i]->type,"Big");
+            printf("actuator type is 2 \n");
+            break;
+          default:
+            acs[i]->Resistance=1;
+            acs[i]->GearRatio=100;
+            acs[i]->Damping=1;
+            acs[i]->Inductance=0.002;
+            acs[i]->Inertia= 0.01;
+            acs[i]->Kbemf= 0.08;
+            acs[i]->SeriesDamping=0.2;
+            acs[i]->SeriesSpring=2000.0;
+            acs[i]->TrqConst=0.08;
+            acs[i]->Isaturation=50;
+            acs[i]->Vsaturation=80;
+            sprintf(acs[i]->type,"Big");
+            printf("detault actuator selected \n");
+          }
+    }
 
     return acs;
 }
@@ -95,7 +102,12 @@ PActuatorStruct * init_PStruct(void)
 // ActuatorStruct
 void free_SEActuatorStruct(SEActuatorStruct *acs)
 {
-    free(acs);
+    int i;
+    for (i=0; i < NB_ACTUATED_JOINTS_TMP; i++)
+    {
+        free(acs[i]);
+    }
+
 }
 
 // ActuatorStruct

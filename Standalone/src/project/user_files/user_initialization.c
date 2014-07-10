@@ -26,7 +26,7 @@ int user_initialization(MBSdataStruct *MBSdata, LocalDataStruct *lds)
 	//  controller initialization
     controller_init(MBSdata->user_IO->cvs);
 
-    init_SEAStruct(1);
+    //init_SEAStruct(1);
 
     #ifdef CMEX
     return 0;

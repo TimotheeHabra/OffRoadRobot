@@ -24,8 +24,12 @@
 tsim_out1   double   1
 output1   double   10
 output2   double   10
+Voltage   double   3
+refs   double   3
+servo_type   int   3  
 
 # STRUCT
 cvs   ControllerStruct   1 
 simbodyStruct SimbodyStruct 1
+acs   SEActuatorStruct   1
 
