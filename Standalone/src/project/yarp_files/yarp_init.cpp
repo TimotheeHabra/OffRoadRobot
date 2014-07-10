@@ -27,7 +27,7 @@ void* yarp_init(void)
 
     // init YARP and instantiate yarp device driver
     if( !_yarp.checkNetwork() ) {
-        std::cerr << "GazeboYarpControlBoard::Load error: yarp network does not seem to be available, is the yarpserver running?"<<std::endl;
+        std::cerr << "RobotranYarpControlBoard::Load error: yarp network does not seem to be available, is the yarpserver running?"<<std::endl;
         // either return something invalid (NULL) and check the value in the main_simulation or directly throw an exit here.
         exit(0);
     }

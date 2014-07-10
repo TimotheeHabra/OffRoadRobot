@@ -20,7 +20,9 @@
 #include <yarp/dev/IControlLimits2.h>
 #include <yarp/dev/Wrapper.h>
 
+//Robotran info
 #include "MBSdataStruct.h"
+#include "simu_def.h"
 
 
 const double ROBOT_POSITION_TOLERANCE = 0.9;
@@ -38,7 +40,7 @@ class yarp::dev::RobotranYarpMotionControl:
     public IPositionControl2,
     public IVelocityControl,
     public IEncodersTimed,
-//    public IControlMode,
+    public IControlMode,
     public IPositionDirect,
     public IControlLimits2
 {
@@ -121,18 +123,18 @@ public:
     virtual bool velocityMove(int j, double sp); //NOT TESTED    
     virtual bool velocityMove(const double *sp); //NOT TESTED    
     
-    /*CONTROL MODE
+    //CONTROL MODE
     virtual bool setPositionMode(int j); //WORKS    
-    virtual bool setVelocityMode(int j); //WORKS
-    virtual bool getControlMode(int j, int *mode); //WORKS
+    virtual bool setVelocityMode(int j){return false;}; //WORKS
+    virtual bool getControlMode(int j, int *mode){return false;}; //WORKS
     
-    virtual bool setTorqueMode(int j); //NOT TESTED 
-    virtual bool getControlModes(int *modes); //NOT TESTED
+    virtual bool setTorqueMode(int j){return false;}; //NOT TESTED 
+    virtual bool getControlModes(int *modes){return false;}; //NOT TESTED
     
-    virtual bool setImpedancePositionMode(int j);//NOT IMPLEMENTED
-    virtual bool setImpedanceVelocityMode(int j); //NOT IMPLEMENTED
-    virtual bool setOpenLoopMode(int j); //NOT IMPLEMENTED
-    */
+    virtual bool setImpedancePositionMode(int j){return false;};//NOT IMPLEMENTED
+    virtual bool setImpedanceVelocityMode(int j){return false;}; //NOT IMPLEMENTED
+    virtual bool setOpenLoopMode(int j){return false;}; //NOT IMPLEMENTED
+    
 
     /*IMPEDANCE CTRL
     virtual bool getImpedance(int j, double *stiffness, double *damping); // [Nm/deg] & [Nm*sec/deg]
@@ -196,9 +198,9 @@ private:
     yarp::sig::Vector pos;
     yarp::sig::VectorOf<int> jointID_map;
     yarp::sig::VectorOf<int> motorID_map;
-
-
+    yarp::sig::Vector max_pos, min_pos;
     double simu_time;
+    yarp::sig::VectorOf<int> controlMode;
 
     //Contains the parameters of the device contained in the yarpConfigurationFile .ini file
     
@@ -216,7 +218,6 @@ private:
     yarp::sig::Vector vel, speed, acc, amp, torque;
     yarp::os::Semaphore pos_lock;
     yarp::sig::Vector referenceSpeed, referencePosition, referenceAcceleraton, referenceTorque;
-    yarp::sig::Vector max_pos, min_pos;
 
 };
 

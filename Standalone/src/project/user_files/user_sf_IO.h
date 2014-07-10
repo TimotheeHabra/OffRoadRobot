@@ -31,6 +31,7 @@ typedef struct UserIOStruct
     double refs[NB_ACTUATED_JOINTS]; //motor input voltage (controller)
     ControllerStruct *cvs;
     SEActuatorStruct *acs;
+    int servo_type[NB_ACTUATED_JOINTS];
     SimbodyStruct *simbodyStruct;
 
 } UserIOStruct;

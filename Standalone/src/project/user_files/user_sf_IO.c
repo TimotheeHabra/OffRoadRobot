@@ -55,6 +55,12 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
         uvs->refs[i]=0.0;
     }
 
+    // servo type //
+    for (i=0;i<=3;i++)
+    {
+        uvs->servo_type[i] = 3; //init in pos control (should be change to use a MACRO instead)
+    }
+
     // acs //
     i=1;
     uvs->acs = init_SEAStruct(i);
