@@ -8,14 +8,14 @@
   <g idx="1" type="double" size="3 1">0 0 -9.8</g>
   <nbody idx="1" type="double" size="1 1">14</nbody>
   <Njoint idx="1" type="double" size="1 1">14</Njoint>
-  <qu idx="1" type="double" size="1 14">1 2 3 4 5 6 7 8 9 10 11 12 13 14</qu>
-  <nqu idx="1" type="double" size="1 1">14</nqu>
-  <qc idx="1" type="double" size="0 0"/> 
-  <nqc idx="1" type="double" size="1 1">0</nqc>
+  <qu idx="1" type="double" size="1 10">1 2 3 4 5 6 8 10 12 14</qu>
+  <nqu idx="1" type="double" size="1 1">10</nqu>
+  <qc idx="1" type="double" size="1 4">7 9 11 13</qc>
+  <nqc idx="1" type="double" size="1 1">4</nqc>
   <qlocked idx="1" type="double" size="0 0"/> 
   <nqlocked idx="1" type="double" size="1 1">0</nqlocked>
-  <qdriven idx="1" type="double" size="0 0"/> 
-  <nqdriven idx="1" type="double" size="1 1">0</nqdriven>
+  <qdriven idx="1" type="double" size="1 4">7 9 11 13</qdriven>
+  <nqdriven idx="1" type="double" size="1 1">4</nqdriven>
   <qa idx="1" type="double" size="0 0"/> 
   <nqa idx="1" type="double" size="1 1">0</nqa>
   <qv idx="1" type="double" size="0 0"/> 
@@ -53,10 +53,10 @@
   <Nwheel idx="1" type="double" size="1 1">0</Nwheel>
   <Nuser_model idx="1" type="double" size="1 1">1</Nuser_model>
   <user_model idx="1" type="cell" size="0 0"/> 
-  <ux idx="1" type="double" size="4 1">0 0 0 0</ux>
-  <uxd idx="1" type="double" size="4 1">0 0 0 0</uxd>
-  <ux0 idx="1" type="double" size="4 1">0 0 0 0</ux0>
-  <Nux idx="1" type="double" size="1 1">4</Nux>
+  <ux idx="1" type="double" size="12 1">0 0 0 0 0 0 0 0 0 0 0 0</ux>
+  <uxd idx="1" type="double" size="12 1">0 0 0 0 0 0 0 0 0 0 0 0</uxd>
+  <ux0 idx="1" type="double" size="12 1">0 0 0 0 0 0 0 0 0 0 0 0</ux0>
+  <Nux idx="1" type="double" size="1 1">12</Nux>
   <user_var idx="1" type="struct" size="0 0"/> 
   <DonePart idx="1" type="double" size="1 1">1</DonePart>
   <DoneDirdyn idx="1" type="double" size="1 1">0</DoneDirdyn>

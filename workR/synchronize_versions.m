@@ -12,7 +12,7 @@ close all;
 %% Flags
 
 ctrl_flag        = 0; % 1 to synchronize the controller files for the real robot
-standalone_flag  = 1; % 1 to synchronize the files of the Standalone version 
+standalone_flag  = 0; % 1 to synchronize the files of the Standalone version 
                       %(except the xml file and the .txt about the state variables)
 stand_state_flag = 0; % 1 to synchronize 'simu_variables.m' and 'control_variables.m'
                       % with the Standalone version

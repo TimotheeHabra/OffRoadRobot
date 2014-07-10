@@ -27,8 +27,8 @@ typedef struct UserIOStruct
     double tsim_out1;
     double output1[10+1];
     double output2[10+1];
-    double Voltage[4]; //motor input voltage (controller)
-    double refs[4]; //motor input voltage (controller)
+    double Voltage[NB_ACTUATED_JOINTS]; //motor input voltage (controller)
+    double refs[NB_ACTUATED_JOINTS]; //motor input voltage (controller)
     ControllerStruct *cvs;
     SEActuatorStruct *acs;
     SimbodyStruct *simbodyStruct;
