@@ -43,10 +43,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
     if (Act_type==1) //SEA
     {
         // PD control law
-        voltage[R2_FR] = Kp*(ref[M_FR]-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
-        voltage[R2_FL] = Kp*(ref[M_FL]-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
-        voltage[R2_RR] = Kp*(ref[M_RR]-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
-        voltage[R2_RL] = Kp*(ref[M_RL]-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
+        voltage[M_FR] = Kp*(ref[M_FR]-MBSdata->q[R2_FR])-Kd*MBSdata->qd[R2_FR];
+        voltage[M_FL] = Kp*(ref[M_FL]-MBSdata->q[R2_FL])-Kd*MBSdata->qd[R2_FL];
+        voltage[M_RR] = Kp*(ref[M_RR]-MBSdata->q[R2_RR])-Kd*MBSdata->qd[R2_RR];
+        voltage[M_RL] = Kp*(ref[M_RL]-MBSdata->q[R2_RL])-Kd*MBSdata->qd[R2_RL];
 
         switch (Act_order) {
           case 1:
@@ -56,13 +56,13 @@ void user_Derivative(MBSdataStruct *MBSdata)
             // ux:current, uxd: current derivatives:
 
             // Front Right Motor ***********
-            MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage[R2_FR] -R_M*MBSdata->ux[M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
+            MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage[M_FR] -R_M*MBSdata->ux[M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
             // Front Left Motor ***********
-            MBSdata->uxd[M_FL]= (1.0/L_M)*(voltage[R2_FL] -R_M*MBSdata->ux[M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
+            MBSdata->uxd[M_FL]= (1.0/L_M)*(voltage[M_FL] -R_M*MBSdata->ux[M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
             // Rear Right Motor ***********
-            MBSdata->uxd[M_RR]= (1.0/L_M)*(voltage[R2_RR] - R_M*MBSdata->ux[M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
+            MBSdata->uxd[M_RR]= (1.0/L_M)*(voltage[M_RR] - R_M*MBSdata->ux[M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
             // Rear Left Motor ***********
-            MBSdata->uxd[M_RL]= (1.0/L_M)*(voltage[R2_RL] -R_M*MBSdata->ux[M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
+            MBSdata->uxd[M_RL]= (1.0/L_M)*(voltage[M_RL] -R_M*MBSdata->ux[M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
            break;
             case 2:
             // Motor (Mechanical) ODE
@@ -73,10 +73,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
                 MBSdata->uxd[i]=MBSdata->ux[i+n];
             }
             //update motor accelerations:
-            MBSdata->uxd[M_FR]= (1.0/J_M)*(VT*voltage[R2_FR] -D_M*MBSdata->ux[n+M_FR]-Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR]));
-            MBSdata->uxd[M_FL]= (1.0/J_M)*(VT*voltage[R2_FL] -D_M*MBSdata->ux[n+M_FL]-Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL]));
-            MBSdata->uxd[M_RR]= (1.0/J_M)*(VT*voltage[R2_RR] -D_M*MBSdata->ux[n+M_RR]-Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR]));
-            MBSdata->uxd[M_RL]= (1.0/J_M)*(VT*voltage[R2_RL] -D_M*MBSdata->ux[n+M_RL]-Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL]));
+            MBSdata->uxd[M_FR]= (1.0/J_M)*(VT*voltage[M_FR] -D_M*MBSdata->ux[n+M_FR]-Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR]));
+            MBSdata->uxd[M_FL]= (1.0/J_M)*(VT*voltage[M_FL] -D_M*MBSdata->ux[n+M_FL]-Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL]));
+            MBSdata->uxd[M_RR]= (1.0/J_M)*(VT*voltage[M_RR] -D_M*MBSdata->ux[n+M_RR]-Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR]));
+            MBSdata->uxd[M_RL]= (1.0/J_M)*(VT*voltage[M_RL] -D_M*MBSdata->ux[n+M_RL]-Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL]));
            break;
             case 3:
             // Motor (Electrical+Mechanical) ODE
@@ -98,10 +98,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
             MBSdata->uxd[M_RL+n]= (1.0/J_M)*(KT*MBSdata->ux[2*n+R2_RL] -D_M*MBSdata->ux[n+M_RL]-Cpl[M_RL]);
 
             // update current derivative:
-            MBSdata->uxd[M_FR+2*n]=(1.0/L_M)*(voltage[R2_FR] -R_M*MBSdata->ux[2*n+M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
-            MBSdata->uxd[M_FL+2*n]=(1.0/L_M)*(voltage[R2_FL] -R_M*MBSdata->ux[2*n+M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
-            MBSdata->uxd[M_RR+2*n]=(1.0/L_M)*(voltage[R2_RR] -R_M*MBSdata->ux[2*n+M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
-            MBSdata->uxd[M_RL+2*n]=(1.0/L_M)*(voltage[R2_RL] -R_M*MBSdata->ux[2*n+M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
+            MBSdata->uxd[M_FR+2*n]=(1.0/L_M)*(voltage[M_FR] -R_M*MBSdata->ux[2*n+M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
+            MBSdata->uxd[M_FL+2*n]=(1.0/L_M)*(voltage[M_FL] -R_M*MBSdata->ux[2*n+M_FL]-K_W*rho* MBSdata->qd[R2_FL]);
+            MBSdata->uxd[M_RR+2*n]=(1.0/L_M)*(voltage[M_RR] -R_M*MBSdata->ux[2*n+M_RR]-K_W*rho* MBSdata->qd[R2_RR]);
+            MBSdata->uxd[M_RL+2*n]=(1.0/L_M)*(voltage[M_RL] -R_M*MBSdata->ux[2*n+M_RL]-K_W*rho* MBSdata->qd[R2_RL]);
            break;
             default:
             printf("detault actuator order (1) selected \n");
