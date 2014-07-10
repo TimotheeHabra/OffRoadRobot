@@ -472,7 +472,7 @@ bool RobotranYarpMotionControl::getEncodersTimed(double *encs, double *time) //T
         std::cout << "robotran motionControl: getEncodersTimed " << std::endl;
     }
     getEncodersTimedCounter++;
-
+return true;
     if (!encs) return false;
     for (unsigned int i = 0; i <numberOfJoints; ++i) {
         encs[i] = pos[i];  //should we just use memcopy here?

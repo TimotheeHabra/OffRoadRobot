@@ -1,22 +1,22 @@
 /*===========================================================================*
  *
  *  user_sf_IO.c
- * 
+ *
  *  Generation date: Thu Jul 10 17:10:38 2014
 
- * 
+ *
  *  (c) Universite catholique de Louvain
- *      Departement de Mecanique 
- *      Unite de Production Mecanique et Machines 
- *      2, Place du Levant 
- *      1348 Louvain-la-Neuve 
- *  http://www.robotran.be// 
- *  
+ *      Departement de Mecanique
+ *      Unite de Production Mecanique et Machines
+ *      2, Place du Levant
+ *      1348 Louvain-la-Neuve
+ *  http://www.robotran.be//
+ *
 /*===========================================================================*/
 
-#include "MBSfun.h" 
-#include "user_sf_IO.h" 
-#include "sfdef.h" 
+#include "MBSfun.h"
+#include "user_sf_IO.h"
+#include "sfdef.h"
 #include "userDef.h"
 #include "ControllersStruct.h"
 
@@ -69,7 +69,7 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     uvs->simbodyStruct = init_SimbodyStruct();
 
     // acs //
-    uvs->acs = init_SEActuatorStruct();
+    init_SEActuatorStruct(uvs->acs);
 
     return uvs;
 }

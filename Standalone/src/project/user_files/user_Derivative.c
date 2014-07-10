@@ -13,21 +13,20 @@ void user_Derivative(MBSdataStruct *MBSdata)
 {
     UserIOStruct *uvs;
 
-    uvs = MBSdata->user_IO;
     int i;
 
-    double rho = 0.0;
-    double K_W = 0.0;
-    double L_M = 0.0;
-    double R_M = 0.0;
-    double KT  = 0.0;
+    double rho ;
+    double K_W ;
+    double L_M ;
+    double R_M ;
+    double KT  ;
 
-    double Ks = 0.0;
-    double Ds = 0.0;
-    double J_M= 0.0;
+    double Ks ;
+    double Ds ;
+    double J_M;
     // voltage to torque gain (used in 2nd order dynamics)
-    double VT = 0.0; //
-    double D_M= 0.0;
+    double VT ; //
+    double D_M;
 
     const int n = NB_ACTUATED_JOINTS;
 
@@ -41,6 +40,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
     double *ref = MBSdata->user_IO->refs;
 
 
+    uvs = MBSdata->user_IO;
 
     if (Act_type==1) //SEA
     {
@@ -56,13 +56,14 @@ void user_Derivative(MBSdataStruct *MBSdata)
             // Motor (electrical) ODE
             // need a map from index i=0:4 to real joint indices
             // ux:current, uxd: current derivatives:
-            rho = MBSdata->user_IO->acs[M_FR].GearRatio;
-            R_M = MBSdata->user_IO->acs[M_FR].Resistance;
-            K_W = MBSdata->user_IO->acs[M_FR].Kbemf;
-            L_M = MBSdata->user_IO->acs[M_FR].Inductance;
+            rho = MBSdata->user_IO->acs[M_FR]->GearRatio;
+            R_M = MBSdata->user_IO->acs[M_FR]->Resistance;
+            K_W = MBSdata->user_IO->acs[M_FR]->Kbemf;
+            L_M = MBSdata->user_IO->acs[M_FR]->Inductance;
+
             // Front Right Motor ***********
             MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage[M_FR] -R_M*MBSdata->ux[M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
-
+// THE FOLLOWING LINES WILL BE REPLACED LATER WITH A MAP ITERATION
 //            rho = MBSdata->user_IO->acs[M_FL]->GearRatio;
 //            R_M = MBSdata->user_IO->acs[M_FL]->Resistance;
 //            K_W = MBSdata->user_IO->acs[M_FL]->Kbemf;
@@ -93,11 +94,11 @@ void user_Derivative(MBSdataStruct *MBSdata)
                 MBSdata->uxd[i]=MBSdata->ux[i+n];
             }
 
-            J_M = MBSdata->user_IO->acs[M_RR].Inertia;
+            J_M = MBSdata->user_IO->acs[M_RR]->Inertia;
             VT  = rho*(KT)/R_M;
-            D_M = MBSdata->user_IO->acs[M_RR].Damping;
-            Ks= MBSdata->user_IO->acs[M_RR].SeriesSpring;
-            Ds= MBSdata->user_IO->acs[M_RR].SeriesDamping;
+            D_M = MBSdata->user_IO->acs[M_RR]->Damping;
+            Ks  = MBSdata->user_IO->acs[M_RR]->SeriesSpring;
+            Ds  = MBSdata->user_IO->acs[M_RR]->SeriesDamping;
 
             // computing the transmission torque (coupling between motor and load)
             Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
@@ -120,17 +121,17 @@ void user_Derivative(MBSdataStruct *MBSdata)
                 MBSdata->uxd[i]=MBSdata->ux[i+n];
             }
 
-            rho = MBSdata->user_IO->acs[M_FR].GearRatio;
-            R_M = MBSdata->user_IO->acs[M_FR].Resistance;
-            K_W = MBSdata->user_IO->acs[M_FR].Kbemf;
-            L_M = MBSdata->user_IO->acs[M_FR].Inductance;
+            rho = MBSdata->user_IO->acs[M_FR]->GearRatio;
+            R_M = MBSdata->user_IO->acs[M_FR]->Resistance;
+            K_W = MBSdata->user_IO->acs[M_FR]->Kbemf;
+            L_M = MBSdata->user_IO->acs[M_FR]->Inductance;
             KT = K_W;
 
-            J_M = MBSdata->user_IO->acs[M_RR].Inertia;
+            J_M = MBSdata->user_IO->acs[M_RR]->Inertia;
             VT  = rho*(KT)/R_M;
-            D_M = MBSdata->user_IO->acs[M_RR].Damping;
-            Ks= MBSdata->user_IO->acs[M_RR].SeriesSpring;
-            Ds= MBSdata->user_IO->acs[M_RR].SeriesDamping;
+            D_M = MBSdata->user_IO->acs[M_RR]->Damping;
+            Ks  = MBSdata->user_IO->acs[M_RR]->SeriesSpring;
+            Ds  = MBSdata->user_IO->acs[M_RR]->SeriesDamping;
 
             // computing the transmission torque (coupling between motor and load)
             Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);

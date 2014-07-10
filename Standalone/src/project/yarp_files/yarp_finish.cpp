@@ -24,10 +24,17 @@ void yarp_finish(void* RobotranYarp_interface)
     {
         std::cout <<" closing device " << (*controlBoardList)[i]->key << std::endl;
 
-        (*controlBoardList)[i]->poly->close();
+        if((*controlBoardList)[i]->poly == NULL )
+        {
+            cout << "closing a NULL object" << endl;
+        }
+        else
+            (*controlBoardList)[i]->poly->close();
     }
 
     delete controlBoardList;
+    cout << "... all done" << endl;
+
 }
 
 #endif
