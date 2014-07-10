@@ -7,16 +7,10 @@
 
 #include "ActuatorsDefinitions.h"
 
-// Actuators Structure
-typedef struct ActuatorsStruct
-{
-    char   pippo;
-} ActuatorsStruct;
-
 // Series Elastic Actuator Structure
 typedef struct SEActuatorStruct
 {
-    char   type[50];
+    //char   type[50];
     double Resistance;
     double Inductance;
     double TrqConst;
@@ -48,7 +42,13 @@ typedef struct PActuatorStruct
 
 } PActuatorStruct;
 
-
+// Actuators Structure
+typedef struct ActuatorsStruct
+{
+    //SEActuatorStruct *acs[4];
+    SEActuatorStruct** acs;
+    
+} ActuatorsStruct;
 
 // ---- Init and free functions: declarations ---- //
 ActuatorsStruct* init_ActuatorsStruct(void);
@@ -56,6 +56,7 @@ void free_ActuatorsStruct(ActuatorsStruct* actuatorsStruct);
 
 //SEActuatorStruct * init_SEActuatorStruct();
 void init_SEActuatorStruct(SEActuatorStruct **acs);
+//SEActuatorStruct** init_SEActuatorStruct(void);
 void free_SEActuatorStruct(SEActuatorStruct *acs[]);
 
 PActuatorStruct * init_PStruct(void);

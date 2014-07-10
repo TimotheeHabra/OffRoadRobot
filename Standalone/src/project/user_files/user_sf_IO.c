@@ -68,9 +68,6 @@ UserIOStruct * initUserIO(MBSdataStruct *s)
     // simbodyStruct //
     uvs->simbodyStruct = init_SimbodyStruct();
 
-    // acs //
-    init_SEActuatorStruct(uvs->acs);
-
     // actuatorsStruct //
     uvs->actuatorsStruct = init_ActuatorsStruct();
 
@@ -86,9 +83,6 @@ void freeUserIO(UserIOStruct *uvs, MBSdataStruct *s)
 
     // SimbodyStruct: simbodyStruct //
     free_SimbodyStruct(uvs->simbodyStruct);
-
-    // SEActuatorStruct: acs //
-    free_SEActuatorStruct(uvs->acs);
 
     // ActuatorsStruct: actuatorsStruct //
     free_ActuatorsStruct(uvs->actuatorsStruct);

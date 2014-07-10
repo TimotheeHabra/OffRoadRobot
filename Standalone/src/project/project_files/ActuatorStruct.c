@@ -15,16 +15,30 @@
 
 ActuatorsStruct* init_ActuatorsStruct(void)
 {
-    return NULL;
+    
+    ActuatorsStruct* actuatorsStruct;
+    actuatorsStruct = (ActuatorsStruct*) malloc(sizeof(ActuatorsStruct));
+
+
+    actuatorsStruct->acs = (SEActuatorStruct *) malloc(NB_ACTUATED_JOINTS_TMP*sizeof(ActuatorsStruct));
+    init_SEActuatorStruct(actuatorsStruct->acs); 
+    //actuatorsStruct->acs = init_SEActuatorStruct(); 
+    return actuatorsStruct;
+    return actuatorsStruct;
 }
 
 void free_ActuatorsStruct(ActuatorsStruct* actuatorsStruct)
 {
-    
+
+    free_SEActuatorStruct(actuatorsStruct->acs);
+
+    free(actuatorsStruct);
+
 }
 
 // SEActuatorStruct
 void init_SEActuatorStruct(SEActuatorStruct **acs)
+//SEActuatorStruct** init_SEActuatorStruct(void)
 {
     int i;
     int type;
@@ -32,10 +46,11 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
     int actuator_type_array[NB_ACTUATED_JOINTS_TMP] = ACTUATOR_TYPE_ARRAY;
 
     //acs = malloc(4 * sizeof(SEActuatorStruct *));
+
     //if(acs == NULL)
     //    printf("acs malloc return NULL\n\n");
     //else
-        printf("acs malloc return OK\n\n");
+    printf("acs malloc return OK\n\n");
         
     for (i=0; i < NB_ACTUATED_JOINTS_TMP; i++)
     {
@@ -55,7 +70,7 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
             (*acs[i]).TrqConst=0.00261;
             (*acs[i]).Isaturation=50;
             (*acs[i]).Vsaturation=40;
-            sprintf((*acs[i]).type,"Medium");
+            //sprintf((*acs[i]).type,"Medium");
             printf("actuator type is 1 \n");
             break;
           case 2:
@@ -70,7 +85,7 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
             (*acs[i]).TrqConst=0.08;
             (*acs[i]).Isaturation=50;
             (*acs[i]).Vsaturation=80;
-            sprintf((*acs[i]).type,"Big");
+            //sprintf((*acs[i]).type,"Big");
             printf("actuator type is 2 \n");
             break;
           default:
@@ -85,12 +100,12 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
             (*acs[i]).TrqConst=0.08;
             (*acs[i]).Isaturation=50;
             (*acs[i]).Vsaturation=80;
-            sprintf((*acs[i]).type,"Big");
+            //sprintf((*acs[i]).type,"Big");
             printf("detault actuator selected \n");
           }
     }
 
-    return;
+    return acs;
 }
 
 

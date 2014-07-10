@@ -31,7 +31,6 @@ typedef struct UserIOStruct
     int servo_type[3+1];
     ControllerStruct *cvs;
     SimbodyStruct *simbodyStruct;
-    SEActuatorStruct *acs[4];
     ActuatorsStruct *actuatorsStruct;
 
 } UserIOStruct;

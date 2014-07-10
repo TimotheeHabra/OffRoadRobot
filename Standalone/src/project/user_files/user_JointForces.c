@@ -13,11 +13,11 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 {
 
 	double K = 50.0;
-    double rho = MBSdata->user_IO->acs[0]->GearRatio;
-    double KT = MBSdata->user_IO->acs[0]->Kbemf;
+    double rho = MBSdata->user_IO->actuatorsStruct->acs[0]->GearRatio;
+    double KT = MBSdata->user_IO->actuatorsStruct->acs[0]->Kbemf;
     // Transmission stiffness, damping
-    double Ks = MBSdata->user_IO->acs[0]->SeriesSpring;
-    double Ds = MBSdata->user_IO->acs[0]->SeriesDamping;
+    double Ks = MBSdata->user_IO->actuatorsStruct->acs[0]->SeriesSpring;
+    double Ds = MBSdata->user_IO->actuatorsStruct->acs[0]->SeriesDamping;
 
 	MBSdata->Qq[Spring_FR] = -K * MBSdata->q[Spring_FR];
 	MBSdata->Qq[Spring_FL] = -K * MBSdata->q[Spring_FL];

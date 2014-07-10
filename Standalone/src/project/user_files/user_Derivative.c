@@ -56,10 +56,10 @@ void user_Derivative(MBSdataStruct *MBSdata)
             // Motor (electrical) ODE
             // need a map from index i=0:4 to real joint indices
             // ux:current, uxd: current derivatives:
-            rho = MBSdata->user_IO->acs[M_FR]->GearRatio;
-            R_M = MBSdata->user_IO->acs[M_FR]->Resistance;
-            K_W = MBSdata->user_IO->acs[M_FR]->Kbemf;
-            L_M = MBSdata->user_IO->acs[M_FR]->Inductance;
+            rho = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->GearRatio;
+            R_M = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Resistance;
+            K_W = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Kbemf;
+            L_M = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Inductance;
 
             // Front Right Motor ***********
             MBSdata->uxd[M_FR]= (1.0/L_M)*(voltage[M_FR] -R_M*MBSdata->ux[M_FR]-K_W*rho* MBSdata->qd[R2_FR]);
@@ -94,11 +94,11 @@ void user_Derivative(MBSdataStruct *MBSdata)
                 MBSdata->uxd[i]=MBSdata->ux[i+n];
             }
 
-            J_M = MBSdata->user_IO->acs[M_RR]->Inertia;
+            J_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Inertia;
             VT  = rho*(KT)/R_M;
-            D_M = MBSdata->user_IO->acs[M_RR]->Damping;
-            Ks  = MBSdata->user_IO->acs[M_RR]->SeriesSpring;
-            Ds  = MBSdata->user_IO->acs[M_RR]->SeriesDamping;
+            D_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Damping;
+            Ks  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesSpring;
+            Ds  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesDamping;
 
             // computing the transmission torque (coupling between motor and load)
             Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
@@ -121,17 +121,17 @@ void user_Derivative(MBSdataStruct *MBSdata)
                 MBSdata->uxd[i]=MBSdata->ux[i+n];
             }
 
-            rho = MBSdata->user_IO->acs[M_FR]->GearRatio;
-            R_M = MBSdata->user_IO->acs[M_FR]->Resistance;
-            K_W = MBSdata->user_IO->acs[M_FR]->Kbemf;
-            L_M = MBSdata->user_IO->acs[M_FR]->Inductance;
+            rho = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->GearRatio;
+            R_M = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Resistance;
+            K_W = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Kbemf;
+            L_M = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->Inductance;
             KT = K_W;
 
-            J_M = MBSdata->user_IO->acs[M_RR]->Inertia;
+            J_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Inertia;
             VT  = rho*(KT)/R_M;
-            D_M = MBSdata->user_IO->acs[M_RR]->Damping;
-            Ks  = MBSdata->user_IO->acs[M_RR]->SeriesSpring;
-            Ds  = MBSdata->user_IO->acs[M_RR]->SeriesDamping;
+            D_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Damping;
+            Ks  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesSpring;
+            Ds  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesDamping;
 
             // computing the transmission torque (coupling between motor and load)
             Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
