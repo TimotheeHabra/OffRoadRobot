@@ -100,9 +100,11 @@ PActuatorStruct * init_PStruct(void)
 }
 
 // ActuatorStruct
-void free_SEActuatorStruct(SEActuatorStruct *acs)
+void free_SEActuatorStruct(SEActuatorStruct *acs[])
 {
+
     int i;
+
     for (i=0; i < NB_ACTUATED_JOINTS_TMP; i++)
     {
         free(acs[i]);

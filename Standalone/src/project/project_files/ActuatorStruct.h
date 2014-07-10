@@ -46,7 +46,7 @@ typedef struct PActuatorStruct
 // ---- Init and free functions: declarations ---- //
 
 SEActuatorStruct * init_SEActuatorStruct();
-void free_SEActuatorStruct(SEActuatorStruct *acs);
+void free_SEActuatorStruct(SEActuatorStruct *acs[]);
 
 PActuatorStruct * init_PStruct(void);
 void free_PActuatorStruct(PActuatorStruct *pacs);
