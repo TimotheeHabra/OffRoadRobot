@@ -31,5 +31,6 @@ servo_type   int   3
 # STRUCT
 cvs   ControllerStruct   1 
 simbodyStruct SimbodyStruct 1
-acs   SEActuatorStruct   1
+%acs   SEActuatorStruct   1
+actuatorsStruct   ActuatorsStruct   1
 

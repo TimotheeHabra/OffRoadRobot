@@ -13,6 +13,16 @@
 
 // ---- Actuator initialization ---- //
 
+ActuatorsStruct* init_ActuatorsStruct(void)
+{
+    return NULL;
+}
+
+void free_ActuatorsStruct(ActuatorsStruct* actuatorsStruct)
+{
+    
+}
+
 // SEActuatorStruct
 void init_SEActuatorStruct(SEActuatorStruct **acs)
 {

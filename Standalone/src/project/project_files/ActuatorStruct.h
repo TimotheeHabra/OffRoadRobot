@@ -7,6 +7,11 @@
 
 #include "ActuatorsDefinitions.h"
 
+// Actuators Structure
+typedef struct ActuatorsStruct
+{
+    char   pippo;
+} ActuatorsStruct;
 
 // Series Elastic Actuator Structure
 typedef struct SEActuatorStruct
@@ -43,7 +48,11 @@ typedef struct PActuatorStruct
 
 } PActuatorStruct;
 
+
+
 // ---- Init and free functions: declarations ---- //
+ActuatorsStruct* init_ActuatorsStruct(void);
+void free_ActuatorsStruct(ActuatorsStruct* actuatorsStruct);
 
 //SEActuatorStruct * init_SEActuatorStruct();
 void init_SEActuatorStruct(SEActuatorStruct **acs);
