@@ -40,7 +40,7 @@ void RobotranYarpMotionControl::updateFromYarp(MBSdataStruct *MBSdata)
     {
 //        std::cout << "index " << i << " ref " << desiredPosition[i] << std::endl;
         MBSdata->user_IO->refs[motorID_map[i]]  = desiredPosition[i];
-        MBSdata->user_IO->servo_type[jointID_map[i]] = controlMode[i];
+        MBSdata->user_IO->servo_type[motorID_map[i]] = controlMode[i];
     }
 
 }
