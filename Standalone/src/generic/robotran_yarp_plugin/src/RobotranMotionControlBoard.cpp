@@ -105,6 +105,25 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
         printf("motorID_map[%d] = %d \n", i, motorID_map[i]);
     }
 
+    // Get max/min joints limits
+    if(!config.check("max") || !config.check("min"))
+    {
+        std::cout << "robotran max /min joints positions not specified in config file " << std::endl;
+        return false;
+    }
+    yarp::os::Bottle & max = config.findGroup("max");
+    yarp::os::Bottle & min = config.findGroup("min");
+    max_pos.resize(numberOfJoints);
+    min_pos.resize(numberOfJoints);
+    for(int i=0; i< max.size()-1; i++)  // we suppose that max and min have same size (it should be check!)
+    {
+        max_pos[i] = max.get(i+1).asDouble();
+        printf("max pos[%d] = %f \n", i, max_pos[i]);
+
+        min_pos[i] = min.get(i+1).asDouble();
+        printf("min pos[%d] = %f \n", i, min_pos[i]);
+    }
+
 
 //    yarp::os::Property wrapProp;
 ////    yarp::os::Property &mmm =wrapProp.addGroup();
@@ -514,11 +533,11 @@ bool RobotranYarpMotionControl::getEncoderAccelerations(double *accs) //NOT IMPL
 
 // ICONTROLLIMITS2
 
-bool  RobotranYarpMotionControl::getLimits (int axis, double *min, double *max)  // TO BE DONE
+bool  RobotranYarpMotionControl::getLimits (int axis, double *min, double *max)  //TO BE TESTED
 {
     if (!min || !max) return false;
-    *min = 0;
-    *max = 100;
+    *min = min_pos[axis];
+    *max = max_pos[axis];
     return true;
 }
 
