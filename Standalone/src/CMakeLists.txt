@@ -87,7 +87,7 @@ if (FLAG_YARP)
 	#TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} curl) 
     #TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES})
 
-    add_subdirectory(generic/robotran_yarp_plugin)
+    add_subdirectory(generic/robotran_yarp_plugin/yarp_drivers)
     TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} robotranMotionControlPlugin robotranForceTorquePlugin)
 
 endif (FLAG_YARP)
