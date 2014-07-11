@@ -15,8 +15,12 @@ void updateDataFromYarp(void* RobotranYarp_interface, MBSdataStruct * MBSdata)
 	//cout << "update data from yarp " << endl;
     yarp::dev::PolyDriverList *controlBoardList = (yarp::dev::PolyDriverList*)RobotranYarp_interface;  // convert back into object
 
-    yarp::dev::RobotranYarpMotionControl* 		RobotranControlBoardType 	= NULL;
-    yarp::dev::RobotranYarpForceTorqueDriver* 	RobotranForceTorqueType 	= NULL;
+    yarp::dev::RobotranYarpMotionControl        *RobotranControlBoardType 	= NULL;
+    yarp::dev::RobotranYarpForceTorqueDriver    *RobotranForceTorqueType 	= NULL;
+    yarp::os::RateThread                        *Thread = NULL;
+
+    if(controlBoardList == NULL)
+        return;
 
     for(int i=0; i < controlBoardList->size(); i++)
     {
@@ -27,7 +31,12 @@ void updateDataFromYarp(void* RobotranYarp_interface, MBSdataStruct * MBSdata)
             RobotranControlBoardType->updateFromYarp(MBSdata);
         }
 
-
+        (*controlBoardList)[i]->poly->view(Thread);
+        if(Thread)
+        {
+            //printf("I found a control Board driver at %d \n\n", i);
+//            Thread->run();
+        }
 
     }
 
@@ -43,6 +52,9 @@ void updateDataToYarp(void* RobotranYarp_interface, const MBSdataStruct * MBSdat
 
 	yarp::dev::RobotranYarpMotionControl* 		RobotranControlBoardType 	= NULL;
 	yarp::dev::RobotranYarpForceTorqueDriver* 	RobotranForceTorqueType 	= NULL;
+
+    if(controlBoardList == NULL)
+        return;
 
 	for(int i=0; i < controlBoardList->size(); i++)
     {

@@ -11,7 +11,7 @@ message(INFO " appname is ${appname} ||")
 yarp_install(DIRECTORY conf/ DESTINATION ${ROBOTRAN_ROBOTS_INSTALL_DIR}/${appname} PATTERN .ini)
 
 
-
+add_subdirectory(basicControl)
 
 #include_directories(${YARP_INCLUDE_DIRS})
 #set(yarp_file_sourcedir  ${CMAKE_SOURCE_DIR}/src/project/yarp_files/)

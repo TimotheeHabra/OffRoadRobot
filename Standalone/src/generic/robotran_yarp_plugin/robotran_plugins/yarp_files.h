@@ -33,6 +33,8 @@ extern "C" {
     #include <ForceTorqueDriver.h>
 	#include <RobotranMotionControlBoard.h>
 
+    #include "basic.h"
+
 #endif
 
 #endif

@@ -23,7 +23,7 @@ void* yarp_init(void)
 
     yarp::os::Network               _yarp;
     yarp::dev::PolyDriver           _wrapper;
-    yarp::dev::IMultipleWrapper     *_iWrap = NULL;
+//    yarp::dev::IMultipleWrapper     *_iWrap = NULL;
 
     // init YARP and instantiate yarp device driver
     if( !_yarp.checkNetwork() ) {
@@ -39,6 +39,10 @@ void* yarp_init(void)
     // Add the robotranControlboard device driver to the factory.
     yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<yarp::dev::RobotranYarpForceTorqueDriver>
                                       ("robotranForceTorqueSensor", "analogServer", "RobotranYarpForceTorqueDriver"));
+
+    // Add the robotranControlboard device driver to the factory.
+    yarp::dev::Drivers::factory().add(new yarp::dev::DriverCreatorOf<basicControl>
+                                      ("controller", "", "basicControl"));
 
 
     yarp::os::ResourceFinder rf;
@@ -146,7 +150,6 @@ void* yarp_init(void)
             tmpProp.put("robot", robotName);
             tmp->open(tmpProp);
 
-
             if (!tmp->isValid())
             {
                 fprintf(stderr, "driver %s did not open\n", entryName.c_str());
@@ -160,6 +163,95 @@ void* yarp_init(void)
             }
         }
     }
+
+    std::cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
+    std::cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << std::endl;
+
+    if(!general.check("controller"))
+    {
+        std::cout << "no ´controller´ list was not found in the GENERAL group" << std::endl;
+        return NULL;
+    }
+    else
+    {
+        yarp::os::ConstString controllerName = general.find("controller").asString();
+        std::cout << "\nFound following controller (" << controllerName << ")" << std::endl;
+
+        if(!p.check(controllerName))
+        {
+            std::cout << "cannot find device ´" << controllerName << "´ in config file" << std::endl;
+            return p_controlBoardList;
+        }
+
+        yarp::os::Bottle &controllerParams = general.findGroup(controllerName);
+//        if(verbose)
+            std::cout << "Entry ´" << controllerName << "´ has the following parameters \n\t" << controllerParams.toString() << "\n" << std::endl;
+
+        // Looking for other files referenced by the main one
+
+        yarp::os::Property tmpProp(controllerParams.toString().c_str());
+
+        while(tmpProp.check("file"))
+        {
+            yarp::os::ResourceFinder subRF;
+            subRF.setVerbose(false);
+            yarp::os::ConstString  subfileName = tmpProp.find("file").asString();
+            if(verbose)
+                std::cout << "found subfile " << subfileName << std::endl;
+
+            yarp::os::ConstString fileNameWithPath = subRF.findFileByName(subfileName);
+            if(fileNameWithPath == "")
+            {
+                std::cout << "sub config file ´" << subfileName << "´  was not found" << std::endl;
+                return NULL;
+            }
+            yarp::os::Property p2;
+            p2.fromConfigFile(fileNameWithPath);
+
+            tmpProp.unput("file");
+            tmpProp.fromString(p2.toString(), false);
+        }
+        yarp::dev::PolyDriver *tmp = new yarp::dev::PolyDriver;
+        tmpProp.put("robot", robotName);
+        tmpProp.put("device","controller");
+
+        std::cout << "\n\n\n controller prop is " << tmpProp.toString() << std::endl;
+        tmp->open(tmpProp);
+
+        if (!tmp->isValid())
+        {
+            std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% controller did NOT open succesfully " << std::endl;
+            return p_controlBoardList;
+        }
+        else
+        {
+            std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% controller opened correctly" << std::endl;
+            yarp::dev::IMultipleWrapper *iwrap;
+            tmp->view(iwrap);
+            if(!iwrap->attachAll(*p_controlBoardList) )
+            {
+                std::cout << "controller did not attach succesfully " << std::endl;
+                return p_controlBoardList;
+            }
+            else
+            {
+                std::cout << "controller attached correctly" << std::endl;
+                yarp::os::RateThread *controlThread;
+                tmp->view(controlThread);
+//                if(controlThread)
+//                    controlThread->start();
+                yarp::dev::PolyDriverDescriptor newDev2( tmp, controllerName.c_str());
+                p_controlBoardList->push(newDev2);
+            }
+        }
+    }
+
+
+//    basicControl ctrl;
+//    yarp::os::Property tmp;
+//    ctrl.open(tmp);
+//    ctrl.attachAll(*p_controlBoardList);
+//    ctrl.updateModule();
     return (void*) p_controlBoardList;
 }
 
