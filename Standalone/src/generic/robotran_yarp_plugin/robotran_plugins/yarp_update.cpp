@@ -35,7 +35,7 @@ void updateDataFromYarp(void* RobotranYarp_interface, MBSdataStruct * MBSdata)
         if(Thread)
         {
             //printf("I found a control Board driver at %d \n\n", i);
-//            Thread->run();
+            Thread->run();
         }
 
     }
