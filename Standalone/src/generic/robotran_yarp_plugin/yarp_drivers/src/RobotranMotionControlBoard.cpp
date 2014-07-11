@@ -156,7 +156,7 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     std::cout << "\nUSING WRAPPERS!\n" << std::endl;
 
     yarp::dev::IMultipleWrapper* iWrap;
-    yarp::dev::PolyDriver* wrap = new yarp::dev::PolyDriver();
+    wrap = new yarp::dev::PolyDriver();
     yarp::os::Property wrapProp;
     wrapProp.fromString(config.toString());
     yarp::os::ConstString partName, robotName, wholeName;
@@ -210,6 +210,8 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
 bool RobotranYarpMotionControl::close()
 {
     std::cout << "RobotranYarpMotionControl::close" << std::endl;
+    if(wrap)
+        wrap->close();
     return true;
 }
 

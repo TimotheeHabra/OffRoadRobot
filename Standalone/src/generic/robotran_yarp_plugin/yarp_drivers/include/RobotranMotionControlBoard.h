@@ -190,6 +190,7 @@ private:
         double maxOut;
     };
     
+    yarp::dev::PolyDriver* wrap;
     unsigned int numberOfJoints;
 
     /**
