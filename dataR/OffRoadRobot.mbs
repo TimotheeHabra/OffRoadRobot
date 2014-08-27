@@ -86,7 +86,7 @@
   <bodytree>
     <!--this is the body tree-->
     <body>
-      <bodyname>Chassis</bodyname>
+      <bodyname>CHASSIS</bodyname>
       <parent>
         <bodyname>base</bodyname>
         <pointname>origin</pointname>
@@ -342,13 +342,18 @@
     <body>
       <bodyname>mot1</bodyname>
       <parent>
-        <bodyname>Chassis</bodyname>
+        <bodyname>CHASSIS</bodyname>
         <pointname>FR1</pointname>
       </parent>
       <joint>
         <jointname>R2_FR</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -364,7 +369,7 @@
       </joint>
       <mass>0.1</mass>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot1</pointname>
         <coordinates>
           <x>0.01</x>
           <y>0.0</y>
@@ -414,7 +419,7 @@
       <bodyname>FR_Leg</bodyname>
       <parent>
         <bodyname>mot1</bodyname>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot1</pointname>
       </parent>
       <joint>
         <jointname>Spring_FR</jointname>
@@ -445,7 +450,7 @@
         <Iyy>0.1</Iyy>
       </inertia>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_FRLeg</pointname>
         <coordinates>
           <x>0.0</x>
           <y>0.0</y>
@@ -551,13 +556,18 @@
     <body>
       <bodyname>mot2</bodyname>
       <parent>
-        <bodyname>Chassis</bodyname>
+        <bodyname>CHASSIS</bodyname>
         <pointname>FL1</pointname>
       </parent>
       <joint>
         <jointname>R2_FL</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -573,7 +583,7 @@
       </joint>
       <mass>0.1</mass>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot2</pointname>
         <coordinates>
           <x>0.01</x>
           <y>0.0</y>
@@ -623,7 +633,7 @@
       <bodyname>FL_Leg</bodyname>
       <parent>
         <bodyname>mot2</bodyname>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot2</pointname>
       </parent>
       <joint>
         <jointname>Spring_FL</jointname>
@@ -654,7 +664,7 @@
         <Iyy>0.1</Iyy>
       </inertia>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_FLLeg</pointname>
         <coordinates>
           <x>0.0</x>
           <y>0.0</y>
@@ -760,13 +770,18 @@
     <body>
       <bodyname>mot3</bodyname>
       <parent>
-        <bodyname>Chassis</bodyname>
+        <bodyname>CHASSIS</bodyname>
         <pointname>RR1</pointname>
       </parent>
       <joint>
         <jointname>R2_RR</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -782,7 +797,7 @@
       </joint>
       <mass>0.1</mass>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot3</pointname>
         <coordinates>
           <x>0.01</x>
           <y>0.0</y>
@@ -832,7 +847,7 @@
       <bodyname>RR_Leg</bodyname>
       <parent>
         <bodyname>mot3</bodyname>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot3</pointname>
       </parent>
       <joint>
         <jointname>Spring_RR</jointname>
@@ -863,7 +878,7 @@
         <Iyy>0.1</Iyy>
       </inertia>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_RRLeg</pointname>
         <coordinates>
           <x>0.0</x>
           <y>0.0</y>
@@ -969,13 +984,18 @@
     <body>
       <bodyname>mot4</bodyname>
       <parent>
-        <bodyname>Chassis</bodyname>
+        <bodyname>CHASSIS</bodyname>
         <pointname>RL1</pointname>
       </parent>
       <joint>
         <jointname>R2_RL</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -991,7 +1011,7 @@
       </joint>
       <mass>0.1</mass>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot4</pointname>
         <coordinates>
           <x>0.01</x>
           <y>0.0</y>
@@ -1041,7 +1061,7 @@
       <bodyname>RL_Leg</bodyname>
       <parent>
         <bodyname>mot4</bodyname>
-        <pointname>Point_0</pointname>
+        <pointname>Point_mot4</pointname>
       </parent>
       <joint>
         <jointname>Joint_6</jointname>
@@ -1072,7 +1092,7 @@
         <Iyy>0.1</Iyy>
       </inertia>
       <point>
-        <pointname>Point_0</pointname>
+        <pointname>Point_RLLeg</pointname>
         <coordinates>
           <x>0.0</x>
           <y>0.0</y>

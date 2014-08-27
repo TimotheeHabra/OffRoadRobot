@@ -7,7 +7,7 @@
 #include "mbs_xml_reader.h"
 #include "mds_translator.h"
 #include "part.h"
-#include "equil.h"
+//#include "equil.h"
 //#include "modal.h"
 
 #include "MBSfun.h"
@@ -17,7 +17,7 @@ typedef struct MSTR_strct
 {
 	MDS_gen_strct *mds;
 	PART_gen_strct *part;
-	EQUIL_gen_strct *equil; 
+    //EQUIL_gen_strct *equil;
 	//MODAL_gen_strct *modal;
 	LocalDataStruct *lds;
 	MBSdataStruct *MBSdata;

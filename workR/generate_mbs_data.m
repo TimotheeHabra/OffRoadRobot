@@ -23,17 +23,17 @@ mbs_data.Ncons  = 0;
 MBS_user.process = 'part';
 
 % driven joints
-id_FR = mbs_get_joint_id(mbs_info,'R2_FR');
-mbs_data = mbs_set_qdriven(mbs_data,id_FR);
-
-id_FL = mbs_get_joint_id(mbs_info,'R2_FL');
-mbs_data = mbs_set_qdriven(mbs_data,id_FL);
-
-id_RR = mbs_get_joint_id(mbs_info,'R2_RR');
-mbs_data = mbs_set_qdriven(mbs_data,id_RR);
-
-id_RL = mbs_get_joint_id(mbs_info,'R2_RL');
-mbs_data = mbs_set_qdriven(mbs_data,id_RL);
+%id_FR = mbs_get_joint_id(mbs_info,'R2_FR');
+%mbs_data = mbs_set_qdriven(mbs_data,id_FR);
+%
+%id_FL = mbs_get_joint_id(mbs_info,'R2_FL');
+%mbs_data = mbs_set_qdriven(mbs_data,id_FL);
+%
+%id_RR = mbs_get_joint_id(mbs_info,'R2_RR');
+%mbs_data = mbs_set_qdriven(mbs_data,id_RR);
+%
+%id_RL = mbs_get_joint_id(mbs_info,'R2_RL');
+%mbs_data = mbs_set_qdriven(mbs_data,id_RL);
 
 opt.part = {'rowperm','yes','threshold',1e-9,'verbose','yes'};
 [mbs_part,mbs_data] = mbs_exe_part(mbs_data,opt.part);
