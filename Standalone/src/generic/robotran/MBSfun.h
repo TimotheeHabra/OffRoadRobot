@@ -51,8 +51,6 @@ void mbs_compute_model(SimStruct *S, MBSdataStruct *MBSdata, LocalDataStruct *ld
 
 #ifdef LOAD_XML
 
-#include "loadMBSheader_xml.h"
-
 #else
 
 #ifdef HARDINPUT

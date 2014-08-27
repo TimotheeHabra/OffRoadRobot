@@ -186,13 +186,47 @@ if (FLAG_GENERATE)
 	
 endif (FLAG_GENERATE)
 
+
+## ---- AUTOMATIC GENERATION  ('user_all_id.h' and 'UserModelStruct.h/.c')  ---- ##
+## change for mds_user
+
+	# UserModelStruct.h/.c
+	set(USER_MODELS_H ${PROJECT_SOURCE_DIR}/src/project/user_files/UserModelStruct.h)
+	set(USER_MODELS_C ${PROJECT_SOURCE_DIR}/src/project/user_files/UserModelStruct.c)
+	set(USER_ALL_ID_H ${PROJECT_SOURCE_DIR}/src/project/user_files/user_all_id.h)
+
+	# input .mbs file
+	file(GLOB MBS_FILE "${PROJECT_SOURCE_DIR}/../dataR/*.mbs")
+	
+	# checking files
+	set(CHECK_USER_MODELS ${CMAKE_CURRENT_BINARY_DIR}/src/project/user_files/update_check/user_models_check.txt) # these files are actually not created.
+	set(CHECK_USER_ALL_ID ${CMAKE_CURRENT_BINARY_DIR}/src/project/user_files/update_check/user_all_id_check.txt) # can't use .c/.h as they are deleted at 'clean'
+
+	# re-generate user_models.h/.c
+	add_custom_command (
+	  OUTPUT ${CHECK_USER_MODELS}
+	  COMMAND Gen_mds_user user_models
+	  DEPENDS ${MBS_FILE}
+	)
+	
+	# re-generate user_all_id.h/.c
+	add_custom_command (
+	  OUTPUT ${CHECK_USER_ALL_ID}
+	  COMMAND Gen_mds_user user_all_id
+	  DEPENDS ${MBS_FILE}
+	)
+	
+	# check if re-generation needed
+	add_custom_target(CheckGeneration ALL 
+		DEPENDS ${CHECK_USER_ALL_ID} ${CHECK_USER_MODELS})
+
+	
 ## ---- CUSTOM FUNCTIONS ---- ##
-
-
-# These files will not be compiled or included in the project
-set(CUR_ITEM "")	
-
-# function to return 1 if the element 'CUR_ITEM' is present in list 'HEADERS_NOT_INCLUDED'
+ 
+ 
+ set(CUR_ITEM "")
+ 
+ # function to return 1 if the element 'CUR_ITEM' is present in list 'HEADERS_NOT_INCLUDED'
 function(header_present_in_list FOUND_IN_LIST)
 	set(FOUND_IN_LIST 0 PARENT_SCOPE)
 	foreach(LIST_ITEM ${HEADERS_NOT_INCLUDED})
@@ -433,3 +467,6 @@ endif (WIN32)
 # add locations of other Makefiles
 add_subdirectory (src/)
 add_subdirectory (src/other/varState/)
+
+## change for user_models
+add_subdirectory (src/other/user_models/)

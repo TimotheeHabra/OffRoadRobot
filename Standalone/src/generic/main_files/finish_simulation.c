@@ -5,8 +5,7 @@
  */
 
 #include "main_simulation.h"
-
-#include "loadMBSheader_xml.h"
+#include "mds_translator.h"
 #include "real_time.h"
 #include "cmake_config.h"
 
@@ -118,7 +117,7 @@ void finish_simulation(Loop_inputs *loop_inputs)
     #endif
 
     // MBSdata_xml
-    freeMBSdata_xml(MBSdata);
+    MDS_free_MBSdataStruct(MBSdata);
     
     // simulation loop inputs
 	free(loop_inputs);

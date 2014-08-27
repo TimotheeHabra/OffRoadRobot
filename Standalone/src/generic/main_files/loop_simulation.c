@@ -135,6 +135,7 @@ void loop_simulation(Loop_inputs *loop_inputs)
     // Simulation over nstep steps: loop
     for (k = 1; (k <= nstep) && simu_go; k++)
     {
+
         // user own functions (controller_files and simulation_files)
         user_compute_output(MBSdata,lds);
 

@@ -41,7 +41,7 @@ typedef struct MBSdataStruct
 
 	// Variables articulaires, valeurs initiales et limites //
     double *q, *qd, *qdd;
-//    double *q0, *qd0, *qdd0;
+    double *q0, *qd0, *qdd0;
 
     double *qmin, *qmax;
 
@@ -91,6 +91,9 @@ typedef struct MBSdataStruct
 	double *qddu;
 
 	int DonePart;
+	int DoneEquil;
+
+	int process; // 1 = part, 2 = equil, 3 = dirdynared, 
 
 } MBSdataStruct;
 
