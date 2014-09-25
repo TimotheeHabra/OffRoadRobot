@@ -36,7 +36,7 @@ void MDS_coordinates_reader(double *coordinates_pointer, xmlNodePtr node, xmlDoc
 
 MDS_sensor_strct* MDS_sensor_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_sensor_strct* mds_sensor_strct;
+    MDS_sensor_strct* mds_sensor_strct = NULL;
 	
 	xmlAttr* cur_node = node->properties;
 	xmlChar* elementValue = NULL;
@@ -94,7 +94,7 @@ MDS_sensor_strct* MDS_sensor_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_extforce_strct* MDS_extforce_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_extforce_strct* mds_extforce_strct;
+    MDS_extforce_strct* mds_extforce_strct = NULL;
 	
 	xmlAttr* cur_node = node->properties;
 	xmlChar* elementValue = NULL;
@@ -148,7 +148,7 @@ MDS_extforce_strct* MDS_extforce_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_joint_strct* MDS_joint_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_joint_strct* mds_joint_strct;
+    MDS_joint_strct* mds_joint_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlNodePtr sub_cur_node = NULL;
@@ -295,7 +295,7 @@ MDS_joint_strct** MDS_joint_list_reader(int *n_joint, xmlNodePtr node, xmlDocPtr
 
 MDS_point_strct* MDS_point_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_point_strct* mds_point_strct;
+    MDS_point_strct* mds_point_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlChar* elementValue = NULL;
@@ -438,7 +438,7 @@ MDS_base_strct* MDS_base_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_body_strct* MDS_body_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_body_strct* mds_body_strct;
+    MDS_body_strct* mds_body_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlNodePtr sub_cur_node;
@@ -572,7 +572,7 @@ MDS_bodytree_strct* MDS_bodytree_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_ball_strct* MDS_ball_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_ball_strct* mds_ball_strct;
+    MDS_ball_strct* mds_ball_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlNodePtr sub_cur_node = NULL;
@@ -626,7 +626,7 @@ MDS_ball_strct* MDS_ball_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_rod_strct* MDS_rod_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_rod_strct* mds_rod_strct;
+    MDS_rod_strct* mds_rod_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlChar* elementValue = NULL;
@@ -661,7 +661,7 @@ MDS_rod_strct* MDS_rod_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_solid_strct* MDS_solid_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_solid_strct* mds_solid_strct;
+    MDS_solid_strct* mds_solid_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlNodePtr sub_cur_node = NULL;
@@ -777,7 +777,7 @@ MDS_cuts_strct* MDS_cuts_reader(xmlNodePtr node, xmlDocPtr doc)
 
 MDS_link_strct* MDS_link_reader(xmlNodePtr node, xmlDocPtr doc)
 {
-	MDS_link_strct* mds_link_strct;
+    MDS_link_strct* mds_link_strct = NULL;
 	
 	xmlNodePtr cur_node = node->children;
 	xmlChar* elementValue = NULL;
