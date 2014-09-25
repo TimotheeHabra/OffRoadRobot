@@ -402,7 +402,6 @@ MDS_ref_point_strct* MDS_ref_point_reader(xmlNodePtr node, xmlDocPtr doc)
 MDS_base_strct* MDS_base_reader(xmlNodePtr node, xmlDocPtr doc)
 {
 	xmlNodePtr cur_node = node->children;
-	xmlChar* elementValue = NULL;
 
 	MDS_base_strct *mds_base_strct;
 
@@ -1103,7 +1102,7 @@ void MDS_structurer(MDS_gen_strct* mds_gen_strct)
 	int ind_qu = 0;
 	int ind_qv = 0; 
 	int ind_qc = 0;
-	int ind_qlocked = 0;
+    //int ind_qlocked = 0;
 	int ind_qdriven = 0;
 	int ind_qa = 0;
 
@@ -2148,8 +2147,7 @@ xmlNodePtr MDS_create_point_xmlNodePtr(MDS_point_strct *mds_point_strct)
 }
 
 xmlNodePtr MDS_create_joint_xmlNodePtr(MDS_joint_strct *mds_joint_strct)
-{
-	int i; 
+{ 
     xmlNodePtr joint_node;
     xmlNodePtr d_data_node;
 	char cur_char[30];
@@ -2195,7 +2193,6 @@ xmlNodePtr MDS_create_joint_xmlNodePtr(MDS_joint_strct *mds_joint_strct)
 }
 xmlNodePtr MDS_create_rod_xmlNodePtr(MDS_rod_strct *mds_rod_strct)
 {
-	int i; 
     xmlNodePtr rod_node;
     xmlNodePtr d_data_node;
 	char cur_char[30];
@@ -2320,954 +2317,954 @@ xmlNodePtr MDS_create_user_model_xmlNodePtr(MDS_user_model_strct *mds_user_model
 }
 
 
-int MDS_write_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml)
-{
-	int i; 
-    xmlDocPtr doc;
-    xmlNodePtr root, cur_node, old_node;
-	xmlNodePtr old_point_list_node, new_point_list_node;
-	xmlNodePtr old_joint_list_node, new_joint_list_node;
-	xmlNodePtr old_rod_list_node, new_rod_list_node;
-	xmlNodePtr old_user_model_list_node, new_user_model_list_node;
+//int MDS_write_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml)
+//{
+//	int i;
+//    xmlDocPtr doc;
+//    xmlNodePtr root, cur_node, old_node;
+//	xmlNodePtr old_point_list_node, new_point_list_node;
+//	xmlNodePtr old_joint_list_node, new_joint_list_node;
+//	xmlNodePtr old_rod_list_node, new_rod_list_node;
+//	xmlNodePtr old_user_model_list_node, new_user_model_list_node;
 
-    xmlKeepBlanksDefault(0);
-    doc = xmlParseFile(mds_opti_xml);
-    if (doc == NULL) {
-        fprintf(stderr, "Document XML invalide\n");
-        return EXIT_FAILURE;
-    }
+//    xmlKeepBlanksDefault(0);
+//    doc = xmlParseFile(mds_opti_xml);
+//    if (doc == NULL) {
+//        fprintf(stderr, "Document XML invalide\n");
+//        return EXIT_FAILURE;
+//    }
 
-    root = xmlDocGetRootElement(doc);
-    if (root == NULL) {
-        fprintf(stderr, "Document XML vierge\n");
-        xmlFreeDoc(doc);
-        return EXIT_FAILURE;
-    }
+//    root = xmlDocGetRootElement(doc);
+//    if (root == NULL) {
+//        fprintf(stderr, "Document XML vierge\n");
+//        xmlFreeDoc(doc);
+//        return EXIT_FAILURE;
+//    }
 
-	if (strcmp((const char*)root->name,"mds_opti"))
-	{
-	    fprintf(stderr, "pas bon type de xml !!!!!!!!!!!!!!!!!\n");
-        xmlFreeDoc(doc);
-        return EXIT_FAILURE;
-	}
+//	if (strcmp((const char*)root->name,"mds_opti"))
+//	{
+//	    fprintf(stderr, "pas bon type de xml !!!!!!!!!!!!!!!!!\n");
+//        xmlFreeDoc(doc);
+//        return EXIT_FAILURE;
+//	}
 
-	cur_node = root->children;
-	////////////
-	old_point_list_node = NULL;
-	old_joint_list_node = NULL;
-	old_rod_list_node = NULL;
-	old_user_model_list_node = NULL;
-	////////////
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"point_list"))
-			{
-				old_point_list_node = cur_node;
-			}
-			if(!strcmp((const char*)cur_node->name,"joint_list"))
-			{
-				old_joint_list_node = cur_node;
-			}
-			if(!strcmp((const char*)cur_node->name,"rod_list"))
-			{
-				old_rod_list_node = cur_node;
-			}
-			if(!strcmp((const char*)cur_node->name,"user_model_list"))
-			{
-				old_user_model_list_node = cur_node;
-			}
+//	cur_node = root->children;
+//	////////////
+//	old_point_list_node = NULL;
+//	old_joint_list_node = NULL;
+//	old_rod_list_node = NULL;
+//	old_user_model_list_node = NULL;
+//	////////////
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"point_list"))
+//			{
+//				old_point_list_node = cur_node;
+//			}
+//			if(!strcmp((const char*)cur_node->name,"joint_list"))
+//			{
+//				old_joint_list_node = cur_node;
+//			}
+//			if(!strcmp((const char*)cur_node->name,"rod_list"))
+//			{
+//				old_rod_list_node = cur_node;
+//			}
+//			if(!strcmp((const char*)cur_node->name,"user_model_list"))
+//			{
+//				old_user_model_list_node = cur_node;
+//			}
 
-		}
-		cur_node = cur_node->next;
-	}
-	////////////
-	if ((new_point_list_node = xmlNewNode(NULL, BAD_CAST "point_list")) == NULL) 
-	{
-        return NULL; //  change it 
-    }
-	if ((new_joint_list_node = xmlNewNode(NULL, BAD_CAST "joint_list")) == NULL) 
-	{
-        return NULL; //  change it 
-    }
-	if ((new_rod_list_node = xmlNewNode(NULL, BAD_CAST "rod_list")) == NULL) 
-	{
-        return NULL; //  change it 
-    }
-	if ((new_user_model_list_node = xmlNewNode(NULL, BAD_CAST "user_model_list")) == NULL) 
-	{
-        return NULL; //  change it 
-    }
-	////////////
-	for(i=0; i<mds_gen_strct->n_point; i++)
-	{
-		if (old_point_list_node->children == NULL) 
-		{
-			cur_node = MDS_create_point_xmlNodePtr(mds_gen_strct->point_list[i]);
-			xmlAddChild(new_point_list_node, cur_node);
-		}
-		else 
-		{
-			old_node = MDS_find_xmlNodePtr(old_point_list_node->children, mds_gen_strct->point_list[i]->name);
+//		}
+//		cur_node = cur_node->next;
+//	}
+//	////////////
+//	if ((new_point_list_node = xmlNewNode(NULL, BAD_CAST "point_list")) == NULL)
+//	{
+//        return NULL; //  change it
+//    }
+//	if ((new_joint_list_node = xmlNewNode(NULL, BAD_CAST "joint_list")) == NULL)
+//	{
+//        return NULL; //  change it
+//    }
+//	if ((new_rod_list_node = xmlNewNode(NULL, BAD_CAST "rod_list")) == NULL)
+//	{
+//        return NULL; //  change it
+//    }
+//	if ((new_user_model_list_node = xmlNewNode(NULL, BAD_CAST "user_model_list")) == NULL)
+//	{
+//        return NULL; //  change it
+//    }
+//	////////////
+//	for(i=0; i<mds_gen_strct->n_point; i++)
+//	{
+//		if (old_point_list_node->children == NULL)
+//		{
+//			cur_node = MDS_create_point_xmlNodePtr(mds_gen_strct->point_list[i]);
+//			xmlAddChild(new_point_list_node, cur_node);
+//		}
+//		else
+//		{
+//			old_node = MDS_find_xmlNodePtr(old_point_list_node->children, mds_gen_strct->point_list[i]->name);
 			
-			cur_node = xmlCopyNode(old_node,1);
+//			cur_node = xmlCopyNode(old_node,1);
 			
-			xmlUnlinkNode(old_node);
-			xmlFreeNode(old_node);
+//			xmlUnlinkNode(old_node);
+//			xmlFreeNode(old_node);
 			
-			if(cur_node == NULL)
-			{
-				cur_node = MDS_create_point_xmlNodePtr(mds_gen_strct->point_list[i]);
-			}
-			xmlAddChild(new_point_list_node, cur_node);
-		}
-	}
-	xmlAddChild(root,new_point_list_node);
-	xmlUnlinkNode(old_point_list_node);
-	xmlFreeNode(old_point_list_node);
-	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
-	{
-		if (old_joint_list_node->children == NULL) 
-		{
-			cur_node = MDS_create_joint_xmlNodePtr(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]);
-			xmlAddChild(new_joint_list_node, cur_node);
-		}
-		else 
-		{
-			old_node = MDS_find_xmlNodePtr(old_joint_list_node->children, mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->name);
+//			if(cur_node == NULL)
+//			{
+//				cur_node = MDS_create_point_xmlNodePtr(mds_gen_strct->point_list[i]);
+//			}
+//			xmlAddChild(new_point_list_node, cur_node);
+//		}
+//	}
+//	xmlAddChild(root,new_point_list_node);
+//	xmlUnlinkNode(old_point_list_node);
+//	xmlFreeNode(old_point_list_node);
+//	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
+//	{
+//		if (old_joint_list_node->children == NULL)
+//		{
+//			cur_node = MDS_create_joint_xmlNodePtr(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]);
+//			xmlAddChild(new_joint_list_node, cur_node);
+//		}
+//		else
+//		{
+//			old_node = MDS_find_xmlNodePtr(old_joint_list_node->children, mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->name);
 			
-			cur_node = xmlCopyNode(old_node,1);
+//			cur_node = xmlCopyNode(old_node,1);
 			
-			xmlUnlinkNode(old_node);
-			xmlFreeNode(old_node);
+//			xmlUnlinkNode(old_node);
+//			xmlFreeNode(old_node);
 			
-			if(cur_node == NULL)
-			{
-				cur_node = MDS_create_joint_xmlNodePtr(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]);
-			}
-			xmlAddChild(new_joint_list_node, cur_node);
-		}
-	}
-	xmlAddChild(root,new_joint_list_node);
-	xmlUnlinkNode(old_joint_list_node);
-	xmlFreeNode(old_joint_list_node);
-	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
-	{
-		if (old_rod_list_node->children == NULL) 
-		{
-			cur_node = MDS_create_rod_xmlNodePtr(mds_gen_strct->cuts->rod_list[i]);
-			xmlAddChild(new_rod_list_node, cur_node);
-		}
-		else 
-		{
-			old_node = MDS_find_xmlNodePtr(old_rod_list_node->children, mds_gen_strct->cuts->rod_list[i]->name);
+//			if(cur_node == NULL)
+//			{
+//				cur_node = MDS_create_joint_xmlNodePtr(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]);
+//			}
+//			xmlAddChild(new_joint_list_node, cur_node);
+//		}
+//	}
+//	xmlAddChild(root,new_joint_list_node);
+//	xmlUnlinkNode(old_joint_list_node);
+//	xmlFreeNode(old_joint_list_node);
+//	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
+//	{
+//		if (old_rod_list_node->children == NULL)
+//		{
+//			cur_node = MDS_create_rod_xmlNodePtr(mds_gen_strct->cuts->rod_list[i]);
+//			xmlAddChild(new_rod_list_node, cur_node);
+//		}
+//		else
+//		{
+//			old_node = MDS_find_xmlNodePtr(old_rod_list_node->children, mds_gen_strct->cuts->rod_list[i]->name);
 			
-			cur_node = xmlCopyNode(old_node,1);
+//			cur_node = xmlCopyNode(old_node,1);
 			
-			xmlUnlinkNode(old_node);
-			xmlFreeNode(old_node);
+//			xmlUnlinkNode(old_node);
+//			xmlFreeNode(old_node);
 			
-			if(cur_node == NULL)
-			{
-				cur_node = MDS_create_rod_xmlNodePtr(mds_gen_strct->cuts->rod_list[i]);
-			}
-			xmlAddChild(new_rod_list_node, cur_node);
-		}
-	}
-	xmlAddChild(root,new_rod_list_node);
-	xmlUnlinkNode(old_rod_list_node);
-	xmlFreeNode(old_rod_list_node);
-	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
-	{
-		if (old_user_model_list_node->children == NULL) 
-		{
-			cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], xmlNewNode(NULL, BAD_CAST "empty"));
-			xmlAddChild(new_user_model_list_node, cur_node);
-		}
-		else 
-		{
-			old_node = MDS_find_xmlNodePtr(old_user_model_list_node->children, mds_gen_strct->user_models->user_model_list[i]->name);
+//			if(cur_node == NULL)
+//			{
+//				cur_node = MDS_create_rod_xmlNodePtr(mds_gen_strct->cuts->rod_list[i]);
+//			}
+//			xmlAddChild(new_rod_list_node, cur_node);
+//		}
+//	}
+//	xmlAddChild(root,new_rod_list_node);
+//	xmlUnlinkNode(old_rod_list_node);
+//	xmlFreeNode(old_rod_list_node);
+//	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
+//	{
+//		if (old_user_model_list_node->children == NULL)
+//		{
+//			cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], xmlNewNode(NULL, BAD_CAST "empty"));
+//			xmlAddChild(new_user_model_list_node, cur_node);
+//		}
+//		else
+//		{
+//			old_node = MDS_find_xmlNodePtr(old_user_model_list_node->children, mds_gen_strct->user_models->user_model_list[i]->name);
 			
-			if(old_node == NULL)
-			{
-				cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], xmlNewNode(NULL, BAD_CAST "empty"));
-			}
-			else 
-			{
-				cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], old_node);
-			}
-			xmlUnlinkNode(old_node);
-			xmlFreeNode(old_node);
-			xmlAddChild(new_user_model_list_node, cur_node);
-		}
-	}
-	xmlAddChild(root,new_user_model_list_node);
-	xmlUnlinkNode(old_user_model_list_node);
-	xmlFreeNode(old_user_model_list_node);
+//			if(old_node == NULL)
+//			{
+//				cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], xmlNewNode(NULL, BAD_CAST "empty"));
+//			}
+//			else
+//			{
+//				cur_node = MDS_create_user_model_xmlNodePtr(mds_gen_strct->user_models->user_model_list[i], old_node);
+//			}
+//			xmlUnlinkNode(old_node);
+//			xmlFreeNode(old_node);
+//			xmlAddChild(new_user_model_list_node, cur_node);
+//		}
+//	}
+//	xmlAddChild(root,new_user_model_list_node);
+//	xmlUnlinkNode(old_user_model_list_node);
+//	xmlFreeNode(old_user_model_list_node);
 
-	////////////
+//	////////////
 
-	xmlSaveFormatFile(mds_opti_xml, doc,1);
-    xmlFreeDoc(doc);
+//	xmlSaveFormatFile(mds_opti_xml, doc,1);
+//    xmlFreeDoc(doc);
 
-    return EXIT_SUCCESS;
-}
+//    return EXIT_SUCCESS;
+//}
 
-int MDS_d_data_opti_reader(xmlNodePtr in_node, MDS_d_data_strct *mds_d_data_strct)
-{
-	xmlNodePtr cur_node = in_node->children;
-	xmlChar *elementValue;
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"d_type"))
-			{
-				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
-				mds_d_data_strct->d_type = atoi((char*)elementValue);
-			}
-			else if(!strcmp((const char*)cur_node->name,"d_0"))
-			{
-				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
-				mds_d_data_strct->d_0 = atof((char*)elementValue);
-			}
-			else if(!strcmp((const char*)cur_node->name,"d_min"))
-			{
-				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
-				mds_d_data_strct->d_min = atof((char*)elementValue);
-			}
-			else if(!strcmp((const char*)cur_node->name,"d_max"))
-			{
-				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
-				mds_d_data_strct->d_max = atof((char*)elementValue);
-			}
-		}
-		cur_node = cur_node->next;
-	}
-}
+//int MDS_d_data_opti_reader(xmlNodePtr in_node, MDS_d_data_strct *mds_d_data_strct)
+//{
+//	xmlNodePtr cur_node = in_node->children;
+//	xmlChar *elementValue;
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"d_type"))
+//			{
+//				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
+//				mds_d_data_strct->d_type = atoi((char*)elementValue);
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"d_0"))
+//			{
+//				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
+//				mds_d_data_strct->d_0 = atof((char*)elementValue);
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"d_min"))
+//			{
+//				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
+//				mds_d_data_strct->d_min = atof((char*)elementValue);
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"d_max"))
+//			{
+//				elementValue = xmlNodeListGetString(cur_node->doc, cur_node->xmlChildrenNode, 1);
+//				mds_d_data_strct->d_max = atof((char*)elementValue);
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//}
 
-int MDS_point_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
-{
-	int ind = 0;
-	xmlNodePtr cur_node = in_node->children;
-	xmlNodePtr sub_cur_node;
-	xmlChar *elementValue;
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"point"))
-			{
-				if(ind >= mds_gen_strct->n_point)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				if(!strcmp((const char*)cur_node->properties->name,"name"))
-				{
-					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
-				}
-				if(!strcmp((const char*)elementValue,mds_gen_strct->point_list[ind]->name))
-				{
-					sub_cur_node = cur_node->children;
-					while (sub_cur_node != NULL)
-					{
-						if (sub_cur_node->type == XML_ELEMENT_NODE)
-						{
-							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
-							{
-								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
-								{
-									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
-								}
-								if(!strcmp((const char*)elementValue,"x"))
-								{
-									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[0]);
-								}
-								else if(!strcmp((const char*)elementValue,"y"))
-								{
-									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[1]);
-								}
-								else if(!strcmp((const char*)elementValue,"z"))
-								{
-									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[2]);
-								}
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->point_list[ind]->is_symmmetric = atoi((char*)elementValue);
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_point_name"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->point_list[ind]->symmetric_point_name = (char*)elementValue;
-							}
-						}
-						sub_cur_node = sub_cur_node->next;
-					}
-				}
-				else
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				ind++;
-			}
-		}
-		cur_node = cur_node->next;
-	}
-	return EXIT_SUCCESS;
-}
+//int MDS_point_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
+//{
+//	int ind = 0;
+//	xmlNodePtr cur_node = in_node->children;
+//	xmlNodePtr sub_cur_node;
+//	xmlChar *elementValue;
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"point"))
+//			{
+//				if(ind >= mds_gen_strct->n_point)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				if(!strcmp((const char*)cur_node->properties->name,"name"))
+//				{
+//					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
+//				}
+//				if(!strcmp((const char*)elementValue,mds_gen_strct->point_list[ind]->name))
+//				{
+//					sub_cur_node = cur_node->children;
+//					while (sub_cur_node != NULL)
+//					{
+//						if (sub_cur_node->type == XML_ELEMENT_NODE)
+//						{
+//							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
+//							{
+//								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
+//								{
+//									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
+//								}
+//								if(!strcmp((const char*)elementValue,"x"))
+//								{
+//									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[0]);
+//								}
+//								else if(!strcmp((const char*)elementValue,"y"))
+//								{
+//									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[1]);
+//								}
+//								else if(!strcmp((const char*)elementValue,"z"))
+//								{
+//									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->point_list[ind]->d_pt[2]);
+//								}
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->point_list[ind]->is_symmmetric = atoi((char*)elementValue);
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_point_name"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->point_list[ind]->symmetric_point_name = (char*)elementValue;
+//							}
+//						}
+//						sub_cur_node = sub_cur_node->next;
+//					}
+//				}
+//				else
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				ind++;
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//	return EXIT_SUCCESS;
+//}
 
-int MDS_joint_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
-{
-	int ind = 0;
-	xmlNodePtr cur_node = in_node->children;
-	xmlNodePtr sub_cur_node;
-	xmlChar *elementValue;
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"joint"))
-			{
-				if(ind >= mds_gen_strct->bodytree->n_qc)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				if(!strcmp((const char*)cur_node->properties->name,"name"))
-				{
-					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
-				}
-				if(!strcmp((const char*)elementValue,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->name))
-				{
-					sub_cur_node = cur_node->children;
-					while (sub_cur_node != NULL)
-					{
-						if (sub_cur_node->type == XML_ELEMENT_NODE)
-						{
-							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
-							{
-								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
-								{
-									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
-								}
-								if(!strcmp((const char*)elementValue,"d_qf"))
-								{
-									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->d_qf);
-								}
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->is_symmmetric = atoi((char*)elementValue);
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_joint_name"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->symmetric_joint_name = (char*)elementValue;
-							}
-						}
-						sub_cur_node = sub_cur_node->next;
-					}
-				}
-				else
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				ind++;
-			}
-		}
-		cur_node = cur_node->next;
-	}
-	return EXIT_SUCCESS;
-}
+//int MDS_joint_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
+//{
+//	int ind = 0;
+//	xmlNodePtr cur_node = in_node->children;
+//	xmlNodePtr sub_cur_node;
+//	xmlChar *elementValue;
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"joint"))
+//			{
+//				if(ind >= mds_gen_strct->bodytree->n_qc)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				if(!strcmp((const char*)cur_node->properties->name,"name"))
+//				{
+//					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
+//				}
+//				if(!strcmp((const char*)elementValue,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->name))
+//				{
+//					sub_cur_node = cur_node->children;
+//					while (sub_cur_node != NULL)
+//					{
+//						if (sub_cur_node->type == XML_ELEMENT_NODE)
+//						{
+//							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
+//							{
+//								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
+//								{
+//									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
+//								}
+//								if(!strcmp((const char*)elementValue,"d_qf"))
+//								{
+//									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->d_qf);
+//								}
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->is_symmmetric = atoi((char*)elementValue);
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_joint_name"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind]]->symmetric_joint_name = (char*)elementValue;
+//							}
+//						}
+//						sub_cur_node = sub_cur_node->next;
+//					}
+//				}
+//				else
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				ind++;
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//	return EXIT_SUCCESS;
+//}
 
-int MDS_rod_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
-{
-	int ind = 0;
-	xmlNodePtr cur_node = in_node->children;
-	xmlNodePtr sub_cur_node;
-	xmlChar *elementValue;
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"rod"))
-			{
-				if(ind >= mds_gen_strct->cuts->n_rod)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				if(!strcmp((const char*)cur_node->properties->name,"name"))
-				{
-					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
-				}
-				if(!strcmp((const char*)elementValue,mds_gen_strct->cuts->rod_list[ind]->name))
-				{
-					sub_cur_node = cur_node->children;
-					while (sub_cur_node != NULL)
-					{
-						if (sub_cur_node->type == XML_ELEMENT_NODE)
-						{
-							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
-							{
-								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
-								{
-									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
-								}
-								if(!strcmp((const char*)elementValue,"d_length"))
-								{
-									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->cuts->rod_list[ind]->d_length);
-								}
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->cuts->rod_list[ind]->is_symmmetric = atoi((char*)elementValue);
-							}
-							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_rod_name"))
-							{
-								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
-								mds_gen_strct->cuts->rod_list[ind]->symmetric_rod_name = (char*)elementValue;
-							}
-						}
-						sub_cur_node = sub_cur_node->next;
-					}
-				}
-				else
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				ind++;
-			}
-		}
-		cur_node = cur_node->next;
-	}
-	return EXIT_SUCCESS;
-}
+//int MDS_rod_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
+//{
+//	int ind = 0;
+//	xmlNodePtr cur_node = in_node->children;
+//	xmlNodePtr sub_cur_node;
+//	xmlChar *elementValue;
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"rod"))
+//			{
+//				if(ind >= mds_gen_strct->cuts->n_rod)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				if(!strcmp((const char*)cur_node->properties->name,"name"))
+//				{
+//					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
+//				}
+//				if(!strcmp((const char*)elementValue,mds_gen_strct->cuts->rod_list[ind]->name))
+//				{
+//					sub_cur_node = cur_node->children;
+//					while (sub_cur_node != NULL)
+//					{
+//						if (sub_cur_node->type == XML_ELEMENT_NODE)
+//						{
+//							if(!strcmp((const char*)sub_cur_node->name,"d_data"))
+//							{
+//								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
+//								{
+//									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
+//								}
+//								if(!strcmp((const char*)elementValue,"d_length"))
+//								{
+//									MDS_d_data_opti_reader(sub_cur_node,mds_gen_strct->cuts->rod_list[ind]->d_length);
+//								}
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"is_symmetric"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->cuts->rod_list[ind]->is_symmmetric = atoi((char*)elementValue);
+//							}
+//							else if(!strcmp((const char*)sub_cur_node->name,"symmetric_rod_name"))
+//							{
+//								elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->xmlChildrenNode, 1);
+//								mds_gen_strct->cuts->rod_list[ind]->symmetric_rod_name = (char*)elementValue;
+//							}
+//						}
+//						sub_cur_node = sub_cur_node->next;
+//					}
+//				}
+//				else
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				ind++;
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//	return EXIT_SUCCESS;
+//}
 
-int MDS_user_model_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
-{
-	int ind = 0;
-	int ind_parameter = 0;
-	int ind_value = 0;
-	xmlNodePtr cur_node = in_node->children;
-	xmlNodePtr sub_cur_node, sub_sub_cur_node;
-	xmlChar *elementValue;
-	char cur_char[30];
+//int MDS_user_model_list_opti_reader(xmlNodePtr in_node, MDS_gen_strct *mds_gen_strct)
+//{
+//	int ind = 0;
+//	int ind_parameter = 0;
+//	int ind_value = 0;
+//	xmlNodePtr cur_node = in_node->children;
+//	xmlNodePtr sub_cur_node, sub_sub_cur_node;
+//	xmlChar *elementValue;
+//	char cur_char[30];
 
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"user_model"))
-			{
-				if(ind >= mds_gen_strct->user_models->n_user_model)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				if(!strcmp((const char*)cur_node->properties->name,"name"))
-				{
-					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
-				}
-				if(!strcmp((const char*)elementValue,mds_gen_strct->user_models->user_model_list[ind]->name))
-				{
-					sub_cur_node = cur_node->children;
-					ind_parameter =0;
-					////////////////////////////////////////////////////////////////////////////////////
-					while (sub_cur_node != NULL)
-					{
-						if (sub_cur_node->type == XML_ELEMENT_NODE)
-						{
-							if(!strcmp((const char*)sub_cur_node->name,"parameter"))
-							{
-								if(ind_parameter >= mds_gen_strct->user_models->user_model_list[ind]->n_parameter)
-								{
-									printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-									return EXIT_FAILURE;
-								}
-								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
-								{
-									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
-								}
-								if(!strcmp((const char*)elementValue,mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->name))
-								{
-									sub_sub_cur_node = sub_cur_node->children;
-									ind_value = 0;
-									///////////////////////////////
-									while (sub_sub_cur_node != NULL)
-									{
-										if (sub_sub_cur_node->type == XML_ELEMENT_NODE)
-										{
-											if(!strcmp((const char*)sub_sub_cur_node->name,"d_data"))
-											{
-												if(ind_value >= mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->n_value)
-												{
-													printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-													return EXIT_FAILURE;
-												}
-												if(!strcmp((const char*)sub_sub_cur_node->properties->name,"name"))
-												{
-													elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->properties->xmlChildrenNode, 1);
-												}
-												sprintf(cur_char, "%d", ind_value);
-												if(!strcmp((const char*)elementValue,cur_char))
-												{
-													MDS_d_data_opti_reader(sub_sub_cur_node,mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->d_value[ind_value]);
-												}
-												else
-												{
-													printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-													return EXIT_FAILURE;
-												}
-												ind_value++;
-											}
-											else if(!strcmp((const char*)sub_sub_cur_node->name,"is_symmetric"))
-											{
-												elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->xmlChildrenNode, 1);
-												mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->is_symmmetric = atoi((char*)elementValue);
-											}
-											else if(!strcmp((const char*)sub_sub_cur_node->name,"symmetric_parameter_name"))
-											{
-												elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->xmlChildrenNode, 1);
-												mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->symmetric_parameter_name = (char*)elementValue;
-											}
-										}
-										sub_sub_cur_node = sub_sub_cur_node->next;
-									}
-									////////////////////////////////////////////////
-								}
-								else
-								{
-									printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-									return EXIT_FAILURE;
-								}
-								ind_parameter++;
-							}
-						}
-						sub_cur_node = sub_cur_node->next;
-					}
-				}
-				else
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-				ind++;
-			}
-		}
-		cur_node = cur_node->next;
-	}
-	return EXIT_SUCCESS;
-}
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"user_model"))
+//			{
+//				if(ind >= mds_gen_strct->user_models->n_user_model)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				if(!strcmp((const char*)cur_node->properties->name,"name"))
+//				{
+//					elementValue = xmlNodeListGetString(cur_node->doc, cur_node->properties->xmlChildrenNode, 1);
+//				}
+//				if(!strcmp((const char*)elementValue,mds_gen_strct->user_models->user_model_list[ind]->name))
+//				{
+//					sub_cur_node = cur_node->children;
+//					ind_parameter =0;
+//					////////////////////////////////////////////////////////////////////////////////////
+//					while (sub_cur_node != NULL)
+//					{
+//						if (sub_cur_node->type == XML_ELEMENT_NODE)
+//						{
+//							if(!strcmp((const char*)sub_cur_node->name,"parameter"))
+//							{
+//								if(ind_parameter >= mds_gen_strct->user_models->user_model_list[ind]->n_parameter)
+//								{
+//									printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//									return EXIT_FAILURE;
+//								}
+//								if(!strcmp((const char*)sub_cur_node->properties->name,"name"))
+//								{
+//									elementValue = xmlNodeListGetString(sub_cur_node->doc, sub_cur_node->properties->xmlChildrenNode, 1);
+//								}
+//								if(!strcmp((const char*)elementValue,mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->name))
+//								{
+//									sub_sub_cur_node = sub_cur_node->children;
+//									ind_value = 0;
+//									///////////////////////////////
+//									while (sub_sub_cur_node != NULL)
+//									{
+//										if (sub_sub_cur_node->type == XML_ELEMENT_NODE)
+//										{
+//											if(!strcmp((const char*)sub_sub_cur_node->name,"d_data"))
+//											{
+//												if(ind_value >= mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->n_value)
+//												{
+//													printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//													return EXIT_FAILURE;
+//												}
+//												if(!strcmp((const char*)sub_sub_cur_node->properties->name,"name"))
+//												{
+//													elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->properties->xmlChildrenNode, 1);
+//												}
+//												sprintf(cur_char, "%d", ind_value);
+//												if(!strcmp((const char*)elementValue,cur_char))
+//												{
+//													MDS_d_data_opti_reader(sub_sub_cur_node,mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->d_value[ind_value]);
+//												}
+//												else
+//												{
+//													printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//													return EXIT_FAILURE;
+//												}
+//												ind_value++;
+//											}
+//											else if(!strcmp((const char*)sub_sub_cur_node->name,"is_symmetric"))
+//											{
+//												elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->xmlChildrenNode, 1);
+//												mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->is_symmmetric = atoi((char*)elementValue);
+//											}
+//											else if(!strcmp((const char*)sub_sub_cur_node->name,"symmetric_parameter_name"))
+//											{
+//												elementValue = xmlNodeListGetString(sub_sub_cur_node->doc, sub_sub_cur_node->xmlChildrenNode, 1);
+//												mds_gen_strct->user_models->user_model_list[ind]->parameter_list[ind_parameter]->symmetric_parameter_name = (char*)elementValue;
+//											}
+//										}
+//										sub_sub_cur_node = sub_sub_cur_node->next;
+//									}
+//									////////////////////////////////////////////////
+//								}
+//								else
+//								{
+//									printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//									return EXIT_FAILURE;
+//								}
+//								ind_parameter++;
+//							}
+//						}
+//						sub_cur_node = sub_cur_node->next;
+//					}
+//				}
+//				else
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//				ind++;
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//	return EXIT_SUCCESS;
+//}
 
-int MDS_read_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml)
-{
-	int i;
-    xmlDocPtr doc;
-    xmlNodePtr root, cur_node, old_node;
-	xmlNodePtr old_point_list_node, new_point_list_node;
-	xmlNodePtr old_joint_list_node, new_joint_list_node;
-	xmlNodePtr old_rod_list_node, new_rod_list_node;
-	xmlNodePtr old_user_model_list_node, new_user_model_list_node;
+//int MDS_read_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml)
+//{
+//	int i;
+//    xmlDocPtr doc;
+//    xmlNodePtr root, cur_node, old_node;
+//	xmlNodePtr old_point_list_node, new_point_list_node;
+//	xmlNodePtr old_joint_list_node, new_joint_list_node;
+//	xmlNodePtr old_rod_list_node, new_rod_list_node;
+//	xmlNodePtr old_user_model_list_node, new_user_model_list_node;
 
-	MDS_d_data_strct *mds_d_data_strct;
+//	MDS_d_data_strct *mds_d_data_strct;
 
-    xmlKeepBlanksDefault(0);
-    doc = xmlParseFile(mds_opti_xml);
-    if (doc == NULL) {
-        fprintf(stderr, "Document XML invalide\n");
-        return EXIT_FAILURE;
-    }
+//    xmlKeepBlanksDefault(0);
+//    doc = xmlParseFile(mds_opti_xml);
+//    if (doc == NULL) {
+//        fprintf(stderr, "Document XML invalide\n");
+//        return EXIT_FAILURE;
+//    }
 
-    root = xmlDocGetRootElement(doc);
-    if (root == NULL) {
-        fprintf(stderr, "Document XML vierge\n");
-        xmlFreeDoc(doc);
-        return EXIT_FAILURE;
-    }
+//    root = xmlDocGetRootElement(doc);
+//    if (root == NULL) {
+//        fprintf(stderr, "Document XML vierge\n");
+//        xmlFreeDoc(doc);
+//        return EXIT_FAILURE;
+//    }
 
-	if (strcmp((const char*)root->name,"mds_opti"))
-	{
-	    fprintf(stderr, "pas bon type de xml !!!!!!!!!!!!!!!!!\n");
-        xmlFreeDoc(doc);
-        return EXIT_FAILURE;
-	}
+//	if (strcmp((const char*)root->name,"mds_opti"))
+//	{
+//	    fprintf(stderr, "pas bon type de xml !!!!!!!!!!!!!!!!!\n");
+//        xmlFreeDoc(doc);
+//        return EXIT_FAILURE;
+//	}
 
-	cur_node = root->children;
-	while (cur_node != NULL)
-	{
-		if (cur_node->type == XML_ELEMENT_NODE)
-		{
-			if(!strcmp((const char*)cur_node->name,"point_list"))
-			{
-				MDS_point_list_opti_reader(cur_node, mds_gen_strct );
-			}
-			else if(!strcmp((const char*)cur_node->name,"joint_list"))
-			{
-				MDS_joint_list_opti_reader(cur_node, mds_gen_strct );
-			}
-			else if(!strcmp((const char*)cur_node->name,"rod_list"))
-			{
-				MDS_rod_list_opti_reader(cur_node, mds_gen_strct );
-			}
-			else if(!strcmp((const char*)cur_node->name,"user_model_list"))
-			{
-				MDS_user_model_list_opti_reader(cur_node, mds_gen_strct );
-			}
-		}
-		cur_node = cur_node->next;
-	}
-    xmlFreeDoc(doc);
-    return EXIT_SUCCESS;
-}
+//	cur_node = root->children;
+//	while (cur_node != NULL)
+//	{
+//		if (cur_node->type == XML_ELEMENT_NODE)
+//		{
+//			if(!strcmp((const char*)cur_node->name,"point_list"))
+//			{
+//				MDS_point_list_opti_reader(cur_node, mds_gen_strct );
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"joint_list"))
+//			{
+//				MDS_joint_list_opti_reader(cur_node, mds_gen_strct );
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"rod_list"))
+//			{
+//				MDS_rod_list_opti_reader(cur_node, mds_gen_strct );
+//			}
+//			else if(!strcmp((const char*)cur_node->name,"user_model_list"))
+//			{
+//				MDS_user_model_list_opti_reader(cur_node, mds_gen_strct );
+//			}
+//		}
+//		cur_node = cur_node->next;
+//	}
+//    xmlFreeDoc(doc);
+//    return EXIT_SUCCESS;
+//}
 
 
-int MDS_opti_structurer(MDS_gen_strct* mds_gen_strct)
-{
-	int i,j,k, ind_find;
-	int ind_d_simplified = 0, ind_d_forced = 0, ind_d_optimized = 0, ind_d_resulting = 0, ind_d_related = 0;
+//int MDS_opti_structurer(MDS_gen_strct* mds_gen_strct)
+//{
+//	int i,j,k, ind_find;
+//	int ind_d_simplified = 0, ind_d_forced = 0, ind_d_optimized = 0, ind_d_resulting = 0, ind_d_related = 0;
 
-	mds_gen_strct->opti = init_MDS_opti_strct();
+//	mds_gen_strct->opti = init_MDS_opti_strct();
 
-	for(i=0; i<mds_gen_strct->n_point; i++)
-	{
+//	for(i=0; i<mds_gen_strct->n_point; i++)
+//	{
 		
-		if(mds_gen_strct->point_list[i]->is_symmmetric == 2)
-		{
-			ind_find = 0;
-			while(strcmp(mds_gen_strct->point_list[ind_find]->name,mds_gen_strct->point_list[i]->symmetric_point_name))
-			{
-				ind_find++;
-				if(ind_find >= mds_gen_strct->n_point)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-			}
-			for(j=0; j<3; j++)
-			{
-				if (mds_gen_strct->point_list[ind_find]->d_pt[j]->d_type == 1)
-				{
-					mds_gen_strct->point_list[i]->d_pt[j]->d_type = 1;
-				}
-				else 
-				{
-					mds_gen_strct->point_list[i]->d_pt[j]->d_type = 5;
-				}
-				mds_gen_strct->point_list[i]->d_pt[j]->master_d_ptr = mds_gen_strct->point_list[ind_find]->d_pt[j];
-			}
-			mds_gen_strct->point_list[i]->d_pt[0]->is_related = 2;
-			mds_gen_strct->point_list[i]->d_pt[1]->is_related = 3;
-			mds_gen_strct->point_list[i]->d_pt[2]->is_related = 2;
-		}
-		for(j=0; j<3; j++)
-		{
-			mds_gen_strct->point_list[i]->d_pt[j]->d_ptr = &mds_gen_strct->point_list[i]->pt[j];
-			switch(mds_gen_strct->point_list[i]->d_pt[j]->d_type)
-			{
-				case 1: 
-					(mds_gen_strct->opti->n_d_simplified)++;
-				break;
-				case 2: 
-					(mds_gen_strct->opti->n_d_forced)++;
-				break;
-				case 3: 
-					(mds_gen_strct->opti->n_d_optimized)++;
-				break;
-				case 4: 
-					(mds_gen_strct->opti->n_d_resulting)++;
-				break;
-				case 5: 
-					(mds_gen_strct->opti->n_d_related)++;
-				break;
-			}
-		}
-	}
-	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
-	{
-		if(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->is_symmmetric == 2)
-		{
-			ind_find = 0;
-			while(strcmp(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->name,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->symmetric_joint_name))
-			{
-				ind_find++;
-				if(ind_find >= mds_gen_strct->bodytree->n_qc)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-			}
-			if (mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->d_qf->d_type == 1)
-			{
-				mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type = 1;
-			}
-			else 
-			{
-				mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type = 5;
-			}
-			mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->master_d_ptr = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->d_qf;
-			switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->type)
-			{
-				case 1: 
-				case 3:
-				case 4:
-				case 6:
-					mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->is_related = 2;
-				break;
-				case 2: 
-				case 5:
-					mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->is_related = 3;
-				break;
-			}
-		}
-		mds_gen_strct->bodytree->joint_list[i]->d_qf->d_ptr = &mds_gen_strct->bodytree->joint_list[i]->q0;
-		switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type)
-		{
-			case 1: 
-				(mds_gen_strct->opti->n_d_simplified)++;
-			break;
-			case 2: 
-				(mds_gen_strct->opti->n_d_forced)++;
-			break;
-			case 3: 
-				(mds_gen_strct->opti->n_d_optimized)++;
-			break;
-			case 4: 
-				(mds_gen_strct->opti->n_d_resulting)++;
-			break;
-			case 5: 
-				(mds_gen_strct->opti->n_d_related)++;
-			break;
-		}
-	}
-	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
-	{
-		if(mds_gen_strct->cuts->rod_list[i]->is_symmmetric == 2)
-		{
-			ind_find = 0;
-			while(strcmp(mds_gen_strct->cuts->rod_list[ind_find]->name,mds_gen_strct->cuts->rod_list[i]->symmetric_rod_name))
-			{
-				ind_find++;
-				if(ind_find >= mds_gen_strct->cuts->n_rod)
-				{
-					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-					return EXIT_FAILURE;
-				}
-			}
-			if (mds_gen_strct->cuts->rod_list[ind_find]->d_length->d_type == 1)
-			{
-				mds_gen_strct->cuts->rod_list[i]->d_length->d_type = 1;
-			}
-			else 
-			{
-				mds_gen_strct->cuts->rod_list[i]->d_length->d_type = 5;
-			}
-			mds_gen_strct->cuts->rod_list[i]->d_length->master_d_ptr = mds_gen_strct->cuts->rod_list[ind_find]->d_length;
-			mds_gen_strct->cuts->rod_list[i]->d_length->is_related = 2;
-		}
-		mds_gen_strct->cuts->rod_list[i]->d_length->d_ptr = &mds_gen_strct->cuts->rod_list[i]->length;
-		switch(mds_gen_strct->cuts->rod_list[i]->d_length->d_type)
-		{
-			case 1: 
-				(mds_gen_strct->opti->n_d_simplified)++;
-			break;
-			case 2: 
-				(mds_gen_strct->opti->n_d_forced)++;
-			break;
-			case 3: 
-				(mds_gen_strct->opti->n_d_optimized)++;
-			break;
-			case 4: 
-				(mds_gen_strct->opti->n_d_resulting)++;
-			break;
-			case 5: 
-				(mds_gen_strct->opti->n_d_related)++;
-			break;
-		}
-	}
+//		if(mds_gen_strct->point_list[i]->is_symmmetric == 2)
+//		{
+//			ind_find = 0;
+//			while(strcmp(mds_gen_strct->point_list[ind_find]->name,mds_gen_strct->point_list[i]->symmetric_point_name))
+//			{
+//				ind_find++;
+//				if(ind_find >= mds_gen_strct->n_point)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//			}
+//			for(j=0; j<3; j++)
+//			{
+//				if (mds_gen_strct->point_list[ind_find]->d_pt[j]->d_type == 1)
+//				{
+//					mds_gen_strct->point_list[i]->d_pt[j]->d_type = 1;
+//				}
+//				else
+//				{
+//					mds_gen_strct->point_list[i]->d_pt[j]->d_type = 5;
+//				}
+//				mds_gen_strct->point_list[i]->d_pt[j]->master_d_ptr = mds_gen_strct->point_list[ind_find]->d_pt[j];
+//			}
+//			mds_gen_strct->point_list[i]->d_pt[0]->is_related = 2;
+//			mds_gen_strct->point_list[i]->d_pt[1]->is_related = 3;
+//			mds_gen_strct->point_list[i]->d_pt[2]->is_related = 2;
+//		}
+//		for(j=0; j<3; j++)
+//		{
+//			mds_gen_strct->point_list[i]->d_pt[j]->d_ptr = &mds_gen_strct->point_list[i]->pt[j];
+//			switch(mds_gen_strct->point_list[i]->d_pt[j]->d_type)
+//			{
+//				case 1:
+//					(mds_gen_strct->opti->n_d_simplified)++;
+//				break;
+//				case 2:
+//					(mds_gen_strct->opti->n_d_forced)++;
+//				break;
+//				case 3:
+//					(mds_gen_strct->opti->n_d_optimized)++;
+//				break;
+//				case 4:
+//					(mds_gen_strct->opti->n_d_resulting)++;
+//				break;
+//				case 5:
+//					(mds_gen_strct->opti->n_d_related)++;
+//				break;
+//			}
+//		}
+//	}
+//	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
+//	{
+//		if(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->is_symmmetric == 2)
+//		{
+//			ind_find = 0;
+//			while(strcmp(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->name,mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->symmetric_joint_name))
+//			{
+//				ind_find++;
+//				if(ind_find >= mds_gen_strct->bodytree->n_qc)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//			}
+//			if (mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->d_qf->d_type == 1)
+//			{
+//				mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type = 1;
+//			}
+//			else
+//			{
+//				mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type = 5;
+//			}
+//			mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->master_d_ptr = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[ind_find]]->d_qf;
+//			switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->type)
+//			{
+//				case 1:
+//				case 3:
+//				case 4:
+//				case 6:
+//					mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->is_related = 2;
+//				break;
+//				case 2:
+//				case 5:
+//					mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->is_related = 3;
+//				break;
+//			}
+//		}
+//		mds_gen_strct->bodytree->joint_list[i]->d_qf->d_ptr = &mds_gen_strct->bodytree->joint_list[i]->q0;
+//		switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type)
+//		{
+//			case 1:
+//				(mds_gen_strct->opti->n_d_simplified)++;
+//			break;
+//			case 2:
+//				(mds_gen_strct->opti->n_d_forced)++;
+//			break;
+//			case 3:
+//				(mds_gen_strct->opti->n_d_optimized)++;
+//			break;
+//			case 4:
+//				(mds_gen_strct->opti->n_d_resulting)++;
+//			break;
+//			case 5:
+//				(mds_gen_strct->opti->n_d_related)++;
+//			break;
+//		}
+//	}
+//	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
+//	{
+//		if(mds_gen_strct->cuts->rod_list[i]->is_symmmetric == 2)
+//		{
+//			ind_find = 0;
+//			while(strcmp(mds_gen_strct->cuts->rod_list[ind_find]->name,mds_gen_strct->cuts->rod_list[i]->symmetric_rod_name))
+//			{
+//				ind_find++;
+//				if(ind_find >= mds_gen_strct->cuts->n_rod)
+//				{
+//					printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//					return EXIT_FAILURE;
+//				}
+//			}
+//			if (mds_gen_strct->cuts->rod_list[ind_find]->d_length->d_type == 1)
+//			{
+//				mds_gen_strct->cuts->rod_list[i]->d_length->d_type = 1;
+//			}
+//			else
+//			{
+//				mds_gen_strct->cuts->rod_list[i]->d_length->d_type = 5;
+//			}
+//			mds_gen_strct->cuts->rod_list[i]->d_length->master_d_ptr = mds_gen_strct->cuts->rod_list[ind_find]->d_length;
+//			mds_gen_strct->cuts->rod_list[i]->d_length->is_related = 2;
+//		}
+//		mds_gen_strct->cuts->rod_list[i]->d_length->d_ptr = &mds_gen_strct->cuts->rod_list[i]->length;
+//		switch(mds_gen_strct->cuts->rod_list[i]->d_length->d_type)
+//		{
+//			case 1:
+//				(mds_gen_strct->opti->n_d_simplified)++;
+//			break;
+//			case 2:
+//				(mds_gen_strct->opti->n_d_forced)++;
+//			break;
+//			case 3:
+//				(mds_gen_strct->opti->n_d_optimized)++;
+//			break;
+//			case 4:
+//				(mds_gen_strct->opti->n_d_resulting)++;
+//			break;
+//			case 5:
+//				(mds_gen_strct->opti->n_d_related)++;
+//			break;
+//		}
+//	}
 
-	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
-	{
-		for(j=0; j<mds_gen_strct->user_models->user_model_list[i]->n_parameter; j++)
-		{
-			if(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->is_symmmetric == 2)
-			{
-				ind_find = 0;
-				while(strcmp(mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->name,mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->symmetric_parameter_name))
-				{
-					ind_find++;
-					if(ind_find >= mds_gen_strct->user_models->user_model_list[i]->n_parameter)
-					{
-						printf("mds_opti_xml don't correspond to the mbs file!!!\n");
-						return EXIT_FAILURE;
-					}
-				}
-				for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
-				{
-					if (mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->d_value[k]->d_type == 1)
-					{
-						mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type = 1;
-					}
-					else 
-					{
-						mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type = 5;
-					}
-					mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->master_d_ptr = mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->d_value[k];
-					mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->is_related = 2;
-				}
-			}
-			for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
-			{
-				mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_ptr = &mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->value_list[k];
-				switch(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type)
-				{
-					case 1: 
-						(mds_gen_strct->opti->n_d_simplified)++;
-					break;
-					case 2: 
-						(mds_gen_strct->opti->n_d_forced)++;
-					break;
-					case 3: 
-						(mds_gen_strct->opti->n_d_optimized)++;
-					break;
-					case 4: 
-						(mds_gen_strct->opti->n_d_resulting)++;
-					break;
-					case 5: 
-						(mds_gen_strct->opti->n_d_related)++;
-					break;
-				}
-			}
-		}
-	}
-	mds_gen_strct->opti->d_simplified_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_simplified*sizeof(MDS_d_data_strct*));
-	mds_gen_strct->opti->d_forced_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_forced*sizeof(MDS_d_data_strct*));
-	mds_gen_strct->opti->d_optimized_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_optimized*sizeof(MDS_d_data_strct*));
-	mds_gen_strct->opti->d_resulting_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_resulting*sizeof(MDS_d_data_strct*));
-	mds_gen_strct->opti->d_related_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_related*sizeof(MDS_d_data_strct*));
+//	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
+//	{
+//		for(j=0; j<mds_gen_strct->user_models->user_model_list[i]->n_parameter; j++)
+//		{
+//			if(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->is_symmmetric == 2)
+//			{
+//				ind_find = 0;
+//				while(strcmp(mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->name,mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->symmetric_parameter_name))
+//				{
+//					ind_find++;
+//					if(ind_find >= mds_gen_strct->user_models->user_model_list[i]->n_parameter)
+//					{
+//						printf("mds_opti_xml don't correspond to the mbs file!!!\n");
+//						return EXIT_FAILURE;
+//					}
+//				}
+//				for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
+//				{
+//					if (mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->d_value[k]->d_type == 1)
+//					{
+//						mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type = 1;
+//					}
+//					else
+//					{
+//						mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type = 5;
+//					}
+//					mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->master_d_ptr = mds_gen_strct->user_models->user_model_list[i]->parameter_list[ind_find]->d_value[k];
+//					mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->is_related = 2;
+//				}
+//			}
+//			for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
+//			{
+//				mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_ptr = &mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->value_list[k];
+//				switch(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type)
+//				{
+//					case 1:
+//						(mds_gen_strct->opti->n_d_simplified)++;
+//					break;
+//					case 2:
+//						(mds_gen_strct->opti->n_d_forced)++;
+//					break;
+//					case 3:
+//						(mds_gen_strct->opti->n_d_optimized)++;
+//					break;
+//					case 4:
+//						(mds_gen_strct->opti->n_d_resulting)++;
+//					break;
+//					case 5:
+//						(mds_gen_strct->opti->n_d_related)++;
+//					break;
+//				}
+//			}
+//		}
+//	}
+//	mds_gen_strct->opti->d_simplified_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_simplified*sizeof(MDS_d_data_strct*));
+//	mds_gen_strct->opti->d_forced_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_forced*sizeof(MDS_d_data_strct*));
+//	mds_gen_strct->opti->d_optimized_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_optimized*sizeof(MDS_d_data_strct*));
+//	mds_gen_strct->opti->d_resulting_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_resulting*sizeof(MDS_d_data_strct*));
+//	mds_gen_strct->opti->d_related_list = (MDS_d_data_strct**) malloc(mds_gen_strct->opti->n_d_related*sizeof(MDS_d_data_strct*));
 	
-	for(i=0; i<mds_gen_strct->n_point; i++)
-	{
-		for(j=0; j<3; j++)
-		{
-			switch(mds_gen_strct->point_list[i]->d_pt[j]->d_type)
-			{
-				case 1: 
-					mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->point_list[i]->d_pt[j];
-					ind_d_simplified++;
-				break;
-				case 2: 
-					mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->point_list[i]->d_pt[j];
-					ind_d_forced++;
-				break;
-				case 3: 
-					mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->point_list[i]->d_pt[j];
-					ind_d_optimized++;
-				break;
-				case 4: 
-					mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->point_list[i]->d_pt[j];
-					ind_d_resulting++;
-				break;
-				case 5: 
-					mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->point_list[i]->d_pt[j];
-					ind_d_related++;
-				break;
-			}
-		}
-	}
-	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
-	{
-		switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type)
-		{
-			case 1: 
-				mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
-				ind_d_simplified++;
-			break;
-			case 2: 
-				mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
-				ind_d_forced++;
-			break;
-			case 3: 
-				mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
-				ind_d_optimized++;
-			break;
-			case 4: 
-				mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
-				ind_d_resulting++;
-			break;
-			case 5: 
-				mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
-				ind_d_related++;
-			break;
-		}
-	}
-	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
-	{
-		switch(mds_gen_strct->cuts->rod_list[i]->d_length->d_type)
-		{
-			case 1: 
-				mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->cuts->rod_list[i]->d_length;
-				ind_d_simplified++;
-			break;
-			case 2: 
-				mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->cuts->rod_list[i]->d_length;
-				ind_d_forced++;
-			break;
-			case 3: 
-				mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->cuts->rod_list[i]->d_length;
-				ind_d_optimized++;
-			break;
-			case 4: 
-				mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->cuts->rod_list[i]->d_length;
-				ind_d_resulting++;
-			break;
-			case 5: 
-				mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->cuts->rod_list[i]->d_length;
-				ind_d_related++;
-			break;
-		}
-	}
+//	for(i=0; i<mds_gen_strct->n_point; i++)
+//	{
+//		for(j=0; j<3; j++)
+//		{
+//			switch(mds_gen_strct->point_list[i]->d_pt[j]->d_type)
+//			{
+//				case 1:
+//					mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->point_list[i]->d_pt[j];
+//					ind_d_simplified++;
+//				break;
+//				case 2:
+//					mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->point_list[i]->d_pt[j];
+//					ind_d_forced++;
+//				break;
+//				case 3:
+//					mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->point_list[i]->d_pt[j];
+//					ind_d_optimized++;
+//				break;
+//				case 4:
+//					mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->point_list[i]->d_pt[j];
+//					ind_d_resulting++;
+//				break;
+//				case 5:
+//					mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->point_list[i]->d_pt[j];
+//					ind_d_related++;
+//				break;
+//			}
+//		}
+//	}
+//	for(i=0; i<mds_gen_strct->bodytree->n_qc; i++)
+//	{
+//		switch(mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf->d_type)
+//		{
+//			case 1:
+//				mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
+//				ind_d_simplified++;
+//			break;
+//			case 2:
+//				mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
+//				ind_d_forced++;
+//			break;
+//			case 3:
+//				mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
+//				ind_d_optimized++;
+//			break;
+//			case 4:
+//				mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
+//				ind_d_resulting++;
+//			break;
+//			case 5:
+//				mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->bodytree->joint_list[mds_gen_strct->bodytree->qc[i]]->d_qf;
+//				ind_d_related++;
+//			break;
+//		}
+//	}
+//	for(i=0; i<mds_gen_strct->cuts->n_rod; i++)
+//	{
+//		switch(mds_gen_strct->cuts->rod_list[i]->d_length->d_type)
+//		{
+//			case 1:
+//				mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->cuts->rod_list[i]->d_length;
+//				ind_d_simplified++;
+//			break;
+//			case 2:
+//				mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->cuts->rod_list[i]->d_length;
+//				ind_d_forced++;
+//			break;
+//			case 3:
+//				mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->cuts->rod_list[i]->d_length;
+//				ind_d_optimized++;
+//			break;
+//			case 4:
+//				mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->cuts->rod_list[i]->d_length;
+//				ind_d_resulting++;
+//			break;
+//			case 5:
+//				mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->cuts->rod_list[i]->d_length;
+//				ind_d_related++;
+//			break;
+//		}
+//	}
 
-	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
-	{
-		for(j=0; j<mds_gen_strct->user_models->user_model_list[i]->n_parameter; j++)
-		{
-			for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
-			{
-				switch(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type)
-				{
-					case 1: 
-						mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
-						ind_d_simplified++;
-					break;
-					case 2: 
-						mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
-						ind_d_forced++;
-					break;
-					case 3: 
-						mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
-						ind_d_optimized++;
-					break;
-					case 4: 
-						mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
-						ind_d_resulting++;
-					break;
-					case 5: 
-						mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
-						ind_d_related++;
-					break;
-				}
-			}
-		}
-	}
-	return EXIT_SUCCESS;
-}
+//	for(i=0; i<mds_gen_strct->user_models->n_user_model; i++)
+//	{
+//		for(j=0; j<mds_gen_strct->user_models->user_model_list[i]->n_parameter; j++)
+//		{
+//			for(k=0; k<mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
+//			{
+//				switch(mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k]->d_type)
+//				{
+//					case 1:
+//						mds_gen_strct->opti->d_simplified_list[ind_d_simplified] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
+//						ind_d_simplified++;
+//					break;
+//					case 2:
+//						mds_gen_strct->opti->d_forced_list[ind_d_forced] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
+//						ind_d_forced++;
+//					break;
+//					case 3:
+//						mds_gen_strct->opti->d_optimized_list[ind_d_optimized] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
+//						ind_d_optimized++;
+//					break;
+//					case 4:
+//						mds_gen_strct->opti->d_resulting_list[ind_d_resulting] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
+//						ind_d_resulting++;
+//					break;
+//					case 5:
+//						mds_gen_strct->opti->d_related_list[ind_d_related] = mds_gen_strct->user_models->user_model_list[i]->parameter_list[j]->d_value[k];
+//						ind_d_related++;
+//					break;
+//				}
+//			}
+//		}
+//	}
+//	return EXIT_SUCCESS;
+//}

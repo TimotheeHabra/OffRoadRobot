@@ -365,10 +365,10 @@ MDS_gen_strct* MDS_mbs_reader(char* mbs_xml_name);
 
 
 
-int MDS_write_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml);
-int MDS_read_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml);
+//int MDS_write_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml);
+//int MDS_read_mds_opti_xml(MDS_gen_strct *mds_gen_strct, const char *mds_opti_xml);
 
-int MDS_opti_structurer(MDS_gen_strct* mds_gen_strct);
+//int MDS_opti_structurer(MDS_gen_strct* mds_gen_strct);
 
 #endif
 
