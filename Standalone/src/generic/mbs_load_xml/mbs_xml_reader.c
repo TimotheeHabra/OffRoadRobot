@@ -17,16 +17,19 @@ void MDS_coordinates_reader(double *coordinates_pointer, xmlNodePtr node, xmlDoc
 				{
 					elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 					coordinates_pointer[0] = atof((char*)elementValue);
+                    xmlFree(elementValue);
 				}
 				if(!strcmp((const char*)cur_node->name,"y"))
 				{
 					elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 					coordinates_pointer[1] = atof((char*)elementValue);
+                    xmlFree(elementValue);
 				}
 				if(!strcmp((const char*)cur_node->name,"z"))
 				{
 					elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 					coordinates_pointer[2] = atof((char*)elementValue);
+                    xmlFree(elementValue);
 				}							
 			}
 			cur_node = cur_node->next;
@@ -48,42 +51,50 @@ MDS_sensor_strct* MDS_sensor_reader(xmlNodePtr node, xmlDocPtr doc)
 			if(!strcmp((const char*)cur_node->name,"name"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
-				mds_sensor_strct = init_MDS_sensor_strct((char*)elementValue);				
+                mds_sensor_strct = init_MDS_sensor_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Pos"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Pos = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Rot"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Rot = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Vit"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Vit = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Om"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Om = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Acc"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Acc = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Omp"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Omp = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Jac"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_sensor_strct->Jac = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -106,37 +117,44 @@ MDS_extforce_strct* MDS_extforce_reader(xmlNodePtr node, xmlDocPtr doc)
 			if(!strcmp((const char*)cur_node->name,"name"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
-				mds_extforce_strct = init_MDS_extforce_strct((char*)elementValue);				
+                mds_extforce_strct = init_MDS_extforce_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Pos"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Pos = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Rot"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Rot = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Vit"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Vit = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Om"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Om = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Acc"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Acc = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"Omp"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_extforce_strct->Omp = !strcmp((const char*)elementValue,"true");
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -163,6 +181,7 @@ MDS_joint_strct* MDS_joint_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_joint_strct = init_MDS_joint_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"type"))
 			{
@@ -195,6 +214,7 @@ MDS_joint_strct* MDS_joint_reader(xmlNodePtr node, xmlDocPtr doc)
 				{
 					mds_joint_strct->type = 0;
 				}
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"nature"))
 			{
@@ -215,6 +235,7 @@ MDS_joint_strct* MDS_joint_reader(xmlNodePtr node, xmlDocPtr doc)
 				{
 					mds_joint_strct->type = 0;
 				}
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"initialvalue"))
 			{
@@ -227,16 +248,19 @@ MDS_joint_strct* MDS_joint_reader(xmlNodePtr node, xmlDocPtr doc)
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_joint_strct->q0 = atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"qd"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_joint_strct->qd0 = atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"qdd"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_joint_strct->qdd0 = atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 					}
 					sub_cur_node = sub_cur_node->next;
@@ -309,6 +333,7 @@ MDS_point_strct* MDS_point_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_point_strct = init_MDS_point_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			else if(!strcmp((const char*)cur_node->name,"coordinates"))
 			{
@@ -386,11 +411,13 @@ MDS_ref_point_strct* MDS_ref_point_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_ref_point_strct->bodyname = (char*)elementValue;
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"pointname"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_ref_point_strct->pointname = (char*)elementValue;
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -455,6 +482,7 @@ MDS_body_strct* MDS_body_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_body_strct = init_MDS_body_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"parent"))
 			{
@@ -469,6 +497,7 @@ MDS_body_strct* MDS_body_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_body_strct->mass = atof((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"com"))
 			{
@@ -485,31 +514,37 @@ MDS_body_strct* MDS_body_reader(xmlNodePtr node, xmlDocPtr doc)
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[0]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"Ixy"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[1]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"Ixz"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[2]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"Iyy"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[3]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"Iyz"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[4]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 						if(!strcmp((const char*)sub_cur_node->name,"Izz"))
 						{
 							elementValue = xmlNodeListGetString(doc, sub_cur_node->xmlChildrenNode, 1);
 							mds_body_strct->inertia[5]= atof((char*)elementValue);
+                            xmlFree(elementValue);
 						}
 					}
 					sub_cur_node = sub_cur_node->next;
@@ -586,6 +621,7 @@ MDS_ball_strct* MDS_ball_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_ball_strct = init_MDS_ball_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"endpoint1"))
 			{
@@ -639,6 +675,7 @@ MDS_rod_strct* MDS_rod_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_rod_strct = init_MDS_rod_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"endpoint1"))
 			{
@@ -652,6 +689,7 @@ MDS_rod_strct* MDS_rod_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_rod_strct->length = atof((char*)elementValue);
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -675,6 +713,7 @@ MDS_solid_strct* MDS_solid_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_solid_strct = init_MDS_solid_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"endpoint1"))
 			{
@@ -790,6 +829,7 @@ MDS_link_strct* MDS_link_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_link_strct = init_MDS_link_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"endpoint1"))
 			{
@@ -872,6 +912,7 @@ MDS_parameter_strct* MDS_parameter_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_parameter_strct = init_MDS_parameter_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -931,11 +972,13 @@ MDS_parameter_strct* MDS_parameter_reader(xmlNodePtr node, xmlDocPtr doc)
 				{
 					mds_parameter_strct->type = 5;
 				}
+                xmlFree(elementValue);
 			}
 			if(!strcmp((const char*)cur_node->name,"value"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_parameter_strct->value_list[ind_parameter] = atof((char*)elementValue);
+                xmlFree(elementValue);
 				ind_parameter++;
 			}
 		}
@@ -961,6 +1004,7 @@ MDS_user_model_strct* MDS_user_model_reader(xmlNodePtr node, xmlDocPtr doc)
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
 				mds_user_model_strct = init_MDS_user_model_strct((char*)elementValue);
+                xmlFree(elementValue);
 			}
 		}
 		cur_node = cur_node->next;
@@ -2036,6 +2080,7 @@ xmlNodePtr MDS_find_xmlNodePtr(xmlNodePtr node, char *name)
 			{
 				return cur_node; 
 			}
+            xmlFree(elementValue);
 		}
 		cur_node = cur_node->next;
 	}
