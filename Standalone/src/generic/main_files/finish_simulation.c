@@ -118,6 +118,9 @@ void finish_simulation(Loop_inputs *loop_inputs)
 
     // MBSdata_xml
     MDS_free_MBSdataStruct(MBSdata);
+
+    // integrator vectors
+    free_dvector(loop_inputs->ystart,1);
     
     // simulation loop inputs
 	free(loop_inputs);
