@@ -259,6 +259,11 @@ void freeLocalDataStruct(LocalDataStruct *lds, MBSdataStruct *s)
 		free_mbs_vector(lds->jdqduserc);
 	}
 
+    if (nquc)
+    {
+        free_mbs_ivector(lds->iquc);
+    }
+
 	free_sensor(lds->psens);
 
 #elif defined SENSORKIN

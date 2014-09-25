@@ -63,8 +63,6 @@ Loop_inputs* init_simulation()
     void* RobotranYarp_interface = NULL;
     #endif
 
-	const char *filein;
-
 	struct timeval seed_time;
 
 	// -- Seed for random -- //
@@ -73,9 +71,6 @@ Loop_inputs* init_simulation()
 	srand(seed_time.tv_usec * seed_time.tv_sec);
     
     // -- Variables initialization -- //
-
-	// xml file with the model inputs (initial positions, inertia matrices, degrees of freedom...)
-	filein = PROJECT_ABS_PATH"/src/project/Model_standalone.mbsdata";
 
     mstr= init_MSTR_strct();
 	MSTR_exe_load(mstr, MBS_FILE); 
@@ -289,12 +284,12 @@ Loop_inputs* init_simulation()
 
 	if(MBSdata == NULL)
 	{
-	    printf("error while loading MBSdata from file %s\n", filein);
+        printf("error while loading MBSdata \n");
 	}
 	#ifdef PRINT_REPORT
 	else
 	{
-	    printf("MBSdata successfully loaded from file '%s'\n", filein);
+        printf("MBSdata successfully loaded \n");
 	}
 	#endif
 

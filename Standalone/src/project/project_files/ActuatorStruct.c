@@ -139,7 +139,8 @@ void free_SEActuatorStruct(SEActuatorStruct *acs[])
     for (i=0; i < NB_ACTUATED_JOINTS_TMP; i++)
     {
         free(acs[i]);
-    }
+    }    
+    free(acs);
 
 }
 
