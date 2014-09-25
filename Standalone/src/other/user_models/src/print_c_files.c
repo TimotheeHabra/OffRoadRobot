@@ -274,7 +274,7 @@ void print_c_user_models(MDS_gen_strct* gen, char *fileoutC, char *fileoutH)
  */
 void print_c_user_all_id(MDS_gen_strct* gen, char *fileoutH)
 {
-	int i, j, k;
+    int i;
 	int ind;
 
 	FILE  *fidH;
