@@ -28,7 +28,7 @@ int rank_double_tab(double** matrix_in, int x, int y)
 	rank =  rank_double_vec(matrix, n[0], n[1]);
 	*/
 		
-	int n[2], i, retest=1, grp, p, r, j, t, q, rank;
+    int n[2], i, retest=1, grp, p, r, j, rank;
 	int* initzeros;
 
 	matrix = get_double_tab(x,y);
@@ -132,17 +132,27 @@ void readmatrix (double** mat,int* n)
 	int i,j;
 
 	printf("\tEnter the no: rows in the matrix : ");
-	scanf("%d",&n[0]);
+    if( scanf("%d",&n[0]) != 1)
+    {
+        printf("error please enter an integer \n");
+    }
+
 	printf("\tEnter the no: columns in the matrix : ");
-	scanf("%d",&n[1]);
-	printf("\tEnter The Matrix Elements Row wise  ");
-	scanf("\n");
+    if ( scanf("%d",&n[1]) != 1)
+    {
+        printf("error please enter an integer \n");
+    }
+
+    printf("\tEnter The Matrix Elements Row wise  \n");
 
 	for(i=0;i<n[0];++i)
 	{
 		for(j=0;j<n[1];++j)
 		{
-			scanf("%lf",&mat[i][j]);
+            if (scanf("%lf",&mat[i][j]) != 1)
+            {
+                printf("error please enter a double \n");
+            }
 		}
 	}
 }
@@ -268,7 +278,7 @@ void PART_vec_perm(int* a ,int* ipm, int irk)
 
 void PART_lutot(double** a, int nl, int nc, int rowperm, int* irk, int* ierr, int* row_perm, int* col_perm)
 {
-	int i, j, iter, indl, indc, ilmax, il, ic, it1; 
+    int i, j, iter, ilmax, il, ic, it1;
 	double p,z;
 	double epslu = 1.0e-15;
 	int *ipl, *ipc;
@@ -425,8 +435,6 @@ void PART_coord_part(MDS_gen_strct*  mds_gen_strct, MBSdataStruct* MBSdata, PART
 	double* q_rand, * q_safe; 
 	double* h_; 
 	double** Jac, **Jv;
-
-	double hjfd;
 
 	int *ind_u_des_com,  *ind_vu, *row_perm, *col_perm;
 	int *ind_aux, *ind_irk, *ind_u_nsort ,*ind_hv_nsort; 
