@@ -46,7 +46,7 @@ char* get_time_machine()
  */
 void print_c_user_models(MDS_gen_strct* gen, char *fileoutC, char *fileoutH)
 {
-	int i, j, k;
+    int i, j;
 
 	FILE *fidC, *fidH;
 
@@ -206,13 +206,13 @@ void print_c_user_models(MDS_gen_strct* gen, char *fileoutC, char *fileoutH)
 				case 1:
 					break;
 				case 2:
-					fprintf(fidC,"    free_double_vec(ums->%s.%s);\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name,gen->user_models->user_model_list[i]->parameter_list[j]->n_value);
+                    fprintf(fidC,"    free_double_vec(ums->%s.%s);\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name); // ,gen->user_models->user_model_list[i]->parameter_list[j]->n_value);
 					break;
 				case 3:
 				case 4:
 					break;
 				case 5:
-					fprintf(fidC,"    free_int_vec(ums->%s.%s);\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name,gen->user_models->user_model_list[i]->parameter_list[j]->n_value);
+                    fprintf(fidC,"    free_int_vec(ums->%s.%s);\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name); // ,gen->user_models->user_model_list[i]->parameter_list[j]->n_value);
 					break;
 			}		
 		}
@@ -237,7 +237,7 @@ void print_c_user_models(MDS_gen_strct* gen, char *fileoutC, char *fileoutH)
 					fprintf(fidC,"    ums->%s.%s = gen->user_models->user_model_list[%d]->parameter_list[%d]->value_list[0];\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name,i,j);
 					break;
 				case 2:
-					fprintf(fidC,"    for(ind=0; ind<gen->user_models->user_model_list[%d]->parameter_list[%d]->n_value; ind++)\n");
+                    fprintf(fidC,"    for(ind=0; ind<gen->user_models->user_model_list[%d]->parameter_list[%d]->n_value; ind++)\n",i,j);
 					fprintf(fidC,"    {\n");
 					fprintf(fidC,"        ums->%s.%s[ind] = gen->user_models->user_model_list[%d]->parameter_list[%d]->value_list[ind];\n",gen->user_models->user_model_list[i]->name , gen->user_models->user_model_list[i]->parameter_list[j]->name, i, j);
 					fprintf(fidC,"    }\n");
