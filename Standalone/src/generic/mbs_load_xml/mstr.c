@@ -11,7 +11,7 @@ MSTR_strct* init_MSTR_strct(void)
 	mstr_strct->mds = NULL;
 	mstr_strct->part = NULL;
     //mstr_strct->equil = NULL;
-	mstr_strct->lds = NULL;
+    //mstr_strct->lds = NULL;
 	mstr_strct->MBSdata = NULL;
 
 	return mstr_strct;
@@ -22,7 +22,7 @@ void free_MSTR_strct(MSTR_strct *mstr_strct)
 	free_PART_gen_strct(mstr_strct->part);
     //free_EQUIL_gen_strct(mstr_strct->equil);
 
-	freeLocalDataStruct(mstr_strct->lds, mstr_strct->MBSdata); // change it
+    //freeLocalDataStruct(mstr_strct->lds, mstr_strct->MBSdata); // change it
 	MDS_free_MBSdataStruct(mstr_strct->MBSdata);
 
 	free(mstr_strct);
@@ -32,7 +32,7 @@ void MSTR_exe_load(MSTR_strct *mstr_strct, char* mbs_xml_name)
 {
 	mstr_strct->mds = MDS_mbs_reader(mbs_xml_name);
 	mstr_strct->MBSdata = MDS_create_MBSdataStruct(mstr_strct->mds); // pourrai etre void 
-	mstr_strct->lds = initLocalDataStruct(mstr_strct->MBSdata);
+    //mstr_strct->lds = initLocalDataStruct(mstr_strct->MBSdata);
 }
 void MSTR_exe_part(MSTR_strct *mstr_strct)
 {

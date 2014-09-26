@@ -19,7 +19,7 @@ typedef struct MSTR_strct
 	PART_gen_strct *part;
     //EQUIL_gen_strct *equil;
 	//MODAL_gen_strct *modal;
-	LocalDataStruct *lds;
+    //LocalDataStruct *lds;
 	MBSdataStruct *MBSdata;
 
 } MSTR_strct;
