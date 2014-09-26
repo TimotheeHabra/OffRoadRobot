@@ -360,7 +360,7 @@ MDS_gen_strct* init_MDS_gen_strct(void);
 void free_MDS_gen_strct(MDS_gen_strct *mds_gen_strct);
 
 
-MDS_gen_strct* MDS_mbs_reader(char* mbs_xml_name);
+MDS_gen_strct* MDS_mbs_reader(const char* mbs_xml_name);
 
 
 

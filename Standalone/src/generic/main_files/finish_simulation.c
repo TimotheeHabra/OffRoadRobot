@@ -8,6 +8,7 @@
 #include "mds_translator.h"
 #include "real_time.h"
 #include "cmake_config.h"
+#include "nrutil.h"
 
 /*
  * End of the simulation
@@ -116,11 +117,11 @@ void finish_simulation(Loop_inputs *loop_inputs)
     yarp_finish(loop_inputs->RobotranYarp_interface);
     #endif
 
+    // integrator vectors
+    free_dvector(loop_inputs->ystart,1,2*MBSdata->nqu + MBSdata->Nux);
+
     // MBSdata_xml
     MDS_free_MBSdataStruct(MBSdata);
-
-    // integrator vectors
-    free_dvector(loop_inputs->ystart,1);
     
     // simulation loop inputs
 	free(loop_inputs);

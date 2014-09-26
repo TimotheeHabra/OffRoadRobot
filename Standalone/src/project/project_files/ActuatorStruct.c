@@ -20,7 +20,7 @@ ActuatorsStruct* init_ActuatorsStruct(void)
     actuatorsStruct = (ActuatorsStruct*) malloc(sizeof(ActuatorsStruct));
 
 
-    actuatorsStruct->acs = (SEActuatorStruct *) malloc(NB_ACTUATED_JOINTS_TMP*sizeof(ActuatorsStruct));
+    actuatorsStruct->acs = (SEActuatorStruct **) malloc(NB_ACTUATED_JOINTS_TMP*sizeof(ActuatorsStruct));
     init_SEActuatorStruct(actuatorsStruct->acs); 
     //actuatorsStruct->acs = init_SEActuatorStruct(); 
     return actuatorsStruct;
@@ -105,7 +105,8 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
           }
     }
 
-    return acs;
+    //return acs;
+    return;
 }
 
 

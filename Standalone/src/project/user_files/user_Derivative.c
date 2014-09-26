@@ -11,7 +11,7 @@
 
 void user_Derivative(MBSdataStruct *MBSdata)
 {
-    UserIOStruct *uvs;
+    //UserIOStruct *uvs;
 
     int i;
 
@@ -25,7 +25,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
     double Ds ;
     double J_M;
     // voltage to torque gain (used in 2nd order dynamics)
-    double VT ; //
+    //double VT ; //
     double D_M;
 
     const int n = NB_ACTUATED_JOINTS;
@@ -40,7 +40,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
     double *ref = MBSdata->user_IO->refs;
 
 
-    uvs = MBSdata->user_IO;
+    //uvs = MBSdata->user_IO;
 
     if (Act_type==1) //SEA
     {
@@ -89,28 +89,29 @@ void user_Derivative(MBSdataStruct *MBSdata)
             // Motor (Mechanical) ODE
             // ux:motor position, velocity, uxd: motor velocity, acceleration
             //update motor velocities:
-            for (i=0; i<n; i++)
-            {
-                MBSdata->uxd[i]=MBSdata->ux[i+n];
-            }
+//            for (i=0; i<n; i++)
+//            {
+//                MBSdata->uxd[i]=MBSdata->ux[i+n];
+//            }
 
-            J_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Inertia;
-            VT  = rho*(KT)/R_M;
-            D_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Damping;
-            Ks  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesSpring;
-            Ds  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesDamping;
+//            rho = MBSdata->user_IO->actuatorsStruct->acs[M_FR]->GearRatio;
+//            J_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Inertia;
+//            VT  = rho*(KT)/R_M;
+//            D_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Damping;
+//            Ks  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesSpring;
+//            Ds  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesDamping;
 
-            // computing the transmission torque (coupling between motor and load)
-            Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
-            Cpl[M_FL]=Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL])+Ds*(MBSdata->uxd[M_FL]-MBSdata->qd[R2_FL]);
-            Cpl[M_RR]=Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR])+Ds*(MBSdata->uxd[M_RR]-MBSdata->qd[R2_RR]);
-            Cpl[M_RL]=Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL])+Ds*(MBSdata->uxd[M_RL]-MBSdata->qd[R2_RL]);
+//            // computing the transmission torque (coupling between motor and load)
+//            Cpl[M_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
+//            Cpl[M_FL]=Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL])+Ds*(MBSdata->uxd[M_FL]-MBSdata->qd[R2_FL]);
+//            Cpl[M_RR]=Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR])+Ds*(MBSdata->uxd[M_RR]-MBSdata->qd[R2_RR]);
+//            Cpl[M_RL]=Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL])+Ds*(MBSdata->uxd[M_RL]-MBSdata->qd[R2_RL]);
 
-            //update motor accelerations:
-            MBSdata->uxd[M_FR]= (1.0/J_M)*(VT*voltage[M_FR] -D_M*MBSdata->ux[n+M_FR]-Cpl[M_FR]);
-            MBSdata->uxd[M_FL]= (1.0/J_M)*(VT*voltage[M_FL] -D_M*MBSdata->ux[n+M_FL]-Cpl[M_FL]);
-            MBSdata->uxd[M_RR]= (1.0/J_M)*(VT*voltage[M_RR] -D_M*MBSdata->ux[n+M_RR]-Cpl[M_RR]);
-            MBSdata->uxd[M_RL]= (1.0/J_M)*(VT*voltage[M_RL] -D_M*MBSdata->ux[n+M_RL]-Cpl[M_RL]);
+//            //update motor accelerations:
+//            MBSdata->uxd[M_FR]= (1.0/J_M)*(VT*voltage[M_FR] -D_M*MBSdata->ux[n+M_FR]-Cpl[M_FR]);
+//            MBSdata->uxd[M_FL]= (1.0/J_M)*(VT*voltage[M_FL] -D_M*MBSdata->ux[n+M_FL]-Cpl[M_FL]);
+//            MBSdata->uxd[M_RR]= (1.0/J_M)*(VT*voltage[M_RR] -D_M*MBSdata->ux[n+M_RR]-Cpl[M_RR]);
+//            MBSdata->uxd[M_RL]= (1.0/J_M)*(VT*voltage[M_RL] -D_M*MBSdata->ux[n+M_RL]-Cpl[M_RL]);
            break;
             case 3:
             // Motor (Electrical+Mechanical) ODE
@@ -128,7 +129,7 @@ void user_Derivative(MBSdataStruct *MBSdata)
             KT = K_W;
 
             J_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Inertia;
-            VT  = rho*(KT)/R_M;
+            //VT  = rho*(KT)/R_M;
             D_M = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->Damping;
             Ks  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesSpring;
             Ds  = MBSdata->user_IO->actuatorsStruct->acs[M_RR]->SeriesDamping;

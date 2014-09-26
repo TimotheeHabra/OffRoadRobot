@@ -15,13 +15,13 @@
 // Sets the pos, vel, acc of driven joints (if different from 0)
 void user_DrivenJoints(MBSdataStruct *MBSdata, double tsim)
 {
-    UserIOStruct *uvs;
-    double T = 1.0; //[s]
-	double My_PI = 3.1415926;
-	double omega = 2*My_PI/(2*T); //[rad/s]
-	int id = 0;
+//    UserIOStruct *uvs;
+//    double T = 1.0; //[s]
+//	double My_PI = 3.1415926;
+//	double omega = 2*My_PI/(2*T); //[rad/s]
+//	int id = 0;
 
-	uvs = MBSdata->user_IO;
+//	uvs = MBSdata->user_IO;
 
 
 #ifdef GO

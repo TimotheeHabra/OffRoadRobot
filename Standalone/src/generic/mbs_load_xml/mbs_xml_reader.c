@@ -1331,7 +1331,7 @@ void MDS_structurer(MDS_gen_strct* mds_gen_strct)
 }
 
 
-MDS_gen_strct* MDS_mbs_reader(char* mbs_xml_name)
+MDS_gen_strct* MDS_mbs_reader(const char* mbs_xml_name)
 {
     xmlDocPtr doc;
     xmlNodePtr root;

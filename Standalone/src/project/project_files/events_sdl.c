@@ -19,14 +19,14 @@ void events_sdl(Screen_sdl *screen_sdl, Simu_real_time *real_time, MBSdataStruct
 
 	SDL_Event event;
 
-	UserIOStruct *uvs;
-    ControllerStruct *cvs;
+    //UserIOStruct *uvs;
+    //ControllerStruct *cvs;
 
 
     // -- Variables initialization -- //
 
-    uvs = MBSdata->user_IO;
-    cvs = uvs->cvs;
+    //uvs = MBSdata->user_IO;
+    //cvs = uvs->cvs;
 
 
     // -- Handles the events -- //

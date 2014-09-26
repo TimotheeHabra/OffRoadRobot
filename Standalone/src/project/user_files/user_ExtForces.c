@@ -23,19 +23,19 @@ double* user_ExtForces(double PxF[4], double RxF[4][4],
 	double Fx=0.0, Fy=0.0, Fz=0.0;
 	double Mx=0.0, My=0.0, Mz=0.0;
 	double dxF[3+1] ={0.0, 0.0, 0.0, 0.0}; // +1 because indexes begin at 1
-	int i;
 
 	#ifdef SIMBODY
 	SimbodyBodiesStruct *simbodyBodies;
+    int i;
 	#endif
 
 	double *SWr = MBSdata->SWr[ixF];
 	int idpt = 0;
         
     // user variables
-    UserIOStruct *uvs;
+    //UserIOStruct *uvs;
     
-    uvs = MBSdata->user_IO;
+    //uvs = MBSdata->user_IO;
 
 	idpt = MBSdata->xfidpt[ixF];
 
@@ -110,6 +110,10 @@ void point_contact_model(double PxF[4], double RxF[4][4],
 		Fx = (-2000.9)*VxF[1];
 	}
 
-	SWr[1] = Fx;
-	SWr[3] = Fz;
+    SWr[1] = Fx;
+    SWr[2] = Fy;
+    SWr[3] = Fz;
+    SWr[4] = Mx;
+    SWr[5] = My;
+    SWr[6] = Mz;
 }

@@ -7,9 +7,9 @@
 
 void simu_outputs(MBSdataStruct *MBSdata)
 {
-    UserIOStruct *uvs;
-    ControllerStruct *cvs;
+//    UserIOStruct *uvs;
+//    ControllerStruct *cvs;
 
-    uvs = MBSdata->user_IO;
-    cvs = uvs->cvs;
+//    uvs = MBSdata->user_IO;
+//    cvs = uvs->cvs;
 }
