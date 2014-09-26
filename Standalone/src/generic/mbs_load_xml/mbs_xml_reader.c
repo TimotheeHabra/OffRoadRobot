@@ -1408,7 +1408,9 @@ MDS_ref_point_strct* init_MDS_ref_point_strct(void)
 }
 void free_MDS_ref_point_strct(MDS_ref_point_strct *mds_ref_point_strct)
 {
-	free(mds_ref_point_strct); 
+    free(mds_ref_point_strct->bodyname);
+    free(mds_ref_point_strct->pointname);
+    free(mds_ref_point_strct);
 }
 
 MDS_sensor_strct* init_MDS_sensor_strct(char* name)
@@ -1432,7 +1434,8 @@ MDS_sensor_strct* init_MDS_sensor_strct(char* name)
 }
 void free_MDS_sensor_strct(MDS_sensor_strct *mds_sensor_strct)
 {
-	free(mds_sensor_strct); 
+    free(mds_sensor_strct->name);
+    free(mds_sensor_strct);
 }
 
 MDS_extforce_strct* init_MDS_extforce_strct(char* name)
@@ -1455,7 +1458,8 @@ MDS_extforce_strct* init_MDS_extforce_strct(char* name)
 }
 void free_MDS_extforce_strct(MDS_extforce_strct *mds_extforce_strct)
 {
-	free(mds_extforce_strct); 
+    free(mds_extforce_strct->name);
+    free(mds_extforce_strct);
 }
 
 
@@ -1489,7 +1493,7 @@ MDS_point_strct* init_MDS_point_strct(char* name)
 void free_MDS_point_strct(MDS_point_strct *mds_point_strct)
 {
 	int i; 
-	/*free(mds_point_strct->name);*/
+    free(mds_point_strct->name);
 	free_double_vec(mds_point_strct->pt); 
 
 	if(mds_point_strct->sensor!=NULL)
@@ -1506,6 +1510,7 @@ void free_MDS_point_strct(MDS_point_strct *mds_point_strct)
 		free_MDS_d_data_strct(mds_point_strct->d_pt[i]);
 	}
 
+    free(mds_point_strct->d_pt);
 	
 	free(mds_point_strct);
 }
@@ -1533,6 +1538,7 @@ void free_MDS_base_strct(MDS_base_strct *mds_base_strct)
 	{
 		free_MDS_point_strct(mds_base_strct->base_point_list[i]); 
 	}
+    free(mds_base_strct->base_point_list);
 
 	free(mds_base_strct);
 }
@@ -1564,7 +1570,7 @@ MDS_joint_strct* init_MDS_joint_strct(char* name)
 }
 void free_MDS_joint_strct(MDS_joint_strct *mds_joint_strct)
 {
-	/*free(mds_joint_strct->name);*/
+    free(mds_joint_strct->name);
 
 	free_MDS_d_data_strct(mds_joint_strct->d_qf);
 
@@ -1598,7 +1604,7 @@ void free_MDS_body_strct(MDS_body_strct *mds_body_strct)
 {
 	int i=0;
 
-	/*free(mds_joint_strct->name);*/
+    free(mds_body_strct->name);
 
 	free_MDS_ref_point_strct(mds_body_strct->parent);
 
@@ -1606,6 +1612,7 @@ void free_MDS_body_strct(MDS_body_strct *mds_body_strct)
 	{
 		free_MDS_joint_strct(mds_body_strct->joint_list[i]); 
 	}
+    free(mds_body_strct->joint_list);
 
 	free_double_vec(mds_body_strct->com);
 	free_double_vec(mds_body_strct->inertia); 
@@ -1614,6 +1621,7 @@ void free_MDS_body_strct(MDS_body_strct *mds_body_strct)
 	{
 		free_MDS_point_strct(mds_body_strct->point_list[i]); 
 	}
+    free(mds_body_strct->point_list);
 
 	free(mds_body_strct);
 }
@@ -1658,6 +1666,7 @@ void free_MDS_bodytree_strct(MDS_bodytree_strct *mds_bodytree_strct)
 	{
 		free_MDS_body_strct(mds_bodytree_strct->body_list[i]); 
 	}
+    free(mds_bodytree_strct->body_list);
 
 	free(mds_bodytree_strct->joint_list);
 
@@ -1909,7 +1918,7 @@ MDS_parameter_strct* init_MDS_parameter_strct(char* name)
 void free_MDS_parameter_strct(MDS_parameter_strct *mds_parameter_strct)
 {
 	int i; 
-	/*free(mds_parameter_strct->name);*/
+    free(mds_parameter_strct->name);
 
 	if(mds_parameter_strct->value_list != NULL)
 	{
@@ -1920,6 +1929,7 @@ void free_MDS_parameter_strct(MDS_parameter_strct *mds_parameter_strct)
 	{
 		free_MDS_d_data_strct(mds_parameter_strct->d_value[i]);
 	}
+    free(mds_parameter_strct->d_value);
 
 	free(mds_parameter_strct);
 }
@@ -1941,7 +1951,7 @@ MDS_user_model_strct* init_MDS_user_model_strct(char* name)
 void free_MDS_user_model_strct(MDS_user_model_strct *mds_user_model_strct)
 {
 	int i; 
-	/*free(mds_user_model_strct->name);*/
+    free(mds_user_model_strct->name);
 
 	if(mds_user_model_strct->parameter_list != NULL)
 	{
@@ -1949,6 +1959,7 @@ void free_MDS_user_model_strct(MDS_user_model_strct *mds_user_model_strct)
 		{
 			free_MDS_parameter_strct(mds_user_model_strct->parameter_list[i]); 
 		}
+        free(mds_user_model_strct->parameter_list);
 	}
 
 	free(mds_user_model_strct);
@@ -1976,6 +1987,7 @@ void free_MDS_user_models_strct(MDS_user_models_strct *mds_user_models_strct)
 		{
 			free_MDS_user_model_strct(mds_user_models_strct->user_model_list[i]); 
 		}
+        free(mds_user_models_strct->user_model_list);
 	}
 
 	free(mds_user_models_strct);
