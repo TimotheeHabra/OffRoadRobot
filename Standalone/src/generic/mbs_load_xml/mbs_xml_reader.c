@@ -410,14 +410,18 @@ MDS_ref_point_strct* MDS_ref_point_reader(xmlNodePtr node, xmlDocPtr doc)
 			if(!strcmp((const char*)cur_node->name,"bodyname"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
-				mds_ref_point_strct->bodyname = (char*)elementValue;
+                mds_ref_point_strct->bodyname = malloc(strlen((char*)elementValue)+1);
+                strcpy(mds_ref_point_strct->bodyname,(char*)elementValue);
                 xmlFree(elementValue);
+                //mds_ref_point_strct->bodyname = (char*)elementValue;
 			}
 			if(!strcmp((const char*)cur_node->name,"pointname"))
 			{
 				elementValue = xmlNodeListGetString(doc, cur_node->xmlChildrenNode, 1);
-				mds_ref_point_strct->pointname = (char*)elementValue;
+                mds_ref_point_strct->pointname = malloc(strlen((char*)elementValue)+1);
+                strcpy(mds_ref_point_strct->pointname,(char*)elementValue);
                 xmlFree(elementValue);
+                //mds_ref_point_strct->pointname = (char*)elementValue;
 			}
 		}
 		cur_node = cur_node->next;
@@ -1413,7 +1417,8 @@ MDS_sensor_strct* init_MDS_sensor_strct(char* name)
 
 	mds_sensor_strct = (MDS_sensor_strct*) malloc(sizeof(MDS_sensor_strct));
 
-	mds_sensor_strct->name = name;
+    mds_sensor_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_sensor_strct->name,name);
 
 	mds_sensor_strct->Pos = 0;
 	mds_sensor_strct->Rot = 0;
@@ -1436,7 +1441,8 @@ MDS_extforce_strct* init_MDS_extforce_strct(char* name)
 
 	mds_extforce_strct = (MDS_extforce_strct*) malloc(sizeof(MDS_extforce_strct));
 
-	mds_extforce_strct->name = name;
+    mds_extforce_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_extforce_strct->name,name);
 
 	mds_extforce_strct->Pos = 0;
 	mds_extforce_strct->Rot = 0;
@@ -1460,7 +1466,8 @@ MDS_point_strct* init_MDS_point_strct(char* name)
 
 	mds_point_strct = (MDS_point_strct*) malloc(sizeof(MDS_point_strct));
 
-	mds_point_strct->name = name;
+    mds_point_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_point_strct->name,name);
 
 	mds_point_strct->pt = get_double_vec(3);
 
@@ -1536,7 +1543,8 @@ MDS_joint_strct* init_MDS_joint_strct(char* name)
 
 	mds_joint_strct = (MDS_joint_strct*) malloc(sizeof(MDS_joint_strct));
 
-	mds_joint_strct->name = name;
+    mds_joint_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_joint_strct->name,name);
 
 	mds_joint_strct->type = 0;
 	mds_joint_strct->nature = 0;
@@ -1569,7 +1577,8 @@ MDS_body_strct* init_MDS_body_strct(char* name)
 
 	mds_body_strct = (MDS_body_strct*) malloc(sizeof(MDS_body_strct));
 
-	mds_body_strct->name = name;
+    mds_body_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_body_strct->name,name);
 
 	mds_body_strct->parent = NULL;
 
@@ -1668,7 +1677,8 @@ MDS_ball_strct* init_MDS_ball_strct(char* name)
 
 	mds_ball_strct = (MDS_ball_strct*) malloc(sizeof(MDS_ball_strct));
 
-	mds_ball_strct->name = name;
+    mds_ball_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_ball_strct->name,name);
 	
 	mds_ball_strct->endpoint1 = NULL; 
 	mds_ball_strct->endpoint2 = NULL;
@@ -1700,7 +1710,8 @@ MDS_rod_strct* init_MDS_rod_strct(char* name)
 
 	mds_rod_strct = (MDS_rod_strct*) malloc(sizeof(MDS_rod_strct));
 
-	mds_rod_strct->name = name;
+    mds_rod_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_rod_strct->name,name);
 	
 	mds_rod_strct->length = 0.0;
 
@@ -1738,7 +1749,8 @@ MDS_solid_strct* init_MDS_solid_strct(char* name)
 
 	mds_solid_strct = (MDS_solid_strct*) malloc(sizeof(MDS_solid_strct));
 
-	mds_solid_strct->name = name;
+    mds_solid_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_solid_strct->name,name);
 	
 	mds_solid_strct->endpoint1 = NULL; 
 	mds_solid_strct->endpoint2 = NULL;
@@ -1815,7 +1827,8 @@ MDS_link_strct* init_MDS_link_strct(char* name)
 
 	mds_link_strct = (MDS_link_strct*) malloc(sizeof(MDS_link_strct));
 
-	mds_link_strct->name = name;
+    mds_link_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_link_strct->name,name);
 	
 	mds_link_strct->endpoint1 = NULL; 
 	mds_link_strct->endpoint2 = NULL;
@@ -1878,7 +1891,8 @@ MDS_parameter_strct* init_MDS_parameter_strct(char* name)
 
 	mds_parameter_strct = (MDS_parameter_strct*) malloc(sizeof(MDS_parameter_strct));
 
-	mds_parameter_strct->name = name;
+    mds_parameter_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_parameter_strct->name,name);
 	
 	mds_parameter_strct->type = 0; 
 	mds_parameter_strct->n_value = 0;
@@ -1916,7 +1930,9 @@ MDS_user_model_strct* init_MDS_user_model_strct(char* name)
 
 	mds_user_model_strct = (MDS_user_model_strct*) malloc(sizeof(MDS_user_model_strct));
 
-	mds_user_model_strct->name = name;
+    mds_user_model_strct->name = malloc(strlen(name)+1);
+    strcpy(mds_user_model_strct->name,name);
+
 	mds_user_model_strct->n_parameter = 0;
 	mds_user_model_strct->parameter_list = NULL;
 
