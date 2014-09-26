@@ -16,7 +16,7 @@
 #include "real_time.h"
 #include "cmake_config.h"
 
-#include "mstr.h"
+#include "loadMBSdata_xml.h"
 #include "user_all_id.h" // for the debug ; after delete it 
 
 #ifdef UNIX
@@ -43,13 +43,9 @@ Loop_inputs* init_simulation()
 
     double *ystart;
 
-	MSTR_strct * mstr =  NULL;
-
 	MBSdataStruct *MBSdata   = NULL;
 	LocalDataStruct *lds     = NULL;
 	Loop_inputs *loop_inputs = NULL;
-
-	PART_gen_strct*  part = NULL;
 
 	#if defined(JNI) & defined (REAL_TIME)
 	JNI_struct* jni_struct = NULL;
@@ -72,215 +68,7 @@ Loop_inputs* init_simulation()
     
     // -- Variables initialization -- //
 
-    mstr= init_MSTR_strct();
-	MSTR_exe_load(mstr, MBS_FILE); 
-
-    //MSTR_exe_equil(mstr);
-
-////////////////////////////////////////////////////////////////////
-
-//    printf("u :  %d\n",mstr->MBSdata->nqu);
-//	print_int_vec(&(mstr->MBSdata->qu[1]), mstr->MBSdata->nqu);
-//	printf("\n");
-//	printf("v :  %d\n",mstr->MBSdata->nqv);
-//	print_int_vec(&(mstr->MBSdata->qv[1]), mstr->MBSdata->nqv);
-//	printf("\n");
-//	printf("hu :  %d\n",mstr->MBSdata->nhu);
-//	print_int_vec(&(mstr->MBSdata->hu[1]), mstr->MBSdata->nhu);
-//	printf("\n");
-
-//    //MSTR_exe_part(mstr);
-
-////    printf("u :  %d\n",mstr->part->n_qu);
-////    print_int_vec(mstr->part->ind_qu, mstr->part->n_qu);
-////    printf("\n");
-////    printf("v :  %d\n",mstr->part->n_qv);
-////    print_int_vec(mstr->part->ind_qv, mstr->part->n_qv);
-////    printf("\n");
-////    printf("hu :  %d\n",mstr->part->n_hu);
-////    print_int_vec(mstr->part->ind_hu, mstr->part->n_hu);
-////    printf("\n");
-////    printf("hv :  %d\n",mstr->part->n_hv);
-////    print_int_vec(mstr->part->ind_hv, mstr->part->n_hv);
-////    printf("\n");
-
-//    printf("u :  %d\n",mstr->MBSdata->nqu);
-//    print_int_vec(&(mstr->MBSdata->qu[1]), mstr->MBSdata->nqu);
-//    printf("\n");
-//    printf("v :  %d\n",mstr->MBSdata->nqv);
-//    print_int_vec(&(mstr->MBSdata->qv[1]), mstr->MBSdata->nqv);
-//    printf("\n");
-//    printf("hu :  %d\n",mstr->MBSdata->nhu);
-//    print_int_vec(&(mstr->MBSdata->hu[1]), mstr->MBSdata->nhu);
-//    printf("\n");
-
-//    gen = mstr->mds;
-
-//    sandbox = 1;
-//        if(sandbox)
-//        {
-
-//            printf("gz :%f \n", gen->base->gravity[2]);
-
-//            printf("n_body :%d \n", gen->bodytree->n_body);
-
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Name of body %d is : %s \n", i,gen->bodytree->body_list[i]->name);
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Name parent of body %d is : %s \n", i,gen->bodytree->body_list[i]->parent->bodyname);
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Mass of body %d is : %f kg\n", i,gen->bodytree->body_list[i]->mass);
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Center of mass of body %d is : %f, %f, %f\n", i,gen->bodytree->body_list[i]->com[0], gen->bodytree->body_list[i]->com[1] ,gen->bodytree->body_list[i]->com[2]);
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Inertia matrix of body %d is : %f, %f, %f, %f, %f, %f\n", i,gen->bodytree->body_list[i]->inertia[0],gen->bodytree->body_list[i]->inertia[1],gen->bodytree->body_list[i]->inertia[2],gen->bodytree->body_list[i]->inertia[3],gen->bodytree->body_list[i]->inertia[4],gen->bodytree->body_list[i]->inertia[5] );
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Number of point of body %d is : %d\n", i,gen->bodytree->body_list[i]->n_point );
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Point of body %d is :\n", i);
-//                for(j=0; j<gen->bodytree->body_list[i]->n_point; j++)
-//                {
-//                    printf("Point %d is : %f, %f, %f \n", j, gen->bodytree->body_list[i]->point_list[j]->pt[0], gen->bodytree->body_list[i]->point_list[j]->pt[1], gen->bodytree->body_list[i]->point_list[j]->pt[2]);
-//                    printf("%s\n", gen->bodytree->body_list[i]->point_list[j]->name);
-//                }
-//            }
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Joint of body %d is :\n", i);
-//                for(j=0; j<gen->bodytree->body_list[i]->n_joint; j++)
-//                {
-//                    printf("Joint %d is %s : type %d, nature %d \n", j,  gen->bodytree->body_list[i]->joint_list[j]->name, gen->bodytree->body_list[i]->joint_list[j]->type, gen->bodytree->body_list[i]->joint_list[j]->nature);
-//                }
-//            }
-//            printf("It is the cuts \n");
-//            for(i=0; i<gen->cuts->n_ball; i++)
-//            {
-//                printf("Ball %d is %s based on point: %s in %s and on point: %s in %s \n", i, gen->cuts->ball_list[i]->name, gen->cuts->ball_list[i]->endpoint1->pointname, gen->cuts->ball_list[i]->endpoint1->bodyname,gen->cuts->ball_list[i]->endpoint2->pointname, gen->cuts->ball_list[i]->endpoint2->bodyname);
-//            }
-//            printf("It is the links \n");
-//            for(i=0; i<gen->links->n_link; i++)
-//            {
-//                printf("Link %d is %s based on point: %s in %s and on point: %s in %s \n", i, gen->links->link_list[i]->name, gen->links->link_list[i]->endpoint1->pointname, gen->links->link_list[i]->endpoint1->bodyname,gen->links->link_list[i]->endpoint2->pointname, gen->links->link_list[i]->endpoint2->bodyname);
-//            }
-
-//            printf("qu : %d -> [", gen->bodytree->n_qu);
-//            for(i=0; i<gen->bodytree->n_qu; i++)
-//            {
-//                printf(" %d",  gen->bodytree->qu[i]) ;
-//            }
-//            printf(" ]\n");
-
-//            printf("qv : %d -> [", gen->bodytree->n_qv);
-//            for(i=0; i<gen->bodytree->n_qv; i++)
-//            {
-//                printf(" %d",  gen->bodytree->qv[i]) ;
-//            }
-//            printf(" ]\n");
-
-//            printf("qc : %d -> [", gen->bodytree->n_qc);
-//            for(i=0; i<gen->bodytree->n_qc; i++)
-//            {
-//                printf(" %d",  gen->bodytree->qc[i]) ;
-//            }
-//            printf(" ]\n");
-
-//            printf("qa : %d -> [", gen->bodytree->n_qa);
-//            for(i=0; i<gen->bodytree->n_qc; i++)
-//            {
-//                printf(" %d",  gen->bodytree->qa[i]) ;
-//            }
-//            printf(" ]\n");
-
-//            gen->bodytree->joint_list[1]->nature = 5;
-
-//            for(i=0; i<gen->bodytree->n_body; i++)
-//            {
-//                printf("Joint of body %d is :\n", i);
-//                for(j=0; j<gen->bodytree->body_list[i]->n_joint; j++)
-//                {
-//                    printf("Joint %d is %s : type %d, nature %d \n", j,  gen->bodytree->body_list[i]->joint_list[j]->name, gen->bodytree->body_list[i]->joint_list[j]->type, gen->bodytree->body_list[i]->joint_list[j]->nature);
-//                }
-//            }
-
-//            printf("n_point : %d \n", gen->n_point);
-
-//            printf("All points: \n");
-//            for(i=0; i<gen->n_point; i++)
-//            {
-//                printf("point %d is %f , %f, %f\n",i , gen->point_list[i]->pt[0], gen->point_list[i]->pt[1], gen->point_list[i]->pt[2]);
-//            }
-
-//            gen->point_list[1]->pt[0] = 3.14;
-
-//            printf("%f", gen->bodytree->body_list[0]->point_list[1]->pt[0] );
-
-//            printf("n_sensor : %d \n", gen->n_sensor);
-//            printf("n_extforce : %d \n", gen->n_extforce);
-
-//        //	printf("Compare 2 : %d vs %d",MBSdata->qu[13], MBSdata2->qu[13]);
-
-//            printf("END TEST \n");
-
-
-//            //system("pause");
-//            i = 0;
-//            j = 0;
-
-
-//            printf("usermodels:\n");
-//            for(i=0; i<gen->user_models->n_user_model; i++)
-//            {
-//                printf("%s:\n",gen->user_models->user_model_list[i]->name);
-//                for(j=0; j<gen->user_models->user_model_list[i]->n_parameter; j++)
-//                {
-//                    printf("	%s:\n",gen->user_models->user_model_list[i]->parameter_list[j]->name);
-//                    printf("		Type: %d \n		Value: ",gen->user_models->user_model_list[i]->parameter_list[j]->type);
-//                    for(k=0; k<gen->user_models->user_model_list[i]->parameter_list[j]->n_value; k++)
-//                    {
-//                        printf("%f ",gen->user_models->user_model_list[i]->parameter_list[j]->value_list[k]);
-//                    }
-//                    printf("\n");
-//                }
-//            }
-
-
-//            //printf("pt : %d\n", MBSdata->npt);
-//            //print_double_tab(&(MBSdata->dpt[1]), 3, MBSdata->npt+1);
-
-
-//            //system("pause");
-
-//        }
-//        // end of sand box
-
-//        for(j=1; j<=14; j++)
-//        {
-//            for(i=0; i<=14; i++)
-//            {
-//                //printf("Mr[%d][%d] = %f \n",j,i,lds->Mr[j][i]);
-//                printf("mstr Mr[%d][%d] = %f \n",j,i, mstr->lds->M[j][i]);
-//            }
-//        }
-
-//    printf("pause, press a key to go on \n");
-//    getchar();
-
-
-	MBSdata = mstr->MBSdata; 
-	lds = mstr->lds;
+    MBSdata = loadMBSdata_xml(MBS_FILE);
 
 	if(MBSdata == NULL)
 	{
