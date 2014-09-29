@@ -1,3 +1,5 @@
+#ifdef YARP
+
 #include "MotorControlHelper.h"
 
 using namespace yarp::os;
@@ -188,3 +190,5 @@ bool MotorControlHelper::open(yarp::os::Searchable *config)
 
 MotorControlHelper::~MotorControlHelper(){}
 
+
+#endif

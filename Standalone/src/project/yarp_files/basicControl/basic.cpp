@@ -1,3 +1,5 @@
+#ifdef YARP
+
 #include "basic.h"
 
 #include <stdexcept>      // std::out_of_range
@@ -66,3 +68,5 @@ bool basicControl::detachAll()
     cout << "basicControl::detachAll" << endl;
     return true;
 }
+
+#endif
