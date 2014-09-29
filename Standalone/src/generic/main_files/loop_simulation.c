@@ -172,7 +172,7 @@ void loop_simulation(Loop_inputs *loop_inputs)
                 #if defined(JNI) & defined (REAL_TIME)
                 if (i == 1)
                 {
-                    update_jni(jni_struct, MBSdata, real_time);
+                    update_jni(jni_struct, MBSdata, real_time, MBSdata->q+1);
 					#ifdef SIMBODYVIZ
 					reportSimbody((void *)MBSdata->user_IO->simbodyStruct->p_simbodyVariables);
 					#endif

@@ -335,7 +335,7 @@ void break_gestion(Screen_sdl *screen_sdl, Simu_real_time *real_time, MBSdataStr
 		#if defined(JNI) & defined (REAL_TIME)
 		if (real_time->change_viewpoint)
 		{
-			update_jni(jni_struct, MBSdata, real_time);
+            update_jni(jni_struct, MBSdata, real_time, MBSdata->q+1);
 		}
 		#endif
 	}

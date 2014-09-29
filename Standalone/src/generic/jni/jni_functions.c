@@ -166,7 +166,7 @@ void free_jni(JNI_struct *jni_struct)
 /*
  * Update the 3D view with jni
  */
-void update_jni(JNI_struct *jni_struct, MBSdataStruct *s, Simu_real_time *real_time)
+void update_jni(JNI_struct *jni_struct, MBSdataStruct *s, Simu_real_time *real_time, double *q)
 {
     // variables declarationb
     jdoubleArray doubleArrayArg;
@@ -178,7 +178,7 @@ void update_jni(JNI_struct *jni_struct, MBSdataStruct *s, Simu_real_time *real_t
     doubleArrayArg = (*env)->NewDoubleArray(env, s->njoint);
 
     // copy the current values of MBSdata->q to the jni array
-    (*env)->SetDoubleArrayRegion(env, doubleArrayArg, 0 , s->njoint, s->q+1);
+    (*env)->SetDoubleArrayRegion(env, doubleArrayArg, 0 , s->njoint, q);
 
     // adapt the viewpoint
     if (real_time->change_viewpoint)

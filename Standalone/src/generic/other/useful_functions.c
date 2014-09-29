@@ -124,10 +124,10 @@ void free_char_tab(char** tab, int x)
 {
 	int i;
 
-	for(i=0; i<0; i++)
-	{
-		free(tab[i]);
-	}
+//	for(i=0; i<x; i++)
+//	{
+//		free(tab[i]);
+//	}
 
 	free(tab);
 }

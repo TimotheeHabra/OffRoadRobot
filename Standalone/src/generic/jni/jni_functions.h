@@ -49,7 +49,7 @@ JNIEnv* create_vm(void);
 JNI_struct* init_jni(MBSdataStruct *MBSdata);
 
 // update
-void update_jni(JNI_struct *jni_struct, MBSdataStruct *s, Simu_real_time *real_time);
+void update_jni(JNI_struct *jni_struct, MBSdataStruct *s, Simu_real_time *real_time, double *q);
 
 // close operations
 void free_jni(JNI_struct *jni_struct);

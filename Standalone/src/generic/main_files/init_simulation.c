@@ -181,7 +181,7 @@ Loop_inputs* init_simulation()
 
 	#if defined(JNI) & defined (REAL_TIME)
     loop_inputs->jni_struct = jni_struct;
-    update_jni(loop_inputs->jni_struct, MBSdata, loop_inputs->real_time);
+    update_jni(loop_inputs->jni_struct, MBSdata, loop_inputs->real_time, MBSdata->q+1);
     #endif
 
     #ifdef YARP

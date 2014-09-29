@@ -92,10 +92,16 @@ Screen_sdl* init_screen_sdl(int init_t_sec, int init_t_usec, int nb_steps, doubl
 	screen_sdl->font_arrows = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/Arrows.ttf", FONT_ARROWS);
 
 	// font for the play icon
-	screen_sdl->font_play = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/Arrows_tbf.ttf", FONT_PLAY_break);
+    screen_sdl->font_play = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/Arrows_tbf.ttf", FONT_PLAY_break);
+
+	// font for the horizontal mouse
+    //screen_sdl->font_hor_mouse = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/Arrows_tbf.ttf", FONT_HOR_MOUSE);
+
+	// font for the mouse (horizontal and vertical)
+    //screen_sdl->font_mouse = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/arrow_7.ttf", FONT_MOUSE);
 
 	// font for the break icon
-	screen_sdl->font_break = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/PIZZADUDEBULLETS.ttf", FONT_PLAY_break);
+    screen_sdl->font_break = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/PIZZADUDEBULLETS.ttf", FONT_PLAY_break);
 
 	// font for the speed of the simulation
 	screen_sdl->font_speed = init_font(PROJECT_ABS_PATH"/src/generic/sdl/SDL_files/Arrows.ttf", FONT_SPEED);
@@ -284,7 +290,7 @@ TTF_Font* init_font(char *folder, int font_size)
 
 	if (font == NULL)
 	{
-		log_SDL_error("TTF_OpenFont");
+        log_SDL_error("TTF_OpenFont");
 	}
 
 	return font;
@@ -305,6 +311,8 @@ void free_screen_sdl(Screen_sdl *screen_sdl)
 	TTF_CloseFont(screen_sdl->font_scaling);
 	TTF_CloseFont(screen_sdl->font_arrows);
 	TTF_CloseFont(screen_sdl->font_play);
+    //TTF_CloseFont(screen_sdl->font_hor_mouse);
+    //TTF_CloseFont(screen_sdl->font_mouse);
 	TTF_CloseFont(screen_sdl->font_break);
 	TTF_CloseFont(screen_sdl->font_speed);
 
@@ -315,7 +323,7 @@ void free_screen_sdl(Screen_sdl *screen_sdl)
 
     free(screen_sdl->tsim_vec);	
 	free(screen_sdl->t_vec);
-	free_char_tab(screen_sdl->label_tab, NB_CURVES_MAX);
+    free_char_tab(screen_sdl->label_tab, NB_CURVES_MAX);
 
     if (screen_sdl->nb_curves)
     {
@@ -701,7 +709,15 @@ void update_y_tab(Screen_sdl *screen_sdl)
 		tsim_next = tsim_vec[next_index];
 		
 		// weight for the linear interpolation
-		weight_prev = (tsim_next - request_tsim) / (tsim_next - tsim_prev);
+		if (tsim_next > tsim_prev)
+		{
+			weight_prev = (tsim_next - request_tsim) / (tsim_next - tsim_prev);
+		}
+		else
+		{
+			weight_prev = 0.0;
+		}
+		
 
 		// loop on all the curves
 		for(j=0; j<nb_curves; j++)
@@ -1337,6 +1353,8 @@ void plot_screen_sdl(Screen_sdl *screen_sdl, Simu_real_time *real_time, double t
 	TTF_Font *font_scaling;
 	TTF_Font *font_arrows;
 	TTF_Font *font_play;
+    //TTF_Font *font_hor_mouse;
+    //TTF_Font *font_mouse;
 	TTF_Font *font_break;
 	TTF_Font *font_speed;
 
@@ -1756,7 +1774,7 @@ void plot_screen_sdl(Screen_sdl *screen_sdl, Simu_real_time *real_time, double t
 			// break
 			if (real_time->simu_break)
 			{
-				sprintf(str, "n: ");
+				sprintf(str, "(n)");
 				print_text_sdl(str, font_small_label, text_color, ren, LEGEND_SWITCH_HOR_VERT_X_POS, BOTTOM_MID_Y_INDICATIONS, 2);
 
 				sprintf(str, "&");
