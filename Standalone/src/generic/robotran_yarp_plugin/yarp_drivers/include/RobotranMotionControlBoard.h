@@ -126,7 +126,7 @@ public:
     //CONTROL MODE
     virtual bool setPositionMode(int j); //WORKS    
     virtual bool setVelocityMode(int j){return false;}; //WORKS
-    virtual bool getControlMode(int j, int *mode){return false;}; //WORKS
+    virtual bool getControlMode(int j, int *mode){ *mode =controlMode[j]; return true;} //WORKS
     
     virtual bool setTorqueMode(int j){return false;}; //NOT TESTED 
     virtual bool getControlModes(int *modes){return false;}; //NOT TESTED

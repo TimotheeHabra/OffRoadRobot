@@ -12,14 +12,14 @@
 double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
 {
 
-	double K = 50.0;
+    double K = 50.0;
     double rho = MBSdata->user_IO->actuatorsStruct->acs[0]->GearRatio;
-    double KT = MBSdata->user_IO->actuatorsStruct->acs[0]->Kbemf;
+    double KT = MBSdata->user_IO->actuatorsStruct->acs[0]->TrqConst;
     // Transmission stiffness, damping
     double Ks = MBSdata->user_IO->actuatorsStruct->acs[0]->SeriesSpring;
     double Ds = MBSdata->user_IO->actuatorsStruct->acs[0]->SeriesDamping;
 
-	MBSdata->Qq[Spring_FR] = -K * MBSdata->q[Spring_FR];
+    MBSdata->Qq[Spring_FR] = -K * MBSdata->q[Spring_FR];
 	MBSdata->Qq[Spring_FL] = -K * MBSdata->q[Spring_FL];
 	MBSdata->Qq[Spring_RR] = -K * MBSdata->q[Spring_RR];
 	MBSdata->Qq[Spring_RL] = -K * MBSdata->q[Spring_RL];
@@ -47,13 +47,17 @@ double* user_JointForces(MBSdataStruct *MBSdata, double tsim)
           break;
 
           case 3:
-            goto justMechanical;
+            MBSdata->Qq[R2_FR]=Ks*(MBSdata->ux[M_FR]-MBSdata->q[R2_FR])+Ds*(MBSdata->uxd[M_FR]-MBSdata->qd[R2_FR]);
+            MBSdata->Qq[R2_FL]=Ks*(MBSdata->ux[M_FL]-MBSdata->q[R2_FL])+Ds*(MBSdata->uxd[M_FL]-MBSdata->qd[R2_FL]);
+            MBSdata->Qq[R2_RR]=Ks*(MBSdata->ux[M_RR]-MBSdata->q[R2_RR])+Ds*(MBSdata->uxd[M_RR]-MBSdata->qd[R2_RR]);
+            MBSdata->Qq[R2_RL]=Ks*(MBSdata->ux[M_RL]-MBSdata->q[R2_RL])+Ds*(MBSdata->uxd[M_RL]-MBSdata->qd[R2_RL]);
+            //goto justMechanical;
           break;
 
-          default:
-            printf("detault actuator order (1) selected \n");
-            goto justElectrical;
-          break;
+//          default:
+//            printf("detault actuator order (1) selected \n");
+//            goto justElectrical;
+//          break;
         }
     }
    	return MBSdata->Qq;

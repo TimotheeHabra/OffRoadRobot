@@ -348,12 +348,7 @@
       <joint>
         <jointname>R2_FR</jointname>
         <type>R2</type>
-        <nature>driven</nature>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
+        <nature>independent</nature>
         <graphics>
           <x2D>
             <position>
@@ -562,12 +557,7 @@
       <joint>
         <jointname>R2_FL</jointname>
         <type>R2</type>
-        <nature>driven</nature>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
+        <nature>independent</nature>
         <graphics>
           <x2D>
             <position>
@@ -776,12 +766,7 @@
       <joint>
         <jointname>R2_RR</jointname>
         <type>R2</type>
-        <nature>driven</nature>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
+        <nature>independent</nature>
         <graphics>
           <x2D>
             <position>
@@ -990,12 +975,7 @@
       <joint>
         <jointname>R2_RL</jointname>
         <type>R2</type>
-        <nature>driven</nature>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
+        <nature>independent</nature>
         <graphics>
           <x2D>
             <position>

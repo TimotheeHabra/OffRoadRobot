@@ -39,11 +39,11 @@ void controller_outputs(MBSdataStruct *MBSdata)
 	MBSdata->qd[id]     = uvs->cvs->Outputs->qd_ref[3];
 	MBSdata->qdd[id]    = uvs->cvs->Outputs->qdd_ref[3];
 
-    // Sending voltage to the motors:
-    uvs->Voltage[M_FR]=10.0;
-    uvs->Voltage[M_FL]=10.0;
-    uvs->Voltage[M_RR]=10.0;
-    uvs->Voltage[M_RL]=10.0;
+//    // Sending voltage to the motors:
+//    uvs->Voltage[M_FR]=10.0;
+//    uvs->Voltage[M_FL]=10.0;
+//    uvs->Voltage[M_RR]=10.0;
+//    uvs->Voltage[M_RL]=10.0;
 
 }
 

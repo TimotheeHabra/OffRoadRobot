@@ -18,8 +18,8 @@
 
 // simulation step size
 #define TSIM_INIT  0.0    // inital time of the simulation     [s]
-#define TSIM_END   5.0   // end time of the simulation        [s]
-#define DELTA_TSIM 5.0e-4 // fixed time-step of the integrator [s]
+#define TSIM_END   50.0   // end time of the simulation        [s]
+#define DELTA_TSIM 1.0e-4 // fixed time-step of the integrator [s]
 
 
 // -- Real-time refresh -- //

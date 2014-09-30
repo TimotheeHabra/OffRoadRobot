@@ -20,11 +20,11 @@ ActuatorsStruct* init_ActuatorsStruct(void)
     actuatorsStruct = (ActuatorsStruct*) malloc(sizeof(ActuatorsStruct));
 
 
-    actuatorsStruct->acs = (SEActuatorStruct **) malloc(NB_ACTUATED_JOINTS_TMP*sizeof(ActuatorsStruct));
+    actuatorsStruct->acs = (SEActuatorStruct **) malloc(NB_ACTUATED_JOINTS_TMP*sizeof(SEActuatorStruct*));
     init_SEActuatorStruct(actuatorsStruct->acs); 
     //actuatorsStruct->acs = init_SEActuatorStruct(); 
     return actuatorsStruct;
-    return actuatorsStruct;
+    //return actuatorsStruct;
 }
 
 void free_ActuatorsStruct(ActuatorsStruct* actuatorsStruct)
@@ -64,10 +64,10 @@ void init_SEActuatorStruct(SEActuatorStruct **acs)
             (*acs[i]).Damping=1;
             (*acs[i]).Inductance=0.000265;
             (*acs[i]).Inertia= 0.01;
-            (*acs[i]).Kbemf= 0.00261;
+            (*acs[i]).Kbemf= 0.0261;
             (*acs[i]).SeriesDamping=0.1;
             (*acs[i]).SeriesSpring=1000.0;
-            (*acs[i]).TrqConst=0.00261;
+            (*acs[i]).TrqConst=0.0261;
             (*acs[i]).Isaturation=50;
             (*acs[i]).Vsaturation=40;
             //sprintf((*acs[i]).type,"Medium");

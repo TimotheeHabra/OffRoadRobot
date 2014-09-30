@@ -30,19 +30,19 @@
 #define Act_type 1  // 0-> SEA-Small, 1 ->SEA-Med, 2->SEA-Big, 3-> PEA-default
 
 // Control Type
-#define IDLE_CTRL 0   //maybe using an enum would be cleaner
-#define TORQUE_CTRL 1
-#define POSITION_DIRECT_CTRL 2
-#define POSITION_CTRL 3
-#define VELOCITY_CTRL 4
-#define IMPEDANCE_POS_CTRL 5
-#define IMPEDANCE_VEL_CTRL 6
+//#define IDLE_CTRL 0   //maybe using an enum would be cleaner
+//#define TORQUE_CTRL 1
+//#define POSITION_DIRECT_CTRL 2
+//#define POSITION_CTRL 3
+//#define VELOCITY_CTRL 4
+//#define IMPEDANCE_POS_CTRL 5
+//#define IMPEDANCE_VEL_CTRL 6
 
 // motor indices
-#define  M_FR 0
-#define  M_FL 1
-#define  M_RR 2
-#define  M_RL 3
+#define  M_FR 1
+#define  M_FL 2
+#define  M_RR 3
+#define  M_RL 4
 
 // actuated joints (4 legs)
 #define R2_FR 7

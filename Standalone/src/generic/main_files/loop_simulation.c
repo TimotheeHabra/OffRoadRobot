@@ -16,6 +16,8 @@
 #include "simbody_viz.h"
 #endif
 
+#include "user_all_id.h"
+
 void loop_simulation(Loop_inputs *loop_inputs)
 {
     // -- Variables decalration -- //

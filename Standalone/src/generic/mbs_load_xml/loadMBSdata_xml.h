@@ -3,6 +3,7 @@
 
 #include "MBSdataStruct.h"
 #include "mds_translator.h"
+#include "part.h"
 
 MBSdataStruct* loadMBSdata_xml(const char *filein);
 
