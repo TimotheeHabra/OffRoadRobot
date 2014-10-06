@@ -49,6 +49,9 @@ endif (UNIX)
 # Libxml2 external libray: linkage
 target_link_libraries (${Executable} ${LIBXML2_LIBRARIES})
 
+# GSL external libray: linkage
+target_link_libraries (${Executable} ${GSL_LIBRARIES})
+
 if (FLAG_REAL_TIME)
 
 	# SDL external library: linkage

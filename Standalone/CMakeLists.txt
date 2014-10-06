@@ -335,6 +335,18 @@ endif(LIBXML2_FOUND)
 message("      -> INC : ${LIBXML2_INCLUDE_PATH}")
 message("      -> LIB : ${LIBXML2_LIBRARIES}\n")
 
+# GSL library
+find_package(GSL REQUIRED)
+if (GSL_FOUND)
+	include_directories(${GSL_INCLUDE_DIR})
+	message( "\n  >> GSL found")
+else(GSL_FOUND)
+	message( "\n  >> GSL not found, modify src/other/conf/FindGSL.cmake")
+endif(GSL_FOUND)
+
+message("      -> INC : ${GSL_INCLUDE_DIR}")
+message("      -> LIB : ${GSL_LIBRARIES}\n")
+
 # dirdynared or accelred
 if (FLAG_DIRDYNARED)
 	add_definitions( -DDIRDYNARED )

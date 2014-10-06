@@ -10,117 +10,175 @@ void scale_matrix(double** matrix,int* n,int* initzeros);		//Function to scale m
 //----------------------------------------------------------------
 //                  Main function                                 
 //---------------------------------------------------------------
-
-
+#include <gsl/gsl_linalg.h>
 int rank_double_tab(double** matrix_in, int x, int y)
 {
-	double **matrix;
+    int i,j,n,m;
+    int rank;
 
-	/*
-		int n[2], rank;
+    gsl_matrix * A;
+    gsl_matrix * V;
+    gsl_vector * S;
+    gsl_vector * work;
+
+    if(x>y)
+    {
+        m = x;
+        n = y;
+    }
+    else
+    {
+        m = y;
+        n = x;
+    }
+
+    A = gsl_matrix_alloc(m, n);
+    V = gsl_matrix_alloc(n, n);
+    S = gsl_vector_alloc(n);
+    work = gsl_vector_alloc(n);
+
+    for(i=0; i<x; i++)
+    {
+        for(j=0; j<y; j++)
+        {
+            if(x>y)
+            {
+                gsl_matrix_set(A, i, j, matrix_in[i][j]);
+            }
+            else
+            {
+                gsl_matrix_set(A, j, i, matrix_in[i][j]);
+            }
+        }
+    }
+
+    gsl_linalg_SV_decomp(A,V,S,work);
+
+    rank = 0;
+    for(i=0; i<n; i++)
+    {
+        if(fabs(gsl_vector_get(S,i))> 1e-30)
+        {
+            rank ++;
+        }
+    }
+
+    gsl_matrix_free(A);
+    gsl_matrix_free(V);
+    gsl_vector_free(S);
+    gsl_vector_free(work);
+
+    return rank;
+} 
+// int rank_double_tab(double** matrix_in, int x, int y)
+// {
+// 	double **matrix;
+
+// 	/*
+// 		int n[2], rank;
 	
 
-	readmatrix(matrix, n);
+// 	readmatrix(matrix, n);
 
-	printf("\tThe matrix you have entered is shown below\n\n");
-	printmatrix(matrix,n);
+// 	printf("\tThe matrix you have entered is shown below\n\n");
+// 	printmatrix(matrix,n);
 
-	rank =  rank_double_vec(matrix, n[0], n[1]);
-	*/
+// 	rank =  rank_double_vec(matrix, n[0], n[1]);
+// 	*/
 		
-    int n[2], i, retest=1, grp, p, r, j, rank;
-	int* initzeros;
+//     int n[2], i, retest=1, grp, p, r, j, rank;
+// 	int* initzeros;
 
-	matrix = get_double_tab(x,y);
-	copy_double_tab(matrix_in, matrix,x, y);
+// 	matrix = get_double_tab(x,y);
+// 	copy_double_tab(matrix_in, matrix,x, y);
 
-	n[0] = x;
-	n[1] = y;
-	initzeros = get_int_vec(y);
+// 	n[0] = x;
+// 	n[1] = y;
+// 	initzeros = get_int_vec(y);
 
-	/*
-	printf("\tThe matrix you have entered is shown below %d , %d\n\n", x, y);
-	printmatrix(matrix,n);
-	//*/
+// 	/*
+// 	printf("\tThe matrix you have entered is shown below %d , %d\n\n", x, y);
+// 	printmatrix(matrix,n);
+// 	//*/
 
-	update_initzeros(initzeros,matrix,n);
-	arrange_matrix(matrix,n,initzeros);
+// 	update_initzeros(initzeros,matrix,n);
+// 	arrange_matrix(matrix,n,initzeros);
 
-	/*printf("\tThe matrix after arrange  %d , %d\n\n", x, y);
-	printmatrix(matrix,n);
+// 	/*printf("\tThe matrix after arrange  %d , %d\n\n", x, y);
+// 	printmatrix(matrix,n);
 	
 	
 
-	if(matrix[0][0]==0)
-	{
-	printf("\n\tError: Invalid Marix \n\n");
-	}
+// 	if(matrix[0][0]==0)
+// 	{
+// 	printf("\n\tError: Invalid Marix \n\n");
+// 	}
 
-	*/
+// 	*/
 
-	update_initzeros(initzeros,matrix,n);
-	scale_matrix(matrix,n,initzeros);
+// 	update_initzeros(initzeros,matrix,n);
+// 	scale_matrix(matrix,n,initzeros);
 
-	while(retest==1)
-	{
-		grp=0;
-		for(i=0;i<n[0];++i)
-		{
-			p=0;
-			while(initzeros[i+p]==initzeros[i+p+1]&&(i+p+1)<n[0])
-			{
-				grp=grp+1;
-				p=p+1;
-			}
+// 	while(retest==1)
+// 	{
+// 		grp=0;
+// 		for(i=0;i<n[0];++i)
+// 		{
+// 			p=0;
+// 			while(initzeros[i+p]==initzeros[i+p+1]&&(i+p+1)<n[0])
+// 			{
+// 				grp=grp+1;
+// 				p=p+1;
+// 			}
 
-			if(grp!=0)
-			{
-				while(grp!=0)
-				{
-					for(j=0;j<n[1];++j)
-					{
-						matrix[i+grp][j]=matrix[i+grp][j]-matrix[i][j];
-					}
-					grp=grp-1;
-				}
-			break;
-			}
-		}	
+// 			if(grp!=0)
+// 			{
+// 				while(grp!=0)
+// 				{
+// 					for(j=0;j<n[1];++j)
+// 					{
+// 						matrix[i+grp][j]=matrix[i+grp][j]-matrix[i][j];
+// 					}
+// 					grp=grp-1;
+// 				}
+// 			break;
+// 			}
+// 		}	
 
-		update_initzeros(initzeros,matrix,n);
-		arrange_matrix(matrix,n,initzeros);
-		update_initzeros(initzeros,matrix,n);
-		scale_matrix(matrix,n,initzeros);
+// 		update_initzeros(initzeros,matrix,n);
+// 		arrange_matrix(matrix,n,initzeros);
+// 		update_initzeros(initzeros,matrix,n);
+// 		scale_matrix(matrix,n,initzeros);
 
-		retest=0;
-		for(r=0;r<n[0];++r)
-		{
-			if(initzeros[r]==initzeros[r+1]&&r+1<n[0])
-			{
-				if(initzeros[r]!=n[1])
-				retest=1;
-			}
-		}
-	}
+// 		retest=0;
+// 		for(r=0;r<n[0];++r)
+// 		{
+// 			if(initzeros[r]==initzeros[r+1]&&r+1<n[0])
+// 			{
+// 				if(initzeros[r]!=n[1])
+// 				retest=1;
+// 			}
+// 		}
+// 	}
 
-	//printf("\n\n\t Reduced matrix is as shown below\n\n");
-	//printmatrix(matrix,n);
+// 	//printf("\n\n\t Reduced matrix is as shown below\n\n");
+// 	//printmatrix(matrix,n);
 
-	rank =0;
-	for (i=0;i<n[0];++i)
-	{
-		if (initzeros[i]!=n[1])
-		{
-			++rank;
-		}
-	}
+// 	rank =0;
+// 	for (i=0;i<n[0];++i)
+// 	{
+// 		if (initzeros[i]!=n[1])
+// 		{
+// 			++rank;
+// 		}
+// 	}
 
-	free_double_tab(matrix, n[0]);
+// 	free_double_tab(matrix, n[0]);
 
-	//printf("\n Rank Of The Matrix = %d\n\n", rank); 
+// 	//printf("\n Rank Of The Matrix = %d\n\n", rank); 
 
-	return rank;
-}
+// 	return rank;
+// }
 
 
 //----------------------------------------------------------------
