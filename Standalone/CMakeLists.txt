@@ -165,24 +165,28 @@ if (FLAG_GENERATE)
 	# input .txt files
 	set(CONTROL_VAR_TXT ${PROJECT_SOURCE_DIR}/src/project/varState/control_variables.txt)
 	set(SIMU_VAR_TXT ${PROJECT_SOURCE_DIR}/src/project/varState/simu_variables.txt)
+	
+	# checking files
+	set(CHECK_CTRL ${PROJECT_SOURCE_DIR}/src/project/varState/update_check/ctrl_check.txt)
+	set(CHECK_SIMU ${PROJECT_SOURCE_DIR}/src/project/varState/update_check/simu_check.txt)
 
 	# re-generate ControllersStruct.h/.c
 	add_custom_command (
-	  OUTPUT ${CONTROLLERSSTRCT_H} ${CONTROLLERSSTRCT_C}
+	  OUTPUT ${CHECK_CTRL}
 	  COMMAND Gen_state_var ctrl
 	  DEPENDS ${CONTROL_VAR_TXT}
 	)
 
 	# re-generate user_sf_IO.h/.c
 	add_custom_command (
-	  OUTPUT ${USER_SF_IO_H} ${USER_SF_IO_C}
+	  OUTPUT ${CHECK_SIMU}
 	  COMMAND Gen_state_var simu
 	  DEPENDS ${SIMU_VAR_TXT}
 	)
 
 	# check if re-generation needed
 	add_custom_target(CheckGeneration ALL 
-		DEPENDS ${CONTROLLERSSTRCT_H} ${USER_SF_IO_H})
+		DEPENDS ${CHECK_CTRL} ${CHECK_SIMU})
 	
 endif (FLAG_GENERATE)
 
@@ -217,7 +221,7 @@ endif (FLAG_GENERATE)
 	)
 	
 	# check if re-generation needed
-	add_custom_target(CheckGeneration ALL 
+	add_custom_target(CheckGeneration_2 ALL 
 		DEPENDS ${CHECK_USER_ALL_ID} ${CHECK_USER_MODELS})
 
 	
