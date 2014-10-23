@@ -287,7 +287,7 @@ MBSdataStruct* MDS_create_MBSdataStruct(MDS_gen_strct* mds_gen_strct)
 		s->xfidpt[0] = s->Nxfrc;
 		for(i=0;i<mds_gen_strct->n_extforce;i++)
 		{
-			s->xfidpt[i+1] = mds_gen_strct->extforce_point_list[i];
+			s->xfidpt[i+1] = mds_gen_strct->extforce_point_list[i]+1;
 		}
 	}
 	else
