@@ -83,19 +83,27 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     desiredPosition.zero();
 
     // Get joints id
-    if(!config.check("robotran_joint_id"))
-    {
-        std::cout << "robotran joints id not specified in config file " << std::endl;
-        return false;
-    }
-    yarp::os::Bottle & jointID = config.findGroup("robotran_joint_id");
-
     jointID_map.resize(numberOfJoints);
-    for(int i=0; i< jointID.size()-1; i++)
+
+    for(unsigned int i=0; i<numberOfJoints; i++)
     {
-        jointID_map[i] = jointID.get(i+1).asInt();
+        jointID_map[i] = mbs_get_joint_id(jointNames.get(i+1).asString().c_str());
         printf("jointID_map[%d] = %d \n", i, jointID_map[i]);
     }
+
+    // if(!config.check("robotran_joint_id"))
+    // {
+    //     std::cout << "robotran joints id not specified in config file " << std::endl;
+    //     return false;
+    // }
+    // yarp::os::Bottle & jointID = config.findGroup("robotran_joint_id");
+
+    
+    // for(int i=0; i< jointID.size()-1; i++)
+    // {
+    //     jointID_map[i] = jointID.get(i+1).asInt();
+    //     printf("jointID_map[%d] = %d \n", i, jointID_map[i]);
+    // }
 
     yarp::os::Bottle & motorID = config.findGroup("robotran_motor_id");
     motorID_map.resize(numberOfJoints);
@@ -126,7 +134,7 @@ bool RobotranYarpMotionControl::open(yarp::os::Searchable& config)
     }
 
     controlMode.resize(numberOfJoints);
-    for(int i=0; i< numberOfJoints; i++)
+    for(unsigned int i=0; i< numberOfJoints; i++)
     {
         controlMode[i] = VOCAB_CM_POSITION;  //by default init to pos control
     }

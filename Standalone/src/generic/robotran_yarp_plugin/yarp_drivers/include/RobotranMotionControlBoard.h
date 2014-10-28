@@ -21,8 +21,9 @@
 #include <yarp/dev/Wrapper.h>
 
 //Robotran info
+#include "mbs_utilities.h"
 #include "MBSdataStruct.h"
-#include "simu_def.h"
+//#include "simu_def.h"
 
 
 const double ROBOT_POSITION_TOLERANCE = 0.9;

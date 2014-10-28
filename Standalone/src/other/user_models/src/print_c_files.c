@@ -313,8 +313,18 @@ void print_c_user_all_id(MDS_gen_strct* gen, char *fileoutH)
 	{
 		fprintf(fidH,"#define %s_id %d\n", gen->bodytree->joint_list[i]->name, i);
 	}
-	fprintf(fidH,"\n\n");
+	fprintf(fidH,"\n");
 
+	fprintf(fidH,"#define COUNT_JOINT %d \n\n",gen->bodytree->n_joint);
+
+	fprintf(fidH,"#define ALL_JOINTS {");
+	for(i=0; i< gen->bodytree->n_joint; i++)
+	{
+		if(i>0) fprintf(fidH,", ");
+		fprintf(fidH,"\"%s\"", gen->bodytree->joint_list[i]->name);
+	}
+	fprintf(fidH,"}\n\n\n");
+	
 	fprintf(fidH,"// body\n");
 	fprintf(fidH,"\n");
 	ind=-1;

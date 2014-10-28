@@ -2,7 +2,7 @@
 // C-code automatically generated from Gen_mds_user project
 //
 //
-// Last update : Tue Aug 26 16:44:44 2014
+// Last update : Tue Oct 28 08:54:58 2014
 //---------------------------
 
 
@@ -29,6 +29,10 @@
 #define Spring_RR_id 11
 #define R2_RL_id 12
 #define Joint_6_id 13
+
+#define COUNT_JOINT 14 
+
+#define ALL_JOINTS {"Joint_0", "Joint_1", "Joint_2", "Joint_3", "Joint_4", "Joint_5", "R2_FR", "Spring_FR", "R2_FL", "Spring_FL", "R2_RR", "Spring_RR", "R2_RL", "Joint_6"}
 
 
 // body
