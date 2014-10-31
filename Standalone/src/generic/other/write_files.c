@@ -135,9 +135,201 @@ int write_out_files(Write_files* write_files, const char generic_fileout[PATH_MA
 void printMbsData(MBSdataStruct *MBSdata)
 {
     int i = 0;
-    printf("q = [");
-    for(i = 1;  i <= MBSdata->njoint; i++){
-        printf("%f", MBSdata->q[i]);
+
+    // dpt[]
+    printf("dpt = [\n");
+    for(i = 1;  i <= MBSdata->npt; i++){
+        printf("%f \t", MBSdata->dpt[1][i]);
+        printf("%f \t", MBSdata->dpt[2][i]);
+        printf("%f \n", MBSdata->dpt[3][i]);
     }
-    printf("] \n");
+    printf("] \n\n");
+
+    //npt
+    printf("npt = %d \n\n",MBSdata->npt);
+
+    //l
+    printf("l = [\n");
+    for(i = 1;  i <= MBSdata->nbody; i++){
+        printf("%f \t", MBSdata->l[1][i]);
+        printf("%f \t", MBSdata->l[2][i]);
+        printf("%f \n", MBSdata->l[3][i]);
+    }
+    printf("] \n\n");
+
+    //m
+    printf("m = [\n");
+    for(i = 1;  i <= MBSdata->nbody; i++){
+        printf("%f \t", MBSdata->m[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //In
+    printf("In = [\n");
+    for(i = 1;  i <= MBSdata->nbody; i++){
+        printf("%f \t", MBSdata->In[1][i]);
+        printf("%f \t", MBSdata->In[2][i]);
+        printf("%f \t", MBSdata->In[3][i]);
+        printf("%f \t", MBSdata->In[4][i]);
+        printf("%f \t", MBSdata->In[5][i]);
+        printf("%f \n", MBSdata->In[6][i]);
+    }
+    printf("] \n\n");
+
+    //g
+    printf("g = [%f %f %f] \n\n",MBSdata->g[1],MBSdata->g[2],MBSdata->g[3]);
+
+    //number of ...
+    printf("nbody = %d\n",MBSdata->nbody);
+    printf("njoint = %d\n",MBSdata->njoint);
+    printf("nqu = %d\n",MBSdata->nqu);
+    printf("nqc = %d\n",MBSdata->nqc);
+    printf("nqlocked = %d\n",MBSdata->nqlocked);
+    printf("ndriven = %d\n",MBSdata->nqdriven);
+    printf("nqa = %d\n",MBSdata->nqa);
+    printf("nqv = %d\n",MBSdata->nqv);
+    printf("nhu = %d\n",MBSdata->nhu);
+    printf("nxfrc = %d\n",MBSdata->Nxfrc);
+    printf("nloopc = %d\n",MBSdata->Nloopc);
+    printf("ncons = %d\n",MBSdata->Ncons);
+    printf("nuserc = %d\n",MBSdata->Nuserc);
+    printf("Nlink = %d\n",MBSdata->Nlink);
+    printf("Nlink3D = %d\n",MBSdata->Nlink3D);
+    printf("Nsensor = %d\n",MBSdata->Nsensor);
+
+    //qu
+    printf("qu = [\n");
+    for(i = 1;  i <= MBSdata->nqu; i++){
+        printf("%d \t", MBSdata->qu[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //qc
+    printf("qc = [\n");
+    for(i = 1;  i <= MBSdata->nqc; i++){
+        printf("%d \t", MBSdata->qc[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //qlocked
+    printf("qlocked = [\n");
+    for(i = 1;  i <= MBSdata->nqlocked; i++){
+        printf("%d \t", MBSdata->qlocked[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //qdriven
+    printf("qdriven = [\n");
+    for(i = 1;  i <= MBSdata->nqdriven; i++){
+        printf("%d \t", MBSdata->qdriven[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //qa
+    printf("qa = [\n");
+    for(i = 1;  i <= MBSdata->nqa; i++){
+        printf("%d \t", MBSdata->qa[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //qv
+    printf("qv = [\n");
+    for(i = 1;  i <= MBSdata->nqv; i++){
+        printf("%d \t", MBSdata->qv[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    //hu
+    printf("hu = [\n");
+    for(i = 1;  i <= MBSdata->nhu; i++){
+        printf("%d \t", MBSdata->hu[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    // q[]
+    printf("q = [\n");
+    for(i = 1;  i <= MBSdata->njoint; i++){
+        printf("%f \t", MBSdata->q[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    // qd[]
+    printf("qd = [\n\n");
+    for(i = 1;  i <= MBSdata->njoint; i++){
+        printf("%f \t", MBSdata->qd[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    // qdd[]
+    printf("qdd = [\n");
+    for(i = 1;  i <= MBSdata->njoint; i++){
+        printf("%f \t", MBSdata->qdd[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    // qmin[] and qmax not yet implemented in xml reading
+
+    // frc
+    printf("frc = [\n");
+    for(i = 1;  i <= MBSdata->nbody; i++){
+        printf("%f \t", MBSdata->frc[1][i]);
+        printf("%f \t", MBSdata->frc[2][i]);
+        printf("%f \n", MBSdata->frc[3][i]);
+    }
+    printf("] \n\n");
+
+    // trq
+    printf("trq = [\n");
+    for(i = 1;  i <= MBSdata->nbody; i++){
+        printf("%f \t", MBSdata->trq[1][i]);
+        printf("%f \t", MBSdata->trq[2][i]);
+        printf("%f \n", MBSdata->trq[3][i]);
+    }
+    printf("] \n\n");
+
+    // Qq[]
+    printf("Qq = [\n");
+    for(i = 1;  i <= MBSdata->njoint; i++){
+        printf("%f \t", MBSdata->Qq[i]);
+        if((i%5)==0) printf("\n");
+    }
+    printf("] \n\n");
+
+    // tsim
+    printf("tsim = %f\n\n",MBSdata->tsim);
+
+    //lrod not yet implemented in xml reading
+
+    //lambda not yet implemented in xml reading
+
+    //user_constraints not yet implemented in xml reading
+
+    // Z, Zd, Fl not implemented yet
+
+    //SWr
+    printf("SWr = [\n");
+    for(i = 1;  i <= MBSdata->Nxfrc; i++){
+        printf("%f \t", MBSdata->SWr[i][1]);
+        printf("%f \t", MBSdata->SWr[i][2]);
+        printf("%f \t", MBSdata->SWr[i][3]);
+        printf("%f \t", MBSdata->SWr[i][4]);
+        printf("%f \t", MBSdata->SWr[i][5]);
+        printf("%f \t", MBSdata->SWr[i][6]);
+        printf("%f \t", MBSdata->SWr[i][7]);
+        printf("%f \t", MBSdata->SWr[i][8]);
+        printf("%f \n", MBSdata->SWr[i][9]);
+    }
+    printf("] \n\n");
+
 }
